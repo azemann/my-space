@@ -1,10 +1,11 @@
 assetforge:
   format_version: "0.1"
+  version: {{assetforge_version}}
 
 project:
-  id: "{{project_id}}"
-  name: "{{project_name}}"
-  type: "{{project_type}}"
+  id: {{project_id}}
+  name: {{project_name}}
+  type: {{project_type}}
   root: "."
 
 context:
@@ -12,5 +13,5 @@ context:
   platforms: []
   asset_families: []
 
-created_at: "{{created_at}}"
-updated_at: "{{updated_at}}"
+created_at: {{created_at}}
+updated_at: {{updated_at}}

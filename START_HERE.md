@@ -4,11 +4,24 @@ AssetForge s’utilise depuis le dépôt du projet qui doit recevoir les assets.
 
 ## 1. Initialiser le projet
 
-Commande visée :
+Commande disponible :
 
 ```bash
 assetforge init
 ```
+
+La commande cible le dossier courant. Un autre projet peut être fourni
+explicitement, ainsi que son identité stable :
+
+```bash
+assetforge init /chemin/vers/kidiplay \
+  --id kidiplay \
+  --name "KidiPlay" \
+  --type children-app
+```
+
+Elle n’écrase jamais un espace existant. Si le projet est déjà initialisé, elle
+le signale sans modifier ses fichiers.
 
 Elle crée :
 
@@ -34,13 +47,13 @@ Elle crée :
 
 ## 2. Commencer la conversation
 
-Commande visée :
+Commande disponible :
 
 ```bash
 assetforge discuss
 ```
 
-Le GPT spécialisé ne remplit pas un formulaire à la place de l’utilisateur. Il mène une conversation progressive :
+L’assistant guidé ne remplit pas un formulaire à la place de l’utilisateur. Il mène une conversation progressive :
 
 1. comprendre le projet et l’expérience recherchée ;
 2. préciser les contraintes techniques réelles ;
@@ -57,6 +70,13 @@ La conversation est enregistrée dans :
 ```
 
 Elle peut être reprise plus tard sans recommencer à zéro.
+
+Pour un parcours automatisé ou reproductible, un brief conforme au schéma JSON
+peut être fourni :
+
+```bash
+assetforge discuss --brief project-brief.json --yes
+```
 
 ## 3. Produire la charte du projet
 
@@ -77,7 +97,7 @@ La conversation validée génère :
 
 ## 4. Générer le prompt de planche
 
-Commande visée :
+Commande disponible :
 
 ```bash
 assetforge identity prompt
@@ -91,7 +111,11 @@ Elle combine la charte, les règles de production et les décisions validées po
 
 ## 5. Produire plusieurs explorations
 
-Créer deux à quatre planches exploratoires :
+Après avoir défini `OPENAI_API_KEY`, créer deux à quatre planches exploratoires :
+
+```bash
+assetforge identity generate --count 3 --size 1536x1024 --quality medium
+```
 
 ```text
 .assetforge/generated/identity/
@@ -110,11 +134,15 @@ Une planche ou une synthèse est approuvée et copiée dans :
 .assetforge/approved/identity/
 ```
 
+```bash
+assetforge identity approve board-b001-01.png
+```
+
 La charte peut alors être ajustée pour correspondre à la référence réellement retenue.
 
 ## 7. Vérifier l’état
 
-Commande visée :
+Commande disponible :
 
 ```bash
 assetforge status
@@ -133,13 +161,13 @@ Production d’assets      bloquée | autorisée
 
 ## Ordre de construction du logiciel
 
-1. `assetforge init`.
-2. Modèle de données par projet.
-3. `assetforge status`.
-4. Protocole de conversation `assetforge discuss`.
-5. Génération de la charte structurée.
-6. Génération du prompt de planche.
-7. Versionnement des planches et validations.
-8. Spécification générique d’asset.
-9. Import et traitement PNG/WebP.
-10. Adaptateurs de génération et exporteurs moteurs.
+1. ~~`assetforge init`.~~
+2. ~~Modèle de données par projet.~~
+3. ~~`assetforge status`.~~
+4. ~~Protocole de conversation `assetforge discuss`.~~
+5. ~~Génération de la charte structurée.~~
+6. ~~Génération du prompt de planche.~~
+7. ~~Versionnement des planches et validations.~~
+8. ~~Spécification d’asset statique.~~
+9. ~~Import et traitement PNG.~~
+10. Adaptateurs de génération d’assets et exporteurs moteurs.

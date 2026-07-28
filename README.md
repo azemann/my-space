@@ -82,11 +82,68 @@ Après `assetforge init`, le dépôt utilisateur reçoit :
 assetforge init
 assetforge discuss
 assetforge status
+assetforge identity prompt
+assetforge identity generate
+assetforge identity approve <image>
+assetforge generate <type> <name> --description <texte>
 ```
 
-- `init` crée l’espace AssetForge du projet courant ;
-- `discuss` mène ou reprend la conversation qui construit la charte ;
-- `status` affiche l’état de la charte, de la planche canonique et de la production.
+- `init` crée l’espace AssetForge du projet courant ; cette commande est implémentée ;
+- `discuss` mène la conversation qui construit une charte canonique versionnée ;
+- `status` calcule l’état réel depuis les artefacts du projet ;
+- `identity prompt` produit un prompt de planche résolu et versionné ;
+- `identity generate` appelle un fournisseur d’images et conserve la provenance ;
+- `identity approve` valide humainement une planche comme référence canonique.
+- `generate` transforme une description ou un PNG existant en asset statique
+  normalisé, prévisualisable et catalogué.
+
+Pour tester le CLI depuis ce dépôt :
+
+```bash
+npm test
+npm link
+assetforge init /chemin/du/projet --name "Mon projet" --type "jeu-2d"
+```
+
+`init` dérive par défaut le nom et l’identifiant depuis le dossier courant. Les
+options `--id`, `--name` et `--type` permettent de les fixer explicitement. Une
+seconde exécution ne modifie pas l’espace existant.
+
+## Parcours exécutable
+
+```bash
+cd /chemin/vers/mon-projet
+
+assetforge init --id mon-projet --name "Mon projet" --type jeu-2d
+assetforge discuss
+assetforge identity prompt
+
+export OPENAI_API_KEY="..."
+assetforge identity generate --size 1536x1024 --quality medium --count 3
+
+assetforge status
+assetforge identity approve board-b001-01.png
+assetforge status
+
+assetforge generate environment rock_01 \
+  --description "rocher cartoon vu de côté" \
+  --size 256 \
+  --transparent \
+  --target phaser
+```
+
+Un PNG déjà généré avec Codex, ImageGen ou un autre outil peut être traité sans
+appel API grâce à `--input /chemin/source.png`.
+
+Une charte existante peut aussi être importée sans interaction :
+
+```bash
+assetforge discuss --brief /chemin/vers/project-brief.json --yes
+```
+
+La génération utilise par défaut `gpt-image-2` via l’Image API OpenAI. La clé API
+reste dans `OPENAI_API_KEY` et n’est jamais écrite dans `.assetforge/`. Un
+abonnement ChatGPT et la facturation de l’API sont deux accès distincts.
 
 ## Priorité actuelle
 
@@ -111,15 +168,19 @@ La génération, le détourage, les atlas et les exporteurs moteurs viendront en
 
 ```text
 assetforge/
+├── bin/
 ├── docs/
 ├── schemas/
-├── presets/
 ├── prompts/
 ├── examples/
 ├── templates/
-└── src/
+├── src/
+└── test/
 ```
 
 ## État
 
-Bootstrap en cours. Le contrat de fonctionnement par projet est maintenant fixé.
+MVP opérationnel : initialisation, discussion guidée, charte versionnée, planche
+d’identité, profil visuel et génération d’assets statiques PNG. Le découpage de
+personnages, les sprite sheets, les animations et les exporteurs avancés restent
+à construire.

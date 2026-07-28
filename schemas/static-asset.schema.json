@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://assetforge.local/schemas/static-asset.schema.json",
+  "title": "AssetForge Static Asset",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "id",
+    "type",
+    "description",
+    "status",
+    "width",
+    "height",
+    "format",
+    "background",
+    "pivot",
+    "collision",
+    "target",
+    "style_profile",
+    "created_at",
+    "prompt_sha256",
+    "source_sha256",
+    "output_sha256",
+    "provenance",
+    "validation"
+  ],
+  "properties": {
+    "schema_version": { "const": "0.1" },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9](?:[a-z0-9_-]{0,62}[a-z0-9])?$"
+    },
+    "type": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["generated", "approved", "rejected"] },
+    "width": { "type": "integer", "minimum": 16, "maximum": 4096 },
+    "height": { "type": "integer", "minimum": 16, "maximum": 4096 },
+    "format": { "const": "png" },
+    "background": { "enum": ["transparent", "opaque"] },
+    "pivot": {
+      "type": "object",
+      "required": ["x", "y"],
+      "properties": {
+        "x": { "type": "number", "minimum": 0, "maximum": 1 },
+        "y": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "collision": {
+      "type": "object",
+      "required": ["type", "automatic"],
+      "properties": {
+        "type": { "enum": ["none", "bounding_box"] },
+        "automatic": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "target": { "enum": ["generic", "phaser", "pixijs", "godot", "unity"] },
+    "target_metadata": { "type": "object" },
+    "style_profile": { "type": "string", "minLength": 1 },
+    "created_at": { "type": "string", "format": "date-time" },
+    "prompt_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "source_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "output_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "provenance": { "type": "object" },
+    "validation": {
+      "type": "object",
+      "required": [
+        "passed",
+        "format",
+        "width",
+        "height",
+        "has_alpha",
+        "transparency_valid"
+      ],
+      "properties": {
+        "passed": { "type": "boolean" },
+        "format": { "const": "png" },
+        "width": { "type": "integer" },
+        "height": { "type": "integer" },
+        "channels": { "type": "integer" },
+        "has_alpha": { "type": "boolean" },
+        "transparency_valid": { "type": "boolean" },
+        "transparent_pixel_ratio": { "type": "number", "minimum": 0, "maximum": 1 },
+        "removed_background_pixels": { "type": "integer", "minimum": 0 },
+        "source_trimmed_width": { "type": "integer" },
+        "source_trimmed_height": { "type": "integer" },
+        "content_width": { "type": "integer" },
+        "content_height": { "type": "integer" },
+        "content_offset": { "type": "object" }
+      },
+      "additionalProperties": true
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": false
+}

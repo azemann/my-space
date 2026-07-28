@@ -1,0 +1,9 @@
+status: "absent"
+version: null
+project_id: {{project_id}}
+updated_at: {{updated_at}}
+
+platforms: []
+asset_families: []
+formats: []
+constraints: []

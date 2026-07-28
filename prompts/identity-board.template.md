@@ -89,7 +89,7 @@ Conserver exactement :
 - Aucun cadre décoratif inutile.
 - Aucun filigrane.
 - Aucun logo parasite.
-- Aucun texte généré, sauf le nom exact « {{project.name}} » si `allow_project_name` est activé.
+- {{board.project_name_rule}}
 - Silhouettes lisibles à petite taille.
 - Vues et expressions clairement séparées.
 - Pas de changement de personnage entre les différentes vues.

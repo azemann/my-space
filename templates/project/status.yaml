@@ -10,6 +10,10 @@ charter:
   status: "absent"
   version: null
 
+identity_prompt:
+  status: "absent"
+  versions: 0
+
 identity_board:
   status: "absent"
   canonical_version: null
@@ -17,9 +21,10 @@ identity_board:
 style_profile:
   status: "absent"
   active_version: null
+  id: null
 
 production:
   status: "blocked"
   reason: "canonical_charter_required"
 
-updated_at: "{{updated_at}}"
+updated_at: {{updated_at}}
