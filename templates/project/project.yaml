@@ -1,0 +1,16 @@
+assetforge:
+  format_version: "0.1"
+
+project:
+  id: "{{project_id}}"
+  name: "{{project_name}}"
+  type: "{{project_type}}"
+  root: "."
+
+context:
+  audience: []
+  platforms: []
+  asset_families: []
+
+created_at: "{{created_at}}"
+updated_at: "{{updated_at}}"
