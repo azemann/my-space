@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://assetforge.local/schemas/project-brief.schema.json",
+  "title": "AssetForge Project Brief",
+  "type": "object",
+  "required": ["project", "direction", "rendering", "board", "negative"],
+  "properties": {
+    "project": {
+      "type": "object",
+      "required": ["name", "type", "audience", "usage"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "type": { "type": "string", "minLength": 1 },
+        "audience": { "type": "string", "minLength": 1 },
+        "usage": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "direction": {
+      "type": "object",
+      "required": ["universe", "mood", "keywords"],
+      "properties": {
+        "universe": { "type": "string" },
+        "mood": { "type": "string" },
+        "keywords": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "rendering": {
+      "type": "object",
+      "required": ["technique", "shapes", "proportions", "outlines", "texture", "lighting", "detail", "contrast", "palette"],
+      "properties": {
+        "technique": { "type": "string" },
+        "shapes": { "type": "string" },
+        "proportions": { "type": "string" },
+        "outlines": { "type": "string" },
+        "texture": { "type": "string" },
+        "lighting": { "type": "string" },
+        "detail": { "type": "string" },
+        "contrast": { "type": "string" },
+        "palette": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "board": {
+      "type": "object",
+      "required": ["background", "allow_project_name"],
+      "properties": {
+        "background": { "type": "string" },
+        "allow_project_name": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "negative": {
+      "type": "object",
+      "required": ["constraints"],
+      "properties": {
+        "constraints": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
