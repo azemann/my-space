@@ -1,0 +1,244 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myspace.local/contracts/animation-v1.schema.json",
+  "title": "MySpace Animation Contract v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "kind",
+    "assetId",
+    "status",
+    "atlas",
+    "coordinateSpace",
+    "directions",
+    "collisionSets",
+    "animations"
+  ],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schemaVersion": {"const": "1.0.0"},
+    "kind": {"const": "myspace-animation"},
+    "assetId": {"type": "string", "minLength": 1},
+    "status": {
+      "enum": ["exploration", "candidate", "production-ready", "deprecated"]
+    },
+    "atlas": {"$ref": "#/$defs/atlas"},
+    "coordinateSpace": {"$ref": "#/$defs/coordinateSpace"},
+    "directions": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"$ref": "#/$defs/direction"}
+    },
+    "collisionSets": {
+      "type": "object",
+      "additionalProperties": {"$ref": "#/$defs/collisionSet"}
+    },
+    "animations": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"$ref": "#/$defs/animation"}
+    }
+  },
+  "$defs": {
+    "point": {
+      "type": "array",
+      "prefixItems": [{"type": "number"}, {"type": "number"}],
+      "items": false
+    },
+    "rect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "shape", "min", "max"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "shape": {"const": "rect"},
+        "min": {"$ref": "#/$defs/point"},
+        "max": {"$ref": "#/$defs/point"},
+        "tags": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        }
+      }
+    },
+    "atlas": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["image", "data", "runtimeData", "format", "padding", "extrude", "allowRotation"],
+      "properties": {
+        "image": {"type": "string", "minLength": 1},
+        "data": {"type": "string", "minLength": 1},
+        "runtimeData": {"type": "string", "minLength": 1},
+        "format": {"const": "texturepacker-json-hash"},
+        "padding": {"type": "integer", "minimum": 0},
+        "extrude": {"type": "integer", "minimum": 0},
+        "allowRotation": {"const": false}
+      }
+    },
+    "coordinateSpace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["units", "canvasSize", "origin", "groundLine", "xAxis", "yAxis", "frameIndexBase"],
+      "properties": {
+        "units": {"const": "source-pixel"},
+        "canvasSize": {
+          "type": "array",
+          "prefixItems": [
+            {"type": "integer", "minimum": 1},
+            {"type": "integer", "minimum": 1}
+          ],
+          "items": false
+        },
+        "origin": {"$ref": "#/$defs/point"},
+        "groundLine": {"type": "number"},
+        "xAxis": {"const": "facing-forward"},
+        "yAxis": {"const": "up"},
+        "frameIndexBase": {"const": 0}
+      }
+    },
+    "direction": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["authored"],
+          "properties": {"authored": {"const": true}}
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mirrorOf", "mirrorAxis"],
+          "properties": {
+            "mirrorOf": {"type": "string", "minLength": 1},
+            "mirrorAxis": {"const": "origin-x"}
+          }
+        }
+      ]
+    },
+    "collisionSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pushbox", "hurtboxes"],
+      "properties": {
+        "pushbox": {"$ref": "#/$defs/rect"},
+        "hurtboxes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/rect"}
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["image", "normalizedBoard", "preview", "grid", "backgroundKey", "backgroundFuzz"],
+      "properties": {
+        "image": {"type": "string", "minLength": 1},
+        "normalizedBoard": {"type": "string", "minLength": 1},
+        "preview": {"type": "string", "minLength": 1},
+        "grid": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["columns", "rows", "inset"],
+          "properties": {
+            "columns": {"type": "integer", "minimum": 1},
+            "rows": {"type": "integer", "minimum": 1},
+            "inset": {"type": "integer", "minimum": 0}
+          }
+        },
+        "backgroundKey": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "backgroundFuzz": {"type": "number", "minimum": 0, "maximum": 100}
+      }
+    },
+    "phase": {
+      "type": "array",
+      "prefixItems": [
+        {"type": "integer", "minimum": 0},
+        {"type": "integer", "minimum": 0}
+      ],
+      "items": false
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["name"],
+      "properties": {"name": {"type": "string", "minLength": 1}}
+    },
+    "frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "cell", "durationMs", "collisionSet"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "cell": {
+          "type": "array",
+          "prefixItems": [
+            {"type": "integer", "minimum": 0},
+            {"type": "integer", "minimum": 0}
+          ],
+          "items": false
+        },
+        "durationMs": {"type": "number", "exclusiveMinimum": 0},
+        "collisionSet": {"type": "string", "minLength": 1},
+        "hitboxes": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/rect"}
+        },
+        "events": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/event"}
+        },
+        "rootMotion": {"$ref": "#/$defs/point"}
+      }
+    },
+    "animation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "directions", "loopMode", "fps", "source", "frames"],
+      "properties": {
+        "status": {
+          "enum": ["exploration", "candidate", "production-ready", "deprecated"]
+        },
+        "directions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "loopMode": {"enum": ["none", "linear", "pingpong"]},
+        "fps": {"type": "number", "exclusiveMinimum": 0},
+        "source": {"$ref": "#/$defs/source"},
+        "phases": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "startup": {"$ref": "#/$defs/phase"},
+            "active": {"$ref": "#/$defs/phase"},
+            "recovery": {"$ref": "#/$defs/phase"}
+          }
+        },
+        "attack": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["id", "damage", "hitstunMs", "hitstopMs"],
+          "properties": {
+            "id": {"type": "string", "minLength": 1},
+            "damage": {"type": "number", "minimum": 0},
+            "hitstunMs": {"type": "number", "minimum": 0},
+            "hitstopMs": {"type": "number", "minimum": 0},
+            "knockback": {"$ref": "#/$defs/point"}
+          }
+        },
+        "frames": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/frame"}
+        }
+      }
+    }
+  }
+}

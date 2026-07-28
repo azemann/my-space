@@ -179,6 +179,7 @@ production.
 - [Contrat de l’Identity Atlas](docs/IDENTITY_ATLAS.md)
 - [Modèle générique des projets](docs/PROJECT_MODEL.md)
 - [Pipeline, animations et formats standards](docs/PIPELINE_AND_FORMATS.md)
+- [Contrat d’animation v1](docs/ANIMATION_CONTRACT_V1.md)
 - [Exemple de profil de projet](examples/project-profile.example.json)
 - [Exemple de manifeste](examples/identity-atlas.example.json)
 - [Exemple de manifeste d’animation](examples/animation-set.example.json)
@@ -200,3 +201,20 @@ Le script propre à KidiPlay
 [`assets/kidiplay/scripts/extract-identity-atlas-v002.sh`](assets/kidiplay/scripts/extract-identity-atlas-v002.sh)
 reproduit le détourage, les seize PNG individuels et l’assemblage transparent.
 Il n’appartient pas au socle générique.
+
+## Deuxième cas concret : Neon Courier
+
+Neon Courier applique le contrat d’animation v1 à un personnage de beat’em all
+dessiné de profil. Le premier lot runtime contient `idle`, `walk` et
+`chain-strike`, avec directions, timings, pivots, offsets, collisions et
+événements de combat.
+
+- [contrat de production](assets/neon-courier/motion/animation-v1.json) ;
+- [atlas runtime compact](assets/neon-courier/runtime/neon-courier-v001.png) ;
+- [atlas JSON Hash](assets/neon-courier/runtime/neon-courier-v001.atlas.json) ;
+- [animations et collisions](assets/neon-courier/runtime/neon-courier-v001.animations.json) ;
+- [builder local](assets/neon-courier/scripts/build-runtime-atlas.mjs).
+
+Les exports Godot, Unity, Phaser ou PixiJS seront ajoutés seulement lorsque le
+moteur du jeu sera choisi. Le JSON Hash est déjà directement exploitable par
+les chargeurs web qui acceptent le format TexturePacker.

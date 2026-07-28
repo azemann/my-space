@@ -8,11 +8,15 @@
   },
   "creativeContext": {
     "identityStatus": "candidate",
-    "motionStatus": "exploration",
+    "motionStatus": "candidate",
     "premise": "Une livreuse à vélo cyberpunk combat avec sa chaîne antivol.",
     "view": "side",
     "style": "hand-drawn-1990s-arcade",
-    "tone": ["energetic", "colorful", "urban-cyberpunk"],
+    "tone": [
+      "energetic",
+      "colorful",
+      "urban-cyberpunk"
+    ],
     "palette": [
       "#e31977",
       "#00a9b7",
@@ -26,15 +30,23 @@
   "deliverables": [
     {
       "family": "main-character",
-      "types": ["identity-atlas", "motion-atlas", "animations"],
+      "types": [
+        "identity-atlas",
+        "motion-atlas",
+        "animations"
+      ],
       "required": true
     }
   ],
-  "motionManifest": "motion/sequences-v001.json",
+  "motionManifest": "motion/sequences-v002.json",
+  "animationContract": "motion/animation-v1.json",
   "technicalProfile": {
     "camera": "side-view",
-    "sourceCellSize": [384, 384],
-    "sourceGrid": [4, 4],
+    "identitySourceCellSize": [384, 384],
+    "identitySourceGrid": [4, 4],
+    "animationCanvasSize": [512, 512],
+    "animationSourceGrid": [3, 3],
+    "animationOrigin": [256, 456],
     "sourceColorSpace": "sRGB",
     "runtimeAtlasFormat": "texturepacker-json-hash"
   },

@@ -1,0 +1,282 @@
+{
+  "$schema": "../../../contracts/animation-v1.schema.json",
+  "schemaVersion": "1.0.0",
+  "kind": "myspace-animation",
+  "assetId": "neon-courier/courier-heroine",
+  "status": "candidate",
+  "atlas": {
+    "image": "../runtime/neon-courier-v001.png",
+    "data": "../runtime/neon-courier-v001.atlas.json",
+    "runtimeData": "../runtime/neon-courier-v001.animations.json",
+    "format": "texturepacker-json-hash",
+    "padding": 4,
+    "extrude": 1,
+    "allowRotation": false
+  },
+  "coordinateSpace": {
+    "units": "source-pixel",
+    "canvasSize": [512, 512],
+    "origin": [256, 456],
+    "groundLine": 456,
+    "xAxis": "facing-forward",
+    "yAxis": "up",
+    "frameIndexBase": 0
+  },
+  "directions": {
+    "right": {"authored": true},
+    "left": {"mirrorOf": "right", "mirrorAxis": "origin-x"}
+  },
+  "collisionSets": {
+    "standing": {
+      "pushbox": {
+        "id": "body-push",
+        "shape": "rect",
+        "min": [-42, 0],
+        "max": [42, 214],
+        "tags": ["character", "solid"]
+      },
+      "hurtboxes": [
+        {
+          "id": "legs",
+          "shape": "rect",
+          "min": [-54, 10],
+          "max": [54, 150],
+          "tags": ["hurt", "lower-body"]
+        },
+        {
+          "id": "torso",
+          "shape": "rect",
+          "min": [-49, 145],
+          "max": [49, 292],
+          "tags": ["hurt", "upper-body"]
+        },
+        {
+          "id": "head",
+          "shape": "rect",
+          "min": [-34, 286],
+          "max": [34, 358],
+          "tags": ["hurt", "head"]
+        }
+      ]
+    },
+    "stride": {
+      "pushbox": {
+        "id": "body-push",
+        "shape": "rect",
+        "min": [-46, 0],
+        "max": [46, 208],
+        "tags": ["character", "solid"]
+      },
+      "hurtboxes": [
+        {
+          "id": "legs",
+          "shape": "rect",
+          "min": [-67, 8],
+          "max": [67, 148],
+          "tags": ["hurt", "lower-body"]
+        },
+        {
+          "id": "torso",
+          "shape": "rect",
+          "min": [-52, 140],
+          "max": [52, 286],
+          "tags": ["hurt", "upper-body"]
+        },
+        {
+          "id": "head",
+          "shape": "rect",
+          "min": [-36, 280],
+          "max": [36, 354],
+          "tags": ["hurt", "head"]
+        }
+      ]
+    },
+    "attack-wide": {
+      "pushbox": {
+        "id": "body-push",
+        "shape": "rect",
+        "min": [-48, 0],
+        "max": [56, 205],
+        "tags": ["character", "solid"]
+      },
+      "hurtboxes": [
+        {
+          "id": "legs",
+          "shape": "rect",
+          "min": [-78, 8],
+          "max": [76, 136],
+          "tags": ["hurt", "lower-body"]
+        },
+        {
+          "id": "torso",
+          "shape": "rect",
+          "min": [-64, 126],
+          "max": [82, 264],
+          "tags": ["hurt", "upper-body"]
+        },
+        {
+          "id": "head",
+          "shape": "rect",
+          "min": [-25, 254],
+          "max": [47, 330],
+          "tags": ["hurt", "head"]
+        }
+      ]
+    }
+  },
+  "animations": {
+    "idle": {
+      "status": "candidate",
+      "directions": ["right", "left"],
+      "loopMode": "linear",
+      "fps": 8,
+      "source": {
+        "image": "idle/idle-atlas-v002-source.png",
+        "normalizedBoard": "idle/idle-atlas-v002.png",
+        "preview": "previews/idle-v002.gif",
+        "grid": {"columns": 3, "rows": 3, "inset": 8},
+        "backgroundKey": "#00ff00",
+        "backgroundFuzz": 32
+      },
+      "frames": [
+        {"name": "idle/000", "cell": [0, 0], "durationMs": 125, "collisionSet": "standing"},
+        {"name": "idle/001", "cell": [1, 0], "durationMs": 125, "collisionSet": "standing"},
+        {"name": "idle/002", "cell": [2, 0], "durationMs": 125, "collisionSet": "standing"},
+        {
+          "name": "idle/003",
+          "cell": [0, 1],
+          "durationMs": 125,
+          "collisionSet": "standing",
+          "events": [{"name": "blink"}]
+        },
+        {"name": "idle/004", "cell": [1, 1], "durationMs": 125, "collisionSet": "standing"},
+        {"name": "idle/005", "cell": [2, 1], "durationMs": 125, "collisionSet": "standing"},
+        {"name": "idle/006", "cell": [0, 2], "durationMs": 125, "collisionSet": "standing"},
+        {"name": "idle/007", "cell": [1, 2], "durationMs": 125, "collisionSet": "standing"},
+        {
+          "name": "idle/008",
+          "cell": [2, 2],
+          "durationMs": 125,
+          "collisionSet": "standing",
+          "events": [{"name": "blink"}]
+        }
+      ]
+    },
+    "walk": {
+      "status": "candidate",
+      "directions": ["right", "left"],
+      "loopMode": "linear",
+      "fps": 10,
+      "source": {
+        "image": "walk/walk-atlas-v002-source.png",
+        "normalizedBoard": "walk/walk-atlas-v002.png",
+        "preview": "previews/walk-v002.gif",
+        "grid": {"columns": 3, "rows": 3, "inset": 8},
+        "backgroundKey": "#00ff00",
+        "backgroundFuzz": 32
+      },
+      "frames": [
+        {
+          "name": "walk/000",
+          "cell": [0, 0],
+          "durationMs": 100,
+          "collisionSet": "stride",
+          "events": [{"name": "footstep", "foot": "right"}]
+        },
+        {"name": "walk/001", "cell": [1, 0], "durationMs": 100, "collisionSet": "stride"},
+        {"name": "walk/002", "cell": [2, 0], "durationMs": 100, "collisionSet": "stride"},
+        {"name": "walk/003", "cell": [0, 1], "durationMs": 100, "collisionSet": "stride"},
+        {
+          "name": "walk/004",
+          "cell": [1, 1],
+          "durationMs": 100,
+          "collisionSet": "stride",
+          "events": [{"name": "footstep", "foot": "left"}]
+        },
+        {"name": "walk/005", "cell": [2, 1], "durationMs": 100, "collisionSet": "stride"},
+        {"name": "walk/006", "cell": [0, 2], "durationMs": 100, "collisionSet": "stride"},
+        {"name": "walk/007", "cell": [1, 2], "durationMs": 100, "collisionSet": "stride"},
+        {"name": "walk/008", "cell": [2, 2], "durationMs": 100, "collisionSet": "stride"}
+      ]
+    },
+    "chain-strike": {
+      "status": "candidate",
+      "directions": ["right", "left"],
+      "loopMode": "none",
+      "fps": 12,
+      "source": {
+        "image": "chain-strike/chain-strike-atlas-v002-source.png",
+        "normalizedBoard": "chain-strike/chain-strike-atlas-v002.png",
+        "preview": "previews/chain-strike-v002.gif",
+        "grid": {"columns": 3, "rows": 3, "inset": 8},
+        "backgroundKey": "#00ff00",
+        "backgroundFuzz": 32
+      },
+      "phases": {
+        "startup": [0, 3],
+        "active": [4, 5],
+        "recovery": [6, 8]
+      },
+      "attack": {
+        "id": "chain-horizontal",
+        "damage": 24,
+        "hitstunMs": 260,
+        "hitstopMs": 90,
+        "knockback": [132, 28]
+      },
+      "frames": [
+        {"name": "chain-strike/000", "cell": [0, 0], "durationMs": 83.333, "collisionSet": "standing"},
+        {"name": "chain-strike/001", "cell": [1, 0], "durationMs": 83.333, "collisionSet": "attack-wide"},
+        {"name": "chain-strike/002", "cell": [2, 0], "durationMs": 83.333, "collisionSet": "attack-wide"},
+        {"name": "chain-strike/003", "cell": [0, 1], "durationMs": 83.333, "collisionSet": "attack-wide"},
+        {
+          "name": "chain-strike/004",
+          "cell": [1, 1],
+          "durationMs": 83.333,
+          "collisionSet": "attack-wide",
+          "hitboxes": [
+            {
+              "id": "chain-active",
+              "shape": "rect",
+              "min": [52, 152],
+              "max": [236, 208],
+              "tags": ["hit", "weapon", "chain"]
+            }
+          ],
+          "events": [
+            {"name": "attack-open"},
+            {"name": "sfx", "cue": "chain-swing"}
+          ]
+        },
+        {
+          "name": "chain-strike/005",
+          "cell": [2, 1],
+          "durationMs": 100,
+          "collisionSet": "attack-wide",
+          "hitboxes": [
+            {
+              "id": "chain-active",
+              "shape": "rect",
+              "min": [64, 145],
+              "max": [248, 214],
+              "tags": ["hit", "weapon", "chain"]
+            }
+          ],
+          "events": [
+            {"name": "impact"},
+            {"name": "vfx", "cue": "chain-impact"}
+          ]
+        },
+        {
+          "name": "chain-strike/006",
+          "cell": [0, 2],
+          "durationMs": 83.333,
+          "collisionSet": "attack-wide",
+          "events": [{"name": "attack-close"}]
+        },
+        {"name": "chain-strike/007", "cell": [1, 2], "durationMs": 100, "collisionSet": "standing"},
+        {"name": "chain-strike/008", "cell": [2, 2], "durationMs": 125, "collisionSet": "standing"}
+      ]
+    }
+  }
+}

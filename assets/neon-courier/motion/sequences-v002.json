@@ -1,0 +1,73 @@
+{
+  "version": 2,
+  "kind": "motion-production-manifest",
+  "status": "candidate",
+  "project": "../project.json",
+  "characterIdentity": "../identity/courier-character-atlas-v001.json",
+  "animationContract": "animation-v1.json",
+  "runtime": {
+    "image": "../runtime/neon-courier-v001.png",
+    "atlas": "../runtime/neon-courier-v001.atlas.json",
+    "animations": "../runtime/neon-courier-v001.animations.json"
+  },
+  "grid": {
+    "columns": 3,
+    "rows": 3,
+    "cellSize": [512, 512],
+    "readingOrder": "left-to-right-top-to-bottom"
+  },
+  "sequences": {
+    "idle": {
+      "status": "candidate",
+      "image": "idle/idle-atlas-v002.png",
+      "source": "idle/idle-atlas-v002-source.png",
+      "preview": "previews/idle-v002.gif",
+      "frames": 9,
+      "fps": 8,
+      "loop": true,
+      "anchor": [0.5, 0.890625],
+      "review": [
+        "The crouch discontinuity from v001 has been removed.",
+        "Feet, scale and silhouette remain stable through the breathing loop.",
+        "Human timing approval remains required."
+      ]
+    },
+    "walk": {
+      "status": "candidate",
+      "image": "walk/walk-atlas-v002.png",
+      "source": "walk/walk-atlas-v002-source.png",
+      "preview": "previews/walk-v002.gif",
+      "frames": 9,
+      "fps": 10,
+      "loop": true,
+      "anchor": [0.5, 0.890625],
+      "review": [
+        "The leading leg now alternates clearly between both halves of the gait cycle.",
+        "Identity and scale are coherent.",
+        "Temporal preview remains required before approval."
+      ]
+    },
+    "chain-strike": {
+      "status": "candidate",
+      "image": "chain-strike/chain-strike-atlas-v002.png",
+      "source": "chain-strike/chain-strike-atlas-v002-source.png",
+      "preview": "previews/chain-strike-v002.gif",
+      "frames": 9,
+      "fps": 12,
+      "loop": false,
+      "anchor": [0.5, 0.890625],
+      "events": [
+        {
+          "frame": 5,
+          "name": "impact"
+        }
+      ],
+      "review": [
+        "The impact character scale now matches the neighboring frames.",
+        "The complete chain remains contained in each cell.",
+        "Temporal preview remains required before approval."
+      ]
+    }
+  },
+  "frameIndexBase": 0
+}

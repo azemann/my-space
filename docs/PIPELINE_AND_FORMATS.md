@@ -1,5 +1,9 @@
 # Pipeline, animations et formats standards
 
+Le format canonique détaillé est défini dans
+[`ANIMATION_CONTRACT_V1.md`](ANIMATION_CONTRACT_V1.md). Cette page conserve la
+vue d’ensemble du pipeline et des formats cibles.
+
 ## Séparation des responsabilités
 
 Le workflow manipule quatre types d’artefacts.
