@@ -1,0 +1,58 @@
+{
+  "kind": "identity-manifest",
+  "version": 1,
+  "status": "candidate",
+  "sheet": {
+    "file": "identity-atlas-v1.png",
+    "width": 2048,
+    "height": 2048,
+    "background": "transparent"
+  },
+  "runtimeAtlas": {
+    "image": "runtime/atlas.png",
+    "manifest": "runtime/atlas.json",
+    "format": "texturepacker-json-hash"
+  },
+  "motionIdentity": {
+    "status": "planned",
+    "manifest": "motion/character.motion.json"
+  },
+  "grid": {
+    "origin": [0, 0],
+    "columns": 8,
+    "rows": 8,
+    "cellSize": [256, 256],
+    "gap": [0, 0]
+  },
+  "pivotConvention": "normalized-in-trimmed-asset",
+  "assets": [
+    {
+      "name": "character_idle",
+      "family": "characters",
+      "cell": { "row": 0, "column": 0 },
+      "pivot": [0.5, 1.0],
+      "status": "candidate"
+    },
+    {
+      "name": "character_jump",
+      "family": "characters",
+      "cell": { "row": 0, "column": 1 },
+      "pivot": [0.5, 1.0],
+      "status": "candidate"
+    },
+    {
+      "name": "weapon_launcher",
+      "family": "props",
+      "cell": { "row": 1, "column": 0 },
+      "pivot": [0.25, 0.5],
+      "status": "candidate"
+    },
+    {
+      "name": "explosion_impact",
+      "family": "effects",
+      "cell": { "row": 2, "column": 0 },
+      "pivot": [0.5, 0.5],
+      "status": "candidate"
+    }
+  ]
+}

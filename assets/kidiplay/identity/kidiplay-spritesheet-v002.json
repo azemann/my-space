@@ -1,0 +1,141 @@
+{
+  "frames": {
+    "characters/mascot-bear.png": {
+      "frame": { "x": 0, "y": 0, "w": 384, "h": 384 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 384, "h": 384 },
+      "sourceSize": { "w": 384, "h": 384 },
+      "anchor": { "x": 0.5, "y": 1.0 }
+    },
+    "icons/play.png": {
+      "frame": { "x": 384, "y": 0, "w": 384, "h": 384 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 384, "h": 384 },
+      "sourceSize": { "w": 384, "h": 384 },
+      "anchor": { "x": 0.5, "y": 0.5 }
+    },
+    "icons/memory.png": {
+      "frame": { "x": 768, "y": 0, "w": 384, "h": 384 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 384, "h": 384 },
+      "sourceSize": { "w": 384, "h": 384 },
+      "anchor": { "x": 0.5, "y": 0.5 }
+    },
+    "icons/coloring.png": {
+      "frame": { "x": 1152, "y": 0, "w": 384, "h": 384 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 384, "h": 384 },
+      "sourceSize": { "w": 384, "h": 384 },
+      "anchor": { "x": 0.5, "y": 0.5 }
+    },
+    "icons/puzzle.png": {
+      "frame": { "x": 0, "y": 384, "w": 384, "h": 384 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 384, "h": 384 },
+      "sourceSize": { "w": 384, "h": 384 },
+      "anchor": { "x": 0.5, "y": 0.5 }
+    },
+    "icons/music.png": {
+      "frame": { "x": 384, "y": 384, "w": 384, "h": 384 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 384, "h": 384 },
+      "sourceSize": { "w": 384, "h": 384 },
+      "anchor": { "x": 0.5, "y": 0.5 }
+    },
+    "icons/stickers.png": {
+      "frame": { "x": 768, "y": 384, "w": 384, "h": 384 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 384, "h": 384 },
+      "sourceSize": { "w": 384, "h": 384 },
+      "anchor": { "x": 0.5, "y": 0.5 }
+    },
+    "animals/rabbit.png": {
+      "frame": { "x": 1152, "y": 384, "w": 384, "h": 384 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 384, "h": 384 },
+      "sourceSize": { "w": 384, "h": 384 },
+      "anchor": { "x": 0.5, "y": 1.0 }
+    },
+    "animals/fox.png": {
+      "frame": { "x": 0, "y": 768, "w": 384, "h": 384 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 384, "h": 384 },
+      "sourceSize": { "w": 384, "h": 384 },
+      "anchor": { "x": 0.5, "y": 1.0 }
+    },
+    "animals/elephant.png": {
+      "frame": { "x": 384, "y": 768, "w": 384, "h": 384 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 384, "h": 384 },
+      "sourceSize": { "w": 384, "h": 384 },
+      "anchor": { "x": 0.5, "y": 1.0 }
+    },
+    "animals/lion.png": {
+      "frame": { "x": 768, "y": 768, "w": 384, "h": 384 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 384, "h": 384 },
+      "sourceSize": { "w": 384, "h": 384 },
+      "anchor": { "x": 0.5, "y": 1.0 }
+    },
+    "buttons/play.png": {
+      "frame": { "x": 1152, "y": 768, "w": 384, "h": 384 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 384, "h": 384 },
+      "sourceSize": { "w": 384, "h": 384 },
+      "anchor": { "x": 0.5, "y": 0.5 }
+    },
+    "buttons/favorite.png": {
+      "frame": { "x": 0, "y": 1152, "w": 384, "h": 384 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 384, "h": 384 },
+      "sourceSize": { "w": 384, "h": 384 },
+      "anchor": { "x": 0.5, "y": 0.5 }
+    },
+    "buttons/star.png": {
+      "frame": { "x": 384, "y": 1152, "w": 384, "h": 384 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 384, "h": 384 },
+      "sourceSize": { "w": 384, "h": 384 },
+      "anchor": { "x": 0.5, "y": 0.5 }
+    },
+    "decor/flowering-bush.png": {
+      "frame": { "x": 768, "y": 1152, "w": 384, "h": 384 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 384, "h": 384 },
+      "sourceSize": { "w": 384, "h": 384 },
+      "anchor": { "x": 0.5, "y": 1.0 }
+    },
+    "decor/cloud-stars.png": {
+      "frame": { "x": 1152, "y": 1152, "w": 384, "h": 384 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 384, "h": 384 },
+      "sourceSize": { "w": 384, "h": 384 },
+      "anchor": { "x": 0.5, "y": 0.5 }
+    }
+  },
+  "meta": {
+    "app": "Identity Atlas",
+    "version": "2",
+    "image": "kidiplay-spritesheet-v002.png",
+    "format": "RGBA8888",
+    "size": { "w": 1536, "h": 1536 },
+    "scale": "1",
+    "identity": "kidiplay-identity-v002.json"
+  }
+}

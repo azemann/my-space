@@ -1,0 +1,146 @@
+{
+  "kind": "identity-manifest",
+  "version": 2,
+  "status": "candidate",
+  "identityAtlas": "kidiplay-identity-atlas-v002.png",
+  "runtimeAtlas": {
+    "image": "kidiplay-spritesheet-v002.png",
+    "manifest": "kidiplay-spritesheet-v002.json"
+  },
+  "size": [1536, 1536],
+  "background": "transparent",
+  "grid": {
+    "origin": [0, 0],
+    "columns": 4,
+    "rows": 4,
+    "cellSize": [384, 384]
+  },
+  "motionIdentity": {
+    "status": "missing",
+    "nextDeliverable": "../motion/mascot-bear-motion-board-v001.png"
+  },
+  "palette": [
+    "#f88c6a",
+    "#f8af5e",
+    "#fedf82",
+    "#b1dcbf",
+    "#a1cfee",
+    "#c5aae2",
+    "#fcedd0",
+    "#cf9864"
+  ],
+  "assets": [
+    {
+      "name": "mascot_bear",
+      "family": "characters",
+      "file": "../generated/v002/characters/mascot-bear.png",
+      "cell": [0, 0],
+      "pivot": [0.5, 1.0]
+    },
+    {
+      "name": "icon_play",
+      "family": "icons",
+      "file": "../generated/v002/icons/play.png",
+      "cell": [1, 0],
+      "pivot": [0.5, 0.5]
+    },
+    {
+      "name": "icon_memory",
+      "family": "icons",
+      "file": "../generated/v002/icons/memory.png",
+      "cell": [2, 0],
+      "pivot": [0.5, 0.5]
+    },
+    {
+      "name": "icon_coloring",
+      "family": "icons",
+      "file": "../generated/v002/icons/coloring.png",
+      "cell": [3, 0],
+      "pivot": [0.5, 0.5]
+    },
+    {
+      "name": "icon_puzzle",
+      "family": "icons",
+      "file": "../generated/v002/icons/puzzle.png",
+      "cell": [0, 1],
+      "pivot": [0.5, 0.5]
+    },
+    {
+      "name": "icon_music",
+      "family": "icons",
+      "file": "../generated/v002/icons/music.png",
+      "cell": [1, 1],
+      "pivot": [0.5, 0.5]
+    },
+    {
+      "name": "icon_stickers",
+      "family": "icons",
+      "file": "../generated/v002/icons/stickers.png",
+      "cell": [2, 1],
+      "pivot": [0.5, 0.5]
+    },
+    {
+      "name": "animal_rabbit",
+      "family": "animals",
+      "file": "../generated/v002/animals/rabbit.png",
+      "cell": [3, 1],
+      "pivot": [0.5, 1.0]
+    },
+    {
+      "name": "animal_fox",
+      "family": "animals",
+      "file": "../generated/v002/animals/fox.png",
+      "cell": [0, 2],
+      "pivot": [0.5, 1.0]
+    },
+    {
+      "name": "animal_elephant",
+      "family": "animals",
+      "file": "../generated/v002/animals/elephant.png",
+      "cell": [1, 2],
+      "pivot": [0.5, 1.0]
+    },
+    {
+      "name": "animal_lion",
+      "family": "animals",
+      "file": "../generated/v002/animals/lion.png",
+      "cell": [2, 2],
+      "pivot": [0.5, 1.0]
+    },
+    {
+      "name": "button_play",
+      "family": "buttons",
+      "file": "../generated/v002/buttons/play.png",
+      "cell": [3, 2],
+      "pivot": [0.5, 0.5]
+    },
+    {
+      "name": "button_favorite",
+      "family": "buttons",
+      "file": "../generated/v002/buttons/favorite.png",
+      "cell": [0, 3],
+      "pivot": [0.5, 0.5]
+    },
+    {
+      "name": "button_star",
+      "family": "buttons",
+      "file": "../generated/v002/buttons/star.png",
+      "cell": [1, 3],
+      "pivot": [0.5, 0.5]
+    },
+    {
+      "name": "decor_flowering_bush",
+      "family": "decor",
+      "file": "../generated/v002/decor/flowering-bush.png",
+      "cell": [2, 3],
+      "pivot": [0.5, 1.0]
+    },
+    {
+      "name": "decor_cloud_stars",
+      "family": "decor",
+      "file": "../generated/v002/decor/cloud-stars.png",
+      "cell": [3, 3],
+      "pivot": [0.5, 0.5]
+    }
+  ]
+}

@@ -1,9 +1,0 @@
-status: "absent"
-version: null
-project_id: {{project_id}}
-updated_at: {{updated_at}}
-
-direction: null
-rendering: null
-rules: []
-open_questions: []

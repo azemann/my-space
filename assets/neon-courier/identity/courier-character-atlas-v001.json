@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "kind": "character-identity-manifest",
+  "status": "candidate",
+  "project": "../project.json",
+  "image": "courier-character-atlas-v001.png",
+  "source": "courier-character-atlas-v001-source.png",
+  "prompt": "courier-character-atlas-v001.prompt.md",
+  "character": {
+    "id": "courier-heroine",
+    "role": "playable-main-character",
+    "gameplayView": "side-facing-right",
+    "weapon": "bicycle-security-chain",
+    "anchor": [0.5, 1.0]
+  },
+  "grid": {
+    "origin": [0, 0],
+    "columns": 4,
+    "rows": 4,
+    "cellSize": [384, 384]
+  },
+  "cells": [
+    { "name": "idle", "column": 0, "row": 0, "family": "locomotion" },
+    { "name": "walk-contact", "column": 1, "row": 0, "family": "locomotion" },
+    { "name": "run", "column": 2, "row": 0, "family": "locomotion" },
+    { "name": "guard", "column": 3, "row": 0, "family": "combat" },
+
+    { "name": "chain-swing-anticipation", "column": 0, "row": 1, "family": "combat" },
+    { "name": "chain-horizontal-strike", "column": 1, "row": 1, "family": "combat" },
+    { "name": "chain-strike-follow-through", "column": 2, "row": 1, "family": "combat" },
+    { "name": "chain-uppercut", "column": 3, "row": 1, "family": "combat" },
+
+    { "name": "chain-low-sweep", "column": 0, "row": 2, "family": "combat" },
+    { "name": "crouch-dodge", "column": 1, "row": 2, "family": "defense" },
+    { "name": "jumping-knee", "column": 2, "row": 2, "family": "aerial" },
+    { "name": "hit-reaction", "column": 3, "row": 2, "family": "damage" },
+
+    { "name": "knocked-down", "column": 0, "row": 3, "family": "damage" },
+    { "name": "get-up", "column": 1, "row": 3, "family": "recovery" },
+    { "name": "victory", "column": 2, "row": 3, "family": "expression" },
+    { "name": "spinning-chain-special", "column": 3, "row": 3, "family": "special" }
+  ]
+}

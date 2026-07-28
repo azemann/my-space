@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "project": {
+    "id": "neon-courier",
+    "name": "Neon Courier",
+    "nameStatus": "provisional",
+    "kind": "beat-em-up-2d"
+  },
+  "creativeContext": {
+    "identityStatus": "candidate",
+    "motionStatus": "exploration",
+    "premise": "Une livreuse à vélo cyberpunk combat avec sa chaîne antivol.",
+    "view": "side",
+    "style": "hand-drawn-1990s-arcade",
+    "tone": ["energetic", "colorful", "urban-cyberpunk"],
+    "palette": [
+      "#e31977",
+      "#00a9b7",
+      "#f3ce2e",
+      "#f17925",
+      "#32233f",
+      "#17151c",
+      "#fff8ed"
+    ]
+  },
+  "deliverables": [
+    {
+      "family": "main-character",
+      "types": ["identity-atlas", "motion-atlas", "animations"],
+      "required": true
+    }
+  ],
+  "motionManifest": "motion/sequences-v001.json",
+  "technicalProfile": {
+    "camera": "side-view",
+    "sourceCellSize": [384, 384],
+    "sourceGrid": [4, 4],
+    "sourceColorSpace": "sRGB",
+    "runtimeAtlasFormat": "texturepacker-json-hash"
+  },
+  "validation": {
+    "humanApprovalRequired": true,
+    "checkVisualConsistency": true,
+    "checkTechnicalIntegrity": true,
+    "checkTemporalConsistency": true
+  }
+}

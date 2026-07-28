@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "kind": "motion-production-manifest",
+  "status": "exploration",
+  "project": "../project.json",
+  "characterIdentity": "../identity/courier-character-atlas-v001.json",
+  "template": "sequence-grid-template-3x3.png",
+  "grid": {
+    "columns": 3,
+    "rows": 3,
+    "cellSize": [512, 512],
+    "readingOrder": "left-to-right-top-to-bottom"
+  },
+  "sequences": {
+    "idle": {
+      "status": "candidate",
+      "image": "idle/idle-atlas-v001.png",
+      "source": "idle/idle-atlas-v001-source.png",
+      "frames": 9,
+      "fps": 8,
+      "loop": true,
+      "anchor": [0.5, 1.0],
+      "review": [
+        "Identity and containment are coherent.",
+        "Intermediate breathing phases need timing review after extraction."
+      ]
+    },
+    "walk": {
+      "status": "needs-revision",
+      "image": "walk/walk-atlas-v001.png",
+      "source": "walk/walk-atlas-v001-source.png",
+      "frames": 9,
+      "fps": 10,
+      "loop": true,
+      "anchor": [0.5, 1.0],
+      "review": [
+        "Character identity is coherent.",
+        "The opposite half of the gait cycle is not distinct enough.",
+        "Frames 5 through 9 must reverse the leading leg more clearly."
+      ]
+    },
+    "chain-strike": {
+      "status": "needs-revision",
+      "image": "chain-strike/chain-strike-atlas-v001.png",
+      "source": "chain-strike/chain-strike-atlas-v001-source.png",
+      "frames": 9,
+      "fps": 12,
+      "loop": false,
+      "anchor": [0.5, 1.0],
+      "events": [
+        { "frame": 5, "name": "impact" }
+      ],
+      "review": [
+        "Anticipation, impact and recovery are readable.",
+        "The impact frame is contained but its scale differs from neighboring frames.",
+        "A production pass must normalize scale and ground line."
+      ]
+    }
+  },
+  "plannedSequences": [
+    "run",
+    "guard",
+    "chain-uppercut",
+    "chain-low-sweep",
+    "jumping-knee",
+    "hit-reaction",
+    "knockdown",
+    "get-up",
+    "victory",
+    "spinning-chain-special"
+  ]
+}

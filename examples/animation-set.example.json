@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "kind": "motion-manifest",
+  "character": "mascot_bear",
+  "identityReference": "../identity/kidiplay-identity-v002.json",
+  "canvas": {
+    "cellSize": [384, 384],
+    "anchor": [0.5, 1.0],
+    "groundLine": 348,
+    "view": "front-three-quarter"
+  },
+  "animations": {
+    "idle": {
+      "loop": true,
+      "fps": 8,
+      "frames": [
+        "mascot_bear/idle/0001.png",
+        "mascot_bear/idle/0002.png",
+        "mascot_bear/idle/0003.png",
+        "mascot_bear/idle/0004.png"
+      ]
+    },
+    "celebrate": {
+      "loop": false,
+      "fps": 10,
+      "frames": [
+        "mascot_bear/celebrate/0001.png",
+        "mascot_bear/celebrate/0002.png",
+        "mascot_bear/celebrate/0003.png",
+        "mascot_bear/celebrate/0004.png",
+        "mascot_bear/celebrate/0005.png",
+        "mascot_bear/celebrate/0006.png"
+      ]
+    }
+  },
+  "constraints": {
+    "lockSilhouette": true,
+    "lockCostume": true,
+    "lockPalette": true,
+    "constantAnchor": true,
+    "constantScale": true,
+    "transparentBackground": true
+  }
+}

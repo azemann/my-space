@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "project": {
+    "id": "example-project",
+    "name": "Example Project",
+    "kind": "game-2d",
+    "audience": "family"
+  },
+  "creativeContext": {
+    "identityStatus": "discovery",
+    "references": [],
+    "styleRules": [],
+    "palette": []
+  },
+  "deliverables": [
+    {
+      "family": "characters",
+      "types": ["identity-board", "motion-board", "animation"],
+      "required": true
+    },
+    {
+      "family": "ui",
+      "types": ["icons", "nine-slice-controls"],
+      "required": true
+    },
+    {
+      "family": "environment",
+      "types": ["backgrounds", "props"],
+      "required": false
+    }
+  ],
+  "technicalProfile": {
+    "targets": ["phaser", "godot"],
+    "sourceColorSpace": "sRGB",
+    "sourceAlpha": "straight",
+    "runtimeAtlasFormat": "texturepacker-json-hash",
+    "resolutionScales": [1, 2]
+  },
+  "validation": {
+    "humanApprovalRequired": true,
+    "checkVisualConsistency": true,
+    "checkTechnicalIntegrity": true,
+    "checkTemporalConsistency": true
+  }
+}
