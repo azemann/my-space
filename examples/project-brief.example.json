@@ -1,0 +1,39 @@
+{
+  "project": {
+    "name": "Example Project",
+    "type": "jeu 2D",
+    "audience": "tout public",
+    "usage": "écran mobile et ordinateur, lecture rapide, interactions tactiles"
+  },
+  "direction": {
+    "universe": "aventure naturelle stylisée",
+    "mood": "chaleureux, curieux, légèrement mystérieux",
+    "keywords": ["organique", "lisible", "expressif", "doux"]
+  },
+  "rendering": {
+    "technique": "illustration numérique 2D avec texture légère",
+    "shapes": "formes souples, arrondies et silhouettes franches",
+    "proportions": "compactes et légèrement exagérées",
+    "outlines": "contours souples, réguliers et assez épais",
+    "texture": "papier et gouache très discrète",
+    "lighting": "lumière douce venant du haut à gauche",
+    "detail": "faible à moyen, lisible à 64 pixels",
+    "contrast": "modéré avec focalisation claire",
+    "palette": "tons naturels chauds, bleu doux, vert feuille, crème et brun sombre"
+  },
+  "board": {
+    "background": "blanc cassé chaud",
+    "allow_project_name": false
+  },
+  "negative": {
+    "constraints": [
+      "photoréalisme",
+      "3D brillante",
+      "texte illisible",
+      "micro-détails",
+      "ombres dures",
+      "mélange de styles",
+      "assets coupés"
+    ]
+  }
+}
