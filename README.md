@@ -4,10 +4,28 @@ AssetForge est un pipeline générique de production d’assets visuels assisté
 
 Son objectif n’est pas seulement de générer une belle image, mais de transformer une intention visuelle en un paquet d’asset cohérent, vérifiable, versionné et exploitable dans un projet réel.
 
+## Règle fondatrice
+
+AssetForge est un moteur générique, mais chaque projet possède sa propre mémoire artistique.
+
+Chaque projet conserve localement :
+
+- sa conversation de découverte visuelle ;
+- sa charte graphique ;
+- ses décisions et leurs raisons ;
+- ses références approuvées ;
+- ses prompts versionnés ;
+- ses assets générés, rejetés et validés ;
+- son catalogue et son état de production.
+
+AssetForge ne partage jamais automatiquement une identité visuelle entre deux projets.
+
 ## Principe
 
 ```text
-Contexte du projet
+Conversation guidée par projet
+        ↓
+Charte graphique explicite
         ↓
 Planche d’identité visuelle
         ↓
@@ -23,27 +41,73 @@ Validation
         ↓
 Export cible
         ↓
-Catalogue
+Catalogue du projet
 ```
+
+## Deux niveaux
+
+### Moteur AssetForge
+
+Le moteur fournit les capacités communes :
+
+- discussion artistique guidée ;
+- formalisation de la charte ;
+- construction de prompts ;
+- validation ;
+- traitement d’image ;
+- export ;
+- catalogage.
+
+### Espace local du projet
+
+Après `assetforge init`, le dépôt utilisateur reçoit :
+
+```text
+.assetforge/
+├── project.yaml
+├── status.yaml
+├── conversation/
+├── charter/
+├── references/
+├── prompts/
+├── generated/
+├── approved/
+├── rejected/
+└── catalog/
+```
+
+## Commandes fondatrices
+
+```bash
+assetforge init
+assetforge discuss
+assetforge status
+```
+
+- `init` crée l’espace AssetForge du projet courant ;
+- `discuss` mène ou reprend la conversation qui construit la charte ;
+- `status` affiche l’état de la charte, de la planche canonique et de la production.
 
 ## Priorité actuelle
 
-La première étape d’AssetForge est la création d’une planche d’identité visuelle suffisamment bien spécifiée pour devenir une référence stable pour toutes les générations suivantes.
+La première étape n’est pas la génération isolée d’une image. C’est la production, par conversation, d’une charte graphique suffisamment précise pour piloter ensuite une planche d’identité visuelle et des familles d’assets cohérentes.
 
 ## V0
 
 La V0 doit savoir :
 
-- initialiser un espace AssetForge ;
-- décrire un projet et sa direction artistique ;
-- construire un prompt de planche d’identité visuelle ;
-- conserver la planche validée comme référence ;
-- produire un profil visuel structuré ;
-- décrire un asset avec une spécification générique ;
-- accueillir une image générée ou importée ;
-- préparer les traitements, validations et exports futurs.
+- initialiser AssetForge dans n’importe quel projet ;
+- reprendre une conversation sans perdre les décisions précédentes ;
+- produire `charter.md` et `charter.yaml` ;
+- enregistrer les décisions dans `decisions.yaml` ;
+- produire les règles techniques dans `production-rules.yaml` ;
+- construire un prompt versionné de planche d’identité visuelle ;
+- conserver une planche validée comme référence canonique ;
+- exposer clairement l’état du pipeline.
 
-## Structure
+La génération, le détourage, les atlas et les exporteurs moteurs viendront ensuite comme modules séparés.
+
+## Structure du dépôt AssetForge
 
 ```text
 assetforge/
@@ -52,10 +116,10 @@ assetforge/
 ├── presets/
 ├── prompts/
 ├── examples/
-├── src/
-└── workspace/
+├── templates/
+└── src/
 ```
 
 ## État
 
-Bootstrap en cours. Le dépôt commence volontairement par le contrat visuel et la structure du pipeline avant d’ajouter les fournisseurs d’image et les exporteurs moteurs.
+Bootstrap en cours. Le contrat de fonctionnement par projet est maintenant fixé.
