@@ -1,83 +1,145 @@
 # Démarrage AssetForge
 
-## 1. Décrire le projet
+AssetForge s’utilise depuis le dépôt du projet qui doit recevoir les assets.
 
-Copier :
+## 1. Initialiser le projet
 
-```text
-examples/project-brief.example.json
-```
-
-vers :
-
-```text
-workspace/project-brief.json
-```
-
-Puis remplacer les valeurs d’exemple par le contexte réel du projet.
-
-## 2. Générer le prompt de planche
-
-Le futur CLI lira le brief et remplira :
-
-```text
-prompts/identity-board.template.md
-```
-
-La première commande visée est :
+Commande visée :
 
 ```bash
-assetforge identity prompt workspace/project-brief.json
+assetforge init
 ```
 
-Sortie attendue :
+Elle crée :
 
 ```text
-workspace/identity/prompts/identity-board-v001.md
+.assetforge/
+├── project.yaml
+├── status.yaml
+├── conversation/
+│   └── visual-discovery.md
+├── charter/
+│   ├── charter.md
+│   ├── charter.yaml
+│   ├── decisions.yaml
+│   └── production-rules.yaml
+├── references/
+├── prompts/
+│   └── identity/
+├── generated/
+├── approved/
+├── rejected/
+└── catalog/
 ```
 
-## 3. Produire plusieurs explorations
+## 2. Commencer la conversation
 
-Créer 2 à 4 planches exploratoires. Elles ne sont pas encore canoniques.
+Commande visée :
+
+```bash
+assetforge discuss
+```
+
+Le GPT spécialisé ne remplit pas un formulaire à la place de l’utilisateur. Il mène une conversation progressive :
+
+1. comprendre le projet et l’expérience recherchée ;
+2. préciser les contraintes techniques réelles ;
+3. proposer plusieurs directions artistiques ;
+4. comparer leurs forces, risques et coûts de production ;
+5. permettre de mélanger ou corriger les propositions ;
+6. stabiliser une direction ;
+7. écrire la charte et l’historique des décisions.
+
+La conversation est enregistrée dans :
 
 ```text
-workspace/identity/explorations/
+.assetforge/conversation/visual-discovery.md
+```
+
+Elle peut être reprise plus tard sans recommencer à zéro.
+
+## 3. Produire la charte du projet
+
+La conversation validée génère :
+
+```text
+.assetforge/charter/
+├── charter.md
+├── charter.yaml
+├── decisions.yaml
+└── production-rules.yaml
+```
+
+- `charter.md` est lisible par l’équipe ;
+- `charter.yaml` est exploitable par le pipeline ;
+- `decisions.yaml` conserve les choix et leurs raisons ;
+- `production-rules.yaml` décrit les tailles, formats, transparence, animation et plateformes.
+
+## 4. Générer le prompt de planche
+
+Commande visée :
+
+```bash
+assetforge identity prompt
+```
+
+Elle combine la charte, les règles de production et les décisions validées pour créer :
+
+```text
+.assetforge/prompts/identity/identity-board-v001.md
+```
+
+## 5. Produire plusieurs explorations
+
+Créer deux à quatre planches exploratoires :
+
+```text
+.assetforge/generated/identity/
 ├── board-a.png
 ├── board-b.png
 └── board-c.png
 ```
 
-## 4. Valider une direction
+Elles ne sont pas encore canoniques.
 
-La validation humaine sélectionne une planche ou demande une synthèse. La référence retenue est copiée dans :
+## 6. Valider une direction
 
-```text
-workspace/identity/canonical/
-```
-
-## 5. Extraire le profil visuel
-
-Décrire ensuite explicitement les constantes observables : palette, formes, contours, texture, lumière, niveau de détail et interdits.
-
-Sortie future :
+Une planche ou une synthèse est approuvée et copiée dans :
 
 ```text
-workspace/identity/style-profile.json
+.assetforge/approved/identity/
 ```
 
-## 6. Produire les assets
+La charte peut alors être ajustée pour correspondre à la référence réellement retenue.
 
-Les assets ne seront générés qu’après validation du profil canonique.
+## 7. Vérifier l’état
+
+Commande visée :
+
+```bash
+assetforge status
+```
+
+Elle doit montrer au minimum :
+
+```text
+Projet                  initialisé
+Conversation            en cours | stabilisée
+Charte                   absente | brouillon | canonique
+Planche d’identité       absente | exploratoire | canonique
+Profil visuel            absent | prêt
+Production d’assets      bloquée | autorisée
+```
 
 ## Ordre de construction du logiciel
 
-1. CLI de génération de prompt.
-2. Validation du brief par JSON Schema.
-3. Versionnement des planches et prompts.
-4. Profil visuel canonique.
-5. Spécification générique d’asset.
-6. Import manuel d’image.
-7. Traitement PNG/WebP.
-8. Validation technique.
-9. Adaptateur de génération OpenAI/Codex.
-10. Exporteurs moteurs.
+1. `assetforge init`.
+2. Modèle de données par projet.
+3. `assetforge status`.
+4. Protocole de conversation `assetforge discuss`.
+5. Génération de la charte structurée.
+6. Génération du prompt de planche.
+7. Versionnement des planches et validations.
+8. Spécification générique d’asset.
+9. Import et traitement PNG/WebP.
+10. Adaptateurs de génération et exporteurs moteurs.
