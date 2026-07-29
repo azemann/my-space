@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "kind": "character-identity-manifest",
+  "status": "candidate",
+  "project": "../project.json",
+  "image": "fighter-character-atlas-v002.png",
+  "source": "fighter-character-atlas-v002-source.png",
+  "prompt": "fighter-character-atlas-v002.prompt.md",
+  "derivedFrom": "fighter-character-atlas-v001.json",
+  "character": {
+    "id": "muay-thai-heavyweight",
+    "role": "playable-fighter",
+    "gameplayView": "side-facing-right",
+    "combatStyle": "muay-thai",
+    "visualArchetypes": ["monk", "frontier-cowboy"],
+    "anchor": [0.5, 1.0]
+  },
+  "grid": {
+    "origin": [0, 0],
+    "columns": 4,
+    "rows": 4,
+    "cellSize": [384, 384]
+  },
+  "cells": [
+    {"name": "front-reference", "column": 0, "row": 0, "family": "turnaround"},
+    {"name": "three-quarter-reference", "column": 1, "row": 0, "family": "turnaround"},
+    {"name": "side-reference", "column": 2, "row": 0, "family": "turnaround"},
+    {"name": "back-reference", "column": 3, "row": 0, "family": "turnaround"},
+
+    {"name": "combat-idle", "column": 0, "row": 1, "family": "locomotion"},
+    {"name": "high-guard", "column": 1, "row": 1, "family": "defense"},
+    {"name": "walk-contact", "column": 2, "row": 1, "family": "locomotion"},
+    {"name": "run", "column": 3, "row": 1, "family": "locomotion"},
+
+    {"name": "teep", "column": 0, "row": 2, "family": "combat"},
+    {"name": "roundhouse", "column": 1, "row": 2, "family": "combat"},
+    {"name": "rising-knee", "column": 2, "row": 2, "family": "combat"},
+    {"name": "horizontal-elbow", "column": 3, "row": 2, "family": "combat"},
+
+    {"name": "low-check", "column": 0, "row": 3, "family": "defense"},
+    {"name": "hit-reaction", "column": 1, "row": 3, "family": "damage"},
+    {"name": "meditation", "column": 2, "row": 3, "family": "expression"},
+    {"name": "quiet-victory", "column": 3, "row": 3, "family": "expression"}
+  ]
+}

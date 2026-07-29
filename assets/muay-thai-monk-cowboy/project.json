@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "project": {
+    "id": "muay-thai-monk-cowboy",
+    "name": "Muay Thai Monk-Cowboy",
+    "nameStatus": "descriptive-placeholder",
+    "kind": "beat-em-up-2d"
+  },
+  "creativeContext": {
+    "identityStatus": "candidate",
+    "motionStatus": "not-started",
+    "premise": "Un combattant de Muay Thai massif dont l’identité visuelle mêle un moine contemplatif et un cow-boy de frontière.",
+    "view": "side",
+    "style": "hand-drawn-1990s-arcade",
+    "tone": [
+      "powerful",
+      "calm",
+      "sun-baked-frontier"
+    ],
+    "palette": [
+      "#d48724",
+      "#17283c",
+      "#278b8a",
+      "#7e2f2d",
+      "#6b432b",
+      "#b48645",
+      "#291d32",
+      "#fff8ed"
+    ]
+  },
+  "deliverables": [
+    {
+      "family": "main-character",
+      "types": [
+        "identity-atlas",
+        "motion-atlas",
+        "animations"
+      ],
+      "required": true
+    }
+  ],
+  "currentIdentityManifest": "identity/fighter-character-atlas-v003.json",
+  "technicalProfile": {
+    "camera": "side-view",
+    "identitySourceCellSize": [384, 384],
+    "identitySourceGrid": [4, 4],
+    "sourceColorSpace": "sRGB"
+  },
+  "validation": {
+    "humanApprovalRequired": true,
+    "checkVisualConsistency": true,
+    "checkTechnicalIntegrity": true,
+    "checkTemporalConsistency": true
+  }
+}

@@ -231,3 +231,22 @@ Les adaptateurs Godot, Unity, Phaser ou PixiJS seront ajoutés seulement lorsque
 le moteur du jeu sera choisi. Le profil `phaser-256` est déjà exploitable en
 frames individuelles et le JSON Hash par les chargeurs web qui acceptent le
 format TexturePacker.
+
+## Troisième cas concret : combattant Muay Thai moine-cow-boy
+
+Cette identité de personnage explore un poids lourd de Muay Thai à la fois
+contemplatif et marqué par l’imaginaire de la frontière. La planche candidate
+v003 rassemble quatre vues de référence, quatre poses de locomotion et de
+garde, quatre techniques de combat et quatre poses de réaction ou
+d’expression.
+
+- [planche candidate v003](assets/muay-thai-monk-cowboy/identity/fighter-character-atlas-v003.png) ;
+- [manifeste des seize cellules](assets/muay-thai-monk-cowboy/identity/fighter-character-atlas-v003.json) ;
+- [prompt principal v001](assets/muay-thai-monk-cowboy/identity/fighter-character-atlas-v001.prompt.md) ;
+- [correction ciblée v002](assets/muay-thai-monk-cowboy/identity/fighter-character-atlas-v002.prompt.md) ;
+- [normalisation uniforme v003](assets/muay-thai-monk-cowboy/identity/fighter-character-atlas-v003.prompt.md) ;
+- [profil du projet](assets/muay-thai-monk-cowboy/project.json).
+
+Le nom reste descriptif. La planche fixe déjà la silhouette, le costume, la
+palette et le vocabulaire de poses ; elle pourra servir de référence aux
+séquences frame par frame après validation humaine.
