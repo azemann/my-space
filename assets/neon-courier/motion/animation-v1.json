@@ -1,9 +1,15 @@
 {
   "$schema": "../../../contracts/animation-v1.schema.json",
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "kind": "myspace-animation",
   "assetId": "neon-courier/courier-heroine",
   "status": "candidate",
+  "statuses": {
+    "visual": "candidate",
+    "temporal": "candidate",
+    "technical": "production-ready",
+    "gameplay": "unmapped"
+  },
   "atlas": {
     "image": "../runtime/neon-courier-v001.png",
     "data": "../runtime/neon-courier-v001.atlas.json",
@@ -12,6 +18,23 @@
     "padding": 4,
     "extrude": 1,
     "allowRotation": false
+  },
+  "frameProfilesData": "../runtime/neon-courier-v001.frames.json",
+  "frameProfiles": {
+    "canonical-512": {
+      "pathTemplate": "../runtime/frames-512/{animation}/frame_{index}.png",
+      "canvasSize": [512, 512],
+      "origin": [256, 456],
+      "scale": 1,
+      "usage": ["work", "debug", "atlas-source"]
+    },
+    "phaser-256": {
+      "pathTemplate": "../runtime/frames-256/{animation}/frame_{index}.png",
+      "canvasSize": [256, 256],
+      "origin": [128, 228],
+      "scale": 0.5,
+      "usage": ["integration", "debug"]
+    }
   },
   "coordinateSpace": {
     "units": "source-pixel",
@@ -127,6 +150,12 @@
   "animations": {
     "idle": {
       "status": "candidate",
+      "statuses": {
+        "visual": "candidate",
+        "temporal": "candidate",
+        "technical": "production-ready",
+        "gameplay": "unmapped"
+      },
       "directions": ["right", "left"],
       "loopMode": "linear",
       "fps": 8,
@@ -164,6 +193,12 @@
     },
     "walk": {
       "status": "candidate",
+      "statuses": {
+        "visual": "candidate",
+        "temporal": "candidate",
+        "technical": "production-ready",
+        "gameplay": "unmapped"
+      },
       "directions": ["right", "left"],
       "loopMode": "linear",
       "fps": 10,
@@ -201,6 +236,12 @@
     },
     "chain-strike": {
       "status": "candidate",
+      "statuses": {
+        "visual": "candidate",
+        "temporal": "candidate",
+        "technical": "production-ready",
+        "gameplay": "unmapped"
+      },
       "directions": ["right", "left"],
       "loopMode": "none",
       "fps": 12,

@@ -1,0 +1,117 @@
+{
+  "$schema": "../../../contracts/animation-frames-v1.schema.json",
+  "schemaVersion": "1.1.0",
+  "kind": "myspace-animation-frames",
+  "assetId": "neon-courier/courier-heroine",
+  "coordinateSpace": {
+    "units": "source-pixel",
+    "xAxis": "facing-forward",
+    "yAxis": "up",
+    "frameIndexBase": 0
+  },
+  "profiles": {
+    "canonical-512": {
+      "canvasSize": [
+        512,
+        512
+      ],
+      "origin": [
+        256,
+        456
+      ],
+      "groundLine": 456,
+      "scale": 1,
+      "usage": [
+        "work",
+        "debug",
+        "atlas-source"
+      ],
+      "animations": {
+        "idle": [
+          "frames-512/idle/frame_000.png",
+          "frames-512/idle/frame_001.png",
+          "frames-512/idle/frame_002.png",
+          "frames-512/idle/frame_003.png",
+          "frames-512/idle/frame_004.png",
+          "frames-512/idle/frame_005.png",
+          "frames-512/idle/frame_006.png",
+          "frames-512/idle/frame_007.png",
+          "frames-512/idle/frame_008.png"
+        ],
+        "walk": [
+          "frames-512/walk/frame_000.png",
+          "frames-512/walk/frame_001.png",
+          "frames-512/walk/frame_002.png",
+          "frames-512/walk/frame_003.png",
+          "frames-512/walk/frame_004.png",
+          "frames-512/walk/frame_005.png",
+          "frames-512/walk/frame_006.png",
+          "frames-512/walk/frame_007.png",
+          "frames-512/walk/frame_008.png"
+        ],
+        "chain-strike": [
+          "frames-512/chain-strike/frame_000.png",
+          "frames-512/chain-strike/frame_001.png",
+          "frames-512/chain-strike/frame_002.png",
+          "frames-512/chain-strike/frame_003.png",
+          "frames-512/chain-strike/frame_004.png",
+          "frames-512/chain-strike/frame_005.png",
+          "frames-512/chain-strike/frame_006.png",
+          "frames-512/chain-strike/frame_007.png",
+          "frames-512/chain-strike/frame_008.png"
+        ]
+      }
+    },
+    "phaser-256": {
+      "canvasSize": [
+        256,
+        256
+      ],
+      "origin": [
+        128,
+        228
+      ],
+      "groundLine": 228,
+      "scale": 0.5,
+      "usage": [
+        "integration",
+        "debug"
+      ],
+      "animations": {
+        "idle": [
+          "frames-256/idle/frame_000.png",
+          "frames-256/idle/frame_001.png",
+          "frames-256/idle/frame_002.png",
+          "frames-256/idle/frame_003.png",
+          "frames-256/idle/frame_004.png",
+          "frames-256/idle/frame_005.png",
+          "frames-256/idle/frame_006.png",
+          "frames-256/idle/frame_007.png",
+          "frames-256/idle/frame_008.png"
+        ],
+        "walk": [
+          "frames-256/walk/frame_000.png",
+          "frames-256/walk/frame_001.png",
+          "frames-256/walk/frame_002.png",
+          "frames-256/walk/frame_003.png",
+          "frames-256/walk/frame_004.png",
+          "frames-256/walk/frame_005.png",
+          "frames-256/walk/frame_006.png",
+          "frames-256/walk/frame_007.png",
+          "frames-256/walk/frame_008.png"
+        ],
+        "chain-strike": [
+          "frames-256/chain-strike/frame_000.png",
+          "frames-256/chain-strike/frame_001.png",
+          "frames-256/chain-strike/frame_002.png",
+          "frames-256/chain-strike/frame_003.png",
+          "frames-256/chain-strike/frame_004.png",
+          "frames-256/chain-strike/frame_005.png",
+          "frames-256/chain-strike/frame_006.png",
+          "frames-256/chain-strike/frame_007.png",
+          "frames-256/chain-strike/frame_008.png"
+        ]
+      }
+    }
+  }
+}

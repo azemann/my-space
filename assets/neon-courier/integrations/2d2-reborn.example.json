@@ -1,0 +1,54 @@
+{
+  "$schema": "../../../contracts/animation-integration-v1.schema.json",
+  "schemaVersion": "1.0.0",
+  "kind": "myspace-animation-integration",
+  "consumerProject": "2D2-reborn",
+  "assetId": "neon-courier/courier-heroine",
+  "animationContract": "../motion/animation-v1.json",
+  "frameProfile": "phaser-256",
+  "timingAuthority": "gameplay",
+  "mappings": {
+    "idle": {
+      "animation": "idle",
+      "playback": {"loopMode": "source"}
+    },
+    "move": {
+      "animation": "walk",
+      "playback": {"loopMode": "source"}
+    },
+    "attack": {
+      "variants": {
+        "light": {
+          "animation": "chain-strike",
+          "playback": {"targetDurationMs": 266.667, "loopMode": "none"},
+          "phasePolicy": "override",
+          "gameplayPhases": {
+            "startupEndMs": 116.667,
+            "activeEndMs": 266.667,
+            "recoveryEndMs": 266.667
+          }
+        },
+        "heavy": {
+          "animation": "chain-strike",
+          "playback": {"targetDurationMs": 433.333, "loopMode": "none"},
+          "phasePolicy": "override",
+          "gameplayPhases": {
+            "startupEndMs": 200,
+            "activeEndMs": 433.333,
+            "recoveryEndMs": 433.333
+          }
+        },
+        "special": {
+          "animation": "chain-strike",
+          "playback": {"targetDurationMs": 566.667, "loopMode": "none"},
+          "phasePolicy": "override",
+          "gameplayPhases": {
+            "startupEndMs": 216.667,
+            "activeEndMs": 566.667,
+            "recoveryEndMs": 566.667
+          }
+        }
+      }
+    }
+  }
+}

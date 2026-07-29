@@ -1,0 +1,35 @@
+{
+  "$schema": "../contracts/asset-import-receipt-v1.schema.json",
+  "schemaVersion": "1.0.0",
+  "kind": "myspace-asset-import-receipt",
+  "receiptId": "2d2-reborn/neon-courier/2026-07-29T120000Z",
+  "source": {
+    "workspace": "my-space",
+    "assetId": "neon-courier/courier-heroine",
+    "manifest": "assets/neon-courier/motion/animation-v1.json",
+    "schemaVersion": "1.1.0",
+    "revision": "replace-with-git-commit",
+    "contentHash": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "consumer": {
+    "project": "2D2-reborn",
+    "destination": "assets/neon-courier/runtime",
+    "engine": "Phaser"
+  },
+  "import": {
+    "profile": "phaser-256",
+    "importedAt": "2026-07-29T12:00:00Z",
+    "tool": "project-local import script",
+    "outputs": [
+      "assets/neon-courier/runtime/idle/frame_000.png",
+      "assets/neon-courier/runtime/neon-courier-import-receipt.json"
+    ]
+  },
+  "statuses": {
+    "visual": "candidate",
+    "temporal": "candidate",
+    "technical": "validated",
+    "gameplay": "integrated"
+  },
+  "notes": "Le reçu appartient au projet consommateur et décrit ce qui a réellement été importé."
+}

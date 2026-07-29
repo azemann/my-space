@@ -1,8 +1,14 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "kind": "myspace-animation-runtime",
   "assetId": "neon-courier/courier-heroine",
   "status": "candidate",
+  "statuses": {
+    "visual": "candidate",
+    "temporal": "candidate",
+    "technical": "production-ready",
+    "gameplay": "unmapped"
+  },
   "atlas": {
     "image": "neon-courier-v001.png",
     "data": "neon-courier-v001.atlas.json",
@@ -22,6 +28,41 @@
     "xAxis": "facing-forward",
     "yAxis": "up",
     "frameIndexBase": 0
+  },
+  "frameProfiles": {
+    "canonical-512": {
+      "manifest": "neon-courier-v001.frames.json",
+      "canvasSize": [
+        512,
+        512
+      ],
+      "origin": [
+        256,
+        456
+      ],
+      "scale": 1,
+      "usage": [
+        "work",
+        "debug",
+        "atlas-source"
+      ]
+    },
+    "phaser-256": {
+      "manifest": "neon-courier-v001.frames.json",
+      "canvasSize": [
+        256,
+        256
+      ],
+      "origin": [
+        128,
+        228
+      ],
+      "scale": 0.5,
+      "usage": [
+        "integration",
+        "debug"
+      ]
+    }
   },
   "directions": {
     "right": {
@@ -241,6 +282,12 @@
   "animations": {
     "idle": {
       "status": "candidate",
+      "statuses": {
+        "visual": "candidate",
+        "temporal": "candidate",
+        "technical": "production-ready",
+        "gameplay": "unmapped"
+      },
       "directions": [
         "right",
         "left"
@@ -307,6 +354,12 @@
     },
     "walk": {
       "status": "candidate",
+      "statuses": {
+        "visual": "candidate",
+        "temporal": "candidate",
+        "technical": "production-ready",
+        "gameplay": "unmapped"
+      },
       "directions": [
         "right",
         "left"
@@ -375,6 +428,12 @@
     },
     "chain-strike": {
       "status": "candidate",
+      "statuses": {
+        "visual": "candidate",
+        "temporal": "candidate",
+        "technical": "production-ready",
+        "gameplay": "unmapped"
+      },
       "directions": [
         "right",
         "left"

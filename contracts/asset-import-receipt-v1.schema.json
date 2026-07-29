@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myspace.local/contracts/asset-import-receipt-v1.schema.json",
+  "title": "MySpace Asset Import Receipt v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "kind",
+    "receiptId",
+    "source",
+    "consumer",
+    "import",
+    "statuses"
+  ],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schemaVersion": {"const": "1.0.0"},
+    "kind": {"const": "myspace-asset-import-receipt"},
+    "receiptId": {"type": "string", "minLength": 1},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["workspace", "assetId", "manifest", "schemaVersion"],
+      "properties": {
+        "workspace": {"type": "string", "minLength": 1},
+        "assetId": {"type": "string", "minLength": 1},
+        "manifest": {"type": "string", "minLength": 1},
+        "schemaVersion": {"type": "string", "minLength": 1},
+        "revision": {"type": "string", "minLength": 1},
+        "contentHash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      }
+    },
+    "consumer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["project", "destination"],
+      "properties": {
+        "project": {"type": "string", "minLength": 1},
+        "destination": {"type": "string", "minLength": 1},
+        "engine": {"type": "string", "minLength": 1}
+      }
+    },
+    "import": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile", "importedAt", "outputs"],
+      "properties": {
+        "profile": {"type": "string", "minLength": 1},
+        "importedAt": {"type": "string", "format": "date-time"},
+        "tool": {"type": "string", "minLength": 1},
+        "outputs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "statuses": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["visual", "temporal", "technical", "gameplay"],
+      "properties": {
+        "visual": {
+          "enum": ["exploration", "candidate", "approved", "rejected", "deprecated"]
+        },
+        "temporal": {
+          "enum": ["exploration", "candidate", "approved", "rejected", "deprecated"]
+        },
+        "technical": {
+          "enum": ["draft", "validated", "production-ready", "deprecated"]
+        },
+        "gameplay": {
+          "enum": ["unmapped", "mapped", "integrated", "validated", "deprecated"]
+        }
+      }
+    },
+    "notes": {"type": "string"}
+  }
+}

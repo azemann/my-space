@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myspace.local/contracts/animation-frames-v1.schema.json",
+  "title": "MySpace Animation Frames Manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "kind",
+    "assetId",
+    "coordinateSpace",
+    "profiles"
+  ],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schemaVersion": {"const": "1.1.0"},
+    "kind": {"const": "myspace-animation-frames"},
+    "assetId": {"type": "string", "minLength": 1},
+    "coordinateSpace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["units", "xAxis", "yAxis", "frameIndexBase"],
+      "properties": {
+        "units": {"const": "source-pixel"},
+        "xAxis": {"const": "facing-forward"},
+        "yAxis": {"const": "up"},
+        "frameIndexBase": {"const": 0}
+      }
+    },
+    "profiles": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"$ref": "#/$defs/profile"}
+    }
+  },
+  "$defs": {
+    "point": {
+      "type": "array",
+      "prefixItems": [{"type": "number"}, {"type": "number"}],
+      "items": false
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canvasSize",
+        "origin",
+        "groundLine",
+        "scale",
+        "usage",
+        "animations"
+      ],
+      "properties": {
+        "canvasSize": {
+          "type": "array",
+          "prefixItems": [
+            {"type": "integer", "minimum": 1},
+            {"type": "integer", "minimum": 1}
+          ],
+          "items": false
+        },
+        "origin": {"$ref": "#/$defs/point"},
+        "groundLine": {"type": "number"},
+        "scale": {"type": "number", "exclusiveMinimum": 0},
+        "usage": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["work", "debug", "integration", "atlas-source", "archive"]
+          }
+        },
+        "animations": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"type": "string", "minLength": 1}
+          }
+        }
+      }
+    }
+  }
+}

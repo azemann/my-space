@@ -6,7 +6,7 @@ vue d’ensemble du pipeline et des formats cibles.
 
 ## Séparation des responsabilités
 
-Le workflow manipule quatre types d’artefacts.
+Le workflow manipule cinq types d’artefacts.
 
 ```text
 Identity Atlas
@@ -16,7 +16,10 @@ Motion Atlas
     Poses clés, expressions, vues, échelle et langage du mouvement
                          ↓
 Sources de production
-    PNG individuels et séquences d’animation sur grilles uniformes
+    Séquences d’animation sur grilles uniformes
+                         ↓
+Frames de travail
+    PNG individuels sur canevas stable, déclinés par profil de résolution
                          ↓
 Exports runtime
     Atlas compact, JSON standard et fichiers propres au moteur
@@ -24,7 +27,7 @@ Exports runtime
 
 Une même image ne doit pas porter toutes ces responsabilités. La planche
 d’identité peut être directement découpable, mais elle reste une source. Les
-exports runtime sont des dérivés reproductibles.
+frames et exports runtime sont des dérivés reproductibles.
 
 ## Identity Atlas
 
@@ -106,6 +109,20 @@ La validation d’une animation vérifie :
 
 Une frame peut être régénérée isolément seulement si son remplacement conserve
 les poses voisines et la trajectoire globale.
+
+## Deux sorties complémentaires
+
+Les PNG individuels sont la sortie de travail et de debug. Ils conservent le
+canevas complet et rendent visibles le pivot, l’alignement et l’ordre de la
+séquence. Des profils nommés peuvent produire plusieurs résolutions sans
+changer la source canonique.
+
+L’atlas compact est la sortie runtime optimisée. Il rogne et regroupe les
+pixels utiles, ajoute padding et extrusion, puis conserve dans son JSON tout ce
+qui permet de reconstruire le placement original.
+
+Un projet peut charger les frames pendant son prototypage puis passer à
+l’atlas sans changer les identifiants d’animation.
 
 ## Format runtime commun
 
@@ -204,6 +221,17 @@ Les arrière-plans ne sont pas forcés dans la grille des sprites. Ils peuvent
 de défilement propres.
 
 ## Profils de sortie
+
+Un profil de frames déclare au minimum :
+
+- un identifiant stable, par exemple `canonical-512` ou `phaser-256` ;
+- les dimensions du canevas ;
+- l’origine et la ligne de sol à cette résolution ;
+- l’échelle par rapport à l’espace canonique ;
+- les usages prévus : travail, debug, intégration, packing ou archive.
+
+Les collisions restent dans l’espace canonique et sont mises à l’échelle par
+l’adaptateur. Elles ne sont jamais recalculées depuis les silhouettes réduites.
 
 ### Phaser et PixiJS
 

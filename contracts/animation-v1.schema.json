@@ -9,7 +9,10 @@
     "kind",
     "assetId",
     "status",
+    "statuses",
     "atlas",
+    "frameProfilesData",
+    "frameProfiles",
     "coordinateSpace",
     "directions",
     "collisionSets",
@@ -17,13 +20,20 @@
   ],
   "properties": {
     "$schema": {"type": "string"},
-    "schemaVersion": {"const": "1.0.0"},
+    "schemaVersion": {"const": "1.1.0"},
     "kind": {"const": "myspace-animation"},
     "assetId": {"type": "string", "minLength": 1},
     "status": {
       "enum": ["exploration", "candidate", "production-ready", "deprecated"]
     },
+    "statuses": {"$ref": "#/$defs/statuses"},
     "atlas": {"$ref": "#/$defs/atlas"},
+    "frameProfilesData": {"type": "string", "minLength": 1},
+    "frameProfiles": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"$ref": "#/$defs/frameProfile"}
+    },
     "coordinateSpace": {"$ref": "#/$defs/coordinateSpace"},
     "directions": {
       "type": "object",
@@ -45,6 +55,54 @@
       "type": "array",
       "prefixItems": [{"type": "number"}, {"type": "number"}],
       "items": false
+    },
+    "statuses": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["visual", "temporal", "technical", "gameplay"],
+      "properties": {
+        "visual": {
+          "enum": ["exploration", "candidate", "approved", "rejected", "deprecated"]
+        },
+        "temporal": {
+          "enum": ["exploration", "candidate", "approved", "rejected", "deprecated"]
+        },
+        "technical": {
+          "enum": ["draft", "validated", "production-ready", "deprecated"]
+        },
+        "gameplay": {
+          "enum": ["unmapped", "mapped", "integrated", "validated", "deprecated"]
+        }
+      }
+    },
+    "frameProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pathTemplate", "canvasSize", "origin", "scale", "usage"],
+      "properties": {
+        "pathTemplate": {
+          "type": "string",
+          "pattern": "\\{animation\\}.*\\{index\\}"
+        },
+        "canvasSize": {
+          "type": "array",
+          "prefixItems": [
+            {"type": "integer", "minimum": 1},
+            {"type": "integer", "minimum": 1}
+          ],
+          "items": false
+        },
+        "origin": {"$ref": "#/$defs/point"},
+        "scale": {"type": "number", "exclusiveMinimum": 0},
+        "usage": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["work", "debug", "integration", "atlas-source", "archive"]
+          }
+        }
+      }
     },
     "rect": {
       "type": "object",
@@ -198,11 +256,12 @@
     "animation": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["status", "directions", "loopMode", "fps", "source", "frames"],
+      "required": ["status", "statuses", "directions", "loopMode", "fps", "source", "frames"],
       "properties": {
         "status": {
           "enum": ["exploration", "candidate", "production-ready", "deprecated"]
         },
+        "statuses": {"$ref": "#/$defs/statuses"},
         "directions": {
           "type": "array",
           "minItems": 1,

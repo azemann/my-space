@@ -713,7 +713,7 @@
   },
   "meta": {
     "app": "MySpace project-local atlas builder",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "image": "neon-courier-v001.png",
     "format": "RGBA8888",
     "size": {
@@ -721,6 +721,6 @@
       "h": 1892
     },
     "scale": "1",
-    "smartupdate": "myspace:neon-courier/courier-heroine:1.0.0"
+    "smartupdate": "myspace:neon-courier/courier-heroine:1.1.0"
   }
 }

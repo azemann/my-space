@@ -6,10 +6,16 @@ Le contrat `myspace-animation-v1` est la représentation canonique d’une
 animation 2D dans MySpace. Il ne dépend ni d’un moteur, ni d’un outil de
 packing, ni d’un fournisseur de génération.
 
-Une production sépare trois responsabilités :
+La révision courante du contrat est `1.1.0`. Elle reste dans la famille v1 et
+ajoute des sorties de frames, des profils de résolution et des statuts
+multidimensionnels sans modifier l’espace de coordonnées canonique.
+
+Une production sépare quatre responsabilités :
 
 ```text
 planches sources uniformes
+            ↓
+frames individuelles sur canevas stable
             ↓
 atlas graphique compact + JSON Hash
             +
@@ -111,7 +117,78 @@ les spritesheets JSON par son système d’assets. Godot et Unity recevront un
 adaptateur qui reconstruit leurs ressources natives lorsque le moteur sera
 choisi.
 
-## États de production
+## Frames individuelles et profils de résolution
+
+Les frames individuelles sont une sortie officielle, pas un remplacement de
+l’atlas :
+
+- elles gardent un canevas, une origine et une ligne de sol identiques ;
+- elles sont faciles à inspecter, comparer, versionner et charger pendant le
+  développement ;
+- elles évitent qu’un projet consommateur redécoupe lui-même les planches ;
+- l’atlas rogné et extrudé reste préférable pour le déploiement.
+
+Chaque entrée de `frameProfiles` déclare un `pathTemplate`, une taille de
+canevas, une origine, une échelle par rapport au canevas canonique et ses
+usages. Le builder produit ensuite un manifeste `myspace-animation-frames`
+contenant l’ordre exact des fichiers par animation.
+
+Neon Courier fournit actuellement :
+
+- `canonical-512` : 512 × 512, pivot `[256, 456]`, travail, contrôle et source
+  de packing ;
+- `phaser-256` : 256 × 256, pivot `[128, 228]`, intégration légère et debug.
+
+Les collisions restent exprimées en pixels `canonical-512`. Un consommateur du
+profil `phaser-256` leur applique donc l’échelle `0.5`.
+
+## Mapping gameplay optionnel
+
+Le contrat d’animation ne décide pas comment un jeu nomme ses états ni quelle
+attaque réutilise une séquence. Le contrat optionnel
+`myspace-animation-integration` relie les deux mondes :
+
+- état ou action gameplay → identifiant d’animation ;
+- profil de frames attendu ;
+- autorité temporelle : animation, gameplay ou double source validée ;
+- variante de vitesse ou durée cible ;
+- politique des phases : les retimer avec le clip, les remplacer ou les
+  comparer.
+
+Cette séparation permet à une même `chain-strike` de servir à des variantes
+light, heavy et special sans prétendre qu’elles possèdent automatiquement les
+mêmes fenêtres de combat.
+
+## Provenance d’import
+
+Un projet consommateur peut écrire un reçu
+`myspace-asset-import-receipt` après chaque import. Il enregistre :
+
+- le workspace, l’asset, le manifeste, sa version et éventuellement le commit
+  et le SHA-256 importés ;
+- le projet, le moteur et la destination ;
+- le profil de résolution et la liste des sorties réellement créées ;
+- la date et l’outil d’import ;
+- les statuts observés au moment de l’import.
+
+Le reçu appartient au projet consommateur. Il permet de savoir si les fichiers
+présents proviennent encore de la révision courante de MySpace.
+
+## États de production multidimensionnels
+
+Le champ historique `status` reste un résumé lisible. `statuses` évite qu’une
+seule valeur mélange des validations différentes :
+
+- `visual` : cohérence graphique et identité ;
+- `temporal` : mouvement, rythme et boucles ;
+- `technical` : formats, transparence, pivots, packing et métadonnées ;
+- `gameplay` : mapping, intégration et validation dans le jeu.
+
+Par exemple, Neon Courier peut être techniquement `production-ready` tout en
+restant visuellement et temporellement `candidate`, et `unmapped` tant
+qu’aucun jeu n’a adopté son contrat d’intégration.
+
+### Valeur de synthèse
 
 - `exploration` : rythme ou identité non verrouillés ;
 - `candidate` : inspection humaine encore nécessaire ;
@@ -120,6 +197,17 @@ choisi.
 
 Un atlas techniquement valide ne transforme pas automatiquement une animation
 candidate en animation approuvée.
+
+## Contrats associés
+
+- [`animation-v1.schema.json`](../contracts/animation-v1.schema.json) :
+  production canonique, frames et atlas ;
+- [`animation-frames-v1.schema.json`](../contracts/animation-frames-v1.schema.json) :
+  manifeste généré des PNG individuels ;
+- [`animation-integration-v1.schema.json`](../contracts/animation-integration-v1.schema.json) :
+  mapping facultatif vers le gameplay ;
+- [`asset-import-receipt-v1.schema.json`](../contracts/asset-import-receipt-v1.schema.json) :
+  provenance constatée par le consommateur.
 
 ## Sources de référence
 

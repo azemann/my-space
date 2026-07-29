@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import {
+  copyFileSync,
   mkdirSync,
   mkdtempSync,
   readFileSync,
@@ -8,7 +9,7 @@ import {
   writeFileSync
 } from "node:fs";
 import { tmpdir } from "node:os";
-import { basename, dirname, join, resolve } from "node:path";
+import { basename, dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
 
@@ -48,13 +49,43 @@ const parseGeometry = (value) => {
 };
 
 const assertManifest = () => {
-  if (manifest.schemaVersion !== "1.0.0" || manifest.kind !== "myspace-animation") {
+  if (manifest.schemaVersion !== "1.1.0" || manifest.kind !== "myspace-animation") {
     throw new Error("Le manifeste ne respecte pas myspace-animation-v1");
   }
   ensurePair(manifest.coordinateSpace.canvasSize, "coordinateSpace.canvasSize");
   ensurePair(manifest.coordinateSpace.origin, "coordinateSpace.origin");
   if (!Number.isFinite(manifest.coordinateSpace.groundLine)) {
     throw new Error("coordinateSpace.groundLine doit être un nombre");
+  }
+  if (!manifest.frameProfilesData || !Object.keys(manifest.frameProfiles ?? {}).length) {
+    throw new Error("Au moins un frameProfile et frameProfilesData sont requis");
+  }
+  for (const [profileId, profile] of Object.entries(manifest.frameProfiles)) {
+    ensurePair(profile.canvasSize, `${profileId}.canvasSize`);
+    ensurePair(profile.origin, `${profileId}.origin`);
+    if (!profile.pathTemplate.includes("{animation}") || !profile.pathTemplate.includes("{index}")) {
+      throw new Error(`${profileId}: pathTemplate doit contenir {animation} et {index}`);
+    }
+    if (!(profile.scale > 0)) {
+      throw new Error(`${profileId}: scale doit être positif`);
+    }
+    const expectedSize = manifest.coordinateSpace.canvasSize.map(
+      (value) => value * profile.scale
+    );
+    const expectedOrigin = manifest.coordinateSpace.origin.map(
+      (value) => value * profile.scale
+    );
+    const expectedGroundLine =
+      manifest.coordinateSpace.groundLine * profile.scale;
+    if (
+      profile.canvasSize.some((value, index) => value !== expectedSize[index]) ||
+      profile.origin.some((value, index) => value !== expectedOrigin[index]) ||
+      !Number.isInteger(expectedGroundLine)
+    ) {
+      throw new Error(
+        `${profileId}: canvasSize/origin/groundLine incohérents avec scale`
+      );
+    }
   }
 
   const frameNames = new Set();
@@ -135,6 +166,14 @@ const build = () => {
   const pivot = {x: originX / canvasWidth, y: originY / canvasHeight};
   const entries = [];
   const animationFrameNames = {};
+  const frameProfileFiles = Object.fromEntries(
+    Object.keys(manifest.frameProfiles).map((profileId) => [
+      profileId,
+      Object.fromEntries(
+        Object.keys(manifest.animations).map((animationId) => [animationId, []])
+      )
+    ])
+  );
 
   for (const [animationId, animation] of Object.entries(manifest.animations)) {
     const sourcePath = resolve(manifestDir, animation.source.image);
@@ -220,10 +259,83 @@ const build = () => {
         "-geometry",
         `+0${groundOffset >= 0 ? "+" : ""}${groundOffset}`,
         "-composite",
+        "+set",
+        "date:create",
+        "+set",
+        "date:modify",
+        "+set",
+        "date:timestamp",
+        "-strip",
+        "-define",
+        "png:exclude-chunk=date,time",
         "-define",
         "png:color-type=6",
         normalizedPath
       ]);
+
+      for (const [profileId, profile] of Object.entries(manifest.frameProfiles)) {
+        const outputPath = resolve(
+          manifestDir,
+          profile.pathTemplate
+            .replace("{animation}", animationId)
+            .replace("{index}", String(frameIndex).padStart(3, "0"))
+        );
+        mkdirSync(dirname(outputPath), {recursive: true});
+        if (profile.scale === 1) {
+          copyFileSync(normalizedPath, outputPath);
+        } else {
+          const scaledPath = join(workDir, `${prefix}-${profileId}-scaled.png`);
+          run("convert", [
+            normalizedPath,
+            "-filter",
+            "Lanczos",
+            "-resize",
+            `${profile.canvasSize[0]}x${profile.canvasSize[1]}!`,
+            "-define",
+            "png:color-type=6",
+            scaledPath
+          ]);
+          const scaledGeometry = parseGeometry(run("convert", [
+            scaledPath,
+            "-alpha",
+            "extract",
+            "-threshold",
+            "1",
+            "-format",
+            "%@",
+            "info:"
+          ]));
+          const profileGroundLine =
+            manifest.coordinateSpace.groundLine * profile.scale;
+          const profileGroundOffset =
+            profileGroundLine -
+            (scaledGeometry.y + scaledGeometry.height);
+          run("convert", [
+            "-size",
+            `${profile.canvasSize[0]}x${profile.canvasSize[1]}`,
+            "xc:none",
+            scaledPath,
+            "-geometry",
+            `+0${profileGroundOffset >= 0 ? "+" : ""}${profileGroundOffset}`,
+            "-composite",
+            "+set",
+            "date:create",
+            "+set",
+            "date:modify",
+            "+set",
+            "date:timestamp",
+            "-strip",
+            "-define",
+            "png:exclude-chunk=date,time",
+            "-define",
+            "png:color-type=6",
+            outputPath
+          ]);
+        }
+        frameProfileFiles[profileId][animationId].push(
+          relative(dirname(resolve(manifestDir, manifest.frameProfilesData)), outputPath)
+        );
+      }
 
       const corner = run(
         "convert",
@@ -337,6 +449,10 @@ const build = () => {
   const atlasImagePath = resolve(manifestDir, manifest.atlas.image);
   const atlasDataPath = resolve(manifestDir, manifest.atlas.data);
   const runtimeDataPath = resolve(manifestDir, manifest.atlas.runtimeData);
+  const frameProfilesDataPath = resolve(
+    manifestDir,
+    manifest.frameProfilesData
+  );
   mkdirSync(dirname(atlasImagePath), {recursive: true});
 
   const compositeArgs = ["-size", `${atlasWidth}x${atlasHeight}`, "xc:none"];
@@ -348,7 +464,20 @@ const build = () => {
       "-composite"
     );
   }
-  compositeArgs.push("-define", "png:color-type=6", atlasImagePath);
+  compositeArgs.push(
+    "+set",
+    "date:create",
+    "+set",
+    "date:modify",
+    "+set",
+    "date:timestamp",
+    "-strip",
+    "-define",
+    "png:exclude-chunk=date,time",
+    "-define",
+    "png:color-type=6",
+    atlasImagePath
+  );
   run("convert", compositeArgs);
 
   const atlasFrames = {};
@@ -406,24 +535,75 @@ const build = () => {
     kind: "myspace-animation-runtime",
     assetId: manifest.assetId,
     status: manifest.status,
+    statuses: manifest.statuses,
     atlas: {
       image: basename(atlasImagePath),
       data: basename(atlasDataPath),
       format: manifest.atlas.format
     },
     coordinateSpace: manifest.coordinateSpace,
+    frameProfiles: Object.fromEntries(
+      Object.entries(manifest.frameProfiles).map(([profileId, profile]) => [
+        profileId,
+        {
+          manifest: basename(frameProfilesDataPath),
+          canvasSize: profile.canvasSize,
+          origin: profile.origin,
+          scale: profile.scale,
+          usage: profile.usage
+        }
+      ])
+    ),
     directions: manifest.directions,
     collisionSets: manifest.collisionSets,
     animations: runtimeAnimations
   };
 
+  const frameProfilesJson = {
+    $schema: "../../../contracts/animation-frames-v1.schema.json",
+    schemaVersion: manifest.schemaVersion,
+    kind: "myspace-animation-frames",
+    assetId: manifest.assetId,
+    coordinateSpace: {
+      units: manifest.coordinateSpace.units,
+      xAxis: manifest.coordinateSpace.xAxis,
+      yAxis: manifest.coordinateSpace.yAxis,
+      frameIndexBase: manifest.coordinateSpace.frameIndexBase
+    },
+    profiles: Object.fromEntries(
+      Object.entries(manifest.frameProfiles).map(([profileId, profile]) => [
+        profileId,
+        {
+          canvasSize: profile.canvasSize,
+          origin: profile.origin,
+          groundLine: manifest.coordinateSpace.groundLine * profile.scale,
+          scale: profile.scale,
+          usage: profile.usage,
+          animations: frameProfileFiles[profileId]
+        }
+      ])
+    )
+  };
+
   writeFileSync(atlasDataPath, `${JSON.stringify(atlasJson, null, 2)}\n`);
   writeFileSync(runtimeDataPath, `${JSON.stringify(runtimeJson, null, 2)}\n`);
+  writeFileSync(
+    frameProfilesDataPath,
+    `${JSON.stringify(frameProfilesJson, null, 2)}\n`
+  );
 
   console.log(`Atlas: ${atlasImagePath} (${atlasWidth}x${atlasHeight})`);
   console.log(`Frames: ${entries.length}`);
   console.log(`Atlas JSON: ${atlasDataPath}`);
   console.log(`Animation JSON: ${runtimeDataPath}`);
+  console.log(`Loose frames JSON: ${frameProfilesDataPath}`);
+  for (const [profileId, animations] of Object.entries(frameProfileFiles)) {
+    const count = Object.values(animations).reduce(
+      (total, files) => total + files.length,
+      0
+    );
+    console.log(`Loose frames ${profileId}: ${count}`);
+  }
 };
 
 try {

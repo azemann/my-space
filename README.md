@@ -105,6 +105,8 @@ Nettoyage, pivots et normalisation
                       ↓
 PNG sources individuels
                       ↓
+Profils de frames de travail et d’intégration
+                      +
 Atlas runtime compact + JSON standard
                       ↓
 Référence des générations suivantes
@@ -150,6 +152,9 @@ assets/
 │   ├── effects/
 │   └── ui/
 └── exports/
+    ├── frames-512/
+    ├── frames-256/
+    ├── frames.json
     ├── atlas.png
     ├── atlas.json
     ├── godot/
@@ -180,6 +185,9 @@ production.
 - [Modèle générique des projets](docs/PROJECT_MODEL.md)
 - [Pipeline, animations et formats standards](docs/PIPELINE_AND_FORMATS.md)
 - [Contrat d’animation v1](docs/ANIMATION_CONTRACT_V1.md)
+- [Schéma du manifeste de frames](contracts/animation-frames-v1.schema.json)
+- [Schéma d’intégration gameplay optionnel](contracts/animation-integration-v1.schema.json)
+- [Schéma de reçu d’import](contracts/asset-import-receipt-v1.schema.json)
 - [Exemple de profil de projet](examples/project-profile.example.json)
 - [Exemple de manifeste](examples/identity-atlas.example.json)
 - [Exemple de manifeste d’animation](examples/animation-set.example.json)
@@ -213,8 +221,13 @@ dessiné de profil. Le premier lot runtime contient `idle`, `walk` et
 - [atlas runtime compact](assets/neon-courier/runtime/neon-courier-v001.png) ;
 - [atlas JSON Hash](assets/neon-courier/runtime/neon-courier-v001.atlas.json) ;
 - [animations et collisions](assets/neon-courier/runtime/neon-courier-v001.animations.json) ;
+- [manifeste des frames individuelles](assets/neon-courier/runtime/neon-courier-v001.frames.json) ;
+- [frames canoniques 512](assets/neon-courier/runtime/frames-512/) ;
+- [frames Phaser 256](assets/neon-courier/runtime/frames-256/) ;
+- [exemple de mapping vers 2D2-reborn](assets/neon-courier/integrations/2d2-reborn.example.json) ;
 - [builder local](assets/neon-courier/scripts/build-runtime-atlas.mjs).
 
-Les exports Godot, Unity, Phaser ou PixiJS seront ajoutés seulement lorsque le
-moteur du jeu sera choisi. Le JSON Hash est déjà directement exploitable par
-les chargeurs web qui acceptent le format TexturePacker.
+Les adaptateurs Godot, Unity, Phaser ou PixiJS seront ajoutés seulement lorsque
+le moteur du jeu sera choisi. Le profil `phaser-256` est déjà exploitable en
+frames individuelles et le JSON Hash par les chargeurs web qui acceptent le
+format TexturePacker.

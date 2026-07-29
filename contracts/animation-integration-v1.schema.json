@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://myspace.local/contracts/animation-integration-v1.schema.json",
+  "title": "MySpace Animation Integration Contract v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "kind",
+    "consumerProject",
+    "assetId",
+    "animationContract",
+    "frameProfile",
+    "timingAuthority",
+    "mappings"
+  ],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schemaVersion": {"const": "1.0.0"},
+    "kind": {"const": "myspace-animation-integration"},
+    "consumerProject": {"type": "string", "minLength": 1},
+    "assetId": {"type": "string", "minLength": 1},
+    "animationContract": {"type": "string", "minLength": 1},
+    "frameProfile": {"type": "string", "minLength": 1},
+    "timingAuthority": {
+      "enum": ["animation", "gameplay", "validated-dual-source"]
+    },
+    "mappings": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"$ref": "#/$defs/mapping"}
+    }
+  },
+  "$defs": {
+    "playback": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "speed": {"type": "number", "exclusiveMinimum": 0},
+        "targetDurationMs": {"type": "number", "exclusiveMinimum": 0},
+        "loopMode": {"enum": ["source", "none", "linear", "pingpong"]}
+      },
+      "not": {
+        "required": ["speed", "targetDurationMs"]
+      }
+    },
+    "gameplayPhases": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "startupEndMs": {"type": "number", "minimum": 0},
+        "activeEndMs": {"type": "number", "minimum": 0},
+        "recoveryEndMs": {"type": "number", "minimum": 0}
+      }
+    },
+    "variant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["animation"],
+      "properties": {
+        "animation": {"type": "string", "minLength": 1},
+        "playback": {"$ref": "#/$defs/playback"},
+        "phasePolicy": {
+          "enum": ["retime-with-clip", "override", "validate"]
+        },
+        "gameplayPhases": {"$ref": "#/$defs/gameplayPhases"}
+      }
+    },
+    "mapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "animation": {"type": "string", "minLength": 1},
+        "playback": {"$ref": "#/$defs/playback"},
+        "phasePolicy": {
+          "enum": ["retime-with-clip", "override", "validate"]
+        },
+        "gameplayPhases": {"$ref": "#/$defs/gameplayPhases"},
+        "variants": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {"$ref": "#/$defs/variant"}
+        }
+      },
+      "oneOf": [
+        {"required": ["animation"]},
+        {"required": ["variants"]}
+      ]
+    }
+  }
+}
