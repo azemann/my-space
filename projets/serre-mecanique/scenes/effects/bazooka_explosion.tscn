@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://game/serre/weapons/bazooka_explosion.gd" id="1_explosion"]
+[ext_resource type="SpriteFrames" path="res://resources/effects/bazooka-explosion-frames.tres" id="2_frames"]
+
+[sub_resource type="CircleShape2D" id="CircleShape_damage"]
+radius = 96.0
+
+[node name="BazookaExplosion" type="Area2D"]
+z_index = 80
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
+editor_description = "Explosion autonome du bazooka. Réglez ici Maximum Damage et Maximum Knockback. Le cercle enfant DamageRadius fixe visuellement la portée des dégâts. Les dégâts et la projection diminuent avec la distance au centre."
+script = ExtResource("1_explosion")
+
+[node name="DamageRadius" type="CollisionShape2D" parent="."]
+editor_description = "Rayon effectif des dégâts et de la projection. Sélectionnez ce nœud puis redimensionnez le cercle dans la vue 2D. Plus le cercle est grand, plus l'explosion touche loin, sans agrandir automatiquement son animation visuelle."
+shape = SubResource("CircleShape_damage")
+debug_color = Color(1, 0.35, 0.12, 0.18)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+editor_description = "Animation visuelle de 16 frames. Elle ne détermine pas la portée des dégâts : cette portée appartient au nœud DamageRadius."
+texture_filter = 1
+sprite_frames = ExtResource("2_frames")
+animation = &"explode"
+
+[node name="ExplosionAudio" type="AudioStreamPlayer2D" parent="."]
+editor_description = "Emplacement réservé au futur son d'explosion. Affecter un AudioStream ici n'altérera pas les dégâts ni la physique."
+bus = &"Weapons"
+max_distance = 1400.0

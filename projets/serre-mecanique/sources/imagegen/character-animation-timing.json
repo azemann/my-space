@@ -1,0 +1,128 @@
+{
+  "schema": "serre-mecanique.character-animation-timing.v1",
+  "character": "player-mechanic",
+  "frame_index_base": 0,
+  "phase_interval": "0_inclusive_1_exclusive_for_loops",
+  "side_convention": "screen_left_and_screen_right_refer_to_the_rendered_image",
+  "animations": {
+    "idle": {
+      "playback": "loop",
+      "nominal_fps": 8,
+      "nominal_duration_ms": 2000,
+      "frames": [
+        {"frame": 0, "time_ms": 0, "phase": 0.0, "pose": "neutral", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true},
+        {"frame": 1, "time_ms": 125, "phase": 0.0625, "pose": "inhale_1", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true},
+        {"frame": 2, "time_ms": 250, "phase": 0.125, "pose": "inhale_2", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true},
+        {"frame": 3, "time_ms": 375, "phase": 0.1875, "pose": "inhale_peak", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true},
+        {"frame": 4, "time_ms": 500, "phase": 0.25, "pose": "settle_1", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true},
+        {"frame": 5, "time_ms": 625, "phase": 0.3125, "pose": "settle_2", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true},
+        {"frame": 6, "time_ms": 750, "phase": 0.375, "pose": "neutral", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true},
+        {"frame": 7, "time_ms": 875, "phase": 0.4375, "pose": "blink_prepare", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true},
+        {"frame": 8, "time_ms": 1000, "phase": 0.5, "pose": "blink_closed", "contacts": ["left_foot", "right_foot"], "event": "blink", "interruptible": true},
+        {"frame": 9, "time_ms": 1125, "phase": 0.5625, "pose": "blink_open", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true},
+        {"frame": 10, "time_ms": 1250, "phase": 0.625, "pose": "exhale_1", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true},
+        {"frame": 11, "time_ms": 1375, "phase": 0.6875, "pose": "exhale_2", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true},
+        {"frame": 12, "time_ms": 1500, "phase": 0.75, "pose": "exhale_low", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true},
+        {"frame": 13, "time_ms": 1625, "phase": 0.8125, "pose": "recover_1", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true},
+        {"frame": 14, "time_ms": 1750, "phase": 0.875, "pose": "recover_2", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true},
+        {"frame": 15, "time_ms": 1875, "phase": 0.9375, "pose": "loop_return", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true}
+      ]
+    },
+    "walk": {
+      "playback": "loop",
+      "nominal_fps": 12,
+      "nominal_duration_ms": 1333,
+      "frames": [
+        {"frame": 0, "time_ms": 0, "phase": 0.0, "pose": "left_contact", "contacts": ["left_foot"], "event": "left_footstep", "interruptible": true},
+        {"frame": 1, "time_ms": 83, "phase": 0.0625, "pose": "left_load", "contacts": ["left_foot"], "event": null, "interruptible": true},
+        {"frame": 2, "time_ms": 167, "phase": 0.125, "pose": "left_support", "contacts": ["left_foot"], "event": null, "interruptible": true},
+        {"frame": 3, "time_ms": 250, "phase": 0.1875, "pose": "right_pass_1", "contacts": ["left_foot"], "event": null, "interruptible": true},
+        {"frame": 4, "time_ms": 333, "phase": 0.25, "pose": "right_pass_2", "contacts": ["left_foot"], "event": null, "interruptible": true},
+        {"frame": 5, "time_ms": 417, "phase": 0.3125, "pose": "left_push", "contacts": ["left_foot"], "event": null, "interruptible": true},
+        {"frame": 6, "time_ms": 500, "phase": 0.375, "pose": "left_toe_off", "contacts": ["left_foot"], "event": null, "interruptible": true},
+        {"frame": 7, "time_ms": 583, "phase": 0.4375, "pose": "right_precontact", "contacts": [], "event": null, "interruptible": true},
+        {"frame": 8, "time_ms": 667, "phase": 0.5, "pose": "right_contact", "contacts": ["right_foot"], "event": "right_footstep", "interruptible": true},
+        {"frame": 9, "time_ms": 750, "phase": 0.5625, "pose": "right_load", "contacts": ["right_foot"], "event": null, "interruptible": true},
+        {"frame": 10, "time_ms": 833, "phase": 0.625, "pose": "right_support", "contacts": ["right_foot"], "event": null, "interruptible": true},
+        {"frame": 11, "time_ms": 917, "phase": 0.6875, "pose": "left_pass_1", "contacts": ["right_foot"], "event": null, "interruptible": true},
+        {"frame": 12, "time_ms": 1000, "phase": 0.75, "pose": "left_pass_2", "contacts": ["right_foot"], "event": null, "interruptible": true},
+        {"frame": 13, "time_ms": 1083, "phase": 0.8125, "pose": "right_push", "contacts": ["right_foot"], "event": null, "interruptible": true},
+        {"frame": 14, "time_ms": 1167, "phase": 0.875, "pose": "right_toe_off", "contacts": ["right_foot"], "event": null, "interruptible": true},
+        {"frame": 15, "time_ms": 1250, "phase": 0.9375, "pose": "left_precontact", "contacts": [], "event": null, "interruptible": true}
+      ]
+    },
+    "jump": {
+      "playback": "state_driven",
+      "nominal_fps": 12,
+      "nominal_duration_ms": 1333,
+      "driver_priority": ["grounded", "vertical_velocity", "phase"],
+      "frames": [
+        {"frame": 0, "time_ms": 0, "phase": 0.0, "pose": "anticipation_1", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true},
+        {"frame": 1, "time_ms": 83, "phase": 0.0625, "pose": "anticipation_2", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true},
+        {"frame": 2, "time_ms": 167, "phase": 0.125, "pose": "anticipation_peak", "contacts": ["left_foot", "right_foot"], "event": "jump_commit", "interruptible": true},
+        {"frame": 3, "time_ms": 250, "phase": 0.1875, "pose": "takeoff_push", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true},
+        {"frame": 4, "time_ms": 333, "phase": 0.25, "pose": "takeoff_toes", "contacts": ["left_toe", "right_toe"], "event": "takeoff", "interruptible": true},
+        {"frame": 5, "time_ms": 417, "phase": 0.3125, "pose": "takeoff_clear", "contacts": [], "event": null, "interruptible": true},
+        {"frame": 6, "time_ms": 500, "phase": 0.375, "pose": "rise_1", "contacts": [], "event": null, "interruptible": true},
+        {"frame": 7, "time_ms": 583, "phase": 0.4375, "pose": "rise_2", "contacts": [], "event": null, "interruptible": true},
+        {"frame": 8, "time_ms": 667, "phase": 0.5, "pose": "rise_tuck", "contacts": [], "event": null, "interruptible": true},
+        {"frame": 9, "time_ms": 750, "phase": 0.5625, "pose": "apex_enter", "contacts": [], "event": null, "interruptible": true},
+        {"frame": 10, "time_ms": 833, "phase": 0.625, "pose": "apex", "contacts": [], "event": "apex", "interruptible": true},
+        {"frame": 11, "time_ms": 917, "phase": 0.6875, "pose": "fall_1", "contacts": [], "event": null, "interruptible": true},
+        {"frame": 12, "time_ms": 1000, "phase": 0.75, "pose": "fall_2", "contacts": [], "event": null, "interruptible": true},
+        {"frame": 13, "time_ms": 1083, "phase": 0.8125, "pose": "fall_prepare", "contacts": [], "event": null, "interruptible": true},
+        {"frame": 14, "time_ms": 1167, "phase": 0.875, "pose": "landing_contact", "contacts": ["left_foot", "right_foot"], "event": "landed", "interruptible": true},
+        {"frame": 15, "time_ms": 1250, "phase": 0.9375, "pose": "landing_compress", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true}
+      ]
+    },
+    "climb": {
+      "playback": "loop",
+      "nominal_fps": 10,
+      "nominal_duration_ms": 1600,
+      "distance_per_cycle_px": 32,
+      "frames": [
+        {"frame": 0, "time_ms": 0, "phase": 0.0, "pose": "screen_left_reach", "contacts": ["screen_left_hand", "screen_left_foot"], "event": "screen_left_grip", "interruptible": true},
+        {"frame": 1, "time_ms": 100, "phase": 0.0625, "pose": "screen_left_grip", "contacts": ["screen_left_hand", "screen_left_foot"], "event": null, "interruptible": true},
+        {"frame": 2, "time_ms": 200, "phase": 0.125, "pose": "screen_left_pull_1", "contacts": ["screen_left_hand", "screen_left_foot"], "event": null, "interruptible": true},
+        {"frame": 3, "time_ms": 300, "phase": 0.1875, "pose": "screen_left_pull_2", "contacts": ["screen_left_hand", "screen_left_foot"], "event": null, "interruptible": true},
+        {"frame": 4, "time_ms": 400, "phase": 0.25, "pose": "transfer_high", "contacts": ["screen_left_hand", "screen_right_hand"], "event": "grip_transfer", "interruptible": true},
+        {"frame": 5, "time_ms": 500, "phase": 0.3125, "pose": "feet_pass_1", "contacts": ["screen_left_hand", "screen_right_hand"], "event": null, "interruptible": true},
+        {"frame": 6, "time_ms": 600, "phase": 0.375, "pose": "feet_pass_2", "contacts": ["screen_left_hand", "screen_right_hand"], "event": null, "interruptible": true},
+        {"frame": 7, "time_ms": 700, "phase": 0.4375, "pose": "screen_right_prepare", "contacts": ["screen_right_hand", "screen_right_foot"], "event": null, "interruptible": true},
+        {"frame": 8, "time_ms": 800, "phase": 0.5, "pose": "screen_right_reach", "contacts": ["screen_right_hand", "screen_right_foot"], "event": "screen_right_grip", "interruptible": true},
+        {"frame": 9, "time_ms": 900, "phase": 0.5625, "pose": "screen_right_grip", "contacts": ["screen_right_hand", "screen_right_foot"], "event": null, "interruptible": true},
+        {"frame": 10, "time_ms": 1000, "phase": 0.625, "pose": "screen_right_pull_1", "contacts": ["screen_right_hand", "screen_right_foot"], "event": null, "interruptible": true},
+        {"frame": 11, "time_ms": 1100, "phase": 0.6875, "pose": "screen_right_pull_2", "contacts": ["screen_right_hand", "screen_right_foot"], "event": null, "interruptible": true},
+        {"frame": 12, "time_ms": 1200, "phase": 0.75, "pose": "transfer_high", "contacts": ["screen_left_hand", "screen_right_hand"], "event": "grip_transfer", "interruptible": true},
+        {"frame": 13, "time_ms": 1300, "phase": 0.8125, "pose": "feet_return_1", "contacts": ["screen_left_hand", "screen_right_hand"], "event": null, "interruptible": true},
+        {"frame": 14, "time_ms": 1400, "phase": 0.875, "pose": "feet_return_2", "contacts": ["screen_left_hand", "screen_right_hand"], "event": null, "interruptible": true},
+        {"frame": 15, "time_ms": 1500, "phase": 0.9375, "pose": "loop_return", "contacts": ["screen_left_hand", "screen_left_foot"], "event": null, "interruptible": true}
+      ]
+    },
+    "grapple": {
+      "playback": "state_driven",
+      "nominal_fps": 12,
+      "nominal_duration_ms": 1333,
+      "driver_priority": ["grapple_active", "rope_tension", "rope_length_delta", "velocity"],
+      "anchor_direction": "screen_upper_right_reference_pose",
+      "frames": [
+        {"frame": 0, "time_ms": 0, "phase": 0.0, "pose": "fire_brace", "contacts": ["left_foot", "right_foot"], "event": "grapple_fire", "interruptible": true},
+        {"frame": 1, "time_ms": 83, "phase": 0.0625, "pose": "fire_recoil", "contacts": ["left_foot", "right_foot"], "event": null, "interruptible": true},
+        {"frame": 2, "time_ms": 167, "phase": 0.125, "pose": "attach_confirm", "contacts": ["left_foot", "right_foot"], "event": "grapple_attached", "interruptible": true},
+        {"frame": 3, "time_ms": 250, "phase": 0.1875, "pose": "tension_enter", "contacts": ["rear_foot"], "event": null, "interruptible": true},
+        {"frame": 4, "time_ms": 333, "phase": 0.25, "pose": "tension_build", "contacts": [], "event": null, "interruptible": true},
+        {"frame": 5, "time_ms": 417, "phase": 0.3125, "pose": "tension_taut", "contacts": [], "event": "rope_taut", "interruptible": true},
+        {"frame": 6, "time_ms": 500, "phase": 0.375, "pose": "swing_enter", "contacts": [], "event": null, "interruptible": true},
+        {"frame": 7, "time_ms": 583, "phase": 0.4375, "pose": "swing_trail", "contacts": [], "event": null, "interruptible": true},
+        {"frame": 8, "time_ms": 667, "phase": 0.5, "pose": "swing_taut", "contacts": [], "event": null, "interruptible": true},
+        {"frame": 9, "time_ms": 750, "phase": 0.5625, "pose": "swing_through_1", "contacts": [], "event": null, "interruptible": true},
+        {"frame": 10, "time_ms": 833, "phase": 0.625, "pose": "swing_through_2", "contacts": [], "event": "swing_peak_speed", "interruptible": true},
+        {"frame": 11, "time_ms": 917, "phase": 0.6875, "pose": "swing_recover", "contacts": [], "event": null, "interruptible": true},
+        {"frame": 12, "time_ms": 1000, "phase": 0.75, "pose": "reel_in_1", "contacts": [], "event": "reel_in", "interruptible": true},
+        {"frame": 13, "time_ms": 1083, "phase": 0.8125, "pose": "reel_in_2", "contacts": [], "event": null, "interruptible": true},
+        {"frame": 14, "time_ms": 1167, "phase": 0.875, "pose": "release", "contacts": [], "event": "grapple_released", "interruptible": true},
+        {"frame": 15, "time_ms": 1250, "phase": 0.9375, "pose": "free_flight_recover", "contacts": [], "event": null, "interruptible": true}
+      ]
+    }
+  }
+}

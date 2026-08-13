@@ -1,0 +1,123 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bnfr4khcwfh53"]
+
+[ext_resource type="Texture2D" uid="uid://dcsa6ul3eyb2c" path="res://assets/effects/explosions/bazooka-explosion.png" id="1_2ipei"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1n2q"]
+atlas = ExtResource("1_2ipei")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2vrj"]
+atlas = ExtResource("1_2ipei")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2dlf"]
+atlas = ExtResource("1_2ipei")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a0vx"]
+atlas = ExtResource("1_2ipei")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2v7f"]
+atlas = ExtResource("1_2ipei")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pc7b"]
+atlas = ExtResource("1_2ipei")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqwaf"]
+atlas = ExtResource("1_2ipei")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hrcw"]
+atlas = ExtResource("1_2ipei")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c5l7"]
+atlas = ExtResource("1_2ipei")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir20w"]
+atlas = ExtResource("1_2ipei")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fbvt"]
+atlas = ExtResource("1_2ipei")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw3ke"]
+atlas = ExtResource("1_2ipei")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbpie"]
+atlas = ExtResource("1_2ipei")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol2e2"]
+atlas = ExtResource("1_2ipei")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b32cr"]
+atlas = ExtResource("1_2ipei")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sitey"]
+atlas = ExtResource("1_2ipei")
+region = Rect2(192, 192, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1n2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2vrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2dlf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a0vx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2v7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pc7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqwaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hrcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c5l7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir20w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fbvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw3ke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbpie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol2e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b32cr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sitey")
+}],
+"loop": 0,
+"name": &"explode",
+"speed": 18.0
+}]

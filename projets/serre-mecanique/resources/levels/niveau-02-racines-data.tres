@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LevelDefinition" format=3]
+
+[ext_resource type="Script" path="res://addons/my_space_core/levels/level_definition.gd" id="1_8ovuo"]
+
+[resource]
+script = ExtResource("1_8ovuo")
+level_id = "niveau-02-racines"
+display_name = "La chambre des racines"
+source_tmx = "res://maps/niveau-02-racines.tmx"
+map_size_tiles = Vector2i(50, 24)
+player_spawn = Vector2(64, 640)
+camera_limits = Rect2i(0, 0, 1600, 768)

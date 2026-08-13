@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cfsftn50w3occ"]
+
+[ext_resource type="Script" uid="uid://cg1e1e46lanfw" path="res://game/serre/gameplay/main.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://chaoqj86egmxi" path="res://scenes/levels/niveau-01-serre.tscn" id="2_level"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_player"]
+
+[node name="Main" type="Node2D" unique_id=1276518946]
+script = ExtResource("1_main")
+
+[node name="Level" parent="." unique_id=109180096 instance=ExtResource("2_level")]
+
+[node name="Player" parent="." unique_id=589085231 instance=ExtResource("3_player")]
+
+[node name="Interface" type="CanvasLayer" parent="." unique_id=634616537]
+
+[node name="Instructions" type="Label" parent="Interface" unique_id=897428765]
+offset_left = 20.0
+offset_top = 18.0
+offset_right = 1120.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.73, 0.91, 0.82, 1)
+theme_override_colors/font_shadow_color = Color(0.02, 0.04, 0.04, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 18
+text = "Q/D : marcher    Espace : sauter    C : ranger    Z/S : échelle ou corde    Souris + clic gauche : utiliser    R : recommencer"

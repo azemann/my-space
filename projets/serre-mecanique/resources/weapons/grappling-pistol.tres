@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3 uid="uid://b8ii1ko6qsp6n"]
+
+[ext_resource type="Script" uid="uid://bo7gmmx2vb6id" path="res://addons/my_space_core/equipment/weapon_definition.gd" id="1_definition"]
+[ext_resource type="Texture2D" uid="uid://bxd7x672cdhp7" path="res://assets/weapons/grappling-pistol-v001.png" id="2_texture"]
+
+[resource]
+script = ExtResource("1_definition")
+weapon_id = &"grappling_pistol"
+display_name = "Pistolet-grappin"
+category = 2
+gameplay_description = "Outil de mobilité. Accroche les plateformes one_way et les surfaces grapple_surface, permet de se balancer et de modifier la longueur de la corde avec les actions dédiées."
+texture = ExtResource("2_texture")
+visual_scale = Vector2(0.78, 0.78)
+muzzle_offset = Vector2(27, 0)
+selection_icon = ExtResource("2_texture")
+selector_order = 10

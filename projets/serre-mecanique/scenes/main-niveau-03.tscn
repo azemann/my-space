@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bk8x0tpm1m30s"]
+
+[ext_resource type="Script" uid="uid://cg1e1e46lanfw" path="res://game/serre/gameplay/main.gd" id="1_main"]
+[ext_resource type="PackedScene" path="res://scenes/levels/niveau-03-automates.tscn" id="2_level"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_player"]
+
+[node name="MainNiveau03" type="Node2D" unique_id=286279635]
+script = ExtResource("1_main")
+
+[node name="Level" parent="." unique_id=814374682 instance=ExtResource("2_level")]
+
+[node name="Player" parent="." unique_id=748280246 instance=ExtResource("3_player")]
+
+[node name="Interface" type="CanvasLayer" parent="." unique_id=378360633]
+
+[node name="Titre" type="Label" parent="Interface" unique_id=1243450973]
+offset_left = 20.0
+offset_top = 18.0
+offset_right = 560.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.83, 0.69, 0.38, 1)
+theme_override_colors/font_shadow_color = Color(0.02, 0.04, 0.04, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 20
+text = "Niveau 3 — La nef des automates"
+
+[node name="Instructions" type="Label" parent="Interface" unique_id=610800437]
+offset_left = 20.0
+offset_top = 48.0
+offset_right = 1160.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.73, 0.91, 0.82, 1)
+theme_override_colors/font_shadow_color = Color(0.02, 0.04, 0.04, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 16
+text = "Q/D : marcher    Espace : sauter    C : ranger    Z/S : échelle ou corde    Souris + clic gauche : utiliser    R : recommencer"

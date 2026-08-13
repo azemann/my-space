@@ -1,0 +1,1272 @@
+{
+  "schema": "serre-mecanique.character-animation-runtime-qa.v1",
+  "frame_size": [
+    64,
+    64
+  ],
+  "pivot": [
+    32,
+    60
+  ],
+  "safe_maximum": [
+    60,
+    56
+  ],
+  "animations": {
+    "idle": {
+      "source": "sources/imagegen/processed/player-idle-4x4-alpha-v001.png",
+      "output": "assets/characters/player/animations/idle.png",
+      "common_scale": 0.229508,
+      "maximum_source_size": [
+        132,
+        244
+      ],
+      "frames": [
+        {
+          "frame": 0,
+          "source_bbox": [
+            68,
+            29,
+            130,
+            243
+          ],
+          "runtime_bbox": [
+            17,
+            4,
+            30,
+            56
+          ]
+        },
+        {
+          "frame": 1,
+          "source_bbox": [
+            310,
+            29,
+            131,
+            243
+          ],
+          "runtime_bbox": [
+            17,
+            4,
+            30,
+            56
+          ]
+        },
+        {
+          "frame": 2,
+          "source_bbox": [
+            565,
+            29,
+            130,
+            243
+          ],
+          "runtime_bbox": [
+            17,
+            4,
+            30,
+            56
+          ]
+        },
+        {
+          "frame": 3,
+          "source_bbox": [
+            810,
+            29,
+            131,
+            243
+          ],
+          "runtime_bbox": [
+            17,
+            4,
+            30,
+            56
+          ]
+        },
+        {
+          "frame": 4,
+          "source_bbox": [
+            67,
+            287,
+            130,
+            243
+          ],
+          "runtime_bbox": [
+            17,
+            4,
+            30,
+            56
+          ]
+        },
+        {
+          "frame": 5,
+          "source_bbox": [
+            312,
+            286,
+            129,
+            244
+          ],
+          "runtime_bbox": [
+            17,
+            4,
+            30,
+            56
+          ]
+        },
+        {
+          "frame": 6,
+          "source_bbox": [
+            564,
+            287,
+            130,
+            243
+          ],
+          "runtime_bbox": [
+            17,
+            4,
+            30,
+            56
+          ]
+        },
+        {
+          "frame": 7,
+          "source_bbox": [
+            809,
+            287,
+            132,
+            244
+          ],
+          "runtime_bbox": [
+            17,
+            4,
+            30,
+            56
+          ]
+        },
+        {
+          "frame": 8,
+          "source_bbox": [
+            68,
+            547,
+            125,
+            233
+          ],
+          "runtime_bbox": [
+            18,
+            7,
+            29,
+            53
+          ]
+        },
+        {
+          "frame": 9,
+          "source_bbox": [
+            312,
+            546,
+            125,
+            235
+          ],
+          "runtime_bbox": [
+            18,
+            6,
+            29,
+            54
+          ]
+        },
+        {
+          "frame": 10,
+          "source_bbox": [
+            569,
+            547,
+            124,
+            233
+          ],
+          "runtime_bbox": [
+            18,
+            7,
+            28,
+            53
+          ]
+        },
+        {
+          "frame": 11,
+          "source_bbox": [
+            813,
+            547,
+            125,
+            233
+          ],
+          "runtime_bbox": [
+            18,
+            7,
+            29,
+            53
+          ]
+        },
+        {
+          "frame": 12,
+          "source_bbox": [
+            72,
+            795,
+            119,
+            220
+          ],
+          "runtime_bbox": [
+            19,
+            10,
+            27,
+            50
+          ]
+        },
+        {
+          "frame": 13,
+          "source_bbox": [
+            314,
+            793,
+            118,
+            222
+          ],
+          "runtime_bbox": [
+            19,
+            9,
+            27,
+            51
+          ]
+        },
+        {
+          "frame": 14,
+          "source_bbox": [
+            568,
+            793,
+            119,
+            222
+          ],
+          "runtime_bbox": [
+            19,
+            9,
+            27,
+            51
+          ]
+        },
+        {
+          "frame": 15,
+          "source_bbox": [
+            814,
+            796,
+            119,
+            219
+          ],
+          "runtime_bbox": [
+            19,
+            10,
+            27,
+            50
+          ]
+        }
+      ]
+    },
+    "walk": {
+      "source": "sources/imagegen/processed/player-walk-4x4-alpha-v001.png",
+      "output": "assets/characters/player/animations/walk.png",
+      "common_scale": 0.242424,
+      "maximum_source_size": [
+        148,
+        231
+      ],
+      "frames": [
+        {
+          "frame": 0,
+          "source_bbox": [
+            73,
+            38,
+            134,
+            231
+          ],
+          "runtime_bbox": [
+            16,
+            4,
+            32,
+            56
+          ]
+        },
+        {
+          "frame": 1,
+          "source_bbox": [
+            332,
+            48,
+            107,
+            222
+          ],
+          "runtime_bbox": [
+            19,
+            6,
+            26,
+            54
+          ]
+        },
+        {
+          "frame": 2,
+          "source_bbox": [
+            567,
+            42,
+            131,
+            228
+          ],
+          "runtime_bbox": [
+            16,
+            5,
+            32,
+            55
+          ]
+        },
+        {
+          "frame": 3,
+          "source_bbox": [
+            810,
+            48,
+            143,
+            221
+          ],
+          "runtime_bbox": [
+            15,
+            6,
+            35,
+            54
+          ]
+        },
+        {
+          "frame": 4,
+          "source_bbox": [
+            73,
+            293,
+            133,
+            230
+          ],
+          "runtime_bbox": [
+            16,
+            4,
+            32,
+            56
+          ]
+        },
+        {
+          "frame": 5,
+          "source_bbox": [
+            317,
+            293,
+            124,
+            226
+          ],
+          "runtime_bbox": [
+            17,
+            5,
+            30,
+            55
+          ]
+        },
+        {
+          "frame": 6,
+          "source_bbox": [
+            554,
+            292,
+            148,
+            231
+          ],
+          "runtime_bbox": [
+            14,
+            4,
+            36,
+            56
+          ]
+        },
+        {
+          "frame": 7,
+          "source_bbox": [
+            816,
+            292,
+            128,
+            230
+          ],
+          "runtime_bbox": [
+            17,
+            4,
+            31,
+            56
+          ]
+        },
+        {
+          "frame": 8,
+          "source_bbox": [
+            79,
+            546,
+            117,
+            226
+          ],
+          "runtime_bbox": [
+            18,
+            5,
+            28,
+            55
+          ]
+        },
+        {
+          "frame": 9,
+          "source_bbox": [
+            314,
+            546,
+            133,
+            222
+          ],
+          "runtime_bbox": [
+            16,
+            6,
+            32,
+            54
+          ]
+        },
+        {
+          "frame": 10,
+          "source_bbox": [
+            569,
+            546,
+            124,
+            223
+          ],
+          "runtime_bbox": [
+            17,
+            6,
+            30,
+            54
+          ]
+        },
+        {
+          "frame": 11,
+          "source_bbox": [
+            817,
+            546,
+            133,
+            226
+          ],
+          "runtime_bbox": [
+            16,
+            5,
+            32,
+            55
+          ]
+        },
+        {
+          "frame": 12,
+          "source_bbox": [
+            73,
+            788,
+            124,
+            219
+          ],
+          "runtime_bbox": [
+            17,
+            7,
+            30,
+            53
+          ]
+        },
+        {
+          "frame": 13,
+          "source_bbox": [
+            317,
+            787,
+            125,
+            220
+          ],
+          "runtime_bbox": [
+            17,
+            7,
+            30,
+            53
+          ]
+        },
+        {
+          "frame": 14,
+          "source_bbox": [
+            564,
+            788,
+            125,
+            219
+          ],
+          "runtime_bbox": [
+            17,
+            7,
+            30,
+            53
+          ]
+        },
+        {
+          "frame": 15,
+          "source_bbox": [
+            809,
+            789,
+            139,
+            218
+          ],
+          "runtime_bbox": [
+            15,
+            7,
+            34,
+            53
+          ]
+        }
+      ]
+    },
+    "jump": {
+      "source": "sources/imagegen/processed/player-jump-4x4-alpha-v001.png",
+      "output": "assets/characters/player/animations/jump.png",
+      "common_scale": 0.271845,
+      "maximum_source_size": [
+        141,
+        206
+      ],
+      "frames": [
+        {
+          "frame": 0,
+          "source_bbox": [
+            97,
+            72,
+            104,
+            176
+          ],
+          "runtime_bbox": [
+            18,
+            12,
+            28,
+            48
+          ]
+        },
+        {
+          "frame": 1,
+          "source_bbox": [
+            333,
+            95,
+            112,
+            153
+          ],
+          "runtime_bbox": [
+            17,
+            18,
+            30,
+            42
+          ]
+        },
+        {
+          "frame": 2,
+          "source_bbox": [
+            565,
+            98,
+            119,
+            151
+          ],
+          "runtime_bbox": [
+            16,
+            19,
+            32,
+            41
+          ]
+        },
+        {
+          "frame": 3,
+          "source_bbox": [
+            785,
+            46,
+            124,
+            202
+          ],
+          "runtime_bbox": [
+            15,
+            5,
+            34,
+            55
+          ]
+        },
+        {
+          "frame": 4,
+          "source_bbox": [
+            73,
+            295,
+            125,
+            193
+          ],
+          "runtime_bbox": [
+            15,
+            8,
+            34,
+            52
+          ]
+        },
+        {
+          "frame": 5,
+          "source_bbox": [
+            301,
+            269,
+            120,
+            206
+          ],
+          "runtime_bbox": [
+            16,
+            4,
+            33,
+            56
+          ]
+        },
+        {
+          "frame": 6,
+          "source_bbox": [
+            545,
+            275,
+            127,
+            179
+          ],
+          "runtime_bbox": [
+            15,
+            11,
+            35,
+            49
+          ]
+        },
+        {
+          "frame": 7,
+          "source_bbox": [
+            790,
+            267,
+            114,
+            173
+          ],
+          "runtime_bbox": [
+            17,
+            13,
+            31,
+            47
+          ]
+        },
+        {
+          "frame": 8,
+          "source_bbox": [
+            76,
+            529,
+            103,
+            160
+          ],
+          "runtime_bbox": [
+            18,
+            17,
+            28,
+            43
+          ]
+        },
+        {
+          "frame": 9,
+          "source_bbox": [
+            305,
+            525,
+            100,
+            150
+          ],
+          "runtime_bbox": [
+            19,
+            19,
+            27,
+            41
+          ]
+        },
+        {
+          "frame": 10,
+          "source_bbox": [
+            546,
+            520,
+            126,
+            165
+          ],
+          "runtime_bbox": [
+            15,
+            15,
+            34,
+            45
+          ]
+        },
+        {
+          "frame": 11,
+          "source_bbox": [
+            793,
+            514,
+            131,
+            187
+          ],
+          "runtime_bbox": [
+            14,
+            9,
+            36,
+            51
+          ]
+        },
+        {
+          "frame": 12,
+          "source_bbox": [
+            81,
+            747,
+            126,
+            205
+          ],
+          "runtime_bbox": [
+            15,
+            4,
+            34,
+            56
+          ]
+        },
+        {
+          "frame": 13,
+          "source_bbox": [
+            309,
+            759,
+            128,
+            198
+          ],
+          "runtime_bbox": [
+            15,
+            6,
+            35,
+            54
+          ]
+        },
+        {
+          "frame": 14,
+          "source_bbox": [
+            542,
+            793,
+            141,
+            164
+          ],
+          "runtime_bbox": [
+            13,
+            15,
+            38,
+            45
+          ]
+        },
+        {
+          "frame": 15,
+          "source_bbox": [
+            797,
+            814,
+            126,
+            143
+          ],
+          "runtime_bbox": [
+            15,
+            21,
+            34,
+            39
+          ]
+        }
+      ]
+    },
+    "climb": {
+      "source": "sources/imagegen/processed/player-climb-4x4-alpha-v003.png",
+      "output": "assets/characters/player/animations/climb.png",
+      "common_scale": 0.273171,
+      "maximum_source_size": [
+        123,
+        205
+      ],
+      "frames": [
+        {
+          "frame": 0,
+          "source_bbox": [
+            97,
+            40,
+            104,
+            205
+          ],
+          "runtime_bbox": [
+            18,
+            4,
+            28,
+            56
+          ]
+        },
+        {
+          "frame": 1,
+          "source_bbox": [
+            323,
+            41,
+            105,
+            204
+          ],
+          "runtime_bbox": [
+            18,
+            4,
+            29,
+            56
+          ]
+        },
+        {
+          "frame": 2,
+          "source_bbox": [
+            556,
+            51,
+            114,
+            194
+          ],
+          "runtime_bbox": [
+            17,
+            7,
+            31,
+            53
+          ]
+        },
+        {
+          "frame": 3,
+          "source_bbox": [
+            796,
+            49,
+            115,
+            196
+          ],
+          "runtime_bbox": [
+            17,
+            6,
+            31,
+            54
+          ]
+        },
+        {
+          "frame": 4,
+          "source_bbox": [
+            88,
+            296,
+            121,
+            192
+          ],
+          "runtime_bbox": [
+            16,
+            8,
+            33,
+            52
+          ]
+        },
+        {
+          "frame": 5,
+          "source_bbox": [
+            313,
+            296,
+            122,
+            192
+          ],
+          "runtime_bbox": [
+            16,
+            8,
+            33,
+            52
+          ]
+        },
+        {
+          "frame": 6,
+          "source_bbox": [
+            556,
+            296,
+            117,
+            192
+          ],
+          "runtime_bbox": [
+            16,
+            8,
+            32,
+            52
+          ]
+        },
+        {
+          "frame": 7,
+          "source_bbox": [
+            791,
+            296,
+            123,
+            192
+          ],
+          "runtime_bbox": [
+            15,
+            8,
+            34,
+            52
+          ]
+        },
+        {
+          "frame": 8,
+          "source_bbox": [
+            92,
+            539,
+            106,
+            204
+          ],
+          "runtime_bbox": [
+            18,
+            4,
+            29,
+            56
+          ]
+        },
+        {
+          "frame": 9,
+          "source_bbox": [
+            318,
+            539,
+            98,
+            204
+          ],
+          "runtime_bbox": [
+            19,
+            4,
+            27,
+            56
+          ]
+        },
+        {
+          "frame": 10,
+          "source_bbox": [
+            556,
+            539,
+            108,
+            204
+          ],
+          "runtime_bbox": [
+            17,
+            4,
+            30,
+            56
+          ]
+        },
+        {
+          "frame": 11,
+          "source_bbox": [
+            801,
+            539,
+            103,
+            204
+          ],
+          "runtime_bbox": [
+            18,
+            4,
+            28,
+            56
+          ]
+        },
+        {
+          "frame": 12,
+          "source_bbox": [
+            90,
+            783,
+            118,
+            194
+          ],
+          "runtime_bbox": [
+            16,
+            7,
+            32,
+            53
+          ]
+        },
+        {
+          "frame": 13,
+          "source_bbox": [
+            315,
+            784,
+            119,
+            193
+          ],
+          "runtime_bbox": [
+            16,
+            7,
+            33,
+            53
+          ]
+        },
+        {
+          "frame": 14,
+          "source_bbox": [
+            558,
+            785,
+            119,
+            192
+          ],
+          "runtime_bbox": [
+            16,
+            8,
+            33,
+            52
+          ]
+        },
+        {
+          "frame": 15,
+          "source_bbox": [
+            790,
+            784,
+            121,
+            193
+          ],
+          "runtime_bbox": [
+            16,
+            7,
+            33,
+            53
+          ]
+        }
+      ]
+    },
+    "grapple": {
+      "source": "sources/imagegen/processed/player-grapple-4x4-alpha-v001.png",
+      "output": "assets/characters/player/animations/grapple.png",
+      "common_scale": 0.285714,
+      "maximum_source_size": [
+        210,
+        192
+      ],
+      "frames": [
+        {
+          "frame": 0,
+          "source_bbox": [
+            78,
+            63,
+            134,
+            179
+          ],
+          "runtime_bbox": [
+            13,
+            9,
+            38,
+            51
+          ]
+        },
+        {
+          "frame": 1,
+          "source_bbox": [
+            304,
+            71,
+            146,
+            171
+          ],
+          "runtime_bbox": [
+            11,
+            11,
+            42,
+            49
+          ]
+        },
+        {
+          "frame": 2,
+          "source_bbox": [
+            562,
+            50,
+            140,
+            192
+          ],
+          "runtime_bbox": [
+            12,
+            5,
+            40,
+            55
+          ]
+        },
+        {
+          "frame": 3,
+          "source_bbox": [
+            797,
+            47,
+            153,
+            192
+          ],
+          "runtime_bbox": [
+            10,
+            5,
+            44,
+            55
+          ]
+        },
+        {
+          "frame": 4,
+          "source_bbox": [
+            66,
+            293,
+            146,
+            190
+          ],
+          "runtime_bbox": [
+            11,
+            6,
+            42,
+            54
+          ]
+        },
+        {
+          "frame": 5,
+          "source_bbox": [
+            299,
+            293,
+            157,
+            191
+          ],
+          "runtime_bbox": [
+            10,
+            5,
+            45,
+            55
+          ]
+        },
+        {
+          "frame": 6,
+          "source_bbox": [
+            540,
+            293,
+            155,
+            191
+          ],
+          "runtime_bbox": [
+            10,
+            5,
+            44,
+            55
+          ]
+        },
+        {
+          "frame": 7,
+          "source_bbox": [
+            790,
+            287,
+            167,
+            187
+          ],
+          "runtime_bbox": [
+            8,
+            7,
+            48,
+            53
+          ]
+        },
+        {
+          "frame": 8,
+          "source_bbox": [
+            42,
+            544,
+            187,
+            179
+          ],
+          "runtime_bbox": [
+            6,
+            9,
+            53,
+            51
+          ]
+        },
+        {
+          "frame": 9,
+          "source_bbox": [
+            270,
+            544,
+            192,
+            178
+          ],
+          "runtime_bbox": [
+            5,
+            9,
+            55,
+            51
+          ]
+        },
+        {
+          "frame": 10,
+          "source_bbox": [
+            500,
+            549,
+            210,
+            165
+          ],
+          "runtime_bbox": [
+            2,
+            13,
+            60,
+            47
+          ]
+        },
+        {
+          "frame": 11,
+          "source_bbox": [
+            755,
+            549,
+            207,
+            173
+          ],
+          "runtime_bbox": [
+            3,
+            11,
+            59,
+            49
+          ]
+        },
+        {
+          "frame": 12,
+          "source_bbox": [
+            70,
+            794,
+            136,
+            145
+          ],
+          "runtime_bbox": [
+            13,
+            19,
+            39,
+            41
+          ]
+        },
+        {
+          "frame": 13,
+          "source_bbox": [
+            305,
+            794,
+            129,
+            148
+          ],
+          "runtime_bbox": [
+            14,
+            18,
+            37,
+            42
+          ]
+        },
+        {
+          "frame": 14,
+          "source_bbox": [
+            536,
+            785,
+            157,
+            177
+          ],
+          "runtime_bbox": [
+            10,
+            9,
+            45,
+            51
+          ]
+        },
+        {
+          "frame": 15,
+          "source_bbox": [
+            775,
+            785,
+            174,
+            186
+          ],
+          "runtime_bbox": [
+            7,
+            7,
+            50,
+            53
+          ]
+        }
+      ]
+    }
+  }
+}

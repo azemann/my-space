@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CameraProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/my_space_core/config/camera_profile.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+offset = Vector2(0, -80)
+smoothing_enabled = true
+smoothing_speed = 7.0
+limits = Rect2i(0, 0, 1600, 768)

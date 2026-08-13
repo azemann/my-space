@@ -1,0 +1,683 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://addons/my_space_core/levels/level_native.gd" id="1_3kttb"]
+[ext_resource type="Resource" path="res://resources/levels/niveau-02-gabarit-data.tres" id="2_lprgj"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/niveau-02-serre-mecanique-32x32-v002.png" id="3_n284j"]
+[ext_resource type="PhysicsMaterial" path="res://resources/physics/ground-material.tres" id="4_1r3nn"]
+[ext_resource type="PackedScene" path="res://scenes/objects/movement/climbable_area.tscn" id="5_3a1no"]
+[ext_resource type="Script" path="res://game/serre/gameplay/ladder_area.gd" id="6_nutls"]
+[ext_resource type="PackedScene" path="res://scenes/objects/movement/bounce_pad.tscn" id="7_xfq7p"]
+[ext_resource type="Script" path="res://game/serre/gameplay/gameplay_area.gd" id="8_45w12"]
+[ext_resource type="Resource" path="res://resources/interactions/bounce-default.tres" id="9_s4j1q"]
+[ext_resource type="PackedScene" path="res://scenes/objects/zones/gameplay_zone.tscn" id="10_oiunu"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hazards/hazard_area.tscn" id="11_b618e"]
+[ext_resource type="Resource" path="res://resources/interactions/hazard-default.tres" id="12_j1d3s"]
+[ext_resource type="PackedScene" path="res://scenes/objects/interactions/checkpoint_area.tscn" id="13_d6yed"]
+[ext_resource type="Resource" path="res://resources/interactions/checkpoint-default.tres" id="14_vx745"]
+[ext_resource type="PackedScene" path="res://scenes/objects/interactions/collectible_area.tscn" id="15_puvy6"]
+[ext_resource type="Resource" path="res://resources/interactions/collectible-default.tres" id="16_6dwyc"]
+[ext_resource type="PackedScene" path="res://scenes/objects/interactions/switch_area.tscn" id="17_xoho3"]
+[ext_resource type="PackedScene" path="res://scenes/objects/interactions/exit_door.tscn" id="18_0ru8b"]
+[ext_resource type="Resource" path="res://resources/interactions/exit-default.tres" id="19_nasuf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_46bu2"]
+texture = ExtResource("3_n284j")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8i17l"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_46bu2")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oeloy"]
+size = Vector2(192, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohbxg"]
+size = Vector2(192, 8)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_oxdst"]
+a = Vector2(0, 96)
+b = Vector2(48, 32)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pgwvm"]
+a = Vector2(48, 32)
+b = Vector2(96, 64)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6d26p"]
+a = Vector2(96, 64)
+b = Vector2(144, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mp28o"]
+size = Vector2(32, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijaxx"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlbew"]
+size = Vector2(160, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3k55a"]
+size = Vector2(96, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kak70"]
+size = Vector2(128, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqwst"]
+size = Vector2(96, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_am2rh"]
+size = Vector2(1600, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3bp4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8k7p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abeg3"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckyel"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73s4n"]
+size = Vector2(64, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53m5y"]
+size = Vector2(96, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4fgb"]
+size = Vector2(1600, 768)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3pnr"]
+size = Vector2(320, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sv7fo"]
+size = Vector2(1600, 768)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_t1sc7"]
+b = Vector2(128, -64)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_w76c5"]
+a = Vector2(128, -64)
+b = Vector2(256, 0)
+
+[node name="Niveau02Gabarit" type="Node2D" unique_id=1476755027]
+script = ExtResource("1_3kttb")
+definition = ExtResource("2_lprgj")
+metadata/level_id = "niveau-02-a-definir"
+metadata/level_name = "Niveau 2 — à définir"
+metadata/music = ""
+metadata/pixel_perfect = true
+metadata/template_version = 1
+
+[node name="CalquesTuiles" type="Node2D" parent="." unique_id=537267960]
+
+[node name="01—ArrièrePlanLointain" type="TileMapLayer" parent="CalquesTuiles" unique_id=499324030]
+modulate = Color(1, 1, 1, 0.45)
+z_index = -30
+tile_set = SubResource("TileSet_8i17l")
+metadata/source_tiled_layer = "01 — Arrière-plan lointain"
+metadata/parallax = Vector2(0.35, 0.45)
+metadata/z_index = -30
+metadata/locked_after_blockout = false
+
+[node name="02—ArrièrePlanProche" type="TileMapLayer" parent="CalquesTuiles" unique_id=153145276]
+modulate = Color(1, 1, 1, 0.7)
+z_index = -20
+tile_set = SubResource("TileSet_8i17l")
+metadata/source_tiled_layer = "02 — Arrière-plan proche"
+metadata/parallax = Vector2(0.7, 0.8)
+metadata/z_index = -20
+metadata/locked_after_blockout = false
+
+[node name="03—Structures" type="TileMapLayer" parent="CalquesTuiles" unique_id=2024208839]
+z_index = -10
+tile_set = SubResource("TileSet_8i17l")
+metadata/source_tiled_layer = "03 — Structures"
+metadata/parallax = Vector2(1, 1)
+metadata/z_index = -10
+metadata/locked_after_blockout = false
+
+[node name="04—Terrain" type="TileMapLayer" parent="CalquesTuiles" unique_id=967794043]
+tile_set = SubResource("TileSet_8i17l")
+metadata/source_tiled_layer = "04 — Terrain"
+metadata/parallax = Vector2(1, 1)
+metadata/z_index = 0
+metadata/locked_after_blockout = false
+
+[node name="05—Plateformes" type="TileMapLayer" parent="CalquesTuiles" unique_id=570977331]
+z_index = 5
+tile_set = SubResource("TileSet_8i17l")
+metadata/source_tiled_layer = "05 — Plateformes"
+metadata/parallax = Vector2(1, 1)
+metadata/z_index = 5
+metadata/locked_after_blockout = false
+
+[node name="06—GameplayVisible" type="TileMapLayer" parent="CalquesTuiles" unique_id=1022365686]
+z_index = 10
+tile_set = SubResource("TileSet_8i17l")
+metadata/source_tiled_layer = "06 — Gameplay visible"
+metadata/parallax = Vector2(1, 1)
+metadata/z_index = 10
+metadata/locked_after_blockout = false
+
+[node name="07—Décoration" type="TileMapLayer" parent="CalquesTuiles" unique_id=877913586]
+z_index = 20
+tile_set = SubResource("TileSet_8i17l")
+metadata/source_tiled_layer = "07 — Décoration"
+metadata/parallax = Vector2(1, 1)
+metadata/z_index = 20
+metadata/locked_after_blockout = false
+
+[node name="08—PremierPlan" type="TileMapLayer" parent="CalquesTuiles" unique_id=912638711]
+z_index = 30
+tile_set = SubResource("TileSet_8i17l")
+metadata/source_tiled_layer = "08 — Premier plan"
+metadata/parallax = Vector2(1.08, 1.04)
+metadata/z_index = 30
+metadata/locked_after_blockout = false
+
+[node name="CalquesObjets" type="Node2D" parent="." unique_id=1036990477]
+
+[node name="10—Collisions" type="Node2D" parent="CalquesObjets" unique_id=683308492]
+metadata/source_tiled_layer = "10 — Collisions"
+metadata/color = "#ff5c5c"
+metadata/godot_role = "collision"
+metadata/z_index = 0
+
+[node name="ExempleSolide" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=1064588141]
+position = Vector2(64, 640)
+physics_material_override = ExtResource("4_1r3nn")
+metadata/tiled_id = 1
+metadata/tiled_type = "solid"
+metadata/tiled_shape = "rectangle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/ExempleSolide" unique_id=360349146]
+position = Vector2(96, 32)
+shape = SubResource("RectangleShape2D_oeloy")
+one_way_collision_margin = 3.0
+
+[node name="ExempleSensUnique" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=1421517406]
+position = Vector2(320, 576)
+physics_material_override = ExtResource("4_1r3nn")
+metadata/tiled_id = 2
+metadata/tiled_type = "one_way"
+metadata/tiled_shape = "rectangle"
+metadata/one_way_margin = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/ExempleSensUnique" unique_id=183914971]
+position = Vector2(96, 4)
+shape = SubResource("RectangleShape2D_ohbxg")
+one_way_collision = true
+one_way_collision_margin = 3.0
+
+[node name="ExemplePente" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=745696317]
+position = Vector2(576, 640)
+physics_material_override = ExtResource("4_1r3nn")
+metadata/tiled_id = 3
+metadata/tiled_type = "slope"
+metadata/tiled_shape = "polygon"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CalquesObjets/10—Collisions/ExemplePente" unique_id=2043943903]
+polygon = PackedVector2Array(0, 0, 160, -96, 160, 0)
+one_way_collision_margin = 3.0
+
+[node name="ExempleMurIrregulier" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=1079346060]
+position = Vector2(800, 544)
+physics_material_override = ExtResource("4_1r3nn")
+metadata/tiled_id = 4
+metadata/tiled_type = "wall"
+metadata/tiled_shape = "polyline"
+
+[node name="Segment01" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/ExempleMurIrregulier" unique_id=2013319135]
+shape = SubResource("SegmentShape2D_oxdst")
+one_way_collision_margin = 3.0
+
+[node name="Segment02" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/ExempleMurIrregulier" unique_id=1838617783]
+shape = SubResource("SegmentShape2D_pgwvm")
+one_way_collision_margin = 3.0
+
+[node name="Segment03" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/ExempleMurIrregulier" unique_id=460080819]
+shape = SubResource("SegmentShape2D_6d26p")
+one_way_collision_margin = 3.0
+
+[node name="ExempleCollisionRonde" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=2060862328]
+position = Vector2(1024, 576)
+physics_material_override = ExtResource("4_1r3nn")
+metadata/tiled_id = 5
+metadata/tiled_type = "solid"
+metadata/tiled_shape = "ellipse"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CalquesObjets/10—Collisions/ExempleCollisionRonde" unique_id=939400122]
+polygon = PackedVector2Array(64, 32, 61.564144, 44.24587, 54.62742, 54.62742, 44.24587, 61.564144, 32, 64, 19.754131, 61.564144, 9.372583, 54.62742, 2.4358559, 44.24587, 0, 32, 2.4358559, 19.754131, 9.372583, 9.372583, 19.754131, 2.4358559, 32, 0, 44.24587, 2.4358559, 54.62742, 9.372583, 61.564144, 19.754131)
+one_way_collision_margin = 3.0
+
+[node name="11—Mouvements" type="Node2D" parent="CalquesObjets" unique_id=7711544]
+metadata/source_tiled_layer = "11 — Mouvements"
+metadata/color = "#5ce1ff"
+metadata/godot_role = "gameplay"
+metadata/z_index = 0
+
+[node name="ExempleEchelle" type="Area2D" parent="CalquesObjets/11—Mouvements" unique_id=1886940962 instance=ExtResource("5_3a1no")]
+position = Vector2(128, 352)
+collision_layer = 4
+script = ExtResource("6_nutls")
+metadata/object_family = "movement"
+metadata/tiled_id = 20
+metadata/tiled_type = "climbable"
+metadata/tiled_shape = "rectangle"
+metadata/kind = "climbable"
+metadata/object_scene = "res://scenes/objects/movement/climbable_area.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/11—Mouvements/ExempleEchelle" unique_id=1875925566]
+position = Vector2(16, 96)
+shape = SubResource("RectangleShape2D_mp28o")
+
+[node name="ExempleRessort" type="Area2D" parent="CalquesObjets/11—Mouvements" unique_id=336482319 instance=ExtResource("7_xfq7p")]
+position = Vector2(256, 608)
+collision_layer = 4
+script = ExtResource("8_45w12")
+config = ExtResource("9_s4j1q")
+metadata/object_family = "movement"
+metadata/tiled_id = 21
+metadata/tiled_type = "bounce"
+metadata/tiled_shape = "rectangle"
+metadata/impulse_y = -620.0
+metadata/kind = "bounce"
+metadata/object_scene = "res://scenes/objects/movement/bounce_pad.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/11—Mouvements/ExempleRessort" unique_id=1196442936]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_ijaxx")
+
+[node name="ExempleConvoyeur" type="Area2D" parent="CalquesObjets/11—Mouvements" unique_id=1934162430 instance=ExtResource("10_oiunu")]
+position = Vector2(384, 608)
+collision_layer = 4
+script = ExtResource("8_45w12")
+metadata/object_family = "zone"
+metadata/tiled_id = 22
+metadata/tiled_type = "conveyor"
+metadata/tiled_shape = "rectangle"
+metadata/speed_x = 120.0
+metadata/kind = "conveyor"
+metadata/object_scene = "res://scenes/objects/zones/gameplay_zone.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/11—Mouvements/ExempleConvoyeur" unique_id=175065649]
+position = Vector2(80, 16)
+shape = SubResource("RectangleShape2D_dlbew")
+
+[node name="ExempleVent" type="Area2D" parent="CalquesObjets/11—Mouvements" unique_id=864076684 instance=ExtResource("10_oiunu")]
+position = Vector2(608, 416)
+collision_layer = 4
+script = ExtResource("8_45w12")
+metadata/object_family = "zone"
+metadata/tiled_id = 23
+metadata/tiled_type = "wind"
+metadata/tiled_shape = "rectangle"
+metadata/force_x = 180.0
+metadata/force_y = -40.0
+metadata/kind = "wind"
+metadata/object_scene = "res://scenes/objects/zones/gameplay_zone.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/11—Mouvements/ExempleVent" unique_id=334908342]
+position = Vector2(48, 96)
+shape = SubResource("RectangleShape2D_3k55a")
+
+[node name="ExempleZoneLente" type="Area2D" parent="CalquesObjets/11—Mouvements" unique_id=1681018216 instance=ExtResource("10_oiunu")]
+position = Vector2(768, 576)
+collision_layer = 4
+script = ExtResource("8_45w12")
+metadata/object_family = "zone"
+metadata/tiled_id = 24
+metadata/tiled_type = "slow_zone"
+metadata/tiled_shape = "rectangle"
+metadata/speed_factor = 0.55
+metadata/kind = "slow_zone"
+metadata/object_scene = "res://scenes/objects/zones/gameplay_zone.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/11—Mouvements/ExempleZoneLente" unique_id=406184716]
+position = Vector2(64, 32)
+shape = SubResource("RectangleShape2D_kak70")
+
+[node name="12—Dangers" type="Node2D" parent="CalquesObjets" unique_id=1502330196]
+metadata/source_tiled_layer = "12 — Dangers"
+metadata/color = "#ff8a5c"
+metadata/godot_role = "gameplay"
+metadata/z_index = 0
+
+[node name="ExempleDanger" type="Area2D" parent="CalquesObjets/12—Dangers" unique_id=1165836475 instance=ExtResource("11_b618e")]
+position = Vector2(960, 608)
+collision_layer = 2
+script = ExtResource("8_45w12")
+config = ExtResource("12_j1d3s")
+metadata/object_family = "hazard"
+metadata/tiled_id = 30
+metadata/tiled_type = "hazard"
+metadata/tiled_shape = "rectangle"
+metadata/damage = 1
+metadata/respawn = true
+metadata/kind = "hazard"
+metadata/object_scene = "res://scenes/objects/hazards/hazard_area.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/12—Dangers/ExempleDanger" unique_id=1482467946]
+position = Vector2(48, 16)
+shape = SubResource("RectangleShape2D_qqwst")
+
+[node name="ExempleZoneMort" type="Area2D" parent="CalquesObjets/12—Dangers" unique_id=1888162160 instance=ExtResource("10_oiunu")]
+position = Vector2(0, 768)
+collision_layer = 4
+script = ExtResource("8_45w12")
+metadata/object_family = "zone"
+metadata/tiled_id = 31
+metadata/tiled_type = "death_zone"
+metadata/tiled_shape = "rectangle"
+metadata/respawn = true
+metadata/kind = "death_zone"
+metadata/object_scene = "res://scenes/objects/zones/gameplay_zone.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/12—Dangers/ExempleZoneMort" unique_id=45117908]
+position = Vector2(800, 32)
+shape = SubResource("RectangleShape2D_am2rh")
+
+[node name="13—Entités" type="Node2D" parent="CalquesObjets" unique_id=1191498656]
+metadata/source_tiled_layer = "13 — Entités"
+metadata/color = "#65d6a6"
+metadata/godot_role = "gameplay"
+metadata/z_index = 0
+
+[node name="PlayerSpawn" type="Marker2D" parent="CalquesObjets/13—Entités" unique_id=1158545497]
+position = Vector2(64, 608)
+metadata/tiled_id = 40
+metadata/tiled_type = "player_spawn"
+metadata/tiled_shape = "point"
+metadata/facing = "right"
+metadata/kind = "player_spawn"
+
+[node name="ExempleCheckpoint" type="Area2D" parent="CalquesObjets/13—Entités" unique_id=1434588846 instance=ExtResource("13_d6yed")]
+position = Vector2(480, 544)
+collision_layer = 4
+script = ExtResource("8_45w12")
+config = ExtResource("14_vx745")
+metadata/object_family = "interaction"
+metadata/tiled_id = 41
+metadata/tiled_type = "checkpoint"
+metadata/tiled_shape = "point"
+metadata/checkpoint_id = "cp_01"
+metadata/spawn_offset_y = -24.0
+metadata/kind = "checkpoint"
+metadata/object_scene = "res://scenes/objects/interactions/checkpoint_area.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/13—Entités/ExempleCheckpoint" unique_id=1926148840]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_b3bp4")
+
+[node name="ExempleEnnemi" type="Marker2D" parent="CalquesObjets/13—Entités" unique_id=1544136005]
+position = Vector2(736, 608)
+metadata/tiled_id = 42
+metadata/tiled_type = "enemy_spawn"
+metadata/tiled_shape = "point"
+metadata/archetype = "a_definir"
+metadata/kind = "enemy_spawn"
+
+[node name="ExemplePnj" type="Marker2D" parent="CalquesObjets/13—Entités" unique_id=403470782]
+position = Vector2(864, 608)
+metadata/tiled_id = 43
+metadata/tiled_type = "npc_spawn"
+metadata/tiled_shape = "point"
+metadata/dialogue_id = "a_definir"
+metadata/kind = "npc_spawn"
+
+[node name="ExempleCollectible" type="Area2D" parent="CalquesObjets/13—Entités" unique_id=82958801 instance=ExtResource("15_puvy6")]
+position = Vector2(1152, 512)
+collision_layer = 4
+script = ExtResource("8_45w12")
+config = ExtResource("16_6dwyc")
+metadata/object_family = "interaction"
+metadata/tiled_id = 44
+metadata/tiled_type = "collectible"
+metadata/tiled_shape = "point"
+metadata/value = 1
+metadata/kind = "collectible"
+metadata/object_scene = "res://scenes/objects/interactions/collectible_area.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/13—Entités/ExempleCollectible" unique_id=968372432]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_o8k7p")
+
+[node name="14—Interactions" type="Node2D" parent="CalquesObjets" unique_id=1313240171]
+metadata/source_tiled_layer = "14 — Interactions"
+metadata/color = "#c58cff"
+metadata/godot_role = "gameplay"
+metadata/z_index = 0
+
+[node name="ExempleInteraction" type="Area2D" parent="CalquesObjets/14—Interactions" unique_id=1360513518 instance=ExtResource("17_xoho3")]
+position = Vector2(1056, 576)
+collision_layer = 4
+script = ExtResource("8_45w12")
+metadata/object_family = "interaction"
+metadata/tiled_id = 50
+metadata/tiled_type = "interactable"
+metadata/tiled_shape = "rectangle"
+metadata/action = "a_definir"
+metadata/target = "a_definir"
+metadata/kind = "interactable"
+metadata/object_scene = "res://scenes/objects/interactions/switch_area.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/14—Interactions/ExempleInteraction" unique_id=398711042]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_abeg3")
+
+[node name="ExempleDeclencheur" type="Area2D" parent="CalquesObjets/14—Interactions" unique_id=1018957662 instance=ExtResource("10_oiunu")]
+position = Vector2(1216, 480)
+collision_layer = 4
+script = ExtResource("8_45w12")
+metadata/object_family = "zone"
+metadata/tiled_id = 51
+metadata/tiled_type = "trigger"
+metadata/tiled_shape = "rectangle"
+metadata/event = "a_definir"
+metadata/kind = "trigger"
+metadata/object_scene = "res://scenes/objects/zones/gameplay_zone.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/14—Interactions/ExempleDeclencheur" unique_id=409623426]
+position = Vector2(64, 64)
+shape = SubResource("RectangleShape2D_ckyel")
+
+[node name="ExempleSortie" type="Area2D" parent="CalquesObjets/14—Interactions" unique_id=1233808547 instance=ExtResource("18_0ru8b")]
+position = Vector2(1472, 544)
+collision_layer = 4
+script = ExtResource("8_45w12")
+config = ExtResource("19_nasuf")
+metadata/object_family = "interaction"
+metadata/tiled_id = 52
+metadata/tiled_type = "exit"
+metadata/tiled_shape = "rectangle"
+metadata/next_level = "niveau-03-a-definir"
+metadata/kind = "exit"
+metadata/object_scene = "res://scenes/objects/interactions/exit_door.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/14—Interactions/ExempleSortie" unique_id=1780823651]
+position = Vector2(32, 48)
+shape = SubResource("RectangleShape2D_73s4n")
+
+[node name="ExempleTransition" type="Area2D" parent="CalquesObjets/14—Interactions" unique_id=1562446379 instance=ExtResource("10_oiunu")]
+position = Vector2(1376, 352)
+collision_layer = 4
+script = ExtResource("8_45w12")
+metadata/object_family = "zone"
+metadata/tiled_id = 53
+metadata/tiled_type = "transition"
+metadata/tiled_shape = "rectangle"
+metadata/target = "zone_a_definir"
+metadata/kind = "transition"
+metadata/object_scene = "res://scenes/objects/zones/gameplay_zone.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/14—Interactions/ExempleTransition" unique_id=1350978003]
+position = Vector2(48, 80)
+shape = SubResource("RectangleShape2D_53m5y")
+
+[node name="15—Caméra" type="Node2D" parent="CalquesObjets" unique_id=1652864357]
+visible = false
+metadata/source_tiled_layer = "15 — Caméra"
+metadata/color = "#ffd65c"
+metadata/godot_role = "camera"
+metadata/z_index = 0
+
+[node name="LimitesCamera" type="Area2D" parent="CalquesObjets/15—Caméra" unique_id=688099312]
+collision_layer = 4
+monitoring = false
+monitorable = false
+metadata/tiled_id = 60
+metadata/tiled_type = "camera_bounds"
+metadata/tiled_shape = "rectangle"
+metadata/kind = "camera_bounds"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/15—Caméra/LimitesCamera" unique_id=1673961130]
+position = Vector2(800, 384)
+shape = SubResource("RectangleShape2D_d4fgb")
+
+[node name="ExempleFocusCamera" type="Area2D" parent="CalquesObjets/15—Caméra" unique_id=737088877]
+position = Vector2(640, 256)
+collision_layer = 4
+monitoring = false
+monitorable = false
+metadata/tiled_id = 61
+metadata/tiled_type = "camera_focus"
+metadata/tiled_shape = "rectangle"
+metadata/priority = 1
+metadata/zoom = 1.0
+metadata/kind = "camera_focus"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/15—Caméra/ExempleFocusCamera" unique_id=696104699]
+position = Vector2(160, 128)
+shape = SubResource("RectangleShape2D_j3pnr")
+
+[node name="16—Audio" type="Node2D" parent="CalquesObjets" unique_id=305918831]
+visible = false
+metadata/source_tiled_layer = "16 — Audio"
+metadata/color = "#5cc8ff"
+metadata/godot_role = "audio"
+metadata/z_index = 0
+
+[node name="AmbiancePrincipale" type="Area2D" parent="CalquesObjets/16—Audio" unique_id=924784555]
+collision_layer = 4
+monitoring = false
+monitorable = false
+metadata/tiled_id = 70
+metadata/tiled_type = "audio_zone"
+metadata/tiled_shape = "rectangle"
+metadata/snapshot = "a_definir"
+metadata/fade_time = 0.8
+metadata/kind = "audio_zone"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/16—Audio/AmbiancePrincipale" unique_id=1378178119]
+position = Vector2(800, 384)
+shape = SubResource("RectangleShape2D_sv7fo")
+
+[node name="17—RepèresEtChemins" type="Node2D" parent="CalquesObjets" unique_id=1367926556]
+visible = false
+metadata/source_tiled_layer = "17 — Repères et chemins"
+metadata/color = "#ffffff"
+metadata/godot_role = "object"
+metadata/z_index = 0
+
+[node name="RepereLibre" type="Marker2D" parent="CalquesObjets/17—RepèresEtChemins" unique_id=1949503809]
+position = Vector2(320, 320)
+metadata/tiled_id = 80
+metadata/tiled_type = "marker"
+metadata/tiled_shape = "point"
+metadata/tag = "a_definir"
+metadata/kind = "marker"
+
+[node name="CheminPatrouille" type="Area2D" parent="CalquesObjets/17—RepèresEtChemins" unique_id=1917324907]
+position = Vector2(448, 320)
+collision_layer = 4
+metadata/tiled_id = 81
+metadata/tiled_type = "path"
+metadata/tiled_shape = "polyline"
+metadata/loop = true
+metadata/kind = "path"
+
+[node name="Segment01" type="CollisionShape2D" parent="CalquesObjets/17—RepèresEtChemins/CheminPatrouille" unique_id=676369927]
+shape = SubResource("SegmentShape2D_t1sc7")
+
+[node name="Segment02" type="CollisionShape2D" parent="CalquesObjets/17—RepèresEtChemins/CheminPatrouille" unique_id=101871139]
+shape = SubResource("SegmentShape2D_w76c5")
