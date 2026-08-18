@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmms-project>
+<lmms-project creator="LMMS" version="1.0" type="song" creatorversion="1.2.2">
+  <head timesig_numerator="4" bpm="300" timesig_denominator="4" mastervol="44" masterpitch="0"/>
+  <song>
+    <trackcontainer type="song" width="900" height="420" visible="1" maximized="0" minimized="0" x="0" y="0">
+      <track muted="0" name="TENSION_CONTINUE" solo="0" type="0">
+        <instrumenttrack pitch="0" fxch="1" basenote="57" usemasterpitch="1" pitchrange="12" vol="48" pan="0">
+          <instrument name="audiofileprocessor"><audiofileprocessor stutter="0" interp="1" reversed="0" looped="1" sframe="0" lframe="1" src="effects/warp01.ogg" eframe="1" amp="72"/></instrument>
+          <eldata ftype="0" fres="0.55" fcut="5100" fwet="0"><elvol latt="0" dec="0.55" lamt="0" lspd_numerator="4" att="0.04" sustain="0.65" amt="0" userwavefile="" ctlenvamt="0" lshp="0" lspd_denominator="4" x100="0" lpdel="0" lspd="0.1" pdel="0" hold="0.42" syncmode="0" rel="0.12"/></eldata>
+          <chordcreator chord="0" chordrange="1" chord-enabled="0"/><arpeggiator arp="0" arptime_numerator="4" arptime_denominator="4" arprange="1" arpmode="0" arptime="100" arpdir="0" arpgate="100" syncmode="0" arp-enabled="0"/><midiport outputchannel="1" outputcontroller="0" basevelocity="127" outputprogram="1" fixedinputvelocity="-1" fixedoutputvelocity="-1" fixedoutputnote="-1" inputchannel="0" inputcontroller="0" readable="0" writable="0"/><fxchain enabled="0" numofeffects="0"/>
+        </instrumenttrack>
+        <pattern len="192" muted="0" name="Maintien" steps="16" pos="0" type="1"><note len="180" key="50" vol="62" pos="0" pan="0"/></pattern>
+      </track>
+    </trackcontainer>
+    <fxmixer width="700" height="332" visible="1" maximized="0" minimized="0" x="1" y="463"><fxchannel muted="0" num="0" name="MASTER" volume="0.7" soloed="0"><fxchain enabled="0" numofeffects="0"/></fxchannel><fxchannel muted="0" num="1" name="TENUE" volume="0.66" soloed="0"><fxchain enabled="0" numofeffects="0"/><send amount="1" channel="0"/></fxchannel></fxmixer>
+    <projectnotes><![CDATA[<html><body><h2>Maintien psychokinétique</h2><p>Texture volontairement discrète, rejouée en boucle par Godot uniquement pendant la tenue.</p></body></html>]]></projectnotes><timeline lp1pos="192" lpstate="0" lp0pos="0"/><controllers/>
+  </song>
+</lmms-project>

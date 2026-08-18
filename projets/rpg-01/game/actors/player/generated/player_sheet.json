@@ -1,0 +1,552 @@
+{
+  "schema_version": 1,
+  "asset_id": "player.hero",
+  "placement_policy": "fixed_canvas_explicit_root",
+  "canvas_px": [
+    64,
+    64
+  ],
+  "root_px": [
+    32,
+    56
+  ],
+  "sheet": {
+    "image": "player_sheet.png",
+    "size_px": [
+      256,
+      512
+    ],
+    "columns": 4,
+    "sha256": "1647ed48481848f3b7678c904d05bef7d611574ef0d2272c4ac393425584309d"
+  },
+  "frames": [
+    {
+      "animation": "idle",
+      "direction": "south",
+      "index": 0,
+      "duration_ms": 320,
+      "cell": [
+        0,
+        0
+      ],
+      "source": "source-art/player/frames/idle/south/frame-00.png",
+      "source_sha256": "e6e22ee0eecf63ebd3703efd5f7295445d96d1bb50308243441755564b8cfc4d",
+      "alpha_bbox_px": [
+        21,
+        9,
+        43,
+        55
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "idle",
+      "direction": "south",
+      "index": 1,
+      "duration_ms": 320,
+      "cell": [
+        1,
+        0
+      ],
+      "source": "source-art/player/frames/idle/south/frame-01.png",
+      "source_sha256": "e6e22ee0eecf63ebd3703efd5f7295445d96d1bb50308243441755564b8cfc4d",
+      "alpha_bbox_px": [
+        21,
+        9,
+        43,
+        55
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "idle",
+      "direction": "west",
+      "index": 0,
+      "duration_ms": 320,
+      "cell": [
+        0,
+        1
+      ],
+      "source": "source-art/player/frames/idle/west/frame-00.png",
+      "source_sha256": "99d62719aca9d136c14c8dd4c82978a0d07f70c276cb5749edc4ae8c7848e3e4",
+      "alpha_bbox_px": [
+        23,
+        9,
+        40,
+        56
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "idle",
+      "direction": "west",
+      "index": 1,
+      "duration_ms": 320,
+      "cell": [
+        1,
+        1
+      ],
+      "source": "source-art/player/frames/idle/west/frame-01.png",
+      "source_sha256": "99d62719aca9d136c14c8dd4c82978a0d07f70c276cb5749edc4ae8c7848e3e4",
+      "alpha_bbox_px": [
+        23,
+        9,
+        40,
+        56
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "idle",
+      "direction": "east",
+      "index": 0,
+      "duration_ms": 320,
+      "cell": [
+        0,
+        2
+      ],
+      "source": "source-art/player/frames/idle/east/frame-00.png",
+      "source_sha256": "31cd4ac9afa099d7d0f2bb3380be0670dfc169ca161ad6ac10a64a37839604fe",
+      "alpha_bbox_px": [
+        23,
+        9,
+        41,
+        56
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "idle",
+      "direction": "east",
+      "index": 1,
+      "duration_ms": 320,
+      "cell": [
+        1,
+        2
+      ],
+      "source": "source-art/player/frames/idle/east/frame-01.png",
+      "source_sha256": "31cd4ac9afa099d7d0f2bb3380be0670dfc169ca161ad6ac10a64a37839604fe",
+      "alpha_bbox_px": [
+        23,
+        9,
+        41,
+        56
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "idle",
+      "direction": "north",
+      "index": 0,
+      "duration_ms": 320,
+      "cell": [
+        0,
+        3
+      ],
+      "source": "source-art/player/frames/idle/north/frame-00.png",
+      "source_sha256": "c65c57d65a3fa18e0c478727b2a6689cc9bb5f3e9cd39ced877d3667be517557",
+      "alpha_bbox_px": [
+        21,
+        8,
+        43,
+        56
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "idle",
+      "direction": "north",
+      "index": 1,
+      "duration_ms": 320,
+      "cell": [
+        1,
+        3
+      ],
+      "source": "source-art/player/frames/idle/north/frame-01.png",
+      "source_sha256": "c65c57d65a3fa18e0c478727b2a6689cc9bb5f3e9cd39ced877d3667be517557",
+      "alpha_bbox_px": [
+        21,
+        8,
+        43,
+        56
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "walk",
+      "direction": "south",
+      "index": 0,
+      "duration_ms": 120,
+      "cell": [
+        0,
+        4
+      ],
+      "source": "source-art/player/frames/walk/south/frame-00.png",
+      "source_sha256": "e6e22ee0eecf63ebd3703efd5f7295445d96d1bb50308243441755564b8cfc4d",
+      "alpha_bbox_px": [
+        21,
+        9,
+        43,
+        55
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "walk",
+      "direction": "south",
+      "index": 1,
+      "duration_ms": 100,
+      "cell": [
+        1,
+        4
+      ],
+      "source": "source-art/player/frames/walk/south/frame-01.png",
+      "source_sha256": "1af679a21d812152f8b0110f1b3c62c9cb97edf1e0e7f3473a8115154da500af",
+      "alpha_bbox_px": [
+        20,
+        9,
+        44,
+        56
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "walk",
+      "direction": "south",
+      "index": 2,
+      "duration_ms": 120,
+      "cell": [
+        2,
+        4
+      ],
+      "source": "source-art/player/frames/walk/south/frame-02.png",
+      "source_sha256": "b7ce1100f45b9137d0fb189af8cf9901ca277f46bf32d5dd292ccf0846134aec",
+      "alpha_bbox_px": [
+        20,
+        9,
+        44,
+        56
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "walk",
+      "direction": "south",
+      "index": 3,
+      "duration_ms": 100,
+      "cell": [
+        3,
+        4
+      ],
+      "source": "source-art/player/frames/walk/south/frame-03.png",
+      "source_sha256": "f3f7e6571f2c0249d5735509564e4d68b7682d24b810765ecced5fbd750edb99",
+      "alpha_bbox_px": [
+        21,
+        9,
+        44,
+        56
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "walk",
+      "direction": "west",
+      "index": 0,
+      "duration_ms": 120,
+      "cell": [
+        0,
+        5
+      ],
+      "source": "source-art/player/frames/walk/west/frame-00.png",
+      "source_sha256": "99d62719aca9d136c14c8dd4c82978a0d07f70c276cb5749edc4ae8c7848e3e4",
+      "alpha_bbox_px": [
+        23,
+        9,
+        40,
+        56
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "walk",
+      "direction": "west",
+      "index": 1,
+      "duration_ms": 100,
+      "cell": [
+        1,
+        5
+      ],
+      "source": "source-art/player/frames/walk/west/frame-01.png",
+      "source_sha256": "1862963a226d2087a86596c69c92368da6c05fde0f04ce3edc38f3b10144250e",
+      "alpha_bbox_px": [
+        21,
+        9,
+        41,
+        56
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "walk",
+      "direction": "west",
+      "index": 2,
+      "duration_ms": 120,
+      "cell": [
+        2,
+        5
+      ],
+      "source": "source-art/player/frames/walk/west/frame-02.png",
+      "source_sha256": "ebc0688d2a01f022571f4b51ee405c8a63169b247dc7c5d6a87b3b96a49169c4",
+      "alpha_bbox_px": [
+        22,
+        9,
+        40,
+        56
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "walk",
+      "direction": "west",
+      "index": 3,
+      "duration_ms": 100,
+      "cell": [
+        3,
+        5
+      ],
+      "source": "source-art/player/frames/walk/west/frame-03.png",
+      "source_sha256": "8059b267f2f1f11ee8929e71548b5eeb4251201bc9b0260153c997091c9cbe68",
+      "alpha_bbox_px": [
+        21,
+        9,
+        40,
+        56
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "walk",
+      "direction": "east",
+      "index": 0,
+      "duration_ms": 120,
+      "cell": [
+        0,
+        6
+      ],
+      "source": "source-art/player/frames/walk/east/frame-00.png",
+      "source_sha256": "31cd4ac9afa099d7d0f2bb3380be0670dfc169ca161ad6ac10a64a37839604fe",
+      "alpha_bbox_px": [
+        23,
+        9,
+        41,
+        56
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "walk",
+      "direction": "east",
+      "index": 1,
+      "duration_ms": 100,
+      "cell": [
+        1,
+        6
+      ],
+      "source": "source-art/player/frames/walk/east/frame-01.png",
+      "source_sha256": "6cb9764e74d72432f363ed427a87e620441c4f15949c0a844fcf1f3df69173ce",
+      "alpha_bbox_px": [
+        21,
+        9,
+        41,
+        55
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "walk",
+      "direction": "east",
+      "index": 2,
+      "duration_ms": 120,
+      "cell": [
+        2,
+        6
+      ],
+      "source": "source-art/player/frames/walk/east/frame-02.png",
+      "source_sha256": "79e787330b820c6fda4dc446f5d142db83be49b6390218adb77f40ff6b2dc8e6",
+      "alpha_bbox_px": [
+        23,
+        9,
+        41,
+        55
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "walk",
+      "direction": "east",
+      "index": 3,
+      "duration_ms": 100,
+      "cell": [
+        3,
+        6
+      ],
+      "source": "source-art/player/frames/walk/east/frame-03.png",
+      "source_sha256": "a4366ea0d9709ed091071e30cd2fc21244131147665d9e2ce8461a7ad9184751",
+      "alpha_bbox_px": [
+        22,
+        9,
+        41,
+        56
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "walk",
+      "direction": "north",
+      "index": 0,
+      "duration_ms": 120,
+      "cell": [
+        0,
+        7
+      ],
+      "source": "source-art/player/frames/walk/north/frame-00.png",
+      "source_sha256": "c65c57d65a3fa18e0c478727b2a6689cc9bb5f3e9cd39ced877d3667be517557",
+      "alpha_bbox_px": [
+        21,
+        8,
+        43,
+        56
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "walk",
+      "direction": "north",
+      "index": 1,
+      "duration_ms": 100,
+      "cell": [
+        1,
+        7
+      ],
+      "source": "source-art/player/frames/walk/north/frame-01.png",
+      "source_sha256": "fb57886b514a70f9e4cd289923d8ec59f46c7ec49da85b1da46014d6a57ac26e",
+      "alpha_bbox_px": [
+        20,
+        8,
+        43,
+        55
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "walk",
+      "direction": "north",
+      "index": 2,
+      "duration_ms": 120,
+      "cell": [
+        2,
+        7
+      ],
+      "source": "source-art/player/frames/walk/north/frame-02.png",
+      "source_sha256": "57f78e4427134d7633186765b3e5d993d5889ac4e065c02c0936ee4250ddad35",
+      "alpha_bbox_px": [
+        20,
+        8,
+        43,
+        56
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    },
+    {
+      "animation": "walk",
+      "direction": "north",
+      "index": 3,
+      "duration_ms": 100,
+      "cell": [
+        3,
+        7
+      ],
+      "source": "source-art/player/frames/walk/north/frame-03.png",
+      "source_sha256": "8815ef94328e24e1909453a2e74697e649d704b267ed7fa28cc10b0137bef0d0",
+      "alpha_bbox_px": [
+        20,
+        8,
+        43,
+        56
+      ],
+      "root_px": [
+        32,
+        56
+      ]
+    }
+  ]
+}

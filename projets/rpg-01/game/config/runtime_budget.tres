@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RuntimeBudget" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://game/config/runtime_budget.gd" id="1_budget"]
+
+[resource]
+script = ExtResource("1_budget")
+target_fps = 60
+frame_budget_ms = 16.67
+maximum_runtime_nodes = 640
+maximum_psychokinetic_targets = 128
+maximum_idle_targets_processing = 4
+maximum_visible_footprints = 48

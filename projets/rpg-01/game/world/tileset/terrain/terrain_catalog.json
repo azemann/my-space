@@ -1,0 +1,1645 @@
+{
+  "schema_version": 1,
+  "tile_size_px": [
+    32,
+    32
+  ],
+  "grid_size": [
+    11,
+    11
+  ],
+  "source": "source-art/imagegen/terrain/world-terrain-source-v001.png",
+  "master": "game/world/tileset/terrain/terrain_atlas.png",
+  "families": [
+    {
+      "id": "01_grass_paths",
+      "description": "Herbe et premiers chemins",
+      "texture": "game/world/tileset/terrain/families/01_grass_paths.png"
+    },
+    {
+      "id": "02_dirt_transitions",
+      "description": "Jonctions de chemins en terre",
+      "texture": "game/world/tileset/terrain/families/02_dirt_transitions.png"
+    },
+    {
+      "id": "03_stone_paving",
+      "description": "Pavés et bordures de pierre",
+      "texture": "game/world/tileset/terrain/families/03_stone_paving.png"
+    },
+    {
+      "id": "04_water_bases",
+      "description": "Eau et premières cascades",
+      "texture": "game/world/tileset/terrain/families/04_water_bases.png"
+    },
+    {
+      "id": "05_water_banks",
+      "description": "Berges, coins et bassins",
+      "texture": "game/world/tileset/terrain/families/05_water_banks.png"
+    },
+    {
+      "id": "06_cliff_tops",
+      "description": "Sommets et rebords de falaise",
+      "texture": "game/world/tileset/terrain/families/06_cliff_tops.png"
+    },
+    {
+      "id": "07_cliff_faces",
+      "description": "Faces rocheuses",
+      "texture": "game/world/tileset/terrain/families/07_cliff_faces.png"
+    },
+    {
+      "id": "08_cliff_transitions",
+      "description": "Coins et transitions de falaise",
+      "texture": "game/world/tileset/terrain/families/08_cliff_transitions.png"
+    },
+    {
+      "id": "09_stone_stairs",
+      "description": "Escaliers de pierre",
+      "texture": "game/world/tileset/terrain/families/09_stone_stairs.png"
+    },
+    {
+      "id": "10_waterfalls_upper",
+      "description": "Cascades et raccords supérieurs",
+      "texture": "game/world/tileset/terrain/families/10_waterfalls_upper.png"
+    },
+    {
+      "id": "11_waterfalls_lower",
+      "description": "Cascades et raccords inférieurs",
+      "texture": "game/world/tileset/terrain/families/11_waterfalls_lower.png"
+    }
+  ],
+  "tiles": [
+    {
+      "id": "01_grass_paths.variant_00",
+      "family": "01_grass_paths",
+      "description": "Herbe et premiers chemins",
+      "master_coordinates": [
+        0,
+        0
+      ],
+      "strip_coordinates": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "01_grass_paths.variant_01",
+      "family": "01_grass_paths",
+      "description": "Herbe et premiers chemins",
+      "master_coordinates": [
+        1,
+        0
+      ],
+      "strip_coordinates": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "01_grass_paths.variant_02",
+      "family": "01_grass_paths",
+      "description": "Herbe et premiers chemins",
+      "master_coordinates": [
+        2,
+        0
+      ],
+      "strip_coordinates": [
+        2,
+        0
+      ]
+    },
+    {
+      "id": "01_grass_paths.variant_03",
+      "family": "01_grass_paths",
+      "description": "Herbe et premiers chemins",
+      "master_coordinates": [
+        3,
+        0
+      ],
+      "strip_coordinates": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": "01_grass_paths.variant_04",
+      "family": "01_grass_paths",
+      "description": "Herbe et premiers chemins",
+      "master_coordinates": [
+        4,
+        0
+      ],
+      "strip_coordinates": [
+        4,
+        0
+      ]
+    },
+    {
+      "id": "01_grass_paths.variant_05",
+      "family": "01_grass_paths",
+      "description": "Herbe et premiers chemins",
+      "master_coordinates": [
+        5,
+        0
+      ],
+      "strip_coordinates": [
+        5,
+        0
+      ]
+    },
+    {
+      "id": "01_grass_paths.variant_06",
+      "family": "01_grass_paths",
+      "description": "Herbe et premiers chemins",
+      "master_coordinates": [
+        6,
+        0
+      ],
+      "strip_coordinates": [
+        6,
+        0
+      ]
+    },
+    {
+      "id": "01_grass_paths.variant_07",
+      "family": "01_grass_paths",
+      "description": "Herbe et premiers chemins",
+      "master_coordinates": [
+        7,
+        0
+      ],
+      "strip_coordinates": [
+        7,
+        0
+      ]
+    },
+    {
+      "id": "01_grass_paths.variant_08",
+      "family": "01_grass_paths",
+      "description": "Herbe et premiers chemins",
+      "master_coordinates": [
+        8,
+        0
+      ],
+      "strip_coordinates": [
+        8,
+        0
+      ]
+    },
+    {
+      "id": "01_grass_paths.variant_09",
+      "family": "01_grass_paths",
+      "description": "Herbe et premiers chemins",
+      "master_coordinates": [
+        9,
+        0
+      ],
+      "strip_coordinates": [
+        9,
+        0
+      ]
+    },
+    {
+      "id": "01_grass_paths.variant_10",
+      "family": "01_grass_paths",
+      "description": "Herbe et premiers chemins",
+      "master_coordinates": [
+        10,
+        0
+      ],
+      "strip_coordinates": [
+        10,
+        0
+      ]
+    },
+    {
+      "id": "02_dirt_transitions.variant_00",
+      "family": "02_dirt_transitions",
+      "description": "Jonctions de chemins en terre",
+      "master_coordinates": [
+        0,
+        1
+      ],
+      "strip_coordinates": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "02_dirt_transitions.variant_01",
+      "family": "02_dirt_transitions",
+      "description": "Jonctions de chemins en terre",
+      "master_coordinates": [
+        1,
+        1
+      ],
+      "strip_coordinates": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "02_dirt_transitions.variant_02",
+      "family": "02_dirt_transitions",
+      "description": "Jonctions de chemins en terre",
+      "master_coordinates": [
+        2,
+        1
+      ],
+      "strip_coordinates": [
+        2,
+        0
+      ]
+    },
+    {
+      "id": "02_dirt_transitions.variant_03",
+      "family": "02_dirt_transitions",
+      "description": "Jonctions de chemins en terre",
+      "master_coordinates": [
+        3,
+        1
+      ],
+      "strip_coordinates": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": "02_dirt_transitions.variant_04",
+      "family": "02_dirt_transitions",
+      "description": "Jonctions de chemins en terre",
+      "master_coordinates": [
+        4,
+        1
+      ],
+      "strip_coordinates": [
+        4,
+        0
+      ]
+    },
+    {
+      "id": "02_dirt_transitions.variant_05",
+      "family": "02_dirt_transitions",
+      "description": "Jonctions de chemins en terre",
+      "master_coordinates": [
+        5,
+        1
+      ],
+      "strip_coordinates": [
+        5,
+        0
+      ]
+    },
+    {
+      "id": "02_dirt_transitions.variant_06",
+      "family": "02_dirt_transitions",
+      "description": "Jonctions de chemins en terre",
+      "master_coordinates": [
+        6,
+        1
+      ],
+      "strip_coordinates": [
+        6,
+        0
+      ]
+    },
+    {
+      "id": "02_dirt_transitions.variant_07",
+      "family": "02_dirt_transitions",
+      "description": "Jonctions de chemins en terre",
+      "master_coordinates": [
+        7,
+        1
+      ],
+      "strip_coordinates": [
+        7,
+        0
+      ]
+    },
+    {
+      "id": "02_dirt_transitions.variant_08",
+      "family": "02_dirt_transitions",
+      "description": "Jonctions de chemins en terre",
+      "master_coordinates": [
+        8,
+        1
+      ],
+      "strip_coordinates": [
+        8,
+        0
+      ]
+    },
+    {
+      "id": "02_dirt_transitions.variant_09",
+      "family": "02_dirt_transitions",
+      "description": "Jonctions de chemins en terre",
+      "master_coordinates": [
+        9,
+        1
+      ],
+      "strip_coordinates": [
+        9,
+        0
+      ]
+    },
+    {
+      "id": "02_dirt_transitions.variant_10",
+      "family": "02_dirt_transitions",
+      "description": "Jonctions de chemins en terre",
+      "master_coordinates": [
+        10,
+        1
+      ],
+      "strip_coordinates": [
+        10,
+        0
+      ]
+    },
+    {
+      "id": "03_stone_paving.variant_00",
+      "family": "03_stone_paving",
+      "description": "Pavés et bordures de pierre",
+      "master_coordinates": [
+        0,
+        2
+      ],
+      "strip_coordinates": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "03_stone_paving.variant_01",
+      "family": "03_stone_paving",
+      "description": "Pavés et bordures de pierre",
+      "master_coordinates": [
+        1,
+        2
+      ],
+      "strip_coordinates": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "03_stone_paving.variant_02",
+      "family": "03_stone_paving",
+      "description": "Pavés et bordures de pierre",
+      "master_coordinates": [
+        2,
+        2
+      ],
+      "strip_coordinates": [
+        2,
+        0
+      ]
+    },
+    {
+      "id": "03_stone_paving.variant_03",
+      "family": "03_stone_paving",
+      "description": "Pavés et bordures de pierre",
+      "master_coordinates": [
+        3,
+        2
+      ],
+      "strip_coordinates": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": "03_stone_paving.variant_04",
+      "family": "03_stone_paving",
+      "description": "Pavés et bordures de pierre",
+      "master_coordinates": [
+        4,
+        2
+      ],
+      "strip_coordinates": [
+        4,
+        0
+      ]
+    },
+    {
+      "id": "03_stone_paving.variant_05",
+      "family": "03_stone_paving",
+      "description": "Pavés et bordures de pierre",
+      "master_coordinates": [
+        5,
+        2
+      ],
+      "strip_coordinates": [
+        5,
+        0
+      ]
+    },
+    {
+      "id": "03_stone_paving.variant_06",
+      "family": "03_stone_paving",
+      "description": "Pavés et bordures de pierre",
+      "master_coordinates": [
+        6,
+        2
+      ],
+      "strip_coordinates": [
+        6,
+        0
+      ]
+    },
+    {
+      "id": "03_stone_paving.variant_07",
+      "family": "03_stone_paving",
+      "description": "Pavés et bordures de pierre",
+      "master_coordinates": [
+        7,
+        2
+      ],
+      "strip_coordinates": [
+        7,
+        0
+      ]
+    },
+    {
+      "id": "03_stone_paving.variant_08",
+      "family": "03_stone_paving",
+      "description": "Pavés et bordures de pierre",
+      "master_coordinates": [
+        8,
+        2
+      ],
+      "strip_coordinates": [
+        8,
+        0
+      ]
+    },
+    {
+      "id": "03_stone_paving.variant_09",
+      "family": "03_stone_paving",
+      "description": "Pavés et bordures de pierre",
+      "master_coordinates": [
+        9,
+        2
+      ],
+      "strip_coordinates": [
+        9,
+        0
+      ]
+    },
+    {
+      "id": "03_stone_paving.variant_10",
+      "family": "03_stone_paving",
+      "description": "Pavés et bordures de pierre",
+      "master_coordinates": [
+        10,
+        2
+      ],
+      "strip_coordinates": [
+        10,
+        0
+      ]
+    },
+    {
+      "id": "04_water_bases.variant_00",
+      "family": "04_water_bases",
+      "description": "Eau et premières cascades",
+      "master_coordinates": [
+        0,
+        3
+      ],
+      "strip_coordinates": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "04_water_bases.variant_01",
+      "family": "04_water_bases",
+      "description": "Eau et premières cascades",
+      "master_coordinates": [
+        1,
+        3
+      ],
+      "strip_coordinates": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "04_water_bases.variant_02",
+      "family": "04_water_bases",
+      "description": "Eau et premières cascades",
+      "master_coordinates": [
+        2,
+        3
+      ],
+      "strip_coordinates": [
+        2,
+        0
+      ]
+    },
+    {
+      "id": "04_water_bases.variant_03",
+      "family": "04_water_bases",
+      "description": "Eau et premières cascades",
+      "master_coordinates": [
+        3,
+        3
+      ],
+      "strip_coordinates": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": "04_water_bases.variant_04",
+      "family": "04_water_bases",
+      "description": "Eau et premières cascades",
+      "master_coordinates": [
+        4,
+        3
+      ],
+      "strip_coordinates": [
+        4,
+        0
+      ]
+    },
+    {
+      "id": "04_water_bases.variant_05",
+      "family": "04_water_bases",
+      "description": "Eau et premières cascades",
+      "master_coordinates": [
+        5,
+        3
+      ],
+      "strip_coordinates": [
+        5,
+        0
+      ]
+    },
+    {
+      "id": "04_water_bases.variant_06",
+      "family": "04_water_bases",
+      "description": "Eau et premières cascades",
+      "master_coordinates": [
+        6,
+        3
+      ],
+      "strip_coordinates": [
+        6,
+        0
+      ]
+    },
+    {
+      "id": "04_water_bases.variant_07",
+      "family": "04_water_bases",
+      "description": "Eau et premières cascades",
+      "master_coordinates": [
+        7,
+        3
+      ],
+      "strip_coordinates": [
+        7,
+        0
+      ]
+    },
+    {
+      "id": "04_water_bases.variant_08",
+      "family": "04_water_bases",
+      "description": "Eau et premières cascades",
+      "master_coordinates": [
+        8,
+        3
+      ],
+      "strip_coordinates": [
+        8,
+        0
+      ]
+    },
+    {
+      "id": "04_water_bases.variant_09",
+      "family": "04_water_bases",
+      "description": "Eau et premières cascades",
+      "master_coordinates": [
+        9,
+        3
+      ],
+      "strip_coordinates": [
+        9,
+        0
+      ]
+    },
+    {
+      "id": "04_water_bases.variant_10",
+      "family": "04_water_bases",
+      "description": "Eau et premières cascades",
+      "master_coordinates": [
+        10,
+        3
+      ],
+      "strip_coordinates": [
+        10,
+        0
+      ]
+    },
+    {
+      "id": "05_water_banks.variant_00",
+      "family": "05_water_banks",
+      "description": "Berges, coins et bassins",
+      "master_coordinates": [
+        0,
+        4
+      ],
+      "strip_coordinates": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "05_water_banks.variant_01",
+      "family": "05_water_banks",
+      "description": "Berges, coins et bassins",
+      "master_coordinates": [
+        1,
+        4
+      ],
+      "strip_coordinates": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "05_water_banks.variant_02",
+      "family": "05_water_banks",
+      "description": "Berges, coins et bassins",
+      "master_coordinates": [
+        2,
+        4
+      ],
+      "strip_coordinates": [
+        2,
+        0
+      ]
+    },
+    {
+      "id": "05_water_banks.variant_03",
+      "family": "05_water_banks",
+      "description": "Berges, coins et bassins",
+      "master_coordinates": [
+        3,
+        4
+      ],
+      "strip_coordinates": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": "05_water_banks.variant_04",
+      "family": "05_water_banks",
+      "description": "Berges, coins et bassins",
+      "master_coordinates": [
+        4,
+        4
+      ],
+      "strip_coordinates": [
+        4,
+        0
+      ]
+    },
+    {
+      "id": "05_water_banks.variant_05",
+      "family": "05_water_banks",
+      "description": "Berges, coins et bassins",
+      "master_coordinates": [
+        5,
+        4
+      ],
+      "strip_coordinates": [
+        5,
+        0
+      ]
+    },
+    {
+      "id": "05_water_banks.variant_06",
+      "family": "05_water_banks",
+      "description": "Berges, coins et bassins",
+      "master_coordinates": [
+        6,
+        4
+      ],
+      "strip_coordinates": [
+        6,
+        0
+      ]
+    },
+    {
+      "id": "05_water_banks.variant_07",
+      "family": "05_water_banks",
+      "description": "Berges, coins et bassins",
+      "master_coordinates": [
+        7,
+        4
+      ],
+      "strip_coordinates": [
+        7,
+        0
+      ]
+    },
+    {
+      "id": "05_water_banks.variant_08",
+      "family": "05_water_banks",
+      "description": "Berges, coins et bassins",
+      "master_coordinates": [
+        8,
+        4
+      ],
+      "strip_coordinates": [
+        8,
+        0
+      ]
+    },
+    {
+      "id": "05_water_banks.variant_09",
+      "family": "05_water_banks",
+      "description": "Berges, coins et bassins",
+      "master_coordinates": [
+        9,
+        4
+      ],
+      "strip_coordinates": [
+        9,
+        0
+      ]
+    },
+    {
+      "id": "05_water_banks.variant_10",
+      "family": "05_water_banks",
+      "description": "Berges, coins et bassins",
+      "master_coordinates": [
+        10,
+        4
+      ],
+      "strip_coordinates": [
+        10,
+        0
+      ]
+    },
+    {
+      "id": "06_cliff_tops.variant_00",
+      "family": "06_cliff_tops",
+      "description": "Sommets et rebords de falaise",
+      "master_coordinates": [
+        0,
+        5
+      ],
+      "strip_coordinates": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "06_cliff_tops.variant_01",
+      "family": "06_cliff_tops",
+      "description": "Sommets et rebords de falaise",
+      "master_coordinates": [
+        1,
+        5
+      ],
+      "strip_coordinates": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "06_cliff_tops.variant_02",
+      "family": "06_cliff_tops",
+      "description": "Sommets et rebords de falaise",
+      "master_coordinates": [
+        2,
+        5
+      ],
+      "strip_coordinates": [
+        2,
+        0
+      ]
+    },
+    {
+      "id": "06_cliff_tops.variant_03",
+      "family": "06_cliff_tops",
+      "description": "Sommets et rebords de falaise",
+      "master_coordinates": [
+        3,
+        5
+      ],
+      "strip_coordinates": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": "06_cliff_tops.variant_04",
+      "family": "06_cliff_tops",
+      "description": "Sommets et rebords de falaise",
+      "master_coordinates": [
+        4,
+        5
+      ],
+      "strip_coordinates": [
+        4,
+        0
+      ]
+    },
+    {
+      "id": "06_cliff_tops.variant_05",
+      "family": "06_cliff_tops",
+      "description": "Sommets et rebords de falaise",
+      "master_coordinates": [
+        5,
+        5
+      ],
+      "strip_coordinates": [
+        5,
+        0
+      ]
+    },
+    {
+      "id": "06_cliff_tops.variant_06",
+      "family": "06_cliff_tops",
+      "description": "Sommets et rebords de falaise",
+      "master_coordinates": [
+        6,
+        5
+      ],
+      "strip_coordinates": [
+        6,
+        0
+      ]
+    },
+    {
+      "id": "06_cliff_tops.variant_07",
+      "family": "06_cliff_tops",
+      "description": "Sommets et rebords de falaise",
+      "master_coordinates": [
+        7,
+        5
+      ],
+      "strip_coordinates": [
+        7,
+        0
+      ]
+    },
+    {
+      "id": "06_cliff_tops.variant_08",
+      "family": "06_cliff_tops",
+      "description": "Sommets et rebords de falaise",
+      "master_coordinates": [
+        8,
+        5
+      ],
+      "strip_coordinates": [
+        8,
+        0
+      ]
+    },
+    {
+      "id": "06_cliff_tops.variant_09",
+      "family": "06_cliff_tops",
+      "description": "Sommets et rebords de falaise",
+      "master_coordinates": [
+        9,
+        5
+      ],
+      "strip_coordinates": [
+        9,
+        0
+      ]
+    },
+    {
+      "id": "06_cliff_tops.variant_10",
+      "family": "06_cliff_tops",
+      "description": "Sommets et rebords de falaise",
+      "master_coordinates": [
+        10,
+        5
+      ],
+      "strip_coordinates": [
+        10,
+        0
+      ]
+    },
+    {
+      "id": "07_cliff_faces.variant_00",
+      "family": "07_cliff_faces",
+      "description": "Faces rocheuses",
+      "master_coordinates": [
+        0,
+        6
+      ],
+      "strip_coordinates": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "07_cliff_faces.variant_01",
+      "family": "07_cliff_faces",
+      "description": "Faces rocheuses",
+      "master_coordinates": [
+        1,
+        6
+      ],
+      "strip_coordinates": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "07_cliff_faces.variant_02",
+      "family": "07_cliff_faces",
+      "description": "Faces rocheuses",
+      "master_coordinates": [
+        2,
+        6
+      ],
+      "strip_coordinates": [
+        2,
+        0
+      ]
+    },
+    {
+      "id": "07_cliff_faces.variant_03",
+      "family": "07_cliff_faces",
+      "description": "Faces rocheuses",
+      "master_coordinates": [
+        3,
+        6
+      ],
+      "strip_coordinates": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": "07_cliff_faces.variant_04",
+      "family": "07_cliff_faces",
+      "description": "Faces rocheuses",
+      "master_coordinates": [
+        4,
+        6
+      ],
+      "strip_coordinates": [
+        4,
+        0
+      ]
+    },
+    {
+      "id": "07_cliff_faces.variant_05",
+      "family": "07_cliff_faces",
+      "description": "Faces rocheuses",
+      "master_coordinates": [
+        5,
+        6
+      ],
+      "strip_coordinates": [
+        5,
+        0
+      ]
+    },
+    {
+      "id": "07_cliff_faces.variant_06",
+      "family": "07_cliff_faces",
+      "description": "Faces rocheuses",
+      "master_coordinates": [
+        6,
+        6
+      ],
+      "strip_coordinates": [
+        6,
+        0
+      ]
+    },
+    {
+      "id": "07_cliff_faces.variant_07",
+      "family": "07_cliff_faces",
+      "description": "Faces rocheuses",
+      "master_coordinates": [
+        7,
+        6
+      ],
+      "strip_coordinates": [
+        7,
+        0
+      ]
+    },
+    {
+      "id": "07_cliff_faces.variant_08",
+      "family": "07_cliff_faces",
+      "description": "Faces rocheuses",
+      "master_coordinates": [
+        8,
+        6
+      ],
+      "strip_coordinates": [
+        8,
+        0
+      ]
+    },
+    {
+      "id": "07_cliff_faces.variant_09",
+      "family": "07_cliff_faces",
+      "description": "Faces rocheuses",
+      "master_coordinates": [
+        9,
+        6
+      ],
+      "strip_coordinates": [
+        9,
+        0
+      ]
+    },
+    {
+      "id": "07_cliff_faces.variant_10",
+      "family": "07_cliff_faces",
+      "description": "Faces rocheuses",
+      "master_coordinates": [
+        10,
+        6
+      ],
+      "strip_coordinates": [
+        10,
+        0
+      ]
+    },
+    {
+      "id": "08_cliff_transitions.variant_00",
+      "family": "08_cliff_transitions",
+      "description": "Coins et transitions de falaise",
+      "master_coordinates": [
+        0,
+        7
+      ],
+      "strip_coordinates": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "08_cliff_transitions.variant_01",
+      "family": "08_cliff_transitions",
+      "description": "Coins et transitions de falaise",
+      "master_coordinates": [
+        1,
+        7
+      ],
+      "strip_coordinates": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "08_cliff_transitions.variant_02",
+      "family": "08_cliff_transitions",
+      "description": "Coins et transitions de falaise",
+      "master_coordinates": [
+        2,
+        7
+      ],
+      "strip_coordinates": [
+        2,
+        0
+      ]
+    },
+    {
+      "id": "08_cliff_transitions.variant_03",
+      "family": "08_cliff_transitions",
+      "description": "Coins et transitions de falaise",
+      "master_coordinates": [
+        3,
+        7
+      ],
+      "strip_coordinates": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": "08_cliff_transitions.variant_04",
+      "family": "08_cliff_transitions",
+      "description": "Coins et transitions de falaise",
+      "master_coordinates": [
+        4,
+        7
+      ],
+      "strip_coordinates": [
+        4,
+        0
+      ]
+    },
+    {
+      "id": "08_cliff_transitions.variant_05",
+      "family": "08_cliff_transitions",
+      "description": "Coins et transitions de falaise",
+      "master_coordinates": [
+        5,
+        7
+      ],
+      "strip_coordinates": [
+        5,
+        0
+      ]
+    },
+    {
+      "id": "08_cliff_transitions.variant_06",
+      "family": "08_cliff_transitions",
+      "description": "Coins et transitions de falaise",
+      "master_coordinates": [
+        6,
+        7
+      ],
+      "strip_coordinates": [
+        6,
+        0
+      ]
+    },
+    {
+      "id": "08_cliff_transitions.variant_07",
+      "family": "08_cliff_transitions",
+      "description": "Coins et transitions de falaise",
+      "master_coordinates": [
+        7,
+        7
+      ],
+      "strip_coordinates": [
+        7,
+        0
+      ]
+    },
+    {
+      "id": "08_cliff_transitions.variant_08",
+      "family": "08_cliff_transitions",
+      "description": "Coins et transitions de falaise",
+      "master_coordinates": [
+        8,
+        7
+      ],
+      "strip_coordinates": [
+        8,
+        0
+      ]
+    },
+    {
+      "id": "08_cliff_transitions.variant_09",
+      "family": "08_cliff_transitions",
+      "description": "Coins et transitions de falaise",
+      "master_coordinates": [
+        9,
+        7
+      ],
+      "strip_coordinates": [
+        9,
+        0
+      ]
+    },
+    {
+      "id": "08_cliff_transitions.variant_10",
+      "family": "08_cliff_transitions",
+      "description": "Coins et transitions de falaise",
+      "master_coordinates": [
+        10,
+        7
+      ],
+      "strip_coordinates": [
+        10,
+        0
+      ]
+    },
+    {
+      "id": "09_stone_stairs.variant_00",
+      "family": "09_stone_stairs",
+      "description": "Escaliers de pierre",
+      "master_coordinates": [
+        0,
+        8
+      ],
+      "strip_coordinates": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "09_stone_stairs.variant_01",
+      "family": "09_stone_stairs",
+      "description": "Escaliers de pierre",
+      "master_coordinates": [
+        1,
+        8
+      ],
+      "strip_coordinates": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "09_stone_stairs.variant_02",
+      "family": "09_stone_stairs",
+      "description": "Escaliers de pierre",
+      "master_coordinates": [
+        2,
+        8
+      ],
+      "strip_coordinates": [
+        2,
+        0
+      ]
+    },
+    {
+      "id": "09_stone_stairs.variant_03",
+      "family": "09_stone_stairs",
+      "description": "Escaliers de pierre",
+      "master_coordinates": [
+        3,
+        8
+      ],
+      "strip_coordinates": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": "09_stone_stairs.variant_04",
+      "family": "09_stone_stairs",
+      "description": "Escaliers de pierre",
+      "master_coordinates": [
+        4,
+        8
+      ],
+      "strip_coordinates": [
+        4,
+        0
+      ]
+    },
+    {
+      "id": "09_stone_stairs.variant_05",
+      "family": "09_stone_stairs",
+      "description": "Escaliers de pierre",
+      "master_coordinates": [
+        5,
+        8
+      ],
+      "strip_coordinates": [
+        5,
+        0
+      ]
+    },
+    {
+      "id": "09_stone_stairs.variant_06",
+      "family": "09_stone_stairs",
+      "description": "Escaliers de pierre",
+      "master_coordinates": [
+        6,
+        8
+      ],
+      "strip_coordinates": [
+        6,
+        0
+      ]
+    },
+    {
+      "id": "09_stone_stairs.variant_07",
+      "family": "09_stone_stairs",
+      "description": "Escaliers de pierre",
+      "master_coordinates": [
+        7,
+        8
+      ],
+      "strip_coordinates": [
+        7,
+        0
+      ]
+    },
+    {
+      "id": "09_stone_stairs.variant_08",
+      "family": "09_stone_stairs",
+      "description": "Escaliers de pierre",
+      "master_coordinates": [
+        8,
+        8
+      ],
+      "strip_coordinates": [
+        8,
+        0
+      ]
+    },
+    {
+      "id": "09_stone_stairs.variant_09",
+      "family": "09_stone_stairs",
+      "description": "Escaliers de pierre",
+      "master_coordinates": [
+        9,
+        8
+      ],
+      "strip_coordinates": [
+        9,
+        0
+      ]
+    },
+    {
+      "id": "09_stone_stairs.variant_10",
+      "family": "09_stone_stairs",
+      "description": "Escaliers de pierre",
+      "master_coordinates": [
+        10,
+        8
+      ],
+      "strip_coordinates": [
+        10,
+        0
+      ]
+    },
+    {
+      "id": "10_waterfalls_upper.variant_00",
+      "family": "10_waterfalls_upper",
+      "description": "Cascades et raccords supérieurs",
+      "master_coordinates": [
+        0,
+        9
+      ],
+      "strip_coordinates": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "10_waterfalls_upper.variant_01",
+      "family": "10_waterfalls_upper",
+      "description": "Cascades et raccords supérieurs",
+      "master_coordinates": [
+        1,
+        9
+      ],
+      "strip_coordinates": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "10_waterfalls_upper.variant_02",
+      "family": "10_waterfalls_upper",
+      "description": "Cascades et raccords supérieurs",
+      "master_coordinates": [
+        2,
+        9
+      ],
+      "strip_coordinates": [
+        2,
+        0
+      ]
+    },
+    {
+      "id": "10_waterfalls_upper.variant_03",
+      "family": "10_waterfalls_upper",
+      "description": "Cascades et raccords supérieurs",
+      "master_coordinates": [
+        3,
+        9
+      ],
+      "strip_coordinates": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": "10_waterfalls_upper.variant_04",
+      "family": "10_waterfalls_upper",
+      "description": "Cascades et raccords supérieurs",
+      "master_coordinates": [
+        4,
+        9
+      ],
+      "strip_coordinates": [
+        4,
+        0
+      ]
+    },
+    {
+      "id": "10_waterfalls_upper.variant_05",
+      "family": "10_waterfalls_upper",
+      "description": "Cascades et raccords supérieurs",
+      "master_coordinates": [
+        5,
+        9
+      ],
+      "strip_coordinates": [
+        5,
+        0
+      ]
+    },
+    {
+      "id": "10_waterfalls_upper.variant_06",
+      "family": "10_waterfalls_upper",
+      "description": "Cascades et raccords supérieurs",
+      "master_coordinates": [
+        6,
+        9
+      ],
+      "strip_coordinates": [
+        6,
+        0
+      ]
+    },
+    {
+      "id": "10_waterfalls_upper.variant_07",
+      "family": "10_waterfalls_upper",
+      "description": "Cascades et raccords supérieurs",
+      "master_coordinates": [
+        7,
+        9
+      ],
+      "strip_coordinates": [
+        7,
+        0
+      ]
+    },
+    {
+      "id": "10_waterfalls_upper.variant_08",
+      "family": "10_waterfalls_upper",
+      "description": "Cascades et raccords supérieurs",
+      "master_coordinates": [
+        8,
+        9
+      ],
+      "strip_coordinates": [
+        8,
+        0
+      ]
+    },
+    {
+      "id": "10_waterfalls_upper.variant_09",
+      "family": "10_waterfalls_upper",
+      "description": "Cascades et raccords supérieurs",
+      "master_coordinates": [
+        9,
+        9
+      ],
+      "strip_coordinates": [
+        9,
+        0
+      ]
+    },
+    {
+      "id": "10_waterfalls_upper.variant_10",
+      "family": "10_waterfalls_upper",
+      "description": "Cascades et raccords supérieurs",
+      "master_coordinates": [
+        10,
+        9
+      ],
+      "strip_coordinates": [
+        10,
+        0
+      ]
+    },
+    {
+      "id": "11_waterfalls_lower.variant_00",
+      "family": "11_waterfalls_lower",
+      "description": "Cascades et raccords inférieurs",
+      "master_coordinates": [
+        0,
+        10
+      ],
+      "strip_coordinates": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "11_waterfalls_lower.variant_01",
+      "family": "11_waterfalls_lower",
+      "description": "Cascades et raccords inférieurs",
+      "master_coordinates": [
+        1,
+        10
+      ],
+      "strip_coordinates": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "11_waterfalls_lower.variant_02",
+      "family": "11_waterfalls_lower",
+      "description": "Cascades et raccords inférieurs",
+      "master_coordinates": [
+        2,
+        10
+      ],
+      "strip_coordinates": [
+        2,
+        0
+      ]
+    },
+    {
+      "id": "11_waterfalls_lower.variant_03",
+      "family": "11_waterfalls_lower",
+      "description": "Cascades et raccords inférieurs",
+      "master_coordinates": [
+        3,
+        10
+      ],
+      "strip_coordinates": [
+        3,
+        0
+      ]
+    },
+    {
+      "id": "11_waterfalls_lower.variant_04",
+      "family": "11_waterfalls_lower",
+      "description": "Cascades et raccords inférieurs",
+      "master_coordinates": [
+        4,
+        10
+      ],
+      "strip_coordinates": [
+        4,
+        0
+      ]
+    },
+    {
+      "id": "11_waterfalls_lower.variant_05",
+      "family": "11_waterfalls_lower",
+      "description": "Cascades et raccords inférieurs",
+      "master_coordinates": [
+        5,
+        10
+      ],
+      "strip_coordinates": [
+        5,
+        0
+      ]
+    },
+    {
+      "id": "11_waterfalls_lower.variant_06",
+      "family": "11_waterfalls_lower",
+      "description": "Cascades et raccords inférieurs",
+      "master_coordinates": [
+        6,
+        10
+      ],
+      "strip_coordinates": [
+        6,
+        0
+      ]
+    },
+    {
+      "id": "11_waterfalls_lower.variant_07",
+      "family": "11_waterfalls_lower",
+      "description": "Cascades et raccords inférieurs",
+      "master_coordinates": [
+        7,
+        10
+      ],
+      "strip_coordinates": [
+        7,
+        0
+      ]
+    },
+    {
+      "id": "11_waterfalls_lower.variant_08",
+      "family": "11_waterfalls_lower",
+      "description": "Cascades et raccords inférieurs",
+      "master_coordinates": [
+        8,
+        10
+      ],
+      "strip_coordinates": [
+        8,
+        0
+      ]
+    },
+    {
+      "id": "11_waterfalls_lower.variant_09",
+      "family": "11_waterfalls_lower",
+      "description": "Cascades et raccords inférieurs",
+      "master_coordinates": [
+        9,
+        10
+      ],
+      "strip_coordinates": [
+        9,
+        0
+      ]
+    },
+    {
+      "id": "11_waterfalls_lower.variant_10",
+      "family": "11_waterfalls_lower",
+      "description": "Cascades et raccords inférieurs",
+      "master_coordinates": [
+        10,
+        10
+      ],
+      "strip_coordinates": [
+        10,
+        0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://game/systems/psychokinesis/psychokinetic_body_2d.gd" id="1_body"]
+[ext_resource type="Script" path="res://game/systems/psychokinesis/psychokinesis_profile.gd" id="2_profile"]
+[ext_resource type="Texture2D" path="res://game/world/tileset/beach/objects/beach_objects_atlas.png" id="3_atlas"]
+[ext_resource type="AudioStream" path="res://game/audio/sfx/psychokinesis/lift.wav" id="4_lift"]
+[ext_resource type="AudioStream" path="res://game/audio/sfx/psychokinesis/hold.wav" id="5_hold"]
+[ext_resource type="AudioStream" path="res://game/audio/sfx/psychokinesis/throw.wav" id="6_throw"]
+[ext_resource type="AudioStream" path="res://game/audio/sfx/psychokinesis/impact-stone.wav" id="7_impact"]
+[ext_resource type="Script" path="res://game/systems/persistence/persistent_world_instance.gd" id="8_persistence"]
+[ext_resource type="Script" path="res://game/systems/psychokinesis/psychokinesis_state_machine.gd" id="9_state"]
+[ext_resource type="Script" path="res://game/systems/psychokinesis/psychokinesis_interaction_area_2d.gd" id="10_interaction"]
+[ext_resource type="Script" path="res://game/systems/psychokinesis/psychokinesis_presentation_2d.gd" id="11_presentation"]
+
+[sub_resource type="Resource" id="PsychokinesisProfile_stone"]
+script = ExtResource("2_profile")
+response = 2
+mass_class = 0
+material = &"stone"
+required_power = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stone"]
+atlas = ExtResource("3_atlas")
+region = Rect2(320, 288, 160, 96)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_stone"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_selection"]
+radius = 25.0
+
+[node name="PracticeStone" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 1
+mass = 0.55
+script = ExtResource("1_body")
+profile = SubResource("PsychokinesisProfile_stone")
+visual_focus_offset = Vector2(0, -43)
+metadata/asset_id = "telekinesis.practice_stone"
+metadata/persistent_id = "practice_stone"
+
+[node name="Persistence" type="Node" parent="."]
+editor_description = "Identité et état d'instance conservés lorsque la carte est libérée puis rechargée."
+script = ExtResource("8_persistence")
+persistent_id = &"practice_stone"
+
+[node name="Visual" type="Sprite2D" parent="."]
+position = Vector2(0, -43)
+scale = Vector2(0.68, 0.68)
+texture = SubResource("AtlasTexture_stone")
+
+[node name="SelectionArea" type="Area2D" parent="."]
+position = Vector2(0, -43)
+collision_layer = 128
+collision_mask = 0
+input_pickable = true
+monitoring = false
+script = ExtResource("10_interaction")
+editor_description = "Zone de survol Godot commune à tous les objets psychokinétiques. Elle est indépendante de la collision physique."
+
+[node name="HoverShape" type="CollisionShape2D" parent="SelectionArea"]
+shape = SubResource("CircleShape2D_selection")
+
+[node name="PhysicsFootprint" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+scale = Vector2(0.72, 0.72)
+shape = SubResource("CircleShape2D_stone")
+
+[node name="Shadow" type="Polygon2D" parent="."]
+position = Vector2(0, -2)
+polygon = PackedVector2Array(-15, -4, 15, -4, 18, 1, 12, 5, -12, 5, -18, 1)
+color = Color(0.05, 0.06, 0.07, 0.28)
+z_index = -1
+
+[node name="LiftAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_lift")
+volume_db = -7.0
+max_distance = 480.0
+bus = &"Psychokinesis"
+
+[node name="HoldAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_hold")
+volume_db = -16.0
+max_distance = 420.0
+bus = &"Psychokinesis"
+
+[node name="ThrowAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_throw")
+volume_db = -6.0
+pitch_scale = 1.08
+max_distance = 520.0
+bus = &"Psychokinesis"
+
+[node name="ImpactAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_impact")
+volume_db = -5.0
+max_distance = 560.0
+bus = &"Psychokinesis"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("9_state")
+editor_description = "Machine à états explicite de la pierre laboratoire."
+
+[node name="Presentation" type="Node2D" parent="."]
+script = ExtResource("11_presentation")
+editor_description = "Présentation visuelle et sonore, séparée du RigidBody2D."

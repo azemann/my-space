@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://game/core/game_root.gd" id="1_root"]
+[ext_resource type="PackedScene" path="res://game/world/maps/plage-du-reveil/plage-du-reveil.tscn" id="2_map"]
+[ext_resource type="PackedScene" path="res://game/actors/player/player.tscn" id="3_player"]
+[ext_resource type="Script" path="res://game/systems/camera/follow_camera_2d.gd" id="4_camera"]
+[ext_resource type="Resource" path="res://game/systems/camera/camera_config.tres" id="5_camera_config"]
+[ext_resource type="Script" path="res://game/systems/display/display_controller.gd" id="6_display"]
+[ext_resource type="Script" path="res://game/systems/psychokinesis/psychokinesis_controller.gd" id="7_psychokinesis"]
+[ext_resource type="Script" path="res://game/core/world_state_store.gd" id="8_world_state"]
+[ext_resource type="Script" path="res://game/systems/psychokinesis/psychokinesis_target_detector.gd" id="9_target_detector"]
+[ext_resource type="Script" path="res://game/systems/psychokinesis/psychokinesis_aim_indicator_2d.gd" id="10_aim_indicator"]
+
+[node name="Game" type="Node"]
+process_mode = 3
+script = ExtResource("1_root")
+initial_spawn_id = &"beach-awakening"
+
+[node name="Display" type="Node" parent="."]
+editor_description = "Gère le plein écran indépendamment des scènes et des cartes. F11 ou Alt+Entrée bascule entre plein écran et fenêtre."
+script = ExtResource("6_display")
+
+[node name="WorldState" type="Node" parent="."]
+editor_description = "Registre persistant de la session : capture et restaure l'état d'instance des objets déplaçables pour chaque carte."
+script = ExtResource("8_world_state")
+
+[node name="WorldContainer" type="Node" parent="."]
+
+[node name="CurrentMap" parent="WorldContainer" instance=ExtResource("2_map")]
+
+[node name="PersistentActors" type="Node2D" parent="."]
+editor_description = "Accueil temporaire des acteurs qui survivent aux changements de carte. GameRoot les rattache au calque Y-sort de la carte active."
+
+[node name="Player" parent="PersistentActors" instance=ExtResource("3_player")]
+
+[node name="Psychokinesis" type="Node2D" parent="."]
+editor_description = "Contrôleur persistant : survol et prise au clic gauche, manipulation dans un rayon, hauteur, visée et projection chargée au clic droit. Manette complète et commandes configurables via l'Input Map."
+z_index = 20
+script = ExtResource("7_psychokinesis")
+
+[node name="TargetDetector" type="Node" parent="Psychokinesis"]
+script = ExtResource("9_target_detector")
+editor_description = "CIBLAGE\n\nFiltre portée, niveau du pouvoir, survol Area2D et priorité visuelle. Ne déplace aucun objet."
+
+[node name="ManipulationAnchor" type="Marker2D" parent="Psychokinesis"]
+editor_description = "ANCRE DE MANIPULATION\n\nDestination monde poursuivie par le RigidBody2D maintenu. Visible dans l'éditeur et indépendante de son rendu."
+
+[node name="AimIndicator" type="Node2D" parent="Psychokinesis"]
+z_index = 20
+script = ExtResource("10_aim_indicator")
+editor_description = "RETOUR DE VISÉE\n\nDessine uniquement le lien avec l'objet tenu et la direction de projection."
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(368, 720)
+script = ExtResource("4_camera")
+config = ExtResource("5_camera_config")
+
+[node name="Interface" type="CanvasLayer" parent="."]
+editor_description = "Racine persistante du HUD, des menus, dialogues et transitions."
+
+[node name="HUD" type="Control" parent="Interface"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

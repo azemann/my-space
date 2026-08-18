@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnvironmentAnimationProfile" format=3 uid="uid://covdfeol56lla"]
+
+[ext_resource type="Script" uid="uid://b2y43gnsv3jjm" path="res://game/systems/environment_animation/environment_animation_profile.gd" id="1"]
+[ext_resource type="Shader" uid="uid://3cnwxbfcylga" path="res://game/systems/environment_animation/shaders/pixel_surface_flow.gdshader" id="2"]
+
+[resource]
+script = ExtResource("1")
+profile_id = &"water_flow"
+description = "Rivière, courant et cascade : déplacement lumineux directionnel lisible."
+shader = ExtResource("2")
+speed = 4.3
+intensity = 0.41
+spatial_frequency = 0.126
+animation_fps = 12.0
+flow_direction = Vector2(0.25, 1)
+tint_color = Color(0.32, 0.82, 1, 1)
+highlight_threshold = 0.7

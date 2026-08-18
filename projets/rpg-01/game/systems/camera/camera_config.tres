@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CameraConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://game/systems/camera/camera_config.gd" id="1_config"]
+
+[resource]
+script = ExtResource("1_config")
+zoom = Vector2(1, 1)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+pixel_snap_target = true
+pixel_perfect_motion = true
+look_ahead_distance = 18.0
+look_ahead_response = 5.0
+zoom_transition_speed = 5.0
+pixel_perfect_zoom = true
+pixel_perfect_zoom_levels = Array[float]([0.5, 1.0, 2.0])

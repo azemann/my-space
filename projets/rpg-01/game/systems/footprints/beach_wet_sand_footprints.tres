@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FootprintTrailProfile" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://game/systems/footprints/footprint_trail_profile.gd" id="1_profile"]
+[ext_resource type="PackedScene" path="res://game/systems/footprints/footprint_decal.tscn" id="2_scene"]
+
+[resource]
+script = ExtResource("1_profile")
+footprint_scene = ExtResource("2_scene")
+custom_data_name = &"terrain_kind"
+required_surface = &"wet_sand"
+step_distance = 18.0
+minimum_speed = 12.0
+lateral_foot_offset = 4.5
+maximum_visible_footprints = 48

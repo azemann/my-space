@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://v3pmxhymc21v"]
+
+[ext_resource type="PackedScene" path="res://game/world/maps/generated/plage-du-reveil.tscn" id="1_world"]
+[ext_resource type="Script" uid="uid://cvl3eboh0d6vl" path="res://game/world/maps/plage-du-reveil/beach_runtime.gd" id="2_runtime"]
+[ext_resource type="Script" uid="uid://b81ywvc3n0bok" path="res://game/world/maps/plage-du-reveil/beach_depth_controller.gd" id="3_depth"]
+[ext_resource type="AudioStream" uid="uid://cwp8obmy5kk7y" path="res://game/audio/ambience/beach/beach-shore.mp3" id="4_shore"]
+[ext_resource type="AudioStream" uid="uid://cidvm6ra4wgew" path="res://game/audio/ambience/beach/beach-rocks.mp3" id="5_rocks"]
+[ext_resource type="AudioStream" uid="uid://bk2lng6jo2v2r" path="res://game/audio/ambience/beach/beach-gulls.mp3" id="6_gulls"]
+[ext_resource type="Script" path="res://game/systems/footprints/footprint_trail_2d.gd" id="7_footprints"]
+[ext_resource type="Resource" path="res://game/systems/footprints/beach_wet_sand_footprints.tres" id="8_footprint_profile"]
+
+[node name="PlageDuReveil" type="Node2D" unique_id=1350312304]
+editor_description = "Première scène du récit : Azeman se réveille sur la plage. Le décor et le gameplay spatial proviennent du TMX."
+metadata/level_id = "plage-du-reveil"
+metadata/source_tmx = "res://maps/source/plage-du-reveil.tmx"
+metadata/actor_parent_path = NodePath("World/PlacedObjects/YSortedObjects")
+metadata/default_spawn_id = "beach-awakening"
+metadata/camera_bounds = Rect2(0, 0, 1280, 960)
+
+[node name="World" parent="." unique_id=1535154633 instance=ExtResource("1_world")]
+
+[node name="Runtime" type="Node" parent="." unique_id=338784772]
+editor_description = "Systèmes narratifs et télékinétiques propres à la plage, ajoutés seulement lorsqu'ils deviennent nécessaires."
+script = ExtResource("2_runtime")
+
+[node name="Ambience" type="Node2D" parent="Runtime" unique_id=887453332]
+editor_description = "Sources d'ambiance spatiales configurables dans Godot. Les distances créent des transitions progressives selon la position du joueur."
+
+[node name="ShoreCenter" type="AudioStreamPlayer2D" parent="Runtime/Ambience" unique_id=72989098]
+editor_description = "Rivage central : audible depuis l'eau jusqu'à la moitié de la plage."
+position = Vector2(635, 665)
+stream = ExtResource("4_shore")
+volume_db = -7.0
+autoplay = true
+max_distance = 430.0
+attenuation = 1.5
+bus = &"Ambience"
+
+[node name="RockyCoastWest" type="AudioStreamPlayer2D" parent="Runtime/Ambience" unique_id=1310055023]
+editor_description = "Vagues sur les rochers du bras côtier ouest."
+position = Vector2(80, 650)
+stream = ExtResource("5_rocks")
+volume_db = -10.0
+autoplay = true
+max_distance = 380.0
+attenuation = 2.0
+bus = &"Ambience"
+
+[node name="RockyCoastEast" type="AudioStreamPlayer2D" parent="Runtime/Ambience" unique_id=845313397]
+editor_description = "Vagues sur les rochers du bras côtier est."
+position = Vector2(1200, 650)
+stream = ExtResource("5_rocks")
+volume_db = -10.0
+autoplay = true
+max_distance = 380.0
+attenuation = 2.0
+bus = &"Ambience"
+
+[node name="UpperBeachGulls" type="AudioStreamPlayer2D" parent="Runtime/Ambience" unique_id=280315124]
+editor_description = "Mouettes de la moitié supérieure de la plage jusqu'aux dunes."
+position = Vector2(640, 220)
+stream = ExtResource("6_gulls")
+volume_db = -14.0
+autoplay = true
+max_distance = 440.0
+attenuation = 1.2
+bus = &"Ambience"
+
+[node name="Footprints" type="Node2D" parent="Runtime"]
+editor_description = "Traînée d'empreintes du joueur. Le profil, la couche de surface et l'activation se règlent ici dans l'Inspecteur."
+z_index = 4
+script = ExtResource("7_footprints")
+profile = ExtResource("8_footprint_profile")
+surface_layer_path = NodePath("../../World/Terrain/GroundVariations")
+
+[node name="Depth" type="Node2D" parent="." unique_id=1825153636]
+editor_description = "Premier plan, parallaxe légère et particules de vent propres à la plage."
+script = ExtResource("3_depth")

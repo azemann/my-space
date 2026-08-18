@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://game/actors/player/player_controller.gd" id="1_controller"]
+[ext_resource type="Resource" path="res://game/actors/player/player_config.tres" id="2_config"]
+[ext_resource type="PackedScene" path="res://game/actors/player/generated/player_visual.tscn" id="3_visual"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_feet"]
+radius = 7.0
+height = 16.0
+
+[node name="Player" type="CharacterBody2D" groups=["player_actor"]]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1_controller")
+config = ExtResource("2_config")
+metadata/asset_id = "player.hero"
+metadata/sprite_contract = "res://docs/contracts/PLAYER_SPRITE_CONTRACT.md"
+metadata/visual_root_px = Vector2(32, 56)
+metadata/facing = "south"
+
+[node name="GroundShadow" type="Polygon2D" parent="."]
+position = Vector2(0, 1)
+polygon = PackedVector2Array(-9, -3, -5, -5, 5, -5, 9, -3, 9, 0, 5, 2, -5, 2, -9, 0)
+color = Color(0.08, 0.07, 0.06, 0.28)
+z_index = -1
+
+[node name="Visual" parent="." instance=ExtResource("3_visual")]
+
+[node name="FeetCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("CapsuleShape2D_feet")
+
+[node name="InteractionOrigin" type="Marker2D" parent="."]
+position = Vector2(0, 14)
+
+[node name="CameraAnchor" type="Marker2D" parent="."]
+position = Vector2(0, -22)
+
+[node name="AudioListener" type="AudioListener2D" parent="."]
+editor_description = "Point d'écoute spatial persistant : les ambiances 2D suivent exactement la position du joueur."
+current = true

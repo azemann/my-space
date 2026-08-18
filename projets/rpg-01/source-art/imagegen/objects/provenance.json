@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "tool": "built-in imagegen",
+  "use_case": "stylized-concept",
+  "status": "source_outputs_restored_as_audited_candidates",
+  "style_reference": "source-art/reference/world-map-target-v001.png",
+  "outputs": [
+    "architecture-props-chroma-v001.png",
+    "architecture-props-rgba-v001.png",
+    "nature-props-chroma-v001.png",
+    "nature-props-rgba-v001.png"
+  ],
+  "post_processing": {
+    "background_removal": "remove_chroma_key.py, soft matte, despill",
+    "packing": "editor/builders/build_world_objects.py",
+    "per_sprite_scaling": false
+  }
+}

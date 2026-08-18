@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "tool": "built-in imagegen",
+  "use_case": "stylized-concept",
+  "reference_role": "style_and_palette_only",
+  "style_reference": "documentation/concepts/world-map-target-v001.png",
+  "outputs": [
+    {
+      "path": "terrain-foundation-source-v001.png",
+      "status": "visual_source_requires_deterministic_32px_normalization",
+      "dimensions": [1254, 1254]
+    }
+  ]
+}

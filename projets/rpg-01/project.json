@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "id": "rpg-01",
+  "display_name": "RPG 01",
+  "status": "first_world_scene_playable_foundation",
+  "genre": "top_down_rpg",
+  "current_focus": "player_movement_and_camera_follow",
+  "main_scene": "game/core/main.tscn",
+  "spatial_source": "tiled_tmx_with_canonical_godot_tileset",
+  "active_tileset": "game/world/tileset/world_tileset.tres",
+  "preserved_knowledge": [
+    "source-art/reference/world-map-target-v001.png",
+    "source-art/imagegen/",
+    "archive/tiled/",
+    "archive/foundation/"
+  ]
+}

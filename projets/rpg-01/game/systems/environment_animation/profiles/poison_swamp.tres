@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnvironmentAnimationProfile" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://game/systems/environment_animation/environment_animation_profile.gd" id="1"]
+[ext_resource type="Shader" path="res://game/systems/environment_animation/shaders/pixel_surface_flow.gdshader" id="2"]
+
+[resource]
+script = ExtResource("1")
+profile_id = &"poison_swamp"
+description = "Marais ou poison : bouillonnement verdâtre irrégulier."
+shader = ExtResource("2")
+speed = 0.55
+intensity = 0.12
+spatial_frequency = 0.068
+animation_fps = 6.0
+flow_direction = Vector2(0.45, 0.2)
+tint_color = Color(0.48, 0.9, 0.18, 1)
+highlight_threshold = 0.67

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PlayerConfig" format=3 uid="uid://l6oiedy8xnok"]
+
+[ext_resource type="Script" uid="uid://bjepbnly1e152" path="res://game/actors/player/player_config.gd" id="1_config"]
+
+[resource]
+script = ExtResource("1_config")
+walk_speed = 95.0

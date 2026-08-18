@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "asset_id": "player.hero",
+  "status": "exploration",
+  "statuses": {
+    "visual": "exploration",
+    "temporal": "exploration",
+    "technical": "draft",
+    "gameplay": "unmapped"
+  },
+  "render_representation": "raster-2d",
+  "gameplay_space": "2d-canvas",
+  "animation_representation": "sprite-frames",
+  "engine_owns_movement": true,
+  "source_canvas_px": [64, 64],
+  "source_root_px": [32, 56],
+  "target_visual_height_px": [40, 48],
+  "directions": ["south", "west", "east", "north"],
+  "direction_policy": "all-authored",
+  "alignment": {
+    "mode": "fixed-canvas-explicit-root",
+    "per_frame_scaling": false,
+    "bbox_recentering": false,
+    "documented_translation_only": true
+  },
+  "animations": {
+    "idle": {"frame_count_per_direction": 2, "durations_ms": [320, 320], "loop": true},
+    "walk": {"frame_count_per_direction": 4, "durations_ms": [120, 100, 120, 100], "loop": true}
+  },
+  "runtime": {
+    "sheet_columns": 4,
+    "texture_filter": "nearest",
+    "character_body": "CharacterBody2D",
+    "root_motion": false
+  },
+  "upstream_principles": [
+    "myspace-animation-v1@1.1.0",
+    "root-preserving-atlas-v1",
+    "asset-production-provenance-v1"
+  ]
+}
+
