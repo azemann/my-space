@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="FootprintTrailProfile" format=3 uid="uid://bbb4q527t6fui"]
-
-[ext_resource type="Script" uid="uid://vkb11s3o1hbt" path="res://game/systems/footprints/footprint_trail_profile.gd" id="1_profile"]
-[ext_resource type="PackedScene" path="res://game/systems/footprints/footprint_decal.tscn" id="2_scene"]
-
-[resource]
-resource_name = "Empreintes — sable humide de plage"
-script = ExtResource("1_profile")
-footprint_scene = ExtResource("2_scene")
