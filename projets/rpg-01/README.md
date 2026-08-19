@@ -29,6 +29,12 @@ Le vocabulaire du code, de Godot et de Tiled est fixé par le
 [glossaire du projet](docs/GLOSSAIRE.md).
 La réaction de chaque asset au premier pouvoir suit le
 [contrat psychokinétique](docs/contracts/PSYCHOKINESIS_CONTRACT.md).
+Le sac à emplacements, ses identités stables et ses futures extensions suivent
+le [contrat d'inventaire](docs/contracts/INVENTORY_CONTRACT.md).
+La création de nouvelles définitions, icônes et instances ramassables suit le
+[workflow des objets](docs/ITEM_AUTHORING.md).
+Les idées, décisions ouvertes et futures recettes sont suivies séparément dans
+le [journal de conception des objets et combinaisons](docs/design/JOURNAL_OBJETS_ET_COMBINAISONS.md).
 Les surfaces animées suivent le
 [pipeline d'animations environnementales](docs/architecture/ENVIRONMENT_ANIMATION_PIPELINE.md).
 L'état réel du prototype, les risques globaux et leur ordre de correction sont
@@ -37,21 +43,29 @@ tenus dans [l'audit de cohérence du prototype](docs/audits/PROTOTYPE_GAMEPLAY_A
 ## Arborescence active
 
 ```text
-game/core/                point d'entrée et orchestration de la partie
-game/actors/              acteurs persistants et leurs configurations
-game/systems/             systèmes réutilisables indépendants des cartes
-game/world/tileset/       TileSet, terrains et objets utilisés par Godot
-game/world/maps/          scènes générées et scènes de carte éditables
-editor/builders/          reconstruction déterministe des atlas et du TileSet
-editor/tiled/             création et conversion déterministe des cartes Tiled
-editor/tests/             contrôles automatiques
-maps/source/              cartes TMX maîtres
-maps/templates/           modèle de carte RPG
-maps/tilesets/            correspondances TSX vers les sources Godot
-source-art/               références et sources ImageGen, hors import Godot
-docs/                     contrats actifs, hors import Godot
-archive/                  prototypes conservés mais inactifs
+game/                              jeu exécutable et ressources Godot finales
+├── core/                          orchestration persistante de la partie
+├── actors/                        acteurs et configurations
+├── systems/                       systèmes réutilisables
+└── world/                         cartes générées et TileSet final
+
+pipeline/                          fabrication des ressources du jeu
+├── assets/
+│   ├── builders/                  construction des atlas et du TileSet
+│   ├── player/                    construction des sprites du joueur
+│   └── sources/                   sources ImageGen, LMMS et références
+├── tiled/
+│   ├── tools/                     création, validation et conversion Tiled
+│   └── maps/                      TMX maîtres, modèles et adaptateurs TSX
+└── tests/                         contrôles automatiques du jeu et du pipeline
+
+docs/                              contrats et guides actifs
+archive/                           prototypes conservés mais inactifs
 ```
+
+Le dossier [`game/`](game/) peut être lu comme le produit final. Le dossier
+[`pipeline/`](pipeline/) explique comment ce produit est fabriqué. Une ressource
+générée va toujours de `pipeline/` vers `game/`, jamais dans le sens inverse.
 
 ## Règle de travail
 

@@ -2,7 +2,12 @@
 class_name PsychokinesisProfile
 extends Resource
 
+## Profil de gameplay partagé par les objets psychokinétiques. Il décrit leur
+## réaction au pouvoir indépendamment de leur scène, collision et apparence.
+
+## Types de réaction possibles : aucune prise, réaction seule ou déplacement complet.
 enum Response { ANCHORED, REACTIVE, MOVABLE }
+## Classes logiques utilisées pour comparer le poids d'un objet à la puissance acquise.
 enum MassClass { LIGHT, MEDIUM, HEAVY, IMMENSE }
 
 @export_category("Réponse psychokinétique")
@@ -18,9 +23,11 @@ enum MassClass { LIGHT, MEDIUM, HEAVY, IMMENSE }
 @export_range(0, 10, 1) var required_power := 0
 
 
+## Indique si le niveau fourni autorise une prise et un déplacement complets.
 func can_be_moved(power_level: int) -> bool:
 	return response == Response.MOVABLE and power_level >= required_power
 
 
+## Indique si l'objet doit au minimum réagir visuellement au pouvoir.
 func can_react() -> bool:
 	return response != Response.ANCHORED

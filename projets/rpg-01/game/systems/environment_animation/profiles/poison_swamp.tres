@@ -4,6 +4,7 @@
 [ext_resource type="Shader" path="res://game/systems/environment_animation/shaders/pixel_surface_flow.gdshader" id="2"]
 
 [resource]
+resource_name = "Animation de surface — marais empoisonné"
 script = ExtResource("1")
 profile_id = &"poison_swamp"
 description = "Marais ou poison : bouillonnement verdâtre irrégulier."

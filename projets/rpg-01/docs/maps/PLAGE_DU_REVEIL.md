@@ -6,11 +6,11 @@ personnels — sans encore expliquer le monde ni l'origine de ses pouvoirs.
 
 ## Autorités
 
-- `maps/source/plage-du-reveil.tmx` : placement maître Tiled ;
+- `pipeline/tiled/maps/source/plage-du-reveil.tmx` : placement maître Tiled ;
 - `game/world/maps/generated/plage-du-reveil.tscn` : résultat automatique ;
 - `game/world/maps/plage-du-reveil/plage-du-reveil.tscn` : composition runtime ;
 - `game/world/tileset/beach/` : terrains et objets littoraux normalisés ;
-- `source-art/imagegen/beach/` : sources visuelles non destructives.
+- `pipeline/assets/sources/imagegen/beach/` : sources visuelles non destructives.
 
 ## Lecture spatiale
 
@@ -88,10 +88,10 @@ opaques, puis rangés dans une spritesheet RGBA régulière de 6×5 cellules
 récupérer de fragment du voisin.
 
 ```bash
-python3 editor/builders/normalize_beach_terrain.py
-python3 editor/builders/build_beach_objects.py
-godot --headless --path . --script res://editor/builders/build_tileset.gd
-python3 editor/tiled/export_tilesets.py
-python3 editor/tiled/build_beach_map.py
-godot --headless --path . --script res://editor/tiled/convert_all.gd
+python3 pipeline/assets/builders/normalize_beach_terrain.py
+python3 pipeline/assets/builders/build_beach_objects.py
+godot --headless --path . --script res://pipeline/assets/builders/build_tileset.gd
+python3 pipeline/tiled/tools/export_tilesets.py
+python3 pipeline/tiled/tools/build_beach_map.py
+godot --headless --path . --script res://pipeline/tiled/tools/convert_all.gd
 ```

@@ -1,5 +1,8 @@
 extends Node
 
+## Installe les éléments de gameplay propres à la Plage du Réveil qui ne sont
+## pas directement produits par Tiled, puis nettoie ses sons à la fermeture.
+
 const PRACTICE_STONE := preload("res://game/entities/psychokinetic/practice_stone.tscn")
 
 

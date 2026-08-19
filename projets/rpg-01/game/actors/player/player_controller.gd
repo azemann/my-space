@@ -1,15 +1,23 @@
 class_name PlayerController
 extends CharacterBody2D
 
+## Contrôleur du personnage jouable. Il transforme les actions du Input Map en
+## déplacement physique, orientation, animation et demandes d'interaction.
+
+## Émis lorsque la direction regardée change.
 signal facing_changed(direction: StringName, vector: Vector2)
+## Émis quand le joueur demande une interaction devant lui.
 signal interaction_requested(origin: Vector2, direction: Vector2)
 
+## Ressource qui centralise les vitesses, actions et conventions d'animation.
 @export var config: PlayerConfig
+## Autorise les commandes du joueur. Désactivé temporairement pendant les transitions.
 @export var controls_enabled := true
 
 @onready var visual: Node2D = $Visual
 @onready var animated_sprite: AnimatedSprite2D = $Visual/AnimatedSprite2D
 @onready var interaction_origin: Marker2D = $InteractionOrigin
+@onready var inventory: InventoryComponent = $Inventory
 
 var facing: StringName = &"south"
 var facing_vector := Vector2.DOWN
@@ -55,6 +63,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 
+## Active ou bloque les commandes tout en arrêtant proprement le déplacement.
 func set_controls_enabled(enabled: bool) -> void:
 	controls_enabled = enabled
 	if not enabled:
@@ -91,4 +100,3 @@ func _play_animation(moving: bool) -> void:
 	var animation := StringName("%s_%s" % [prefix, facing])
 	if animated_sprite.animation != animation:
 		animated_sprite.play(animation)
-

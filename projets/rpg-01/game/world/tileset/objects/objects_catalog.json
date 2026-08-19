@@ -12,7 +12,7 @@
   "sprite_count": 71,
   "packing": "32px aligned shelf packing; one-time family scale normalization; no per-instance scaling; bottom-center foot anchor",
   "normalization": {
-    "authority": "group scale in editor/builders/build_world_objects.py",
+    "authority": "group scale in pipeline/assets/builders/build_world_objects.py",
     "runtime_scale": 1.0,
     "profiles": {
       "architecture/building": 0.6,
@@ -39,8 +39,8 @@
     }
   },
   "sources": {
-    "architecture": "source-art/imagegen/objects/architecture-props-rgba-v001.png",
-    "nature": "source-art/imagegen/objects/nature-props-rgba-v001.png"
+    "architecture": "pipeline/assets/sources/imagegen/objects/architecture-props-rgba-v001.png",
+    "nature": "pipeline/assets/sources/imagegen/objects/nature-props-rgba-v001.png"
   },
   "naming_catalog": "game/world/tileset/objects/naming_catalog.json",
   "sprites": [

@@ -1,6 +1,10 @@
 class_name FollowCamera2D
 extends Camera2D
 
+## Caméra persistante qui suit une cible avec anticipation, limites de carte,
+## zones de zoom, arrondi pixel-perfect et secousses d'impact.
+
+## Configuration partagée qui définit le cadrage et le comportement du suivi.
 @export var config: CameraConfig
 
 var target: Node2D
@@ -61,11 +65,13 @@ func _physics_process(delta: float) -> void:
 		global_position = desired
 
 
+## Ajoute une courte secousse dont l'intensité dépend de la force de l'impact.
 func add_impact_shake(strength: float) -> void:
 	_shake_strength = maxf(_shake_strength, clampf(strength, 0.0, 1.0))
 	_shake_remaining = 0.16
 
 
+## Choisit le nœud suivi et réinitialise immédiatement le lissage sur sa position.
 func set_target(value: Node2D) -> void:
 	target = value
 	if target != null:
@@ -74,6 +80,7 @@ func set_target(value: Node2D) -> void:
 		_has_smoothed_position = true
 
 
+## Définit le rectangle mondial que la caméra ne doit pas dépasser.
 func set_world_bounds(bounds: Rect2) -> void:
 	base_bounds = bounds
 	_set_limits(bounds)
@@ -86,6 +93,7 @@ func _set_limits(bounds: Rect2) -> void:
 	limit_bottom = roundi(bounds.end.y)
 
 
+## Lit les limites et zones caméra déclarées par une carte nouvellement chargée.
 func configure_for_map(map: Node) -> void:
 	active_zones.clear()
 	zone_offset = Vector2.ZERO

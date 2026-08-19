@@ -14,10 +14,12 @@ const SCENES := {
 }
 
 
+## Indique si un type Tiled possède une scène Godot enregistrée.
 static func has_scene(kind: StringName) -> bool:
 	return SCENES.has(kind)
 
 
+## Instancie la scène correspondant au type, avec son état d'édition Godot.
 static func instantiate(kind: StringName) -> Node2D:
 	var packed := SCENES.get(kind) as PackedScene
 	if packed == null:
@@ -26,6 +28,7 @@ static func instantiate(kind: StringName) -> Node2D:
 	return packed.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE) as Node2D
 
 
+## Renvoie le chemin de la scène correspondant au type, ou une chaîne vide.
 static func scene_path(kind: StringName) -> String:
 	var packed := SCENES.get(kind) as PackedScene
 	return packed.resource_path if packed != null else ""

@@ -1,13 +1,18 @@
 class_name PsychokinesisAimIndicator2D
 extends Node2D
 
+## Dessine le lien entre le joueur, l'objet tenu et la direction de projection.
+## Ce composant est uniquement visuel et ne modifie jamais la physique.
+
 var controller: PsychokinesisController
 
 
+## Relie l'indicateur au contrôleur dont il doit représenter l'état.
 func setup(owner_controller: PsychokinesisController) -> void:
 	controller = owner_controller
 
 
+## Demande un nouveau dessin lors de la prochaine mise à jour visuelle.
 func refresh() -> void:
 	queue_redraw()
 

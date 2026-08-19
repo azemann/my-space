@@ -3177,6 +3177,7 @@ texture_region_size = Vector2i(32, 32)
 15:15/0/custom_data_7 = "none"
 
 [resource]
+resource_name = "Archive — fondation du monde V1"
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 custom_data_layer_0/name = "asset_id"

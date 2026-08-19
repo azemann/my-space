@@ -61,7 +61,7 @@ Les objets Tiled calculent leur centre depuis :
 content_offset + content_size / 2 - foot_anchor
 ```
 
-Le test `editor/tests/verify_psychokinesis_alignment.gd` compare ce centre de
+Le test `pipeline/tests/verify_psychokinesis_alignment.gd` compare ce centre de
 contenu réellement rendu avec la position globale de chaque `HoverShape`.
 
 ## Migration et validations

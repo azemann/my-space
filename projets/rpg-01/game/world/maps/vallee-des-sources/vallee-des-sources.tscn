@@ -5,7 +5,7 @@
 [node name="ValleeDesSources" type="Node2D" unique_id=1092712292]
 editor_description = "Scène maîtresse de la première zone. Le décor vient du TMX ; ajouter ici uniquement les systèmes runtime propres à la carte."
 metadata/level_id = "vallee-des-sources"
-metadata/source_tmx = "res://maps/source/vallee-des-sources.tmx"
+metadata/source_tmx = "res://pipeline/tiled/maps/source/vallee-des-sources.tmx"
 metadata/actor_parent_path = NodePath("World/PlacedObjects/YSortedObjects")
 metadata/default_spawn_id = "village-arrival"
 metadata/camera_bounds = Rect2(0, 0, 1280, 1280)

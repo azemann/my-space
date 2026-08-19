@@ -12,7 +12,7 @@
 [node name="PlageDuReveil" type="Node2D" unique_id=1350312304]
 editor_description = "Première scène du récit : Azeman se réveille sur la plage. Le décor et le gameplay spatial proviennent du TMX."
 metadata/level_id = "plage-du-reveil"
-metadata/source_tmx = "res://maps/source/plage-du-reveil.tmx"
+metadata/source_tmx = "res://pipeline/tiled/maps/source/plage-du-reveil.tmx"
 metadata/actor_parent_path = NodePath("World/PlacedObjects/YSortedObjects")
 metadata/default_spawn_id = "beach-awakening"
 metadata/camera_bounds = Rect2(0, 0, 1280, 960)

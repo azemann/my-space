@@ -33,14 +33,15 @@ Game
 ├── WorldContainer
 │   └── CurrentMap          carte remplaçable
 ├── PersistentActors
-│   └── Player              accueil avant rattachement à la carte
+│   └── Player              acteur persistant et propriétaire du sac
 ├── Psychokinesis
 │   ├── TargetDetector       choix d'une cible à portée
 │   ├── ManipulationAnchor   destination physique visible dans l'éditeur
 │   └── AimIndicator         faisceau et direction de projection
 ├── Camera                  caméra persistante
 └── Interface
-    └── HUD                 interface persistante
+    ├── HUD                 interface persistante
+    └── InventoryPanel      vue du sac, sans autorité sur son contenu
 ```
 
 Au chargement, `GameRoot` rattache `Player` au calque Y-sort déclaré par la
@@ -61,6 +62,9 @@ l'objet. Voir le [glossaire](../GLOSSAIRE.md) pour les termes contractuels.
 | Touches clavier/manette | Projet > Paramètres du projet > Contrôleur d'entrées |
 | Vitesse, accélération, course | `game/actors/player/player_config.tres` |
 | Collision et points d'ancrage du héros | `game/actors/player/player.tscn` |
+| Contenu runtime du sac | enfant `Inventory` du joueur |
+| Définitions et limites de piles | `game/content/items/definitions/` et catalogue généré |
+| Mise en page du sac | `game/ui/inventory/inventory_ui_config.tres` |
 | Animations produites par le pipeline | `game/actors/player/generated/` (lecture seule) |
 | Zoom, anticipation et douceur du suivi | `game/systems/camera/camera_config.tres` |
 | Cadrage propre à une zone | objets `CameraZones` de la carte Tiled |
@@ -70,9 +74,12 @@ l'objet. Voir le [glossaire](../GLOSSAIRE.md) pour les termes contractuels.
 | Détection, ancre et visée du pouvoir | enfants nommés du nœud `Psychokinesis` |
 | États et présentation d'un objet | enfants `StateMachine` et `Presentation` de la scène objet |
 | État persistant d'une instance | enfant `Persistence` portant `PersistentWorldInstance` |
-| Décor et placements massifs | TMX dans `maps/source/`, puis conversion |
+| Décor et placements massifs | TMX dans `pipeline/tiled/maps/source/`, puis conversion |
 | Logique propre à une carte | `game/world/maps/<carte>/<carte>.tscn` |
 | HUD et menus communs | branche `Interface` de `game/core/main.tscn` |
+
+Le détail des identités, transactions et extensions du sac est fixé par le
+[contrat d'inventaire](../contracts/INVENTORY_CONTRACT.md).
 
 Les ressources `.tres` sont les panneaux de réglage du jeu : on modifie leurs
 valeurs dans l'inspecteur, sans toucher au script. Les noms d'actions exportés
@@ -86,6 +93,7 @@ pour un autre personnage ou un prototype.
 | Se déplacer | ZQSD, WASD ou flèches | stick gauche |
 | Interagir | E ou Espace | bouton bas |
 | Courir | Maj | bouton gauche |
+| Inventaire | I ou Tab | bouton haut |
 | Pause | Échap | Start |
 
 Le tactile devra uniquement produire ces mêmes actions via une future interface

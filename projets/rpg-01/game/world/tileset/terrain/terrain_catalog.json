@@ -8,7 +8,7 @@
     11,
     11
   ],
-  "source": "source-art/imagegen/terrain/world-terrain-source-v001.png",
+  "source": "pipeline/assets/sources/imagegen/terrain/world-terrain-source-v001.png",
   "master": "game/world/tileset/terrain/terrain_atlas.png",
   "families": [
     {

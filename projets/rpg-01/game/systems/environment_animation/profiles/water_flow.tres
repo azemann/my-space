@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://3cnwxbfcylga" path="res://game/systems/environment_animation/shaders/pixel_surface_flow.gdshader" id="2"]
 
 [resource]
+resource_name = "Animation de surface — eau courante"
 script = ExtResource("1")
 profile_id = &"water_flow"
 description = "Rivière, courant et cascade : déplacement lumineux directionnel lisible."

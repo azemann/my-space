@@ -1,7 +1,13 @@
 extends Node2D
 
+## Anime la profondeur du premier plan de la Plage du Réveil sans perturber les
+## objets physiques psychokinétiques qu'il peut contenir.
+
+## Proportion du déplacement de caméra appliquée au premier plan non physique.
 @export_range(0.0, 0.15, 0.005) var foreground_parallax := 0.035
+## Inclinaison maximale donnée aux éléments du premier plan par le vent.
 @export_range(0.0, 2.0, 0.05, "suffix:deg") var foreground_sway_degrees := 0.45
+## Centre de référence de la carte utilisé pour calculer le décalage de parallaxe.
 @export var map_center := Vector2(640.0, 480.0)
 
 var _foreground: Node2D
@@ -30,11 +36,15 @@ func _process(delta: float) -> void:
 	var contains_physics_bodies := _foreground.get_children().any(func(child): return child is PsychokineticBody2D)
 	if camera != null and not contains_physics_bodies:
 		var camera_delta := camera.global_position - map_center
-		_foreground.position = _foreground_origin + (camera_delta * foreground_parallax).round()
+		var desired_position := _foreground_origin + (camera_delta * foreground_parallax).round()
+		if not _foreground.position.is_equal_approx(desired_position):
+			_foreground.position = desired_position
 	else:
 		# Un RigidBody2D ne doit jamais être déplacé indirectement par le transform
-		# animé de son parent : sa position appartient au serveur physique.
-		_foreground.position = _foreground_origin
+		# animé de son parent : sa position appartient au serveur physique. Même
+		# réassigner la même position invalide le transform physique de ses enfants.
+		if not _foreground.position.is_equal_approx(_foreground_origin):
+			_foreground.position = _foreground_origin
 	var amplitude := deg_to_rad(foreground_sway_degrees)
 	var index := 0
 	for child in _child_rotations:

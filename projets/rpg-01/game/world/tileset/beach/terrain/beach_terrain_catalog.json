@@ -4,7 +4,7 @@
     32,
     32
   ],
-  "source": "source-art/imagegen/beach/beach-terrain-source-v001.png",
+  "source": "pipeline/assets/sources/imagegen/beach/beach-terrain-source-v001.png",
   "families": [
     {
       "id": "12_beach_dry_sand",

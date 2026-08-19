@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://game/actors/player/player_controller.gd" id="1_controller"]
 [ext_resource type="Resource" path="res://game/actors/player/player_config.tres" id="2_config"]
 [ext_resource type="PackedScene" path="res://game/actors/player/generated/player_visual.tscn" id="3_visual"]
+[ext_resource type="Script" path="res://game/systems/inventory/inventory_component.gd" id="4_inventory"]
+[ext_resource type="Resource" path="res://game/content/items/catalog.tres" id="5_catalog"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_feet"]
 radius = 7.0
@@ -39,3 +41,8 @@ position = Vector2(0, -22)
 [node name="AudioListener" type="AudioListener2D" parent="."]
 editor_description = "Point d'écoute spatial persistant : les ambiances 2D suivent exactement la position du joueur."
 current = true
+
+[node name="Inventory" type="Node" parent="."]
+editor_description = "Sac persistant d'Azeman : 20 emplacements, piles atomiques et état sérialisable."
+script = ExtResource("4_inventory")
+catalog = ExtResource("5_catalog")

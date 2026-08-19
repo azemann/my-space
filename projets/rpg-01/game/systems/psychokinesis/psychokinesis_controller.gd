@@ -1,16 +1,25 @@
 class_name PsychokinesisController
 extends Node2D
 
+## Orchestre la sélection, la prise, le déplacement vertical et la projection
+## des objets psychokinétiques à la souris, au clavier ou à la manette.
+
 @export_category("Portée du pouvoir")
 ## Distance maximale entre Azeman et une cible détectable.
 @export_range(16.0, 320.0, 1.0, "suffix:px") var acquisition_range := 208.0
 ## Distance maximale à laquelle un objet déjà saisi peut être déplacé.
 @export_range(16.0, 320.0, 1.0, "suffix:px") var control_radius := 224.0
+## Impulsion horizontale maximale transmise à un objet projeté à pleine charge.
 @export_range(10.0, 1000.0, 10.0, "suffix:impulse") var throw_impulse := 340.0
+## Distance visée à pleine inclinaison de manette ou lors d'une projection sans direction explicite.
 @export_range(32.0, 512.0, 1.0, "suffix:px") var full_aim_distance := 120.0
+## Vitesse de déplacement du curseur virtuel contrôlé à la manette.
 @export_range(16.0, 512.0, 1.0, "suffix:px/s") var gamepad_cursor_speed := 180.0
+## Quantité de hauteur ajoutée ou retirée à chaque commande verticale.
 @export_range(1.0, 32.0, 1.0, "suffix:px") var height_step := 6.0
+## Durée nécessaire pour atteindre la puissance maximale de projection.
 @export_range(0.1, 2.0, 0.05, "suffix:s") var maximum_charge_time := 0.85
+## Niveau actuel du pouvoir, comparé au niveau requis par chaque objet.
 @export_range(0, 10, 1) var power_level := 0
 
 @export_category("Manipulation directe")
@@ -22,6 +31,7 @@ var held_body: PsychokineticBody2D
 var targeted_body: PsychokineticBody2D
 var charge_time := 0.0
 var is_charging := false
+var controls_enabled := true
 
 var _using_mouse := true
 var _control_position := Vector2.ZERO
@@ -41,6 +51,8 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if not controls_enabled:
+		return
 	# Le survol est recalculé à chaque image à partir de la position réellement
 	# affichée. Il ne dépend ni du serveur physique, ni d'un cache temporel.
 	if held_body == null:
@@ -48,6 +60,8 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if not controls_enabled:
+		return
 	if held_body != null and is_instance_valid(held_body):
 		_update_gamepad_cursor(delta)
 		if is_charging:
@@ -64,6 +78,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not controls_enabled:
+		return
 	if event is InputEventMouseMotion or event is InputEventMouseButton:
 		_using_mouse = true
 	elif event is InputEventJoypadMotion and absf(event.axis_value) > 0.25:
@@ -92,6 +108,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 
+## Active ou bloque les commandes du pouvoir et annule toute manipulation en cours.
+func set_controls_enabled(enabled: bool) -> void:
+	controls_enabled = enabled
+	if not enabled:
+		cancel_manipulation()
+
+
+## Tente de saisir la cible préférée ou la meilleure cible détectée.
 func try_grab(preferred: PsychokineticBody2D = null) -> bool:
 	if held_body != null or player == null:
 		return false
@@ -117,6 +141,7 @@ func try_grab(preferred: PsychokineticBody2D = null) -> bool:
 	return true
 
 
+## Commence à charger une projection pour l'objet actuellement tenu.
 func begin_charge() -> void:
 	if held_body == null or is_charging:
 		return
@@ -127,6 +152,7 @@ func begin_charge() -> void:
 	held_body.begin_charge()
 
 
+## Relâche l'objet tenu sans le projeter.
 func drop_held() -> void:
 	if held_body == null:
 		return
@@ -139,6 +165,7 @@ func drop_held() -> void:
 	targeted_body = null
 
 
+## Annule toute sélection, charge ou prise en cours, notamment lors d'un changement de carte.
 func cancel_manipulation() -> void:
 	if held_body != null and is_instance_valid(held_body):
 		drop_held()
@@ -150,6 +177,7 @@ func cancel_manipulation() -> void:
 	charge_time = 0.0
 
 
+## Convertit la charge et la visée courantes en projection, puis libère l'objet.
 func release_throw() -> void:
 	if held_body == null:
 		return
@@ -163,6 +191,7 @@ func release_throw() -> void:
 	throw_held(charge_ratio * 0.72 + aim_ratio * 0.28, direction)
 
 
+## Projette directement l'objet tenu avec une puissance et une direction données.
 func throw_held(power := 0.0, direction := Vector2.ZERO) -> void:
 	if held_body == null or player == null:
 		return
@@ -194,6 +223,7 @@ func _mouse_hold_target(pointer_world_position: Vector2) -> Vector2:
 	return _clamp_to_control_radius(desired)
 
 
+## Renvoie la position mondiale actuellement indiquée comme destination de visée.
 func aim_world_position() -> Vector2:
 	if _using_mouse:
 		return _pointer_world_position()

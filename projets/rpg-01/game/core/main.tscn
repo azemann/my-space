@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://game/core/game_root.gd" id="1_root"]
 [ext_resource type="PackedScene" path="res://game/world/maps/plage-du-reveil/plage-du-reveil.tscn" id="2_map"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://game/core/world_state_store.gd" id="8_world_state"]
 [ext_resource type="Script" path="res://game/systems/psychokinesis/psychokinesis_target_detector.gd" id="9_target_detector"]
 [ext_resource type="Script" path="res://game/systems/psychokinesis/psychokinesis_aim_indicator_2d.gd" id="10_aim_indicator"]
+[ext_resource type="PackedScene" path="res://game/ui/inventory/inventory_panel.tscn" id="11_inventory_panel"]
+[ext_resource type="Script" path="res://game/systems/interactions/interaction_controller.gd" id="12_interactions"]
 
 [node name="Game" type="Node"]
 process_mode = 3
@@ -23,6 +25,10 @@ script = ExtResource("6_display")
 [node name="WorldState" type="Node" parent="."]
 editor_description = "Registre persistant de la session : capture et restaure l'état d'instance des objets déplaçables pour chaque carte."
 script = ExtResource("8_world_state")
+
+[node name="Interactions" type="Node" parent="."]
+editor_description = "Route l'action Interagir vers le composant disponible devant Azeman."
+script = ExtResource("12_interactions")
 
 [node name="WorldContainer" type="Node" parent="."]
 
@@ -66,3 +72,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="InventoryPanel" parent="Interface" instance=ExtResource("11_inventory_panel")]

@@ -1,7 +1,7 @@
 # Exports psychokinétiques
 
 Ces WAV 48 kHz sont rendus depuis les masters de
-`source-art/lmms/psychokinesis/`. Ils ne doivent pas être retouchés directement.
+`pipeline/assets/sources/lmms/psychokinesis/`. Ils ne doivent pas être retouchés directement.
 
 | Export | Événement Godot |
 | --- | --- |

@@ -4,6 +4,7 @@
 [ext_resource type="Shader" path="res://game/systems/environment_animation/shaders/pixel_surface_flow.gdshader" id="2"]
 
 [resource]
+resource_name = "Animation de surface — écume du rivage"
 script = ExtResource("1")
 profile_id = &"shoreline_foam"
 description = "Écume, rive et ressac : pulsation claire plus franche."

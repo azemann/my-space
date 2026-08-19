@@ -6,11 +6,15 @@ extends Node2D
 ## FootprintTrailProfile et dans la scène d'empreinte, tous deux éditables.
 
 @export_category("Références Godot")
+## Profil qui décrit la surface, l'espacement et la scène des empreintes.
 @export var profile: FootprintTrailProfile
+## Chemin du TileMapLayer interrogé pour connaître le terrain sous les pas.
 @export_node_path("TileMapLayer") var surface_layer_path: NodePath
+## Groupe Godot utilisé pour retrouver automatiquement le personnage suivi.
 @export var player_group: StringName = &"player_actor"
 
 @export_category("Activation")
+## Active ou suspend la création de nouvelles empreintes.
 @export var enabled := true
 
 var _player: CharacterBody2D
@@ -45,6 +49,7 @@ func _physics_process(_delta: float) -> void:
 	_spawn_footprint(current_position, travel_direction)
 
 
+## Vérifie si la position mondiale correspond au terrain demandé par le profil.
 func is_required_surface_at(world_position: Vector2) -> bool:
 	if profile == null:
 		return false

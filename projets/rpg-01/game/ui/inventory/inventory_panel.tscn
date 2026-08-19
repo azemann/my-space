@@ -1,0 +1,113 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3gin4hth516p"]
+
+[ext_resource type="Script" uid="uid://c68ryvnqn7lu1" path="res://game/ui/inventory/inventory_panel.gd" id="1_panel"]
+[ext_resource type="Resource" path="res://game/ui/inventory/inventory_ui_config.tres" id="2_config"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_panel"]
+
+[node name="InventoryPanel" type="Control" unique_id=602261113]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 1
+script = ExtResource("1_panel")
+config = ExtResource("2_config")
+
+[node name="Dimmer" type="ColorRect" parent="." unique_id=864428849]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.015, 0.025, 0.022, 0.78)
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=1205277175]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 52.0
+offset_top = 12.0
+offset_right = -52.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Margin"]
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 0
+
+[node name="Panel" type="PanelContainer" parent="Margin" unique_id=846092778]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_panel")
+
+[node name="ContentMargin" type="MarginContainer" parent="Margin/Panel" unique_id=1099649379]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 10
+
+[node name="Rows" type="VBoxContainer" parent="Margin/Panel/ContentMargin" unique_id=863692811]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Header" type="HBoxContainer" parent="Margin/Panel/ContentMargin/Rows" unique_id=2069363782]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Margin/Panel/ContentMargin/Rows/Header" unique_id=2132278295]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Sac d'Azeman"
+
+[node name="Capacity" type="Label" parent="Margin/Panel/ContentMargin/Rows/Header" unique_id=519674868]
+unique_name_in_owner = true
+layout_mode = 2
+text = "20 emplacements"
+horizontal_alignment = 2
+
+[node name="Separator" type="HSeparator" parent="Margin/Panel/ContentMargin/Rows" unique_id=445124880]
+layout_mode = 2
+
+[node name="SlotScroll" type="ScrollContainer" parent="Margin/Panel/ContentMargin/Rows"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="SlotGrid" type="GridContainer" parent="Margin/Panel/ContentMargin/Rows/SlotScroll" unique_id=162758294]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 4
+columns = 5
+
+[node name="Details" type="VBoxContainer" parent="Margin/Panel/ContentMargin/Rows" unique_id=352997089]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="Margin/Panel/ContentMargin/Rows/Details" unique_id=1547164860]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Sélectionnez un objet"
+
+[node name="Description" type="Label" parent="Margin/Panel/ContentMargin/Rows/Details" unique_id=1949622400]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Les objets ramassés apparaîtront ici."
+autowrap_mode = 2
+
+[node name="Help" type="Label" parent="Margin/Panel/ContentMargin/Rows" unique_id=1909888876]
+layout_mode = 2
+text = "I / Tab / Y : fermer"
+horizontal_alignment = 2

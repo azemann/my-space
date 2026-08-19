@@ -15,7 +15,7 @@
     32,
     32
   ],
-  "source": "source-art/imagegen/beach/beach-objects-rgba-v002.png",
+  "source": "pipeline/assets/sources/imagegen/beach/beach-objects-rgba-v002.png",
   "atlas_size_px": [
     960,
     480

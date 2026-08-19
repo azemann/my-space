@@ -2,12 +2,17 @@
 
 ## Autorité active
 
-- `game/` contient uniquement les ressources destinées au jeu et à l'éditeur
-  Godot ;
-- `editor/` contient les constructeurs, convertisseurs et tests ;
-- `maps/` contient les cartes Tiled maîtres, leurs modèles et leurs TSX ;
-- `source-art/` contient les fichiers lourds ou intermédiaires de création ;
+- `game/` est le produit final : scènes, scripts runtime, ressources importées,
+  TileSet et cartes converties utilisées par Godot ;
+- `pipeline/` est l'atelier : sources artistiques, constructeurs, cartes Tiled,
+  convertisseurs et tests ;
+- `pipeline/assets/sources/` contient les fichiers lourds ou intermédiaires de création
+  et reste exclu de l'import Godot grâce à son `.gdignore` ;
+- `docs/` contient les contrats et explications actifs ;
 - `archive/` conserve l'historique sans être chargé par Godot.
+
+La frontière est directionnelle : le pipeline lit ses sources et produit des
+fichiers dans `game/`. Le runtime ne charge jamais une source de `pipeline/`.
 
 ## Monde
 
@@ -15,6 +20,7 @@
 game/
 ├── core/                  session persistante et changement de carte
 ├── actors/                joueur, PNJ, ennemis et composants d'acteur
+├── content/               définitions et représentations runtime du contenu
 ├── systems/               caméra, sauvegarde, quêtes, audio, transitions
 ├── ui/                    HUD et menus persistants
 └── world/                 cartes et TileSet du monde
@@ -42,10 +48,18 @@ game/world/
 ```
 
 ```text
-maps/
-├── source/                 cartes TMX à éditer dans Tiled
-├── templates/              contrat initial des calques RPG
-└── tilesets/               adaptateurs TSX vers le TileSet Godot
+pipeline/
+├── assets/
+│   ├── builders/           génération des atlas de terrain et d'objets
+│   ├── player/             génération de la planche et des animations du joueur
+│   └── sources/            images, audio de travail, références et provenance
+├── tiled/
+│   ├── tools/              création, validation, export TSX et conversion Godot
+│   └── maps/
+│       ├── source/         cartes TMX à éditer dans Tiled
+│       ├── templates/      contrat initial des calques RPG
+│       └── tilesets/       adaptateurs TSX vers le TileSet Godot
+└── tests/                  vérifications Python et Godot
 ```
 
 Une carte Tiled possède un TMX maître et une scène `.tscn` dérivée. Elle ne
@@ -60,5 +74,6 @@ et l'interface restent également enfants du socle persistant.
 
 - aucune version `v001`, `v005` ou `candidate` dans les chemins actifs ;
 - aucune modification manuelle dans `game/world/maps/generated/` ;
-- aucune dépendance active vers `archive/` ou `source-art/` ;
+- aucune dépendance active vers `archive/` ou `pipeline/assets/sources/` ;
+- aucun fichier runtime nouveau directement à la racine de `pipeline/` ;
 - aucun atlas mêlant source artistique et ressource prête pour Godot.

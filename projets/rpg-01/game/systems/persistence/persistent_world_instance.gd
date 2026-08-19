@@ -30,6 +30,7 @@ func _ready() -> void:
 	add_to_group(PERSISTENT_INSTANCE_GROUP)
 
 
+## Produit l'état sérialisable du nœud parent relativement à sa carte.
 func capture_instance_state(map: Node2D) -> Dictionary:
 	var target := get_parent() as Node2D
 	if target == null:
@@ -39,9 +40,16 @@ func capture_instance_state(map: Node2D) -> Dictionary:
 		state["position"] = map.to_local(target.global_position)
 	if persist_rotation:
 		state["rotation"] = target.global_rotation
+	var component_states: Dictionary = {}
+	for child in target.get_children():
+		if child.has_method("capture_persistent_state_fragment"):
+			component_states[str(child.name)] = child.call("capture_persistent_state_fragment")
+	if not component_states.is_empty():
+		state["components"] = component_states
 	return state
 
 
+## Réapplique au nœud parent un état précédemment capturé.
 func restore_instance_state(map: Node2D, state: Dictionary) -> void:
 	var target := get_parent() as Node2D
 	if target == null:
@@ -55,11 +63,16 @@ func restore_instance_state(map: Node2D, state: Dictionary) -> void:
 		world_rotation = float(state["rotation"])
 	if normalize_transient_physics and target.has_method("restore_persistent_state"):
 		target.call("restore_persistent_state", world_position, world_rotation)
-		return
-	target.global_position = world_position
-	target.global_rotation = world_rotation
-	if normalize_transient_physics and target is RigidBody2D:
-		var body := target as RigidBody2D
-		body.linear_velocity = Vector2.ZERO
-		body.angular_velocity = 0.0
-		body.sleeping = true
+	else:
+		target.global_position = world_position
+		target.global_rotation = world_rotation
+		if normalize_transient_physics and target is RigidBody2D:
+			var body := target as RigidBody2D
+			body.linear_velocity = Vector2.ZERO
+			body.angular_velocity = 0.0
+			body.sleeping = true
+	var component_states: Dictionary = state.get("components", {})
+	for child in target.get_children():
+		var key := str(child.name)
+		if component_states.has(key) and child.has_method("restore_persistent_state_fragment"):
+			child.call("restore_persistent_state_fragment", component_states[key])

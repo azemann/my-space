@@ -1,7 +1,11 @@
 class_name PsychokinesisTargetDetector
 extends Node
 
+## Service de recherche et de classement des objets psychokinétiques. Il tient
+## compte de la portée, de la puissance, du pointeur et de l'ordre d'affichage.
 
+
+## Renvoie toutes les cibles saisissables situées dans la portée du joueur.
 func nearby_targets(player: PlayerController, acquisition_range: float, power_level: int) -> Array[PsychokineticBody2D]:
 	var result: Array[PsychokineticBody2D] = []
 	if player == null:
@@ -13,6 +17,7 @@ func nearby_targets(player: PlayerController, acquisition_range: float, power_le
 	return result
 
 
+## Choisit parmi les zones qui signalent actuellement un survol natif Godot.
 func find_native_hover(
 	player: PlayerController,
 	acquisition_range: float,
@@ -28,6 +33,7 @@ func find_native_hover(
 	return result
 
 
+## Cherche la meilleure collision de sélection sous un point mondial précis.
 func find_at_world_point(
 	pointer_world_position: Vector2,
 	player: PlayerController,
@@ -43,6 +49,7 @@ func find_at_world_point(
 	return result
 
 
+## Choisit la cible la plus cohérente avec une direction de visée à la manette.
 func find_directional(
 	player: PlayerController,
 	acquisition_range: float,
@@ -67,6 +74,7 @@ func find_directional(
 	return best
 
 
+## Vérifie qu'une cible existe, se trouve à portée et accepte le niveau du pouvoir.
 func is_available(
 	body: PsychokineticBody2D,
 	player: PlayerController,
@@ -80,6 +88,7 @@ func is_available(
 		and player.global_position.distance_to(body.global_position) <= acquisition_range
 
 
+## Compare deux cibles superposées pour sélectionner celle visuellement au premier plan.
 func is_drawn_in_front(
 	candidate: PsychokineticBody2D,
 	current: PsychokineticBody2D,

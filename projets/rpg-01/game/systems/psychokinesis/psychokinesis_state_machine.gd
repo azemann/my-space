@@ -1,8 +1,13 @@
 class_name PsychokinesisStateMachine
 extends Node
 
+## Automate qui protège le cycle de vie d'un objet psychokinétique contre les
+## transitions impossibles entre repos, prise, charge, projection et chute.
+
+## Émis après chaque transition valide entre deux états.
 signal state_changed(previous: State, current: State)
 
+## États successifs possibles d'une interaction psychokinétique.
 enum State {
 	IDLE,
 	TARGETED,
@@ -13,6 +18,7 @@ enum State {
 	LANDING,
 }
 
+## État appliqué lorsque le composant entre dans l'arbre de scène.
 @export var initial_state := State.IDLE
 
 var state := State.IDLE
@@ -22,6 +28,7 @@ func _ready() -> void:
 	state = initial_state
 
 
+## Tente une transition et renvoie false si le passage demandé est interdit.
 func transition(next_state: State) -> bool:
 	if next_state == state:
 		return true
@@ -34,6 +41,7 @@ func transition(next_state: State) -> bool:
 	return true
 
 
+## Revient à l'état de repos et émet le changement si nécessaire.
 func reset() -> void:
 	var previous := state
 	state = State.IDLE
@@ -41,14 +49,17 @@ func reset() -> void:
 		state_changed.emit(previous, state)
 
 
+## Indique si l'objet est actuellement attiré, tenu ou en charge.
 func is_controlled() -> bool:
 	return state in [State.ATTRACTED, State.HELD, State.CHARGING]
 
 
+## Indique si l'objet est projeté ou en phase d'atterrissage.
 func is_airborne() -> bool:
 	return state in [State.ATTRACTED, State.HELD, State.CHARGING, State.THROWN, State.LANDING]
 
 
+## Donne un nom lisible à une valeur d'état pour les diagnostics.
 static func state_name(value: State) -> String:
 	return State.keys()[value].to_lower()
 

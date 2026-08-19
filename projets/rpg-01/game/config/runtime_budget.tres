@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://game/config/runtime_budget.gd" id="1_budget"]
 
 [resource]
+resource_name = "Budget de performance du jeu"
 script = ExtResource("1_budget")
 target_fps = 60
 frame_budget_ms = 16.67

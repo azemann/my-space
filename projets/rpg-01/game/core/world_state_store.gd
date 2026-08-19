@@ -1,7 +1,12 @@
 class_name WorldStateStore
 extends Node
 
+## Mémoire de session des objets persistants. Les états sont indexés par carte
+## et restent en mémoire tant que la partie courante n'est pas réinitialisée.
+
+## Émis après la mémorisation des instances d'une carte.
 signal map_state_captured(map_id: StringName, instance_count: int)
+## Émis après la restauration des instances d'une carte.
 signal map_state_restored(map_id: StringName, instance_count: int)
 
 const SCHEMA_VERSION := 1
@@ -14,6 +19,7 @@ const SCHEMA_VERSION := 1
 var _map_states: Dictionary = {}
 
 
+## Capture les composants persistants de la carte et renvoie leur nombre.
 func capture_map_state(map: Node2D) -> int:
 	if not enabled or map == null:
 		return 0
@@ -36,6 +42,7 @@ func capture_map_state(map: Node2D) -> int:
 	return instance_states.size()
 
 
+## Restaure les composants mémorisés de la carte et renvoie leur nombre.
 func restore_map_state(map: Node2D) -> int:
 	if not enabled or map == null:
 		return 0
@@ -54,10 +61,12 @@ func restore_map_state(map: Node2D) -> int:
 	return restored_count
 
 
+## Indique si cette carte possède déjà un état mémorisé pendant la session.
 func has_map_state(map_id: StringName) -> bool:
 	return _map_states.has(str(map_id))
 
 
+## Efface tous les états de carte mémorisés pour recommencer une session vierge.
 func clear_session_state() -> void:
 	_map_states.clear()
 

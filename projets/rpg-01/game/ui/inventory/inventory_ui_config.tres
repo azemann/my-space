@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryUIConfig" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://game/ui/inventory/inventory_ui_config.gd" id="1_config"]
+[ext_resource type="Texture2D" path="res://game/ui/inventory/assets/inventory-panel-background.png" id="2_background"]
+
+[resource]
+resource_name = "Interface — inventaire principal"
+script = ExtResource("1_config")
+panel_texture = ExtResource("2_background")
+outer_margin_vertical = 30
+content_margin_horizontal = 36
+content_margin_vertical = 34

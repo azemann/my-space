@@ -65,11 +65,11 @@ inspectables dans Tiled et dans Godot.
 
 Une map n'est pas jouable parce qu'elle s'affiche. Elle l'est lorsque :
 
-- le validateur `editor/tiled/map_contract.py` réussit ;
+- le validateur `pipeline/tiled/tools/map_contract.py` réussit ;
 - le convertisseur Godot réussit sans avertissement ;
 - chaque famille d'obstacle possède un test de non-franchissement ;
 - chaque pont, escalier et porte possède un test de franchissement ;
 - le joueur ne peut ni quitter les limites ni atteindre une hauteur par le côté ;
 - les zones caméra détectent le joueur et reviennent au cadrage global en sortie.
 
-Le test de référence actuel est `editor/tests/verify_world_traversal.gd`.
+Le test de référence actuel est `pipeline/tests/verify_world_traversal.gd`.

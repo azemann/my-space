@@ -1,12 +1,23 @@
+// Anime une surface en espace mondial avec deux vagues pixelisées. Les profils
+// .tres fournissent des valeurs différentes pour l'eau, l'écume, la lave, le
+// poison et la magie sans dupliquer ce shader.
 shader_type canvas_item;
 
+// Vitesse de déplacement temporel des vagues.
 uniform float speed : hint_range(0.0, 8.0) = 1.0;
+// Force du changement de couleur appliqué à la texture d'origine.
 uniform float intensity : hint_range(0.0, 0.5) = 0.08;
+// Densité du motif dans l'espace mondial.
 uniform float spatial_frequency : hint_range(0.001, 0.25) = 0.05;
+// Cadence discrète qui préserve l'aspect d'une animation pixel art.
 uniform float animation_fps : hint_range(1.0, 30.0) = 8.0;
+// Axe principal suivant lequel le motif se déplace.
 uniform vec2 flow_direction = vec2(1.0, 0.25);
+// Couleur ajoutée aux vagues et aux reflets.
 uniform vec4 tint_color : source_color = vec4(0.35, 0.82, 1.0, 1.0);
+// Niveau du motif à partir duquel un reflet clair apparaît.
 uniform float highlight_threshold : hint_range(0.0, 1.0) = 0.72;
+// Décalage temporel optionnel pour désynchroniser deux surfaces identiques.
 uniform float phase_offset = 0.0;
 
 varying vec2 world_position;

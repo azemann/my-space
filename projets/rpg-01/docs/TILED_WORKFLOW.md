@@ -26,10 +26,10 @@ implémentée séparément du survol ordinaire.
 ## Créer une carte
 
 ```bash
-python3 editor/tiled/create_map.py village-01
+python3 pipeline/tiled/tools/create_map.py village-01
 ```
 
-La carte apparaît dans `maps/source/village-01.tmx`. Elle contient déjà les
+La carte apparaît dans `pipeline/tiled/maps/source/village-01.tmx`. Elle contient déjà les
 groupes Terrain, Water, Relief, Architecture, Decoration, PlacedObjects et
 Gameplay, ainsi que les versions de contrat attendues. Une carte créée depuis
 ce modèle n'est toutefois jouable qu'après ajout des quatre limites physiques,
@@ -38,7 +38,7 @@ d'au moins un spawn et d'une zone caméra.
 ## Valider le gameplay spatial
 
 ```bash
-python3 editor/tiled/map_contract.py maps/source/village-01.tmx
+python3 pipeline/tiled/tools/map_contract.py pipeline/tiled/maps/source/village-01.tmx
 ```
 
 La conversion Godot applique également ce contrôle et refuse toute carte sans
@@ -48,7 +48,7 @@ mal définie.
 ## Convertir toutes les cartes
 
 ```bash
-godot --headless --path . --script res://editor/tiled/convert_all.gd
+godot --headless --path . --script res://pipeline/tiled/tools/convert_all.gd
 ```
 
 Les scènes dérivées sont écrites dans `game/world/maps/generated/`. Elles ne
@@ -61,7 +61,7 @@ donc pas un monde à moitié régénéré.
 
 ## Correspondance des TileSets
 
-Les fichiers `maps/tilesets/*.tsx` portent un `godot_source_id`. Le
+Les fichiers `pipeline/tiled/maps/tilesets/*.tsx` portent un `godot_source_id`. Le
 convertisseur traduit les GID Tiled vers la source correspondante de
 `game/world/tileset/world_tileset.tres`. Il ne fabrique donc aucun TileSet
 secondaire et ne perd pas les données configurées dans Godot.
@@ -145,6 +145,12 @@ de type `PersistentWorldInstance`, identique au composant configurable dans
 l'Inspecteur pour les scènes éditées directement dans Godot. À défaut de valeur
 explicite, la correspondance `tiled.<id>` est employée.
 
+Pour rendre l'instance ramassable, ajouter `inventory_item_id` et
+`inventory_quantity`. Un objet unique reçoit également un
+`inventory_instance_id`. Le convertisseur valide l'identifiant contre le
+catalogue et génère le composant de ramassage ; voir le
+[guide des objets d'inventaire](ITEM_AUTHORING.md).
+
 `beach_objects.tsx` ajoute 30 objets littoraux et débris d'épave avec les mêmes
 règles d'ancrage, de nommage et d'interdiction de mise à l'échelle par instance.
 Contrairement à la bibliothèque générale, ces objets utilisent directement une
@@ -154,7 +160,7 @@ une.
 Pour resynchroniser les TSX après une modification des familles de terrain :
 
 ```bash
-python3 editor/tiled/export_tilesets.py
+python3 pipeline/tiled/tools/export_tilesets.py
 ```
 
 ## Contrat d'autorité
@@ -162,7 +168,7 @@ python3 editor/tiled/export_tilesets.py
 - modifier le placement, les calques et les zones dans le `.tmx` ;
 - modifier les images, collisions de tuiles, ancres et métadonnées dans
   `world_tileset.tres` ;
-- ne jamais corriger directement une scène dans `maps/generated/` ;
+- ne jamais corriger directement une scène dans `game/world/maps/generated/` ;
 - composer le gameplay spécifique dans une scène Godot distincte qui instancie
   la scène générée.
 - vérifier physiquement au moins un obstacle et chaque passage exceptionnel

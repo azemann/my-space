@@ -17,7 +17,7 @@ Première zone extérieure et scène principale du projet.
 
 ## Autorités
 
-- `maps/source/vallee-des-sources.tmx` : placement et données spatiales ;
+- `pipeline/tiled/maps/source/vallee-des-sources.tmx` : placement et données spatiales ;
 - `game/world/maps/generated/vallee-des-sources.tscn` : résultat dérivé, lecture seule ;
 - `game/world/maps/vallee-des-sources/vallee-des-sources.tscn` : composition runtime éditable.
 

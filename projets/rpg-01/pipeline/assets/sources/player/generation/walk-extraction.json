@@ -1,0 +1,707 @@
+{
+  "schema_version": 1,
+  "asset_id": "player.hero.walk",
+  "data_status": "measured",
+  "source": "pipeline/assets/sources/player/generation/walk-board-rgba.png",
+  "source_sha256": "b04955ed15325bf0584f2244f3f151ca0b8e908e4bd69f066662fa8170fa4961",
+  "source_canvas_px": [
+    320,
+    320
+  ],
+  "source_root_local_px": [
+    160,
+    280
+  ],
+  "target_canvas_px": [
+    64,
+    64
+  ],
+  "target_root_px": [
+    32,
+    56
+  ],
+  "uniform_scale": 0.18125,
+  "uniform_translation_px": [
+    3,
+    5
+  ],
+  "per_frame_scaling": false,
+  "bbox_recentering": false,
+  "frames": [
+    {
+      "animation": "walk",
+      "direction": "south",
+      "index": 0,
+      "component_bbox_px": [
+        133,
+        55,
+        126,
+        258
+      ],
+      "component_area_px": 24166,
+      "source_root_px": [
+        196,
+        315
+      ],
+      "source_crop_px": [
+        36,
+        35,
+        320,
+        320
+      ],
+      "source_root_local_px": [
+        160,
+        280
+      ],
+      "target_canvas_px": [
+        64,
+        64
+      ],
+      "target_root_px": [
+        32,
+        56
+      ],
+      "scale": 0.18125,
+      "target_translation_px": [
+        3,
+        5
+      ],
+      "translation_policy": "explicit_grid_root_not_bbox_center",
+      "output": "pipeline/assets/sources/player/frames/walk/south/frame-00.png",
+      "sha256": "e6e22ee0eecf63ebd3703efd5f7295445d96d1bb50308243441755564b8cfc4d"
+    },
+    {
+      "animation": "walk",
+      "direction": "south",
+      "index": 1,
+      "component_bbox_px": [
+        411,
+        56,
+        128,
+        259
+      ],
+      "component_area_px": 23429,
+      "source_root_px": [
+        475,
+        315
+      ],
+      "source_crop_px": [
+        315,
+        35,
+        320,
+        320
+      ],
+      "source_root_local_px": [
+        160,
+        280
+      ],
+      "target_canvas_px": [
+        64,
+        64
+      ],
+      "target_root_px": [
+        32,
+        56
+      ],
+      "scale": 0.18125,
+      "target_translation_px": [
+        3,
+        5
+      ],
+      "translation_policy": "explicit_grid_root_not_bbox_center",
+      "output": "pipeline/assets/sources/player/frames/walk/south/frame-01.png",
+      "sha256": "1af679a21d812152f8b0110f1b3c62c9cb97edf1e0e7f3473a8115154da500af"
+    },
+    {
+      "animation": "walk",
+      "direction": "south",
+      "index": 2,
+      "component_bbox_px": [
+        705,
+        56,
+        128,
+        261
+      ],
+      "component_area_px": 24106,
+      "source_root_px": [
+        769,
+        315
+      ],
+      "source_crop_px": [
+        609,
+        35,
+        320,
+        320
+      ],
+      "source_root_local_px": [
+        160,
+        280
+      ],
+      "target_canvas_px": [
+        64,
+        64
+      ],
+      "target_root_px": [
+        32,
+        56
+      ],
+      "scale": 0.18125,
+      "target_translation_px": [
+        3,
+        5
+      ],
+      "translation_policy": "explicit_grid_root_not_bbox_center",
+      "output": "pipeline/assets/sources/player/frames/walk/south/frame-02.png",
+      "sha256": "b7ce1100f45b9137d0fb189af8cf9901ca277f46bf32d5dd292ccf0846134aec"
+    },
+    {
+      "animation": "walk",
+      "direction": "south",
+      "index": 3,
+      "component_bbox_px": [
+        983,
+        56,
+        126,
+        261
+      ],
+      "component_area_px": 23901,
+      "source_root_px": [
+        1045,
+        315
+      ],
+      "source_crop_px": [
+        885,
+        35,
+        320,
+        320
+      ],
+      "source_root_local_px": [
+        160,
+        280
+      ],
+      "target_canvas_px": [
+        64,
+        64
+      ],
+      "target_root_px": [
+        32,
+        56
+      ],
+      "scale": 0.18125,
+      "target_translation_px": [
+        3,
+        5
+      ],
+      "translation_policy": "explicit_grid_root_not_bbox_center",
+      "output": "pipeline/assets/sources/player/frames/walk/south/frame-03.png",
+      "sha256": "f3f7e6571f2c0249d5735509564e4d68b7682d24b810765ecced5fbd750edb99"
+    },
+    {
+      "animation": "walk",
+      "direction": "west",
+      "index": 0,
+      "component_bbox_px": [
+        144,
+        347,
+        98,
+        259
+      ],
+      "component_area_px": 17726,
+      "source_root_px": [
+        196,
+        604
+      ],
+      "source_crop_px": [
+        36,
+        324,
+        320,
+        320
+      ],
+      "source_root_local_px": [
+        160,
+        280
+      ],
+      "target_canvas_px": [
+        64,
+        64
+      ],
+      "target_root_px": [
+        32,
+        56
+      ],
+      "scale": 0.18125,
+      "target_translation_px": [
+        3,
+        5
+      ],
+      "translation_policy": "explicit_grid_root_not_bbox_center",
+      "output": "pipeline/assets/sources/player/frames/walk/west/frame-00.png",
+      "sha256": "99d62719aca9d136c14c8dd4c82978a0d07f70c276cb5749edc4ae8c7848e3e4"
+    },
+    {
+      "animation": "walk",
+      "direction": "west",
+      "index": 1,
+      "component_bbox_px": [
+        414,
+        348,
+        111,
+        255
+      ],
+      "component_area_px": 19176,
+      "source_root_px": [
+        475,
+        604
+      ],
+      "source_crop_px": [
+        315,
+        324,
+        320,
+        320
+      ],
+      "source_root_local_px": [
+        160,
+        280
+      ],
+      "target_canvas_px": [
+        64,
+        64
+      ],
+      "target_root_px": [
+        32,
+        56
+      ],
+      "scale": 0.18125,
+      "target_translation_px": [
+        3,
+        5
+      ],
+      "translation_policy": "explicit_grid_root_not_bbox_center",
+      "output": "pipeline/assets/sources/player/frames/walk/west/frame-01.png",
+      "sha256": "1862963a226d2087a86596c69c92368da6c05fde0f04ce3edc38f3b10144250e"
+    },
+    {
+      "animation": "walk",
+      "direction": "west",
+      "index": 2,
+      "component_bbox_px": [
+        715,
+        348,
+        97,
+        255
+      ],
+      "component_area_px": 17608,
+      "source_root_px": [
+        769,
+        604
+      ],
+      "source_crop_px": [
+        609,
+        324,
+        320,
+        320
+      ],
+      "source_root_local_px": [
+        160,
+        280
+      ],
+      "target_canvas_px": [
+        64,
+        64
+      ],
+      "target_root_px": [
+        32,
+        56
+      ],
+      "scale": 0.18125,
+      "target_translation_px": [
+        3,
+        5
+      ],
+      "translation_policy": "explicit_grid_root_not_bbox_center",
+      "output": "pipeline/assets/sources/player/frames/walk/west/frame-02.png",
+      "sha256": "ebc0688d2a01f022571f4b51ee405c8a63169b247dc7c5d6a87b3b96a49169c4"
+    },
+    {
+      "animation": "walk",
+      "direction": "west",
+      "index": 3,
+      "component_bbox_px": [
+        985,
+        348,
+        106,
+        256
+      ],
+      "component_area_px": 18590,
+      "source_root_px": [
+        1045,
+        604
+      ],
+      "source_crop_px": [
+        885,
+        324,
+        320,
+        320
+      ],
+      "source_root_local_px": [
+        160,
+        280
+      ],
+      "target_canvas_px": [
+        64,
+        64
+      ],
+      "target_root_px": [
+        32,
+        56
+      ],
+      "scale": 0.18125,
+      "target_translation_px": [
+        3,
+        5
+      ],
+      "translation_policy": "explicit_grid_root_not_bbox_center",
+      "output": "pipeline/assets/sources/player/frames/walk/west/frame-03.png",
+      "sha256": "8059b267f2f1f11ee8929e71548b5eeb4251201bc9b0260153c997091c9cbe68"
+    },
+    {
+      "animation": "walk",
+      "direction": "east",
+      "index": 0,
+      "component_bbox_px": [
+        149,
+        640,
+        97,
+        261
+      ],
+      "component_area_px": 17787,
+      "source_root_px": [
+        196,
+        899
+      ],
+      "source_crop_px": [
+        36,
+        619,
+        320,
+        320
+      ],
+      "source_root_local_px": [
+        160,
+        280
+      ],
+      "target_canvas_px": [
+        64,
+        64
+      ],
+      "target_root_px": [
+        32,
+        56
+      ],
+      "scale": 0.18125,
+      "target_translation_px": [
+        3,
+        5
+      ],
+      "translation_policy": "explicit_grid_root_not_bbox_center",
+      "output": "pipeline/assets/sources/player/frames/walk/east/frame-00.png",
+      "sha256": "31cd4ac9afa099d7d0f2bb3380be0670dfc169ca161ad6ac10a64a37839604fe"
+    },
+    {
+      "animation": "walk",
+      "direction": "east",
+      "index": 1,
+      "component_bbox_px": [
+        414,
+        640,
+        109,
+        257
+      ],
+      "component_area_px": 19266,
+      "source_root_px": [
+        475,
+        899
+      ],
+      "source_crop_px": [
+        315,
+        619,
+        320,
+        320
+      ],
+      "source_root_local_px": [
+        160,
+        280
+      ],
+      "target_canvas_px": [
+        64,
+        64
+      ],
+      "target_root_px": [
+        32,
+        56
+      ],
+      "scale": 0.18125,
+      "target_translation_px": [
+        3,
+        5
+      ],
+      "translation_policy": "explicit_grid_root_not_bbox_center",
+      "output": "pipeline/assets/sources/player/frames/walk/east/frame-01.png",
+      "sha256": "6cb9764e74d72432f363ed427a87e620441c4f15949c0a844fcf1f3df69173ce"
+    },
+    {
+      "animation": "walk",
+      "direction": "east",
+      "index": 2,
+      "component_bbox_px": [
+        720,
+        640,
+        98,
+        257
+      ],
+      "component_area_px": 17874,
+      "source_root_px": [
+        769,
+        899
+      ],
+      "source_crop_px": [
+        609,
+        619,
+        320,
+        320
+      ],
+      "source_root_local_px": [
+        160,
+        280
+      ],
+      "target_canvas_px": [
+        64,
+        64
+      ],
+      "target_root_px": [
+        32,
+        56
+      ],
+      "scale": 0.18125,
+      "target_translation_px": [
+        3,
+        5
+      ],
+      "translation_policy": "explicit_grid_root_not_bbox_center",
+      "output": "pipeline/assets/sources/player/frames/walk/east/frame-02.png",
+      "sha256": "79e787330b820c6fda4dc446f5d142db83be49b6390218adb77f40ff6b2dc8e6"
+    },
+    {
+      "animation": "walk",
+      "direction": "east",
+      "index": 3,
+      "component_bbox_px": [
+        992,
+        640,
+        105,
+        258
+      ],
+      "component_area_px": 18674,
+      "source_root_px": [
+        1045,
+        899
+      ],
+      "source_crop_px": [
+        885,
+        619,
+        320,
+        320
+      ],
+      "source_root_local_px": [
+        160,
+        280
+      ],
+      "target_canvas_px": [
+        64,
+        64
+      ],
+      "target_root_px": [
+        32,
+        56
+      ],
+      "scale": 0.18125,
+      "target_translation_px": [
+        3,
+        5
+      ],
+      "translation_policy": "explicit_grid_root_not_bbox_center",
+      "output": "pipeline/assets/sources/player/frames/walk/east/frame-03.png",
+      "sha256": "a4366ea0d9709ed091071e30cd2fc21244131147665d9e2ce8461a7ad9184751"
+    },
+    {
+      "animation": "walk",
+      "direction": "north",
+      "index": 0,
+      "component_bbox_px": [
+        133,
+        925,
+        126,
+        266
+      ],
+      "component_area_px": 24677,
+      "source_root_px": [
+        196,
+        1190
+      ],
+      "source_crop_px": [
+        36,
+        910,
+        320,
+        320
+      ],
+      "source_root_local_px": [
+        160,
+        280
+      ],
+      "target_canvas_px": [
+        64,
+        64
+      ],
+      "target_root_px": [
+        32,
+        56
+      ],
+      "scale": 0.18125,
+      "target_translation_px": [
+        3,
+        5
+      ],
+      "translation_policy": "explicit_grid_root_not_bbox_center",
+      "output": "pipeline/assets/sources/player/frames/walk/north/frame-00.png",
+      "sha256": "c65c57d65a3fa18e0c478727b2a6689cc9bb5f3e9cd39ced877d3667be517557"
+    },
+    {
+      "animation": "walk",
+      "direction": "north",
+      "index": 1,
+      "component_bbox_px": [
+        410,
+        925,
+        123,
+        263
+      ],
+      "component_area_px": 22512,
+      "source_root_px": [
+        475,
+        1190
+      ],
+      "source_crop_px": [
+        315,
+        910,
+        320,
+        320
+      ],
+      "source_root_local_px": [
+        160,
+        280
+      ],
+      "target_canvas_px": [
+        64,
+        64
+      ],
+      "target_root_px": [
+        32,
+        56
+      ],
+      "scale": 0.18125,
+      "target_translation_px": [
+        3,
+        5
+      ],
+      "translation_policy": "explicit_grid_root_not_bbox_center",
+      "output": "pipeline/assets/sources/player/frames/walk/north/frame-01.png",
+      "sha256": "fb57886b514a70f9e4cd289923d8ec59f46c7ec49da85b1da46014d6a57ac26e"
+    },
+    {
+      "animation": "walk",
+      "direction": "north",
+      "index": 2,
+      "component_bbox_px": [
+        704,
+        925,
+        128,
+        266
+      ],
+      "component_area_px": 24208,
+      "source_root_px": [
+        769,
+        1190
+      ],
+      "source_crop_px": [
+        609,
+        910,
+        320,
+        320
+      ],
+      "source_root_local_px": [
+        160,
+        280
+      ],
+      "target_canvas_px": [
+        64,
+        64
+      ],
+      "target_root_px": [
+        32,
+        56
+      ],
+      "scale": 0.18125,
+      "target_translation_px": [
+        3,
+        5
+      ],
+      "translation_policy": "explicit_grid_root_not_bbox_center",
+      "output": "pipeline/assets/sources/player/frames/walk/north/frame-02.png",
+      "sha256": "57f78e4427134d7633186765b3e5d993d5889ac4e065c02c0936ee4250ddad35"
+    },
+    {
+      "animation": "walk",
+      "direction": "north",
+      "index": 3,
+      "component_bbox_px": [
+        981,
+        926,
+        126,
+        265
+      ],
+      "component_area_px": 23628,
+      "source_root_px": [
+        1045,
+        1190
+      ],
+      "source_crop_px": [
+        885,
+        910,
+        320,
+        320
+      ],
+      "source_root_local_px": [
+        160,
+        280
+      ],
+      "target_canvas_px": [
+        64,
+        64
+      ],
+      "target_root_px": [
+        32,
+        56
+      ],
+      "scale": 0.18125,
+      "target_translation_px": [
+        3,
+        5
+      ],
+      "translation_policy": "explicit_grid_root_not_bbox_center",
+      "output": "pipeline/assets/sources/player/frames/walk/north/frame-03.png",
+      "sha256": "8815ef94328e24e1909453a2e74697e649d704b267ed7fa28cc10b0137bef0d0"
+    }
+  ],
+  "known_limits": [
+    "idle frames are static duplicates pending a dedicated authored idle pass"
+  ]
+}

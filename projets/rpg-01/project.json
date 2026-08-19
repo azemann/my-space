@@ -4,13 +4,13 @@
   "display_name": "RPG 01",
   "status": "first_world_scene_playable_foundation",
   "genre": "top_down_rpg",
-  "current_focus": "player_movement_and_camera_follow",
+  "current_focus": "persistent_inventory_pickups_and_item_authoring",
   "main_scene": "game/core/main.tscn",
   "spatial_source": "tiled_tmx_with_canonical_godot_tileset",
   "active_tileset": "game/world/tileset/world_tileset.tres",
   "preserved_knowledge": [
-    "source-art/reference/world-map-target-v001.png",
-    "source-art/imagegen/",
+    "pipeline/assets/sources/reference/world-map-target-v001.png",
+    "pipeline/assets/sources/imagegen/",
     "archive/tiled/",
     "archive/foundation/"
   ]

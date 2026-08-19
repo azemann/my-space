@@ -1,10 +1,17 @@
+// Produit le fantôme coloré d'un objet ciblé : remplissage transparent et deux
+// contours calculés depuis les pixels voisins de la texture.
 shader_type canvas_item;
 render_mode unshaded;
 
+// Couleur globale du remplissage et des contours psychokinétiques.
 uniform vec4 ghost_color : source_color = vec4(0.38, 0.86, 1.0, 0.9);
+// Visibilité globale du fantôme, animée par le composant de présentation.
 uniform float opacity : hint_range(0.0, 1.0) = 0.0;
+// Contribution de la silhouette originale à l'intérieur du fantôme.
 uniform float fill_strength : hint_range(0.0, 1.0) = 0.28;
+// Intensité du premier contour, situé à un pixel de la silhouette.
 uniform float outline_strength : hint_range(0.0, 1.0) = 0.9;
+// Intensité du second contour, situé à deux pixels de la silhouette.
 uniform float outer_outline_strength : hint_range(0.0, 1.0) = 0.55;
 
 

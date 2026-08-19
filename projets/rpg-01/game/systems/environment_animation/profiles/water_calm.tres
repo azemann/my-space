@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://3cnwxbfcylga" path="res://game/systems/environment_animation/shaders/pixel_surface_flow.gdshader" id="2"]
 
 [resource]
+resource_name = "Animation de surface — eau calme"
 script = ExtResource("1")
 profile_id = &"water_calm"
 description = "Eau calme, lac ou mer abritée : pulsation lente et reflets discrets."

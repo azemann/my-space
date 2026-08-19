@@ -5,6 +5,7 @@ extends Node
 ## La résolution logique reste définie dans project.godot ; ce nœud ne change
 ## que le mode de la fenêtre physique.
 
+## Taille physique restaurée lorsque le joueur quitte le plein écran.
 @export var windowed_size := Vector2i(1280, 720)
 
 
@@ -23,6 +24,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 
+## Bascule entre le plein écran et la taille de fenêtre configurée.
 func toggle_fullscreen() -> void:
 	var current_mode := DisplayServer.window_get_mode()
 	var is_fullscreen := current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN \

@@ -1,6 +1,10 @@
 class_name PsychokinesisInteractionArea2D
 extends Area2D
 
+## Zone de survol attachée à un PsychokineticBody2D. Elle traduit la collision
+## de sélection en état de pointeur utilisable par le détecteur de cibles.
+
+## Émis quand la souris entre ou sort de la zone de sélection de l'objet.
 signal hover_changed(target: PsychokineticBody2D, hovered: bool)
 
 var target: PsychokineticBody2D
@@ -14,10 +18,12 @@ func _ready() -> void:
 	mouse_exited.connect(_on_mouse_exited)
 
 
+## Efface l'état de survol, par exemple après une reconstruction de l'objet.
 func reset() -> void:
 	set_hovered(false)
 
 
+## Modifie l'état de survol et avertit le corps psychokinétique propriétaire.
 func set_hovered(value: bool) -> void:
 	if is_hovered == value:
 		return
@@ -26,6 +32,7 @@ func set_hovered(value: bool) -> void:
 		hover_changed.emit(target, is_hovered)
 
 
+## Teste précisément un point mondial contre la forme rectangulaire ou circulaire de survol.
 func contains_world_point(world_point: Vector2, tolerance_px := 0.0) -> bool:
 	var collision := get_node_or_null("HoverShape") as CollisionShape2D
 	if collision == null or collision.disabled or collision.shape == null:
@@ -39,6 +46,7 @@ func contains_world_point(world_point: Vector2, tolerance_px := 0.0) -> bool:
 	return false
 
 
+## Aligne la zone de sélection sur le visuel lorsque celui-ci lévite.
 func follow_lift(focus_offset: Vector2, height: float, bob: float) -> void:
 	position = focus_offset + Vector2(0.0, -height - bob)
 

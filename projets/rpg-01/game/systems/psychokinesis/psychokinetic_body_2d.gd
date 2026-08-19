@@ -1,9 +1,16 @@
 class_name PsychokineticBody2D
 extends RigidBody2D
 
+## Corps physique manipulable par psychokinésie. Sa position au sol reste
+## autoritaire tandis qu'une hauteur abstraite anime son visuel et son ombre.
+
+## Émis lorsque le pouvoir commence à tenir cet objet.
 signal grabbed(body: PsychokineticBody2D)
+## Émis lorsque l'objet tenu est reposé sans projection.
 signal dropped(body: PsychokineticBody2D)
+## Émis lorsqu'une impulsion de projection est appliquée.
 signal thrown(body: PsychokineticBody2D, impulse: Vector2)
+## Émis lors d'un impact suffisamment rapide pour produire une réaction.
 signal impacted(body: PsychokineticBody2D, speed: float)
 
 @export_category("Identité psychokinétique")
@@ -11,16 +18,25 @@ signal impacted(body: PsychokineticBody2D, speed: float)
 @export var profile: PsychokinesisProfile
 
 @export_category("Poursuite physique")
+## Réactivité générale de la poursuite vers la position demandée par le pouvoir.
 @export_range(1.0, 40.0, 0.5) var hold_response := 26.0
+## Vitesse horizontale maximale atteignable pendant la tenue.
 @export_range(40.0, 800.0, 5.0, "suffix:px/s") var maximum_follow_speed := 560.0
+## Accélération maximale utilisée pour rejoindre la position de tenue.
 @export_range(100.0, 4000.0, 25.0, "suffix:px/s²") var hold_acceleration := 3000.0
 
 @export_category("Hauteur physique abstraite")
+## Hauteur visuelle maximale autorisée au-dessus de l'ancre physique au sol.
 @export_range(0.0, 128.0, 1.0, "suffix:px") var maximum_height := 48.0
+## Hauteur choisie automatiquement au début d'une prise.
 @export_range(0.0, 128.0, 1.0, "suffix:px") var default_hold_height := 20.0
+## Amplitude verticale de la petite oscillation d'un objet en lévitation.
 @export_range(0.0, 8.0, 0.1, "suffix:px") var float_amplitude := 1.8
+## Fréquence de l'oscillation visuelle pendant la lévitation.
 @export_range(0.1, 8.0, 0.1, "suffix:Hz") var float_frequency := 1.7
+## Vitesse verticale initiale donnée au visuel lorsqu'il est projeté.
 @export_range(20.0, 400.0, 5.0, "suffix:px/s") var throw_vertical_speed := 115.0
+## Gravité abstraite qui ramène progressivement le visuel projeté au sol.
 @export_range(20.0, 800.0, 5.0, "suffix:px/s²") var aerial_gravity := 290.0
 
 @export_category("Contrat spatial")
@@ -28,7 +44,9 @@ signal impacted(body: PsychokineticBody2D, speed: float)
 @export var visual_focus_offset := Vector2(0.0, -30.0)
 ## Secours pour une ancienne scène sans SelectionArea ; les scènes V2 doivent toutes en posséder une.
 @export_range(4.0, 96.0, 1.0, "suffix:px") var selection_radius := 30.0
+## Active une collision avec les acteurs quand l'objet repose au sol.
 @export var blocks_actors_when_grounded := false
+## Active les surbrillances, sons, particules, ombres et fantômes de psychokinésie.
 @export var effects_enabled := true
 
 var is_held := false
@@ -77,6 +95,7 @@ func _ready() -> void:
 	_refresh_processing_state()
 
 
+## Restaure une position persistante en neutralisant toute ancienne vitesse ou prise.
 func restore_persistent_state(world_position: Vector2, world_rotation: float) -> void:
 	freeze = true
 	global_position = world_position
@@ -145,10 +164,12 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	state.angular_velocity = move_toward(state.angular_velocity, 0.0, 12.0 * state.step)
 
 
+## Vérifie auprès du profil si le niveau du pouvoir permet de saisir cet objet.
 func can_be_grabbed(power_level: int) -> bool:
 	return profile != null and profile.can_be_moved(power_level)
 
 
+## Commence la prise et initialise la destination horizontale et la hauteur visuelle.
 func begin_hold(target_position: Vector2) -> void:
 	if state_machine == null or not state_machine.transition(PsychokinesisStateMachine.State.HELD):
 		return
@@ -168,22 +189,26 @@ func begin_hold(target_position: Vector2) -> void:
 	grabbed.emit(self)
 
 
+## Place l'objet tenu dans l'état de charge d'une projection.
 func begin_charge() -> void:
 	if not is_held or state_machine == null:
 		return
 	state_machine.transition(PsychokinesisStateMachine.State.CHARGING)
 
 
+## Met à jour la destination physique que le corps doit poursuivre pendant la prise.
 func move_held(target_position: Vector2, _delta: float) -> void:
 	if is_held:
 		hold_target = target_position
 
 
+## Ajoute un déplacement vertical abstrait tout en respectant la hauteur maximale.
 func change_height(amount: float) -> void:
 	if is_held:
 		target_height = clampf(target_height + amount, 0.0, maximum_height)
 
 
+## Active ou retire l'état de cible et sa présentation visuelle.
 func set_targeted(value: bool) -> void:
 	if is_targeted == value:
 		return
@@ -198,6 +223,7 @@ func set_targeted(value: bool) -> void:
 	_refresh_processing_state()
 
 
+## Applique un taux de charge normalisé entre zéro et un.
 func set_charge(value: float) -> void:
 	charge_ratio = clampf(value, 0.0, 1.0)
 	if charge_ratio > 0.0:
@@ -207,6 +233,7 @@ func set_charge(value: float) -> void:
 	queue_redraw()
 
 
+## Relâche l'objet et peut lui transmettre une vitesse horizontale héritée.
 func drop(inherited_velocity := Vector2.ZERO) -> void:
 	if not is_held:
 		return
@@ -222,6 +249,7 @@ func drop(inherited_velocity := Vector2.ZERO) -> void:
 	dropped.emit(self)
 
 
+## Libère l'objet avec une impulsion physique et une élévation dépendant de la puissance.
 func launch(impulse: Vector2, power := 0.0) -> void:
 	if not is_held:
 		return
@@ -240,20 +268,24 @@ func launch(impulse: Vector2, power := 0.0) -> void:
 	thrown.emit(self, impulse)
 
 
+## Mesure la distance entre le pointeur et le centre visuel sélectionnable.
 func pointer_distance(pointer_world_position: Vector2) -> float:
 	return pointer_world_position.distance_to(lifted_global_position())
 
 
+## Vérifie si un point se trouve dans la CollisionShape2D de sélection de l'objet.
 func selection_contains_point(pointer_world_position: Vector2, tolerance_px := 0) -> bool:
 	if interaction != null:
 		return interaction.contains_world_point(pointer_world_position, float(tolerance_px))
 	return pointer_distance(pointer_world_position) <= selection_radius + float(tolerance_px)
 
 
+## Renvoie la position mondiale apparente du visuel après application de sa hauteur.
 func lifted_global_position() -> Vector2:
 	return global_position + visual_focus_offset + Vector2(0.0, -height)
 
 
+## Renvoie l'état courant de l'automate psychokinétique interne.
 func current_state() -> PsychokinesisStateMachine.State:
 	return state_machine.state if state_machine != null else PsychokinesisStateMachine.State.IDLE
 

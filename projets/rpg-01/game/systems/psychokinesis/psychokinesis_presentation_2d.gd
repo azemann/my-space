@@ -1,6 +1,9 @@
 class_name PsychokinesisPresentation2D
 extends Node2D
 
+## Regroupe tous les effets visuels et sonores d'un objet psychokinétique :
+## surbrillance, fantôme, ombre, lévitation, particules et sons d'action.
+
 const GHOST_SHADER := preload("res://game/systems/psychokinesis/psychokinesis_ghost.gdshader")
 
 var body: PsychokineticBody2D
@@ -24,6 +27,7 @@ var _ghost_material: ShaderMaterial
 var _float_time := 0.0
 
 
+## Découvre les nœuds visuels et audio facultatifs appartenant au corps donné.
 func setup(owner_body: PsychokineticBody2D) -> void:
 	body = owner_body
 	visual = body.get_node_or_null("Visual") as Node2D
@@ -48,6 +52,7 @@ func setup(owner_body: PsychokineticBody2D) -> void:
 	sync_shadow_to_ground()
 
 
+## Remet immédiatement tous les effets dans leur état visuel initial.
 func reset() -> void:
 	_highlight_blend = 0.0
 	if visual != null:
@@ -61,6 +66,7 @@ func reset() -> void:
 	queue_redraw()
 
 
+## Retire progressivement l'indication de cible sans toucher aux autres effets.
 func clear_target_highlight() -> void:
 	_highlight_blend = 0.0
 	if ghost != null:
@@ -69,6 +75,7 @@ func clear_target_highlight() -> void:
 		_ghost_material.set_shader_parameter(&"opacity", 0.0)
 
 
+## Met à jour la surbrillance, la pulsation et le fantôme à chaque image utile.
 func tick(delta: float, float_time: float) -> void:
 	_float_time = float_time
 	sync_shadow_to_ground()
@@ -76,6 +83,7 @@ func tick(delta: float, float_time: float) -> void:
 	queue_redraw()
 
 
+## Décale le visuel, adapte l'ombre et anime la prise selon la hauteur abstraite.
 func apply_elevation(height: float, bob: float, grab_elapsed: float) -> void:
 	if body == null:
 		return
@@ -95,6 +103,7 @@ func apply_elevation(height: float, bob: float, grab_elapsed: float) -> void:
 		sync_shadow_to_ground()
 
 
+## Joue les effets déclenchés au début d'une prise psychokinétique.
 func on_hold_started() -> void:
 	if visual != null:
 		visual.modulate = Color(1.08, 1.04, 1.16)
@@ -105,6 +114,7 @@ func on_hold_started() -> void:
 	emit_motes(Color(0.73, 0.58, 0.38, 0.9), 9, 24.0)
 
 
+## Arrête les effets de maintien lorsque l'objet est simplement relâché.
 func on_released() -> void:
 	if visual != null:
 		visual.modulate = Color.WHITE
@@ -112,18 +122,21 @@ func on_released() -> void:
 		hold_audio.stop()
 
 
+## Joue les effets visuels et sonores propres à une projection.
 func on_thrown() -> void:
 	on_released()
 	if throw_audio != null:
 		throw_audio.play()
 
 
+## Joue les effets d'atterrissage et rétablit la présentation au sol.
 func on_landed() -> void:
 	emit_motes(Color(0.72, 0.57, 0.38, 0.95), 13, 42.0)
 	if impact_audio != null:
 		impact_audio.play()
 
 
+## Maintient l'ombre sur l'ancre physique au sol malgré l'élévation du visuel.
 func sync_shadow_to_ground() -> void:
 	if shadow == null or body == null:
 		return
@@ -131,6 +144,7 @@ func sync_shadow_to_ground() -> void:
 	shadow.global_rotation = 0.0
 
 
+## Émet un petit groupe de particules de la couleur et de la vitesse demandées.
 func emit_motes(color: Color, count: int, speed: float) -> void:
 	if body == null or not body.effects_enabled or not body.is_inside_tree() or body.get_parent() == null:
 		return
