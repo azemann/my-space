@@ -1,0 +1,8 @@
+{
+  "pack": "abyssal-techno-fantasy-v001",
+  "source_count": 20,
+  "categories": {"terrain": 4, "props": 4, "enemies": 4, "pickups": 4, "weapon_family_sheets": 4},
+  "weapon_elements_inside_sheets": 12,
+  "alpha_audit": "passed",
+  "runtime_status": "candidate_sources_not_integrated"
+}
