@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmms-project>
+<lmms-project creator="LMMS" version="1.0" type="song" creatorversion="1.2.2">
+  <head timesig_numerator="4" bpm="600" timesig_denominator="4" mastervol="74" masterpitch="0"/>
+  <song>
+    <trackcontainer maximized="0" height="420" visible="1" minimized="0" x="0" y="0" type="song" width="900">
+      <track muted="0" name="CLAQUEMENT_MECANIQUE" solo="0" type="0">
+        <instrumenttrack pitch="0" fxch="1" basenote="57" usemasterpitch="1" pitchrange="12" vol="82" pan="-6">
+          <instrument name="audiofileprocessor">
+            <audiofileprocessor stutter="0" interp="1" reversed="0" looped="0" sframe="0" lframe="0" src="misc/hit01.ogg" eframe="1" amp="112"/>
+          </instrument>
+          <eldata ftype="0" fres="0.5" fcut="11500" fwet="0">
+            <elvol latt="0" dec="0.035" lamt="0" lspd_numerator="4" att="0" sustain="0" amt="0" userwavefile="" ctlenvamt="0" lshp="0" lspd_denominator="4" x100="0" lpdel="0" lspd="0.1" pdel="0" hold="0.01" syncmode="0" rel="0.025"/>
+            <elcut latt="0" dec="0.5" lamt="0" lspd_numerator="4" att="0" sustain="0.5" amt="0" userwavefile="" ctlenvamt="0" lshp="0" lspd_denominator="4" x100="0" lpdel="0" lspd="0.1" pdel="0" hold="0.5" syncmode="0" rel="0.1"/>
+            <elres latt="0" dec="0.5" lamt="0" lspd_numerator="4" att="0" sustain="0.5" amt="0" userwavefile="" ctlenvamt="0" lshp="0" lspd_denominator="4" x100="0" lpdel="0" lspd="0.1" pdel="0" hold="0.5" syncmode="0" rel="0.1"/>
+          </eldata>
+          <chordcreator chord="0" chordrange="1" chord-enabled="0"/>
+          <arpeggiator arp="0" arptime_numerator="4" arptime_denominator="4" arprange="1" arpmode="0" arptime="100" arpdir="0" arpgate="100" syncmode="0" arp-enabled="0"/>
+          <midiport outputchannel="1" outputcontroller="0" basevelocity="127" outputprogram="1" fixedinputvelocity="-1" fixedoutputvelocity="-1" fixedoutputnote="-1" inputchannel="0" inputcontroller="0" readable="0" writable="0"/>
+          <fxchain enabled="0" numofeffects="0"/>
+        </instrumenttrack>
+        <pattern len="192" muted="0" name="Percuteur et verrou" steps="16" pos="0" type="1">
+          <note len="48" key="62" vol="112" pos="0" pan="-6"/>
+          <note len="36" key="55" vol="72" pos="20" pan="6"/>
+        </pattern>
+      </track>
+      <track muted="0" name="DECHARGE_DE_PRESSION" solo="0" type="0">
+        <instrumenttrack pitch="0" fxch="2" basenote="57" usemasterpitch="1" pitchrange="12" vol="94" pan="0">
+          <instrument name="audiofileprocessor">
+            <audiofileprocessor stutter="0" interp="1" reversed="0" looped="0" sframe="0" lframe="0" src="drums/kick_long01.ogg" eframe="1" amp="108"/>
+          </instrument>
+          <eldata ftype="0" fres="0.5" fcut="6200" fwet="0">
+            <elvol latt="0" dec="0.19" lamt="0" lspd_numerator="4" att="0" sustain="0" amt="0" userwavefile="" ctlenvamt="0" lshp="0" lspd_denominator="4" x100="0" lpdel="0" lspd="0.1" pdel="0" hold="0.025" syncmode="0" rel="0.11"/>
+            <elcut latt="0" dec="0.5" lamt="0" lspd_numerator="4" att="0" sustain="0.5" amt="0" userwavefile="" ctlenvamt="0" lshp="0" lspd_denominator="4" x100="0" lpdel="0" lspd="0.1" pdel="0" hold="0.5" syncmode="0" rel="0.1"/>
+            <elres latt="0" dec="0.5" lamt="0" lspd_numerator="4" att="0" sustain="0.5" amt="0" userwavefile="" ctlenvamt="0" lshp="0" lspd_denominator="4" x100="0" lpdel="0" lspd="0.1" pdel="0" hold="0.5" syncmode="0" rel="0.1"/>
+          </eldata>
+          <chordcreator chord="0" chordrange="1" chord-enabled="0"/>
+          <arpeggiator arp="0" arptime_numerator="4" arptime_denominator="4" arprange="1" arpmode="0" arptime="100" arpdir="0" arpgate="100" syncmode="0" arp-enabled="0"/>
+          <midiport outputchannel="1" outputcontroller="0" basevelocity="127" outputprogram="1" fixedinputvelocity="-1" fixedoutputvelocity="-1" fixedoutputnote="-1" inputchannel="0" inputcontroller="0" readable="0" writable="0"/>
+          <fxchain enabled="0" numofeffects="0"/>
+        </instrumenttrack>
+        <pattern len="192" muted="0" name="Corps grave du tir" steps="16" pos="0" type="1">
+          <note len="176" key="48" vol="118" pos="0" pan="0"/>
+        </pattern>
+      </track>
+      <track muted="0" name="SOUFFLE_ARRIERE" solo="0" type="0">
+        <instrumenttrack pitch="0" fxch="3" basenote="57" usemasterpitch="1" pitchrange="12" vol="68" pan="8">
+          <instrument name="audiofileprocessor">
+            <audiofileprocessor stutter="0" interp="1" reversed="0" looped="0" sframe="0" lframe="0" src="misc/breath01.ogg" eframe="1" amp="105"/>
+          </instrument>
+          <eldata ftype="0" fres="0.5" fcut="7800" fwet="0">
+            <elvol latt="0" dec="0.26" lamt="0" lspd_numerator="4" att="0.005" sustain="0" amt="0" userwavefile="" ctlenvamt="0" lshp="0" lspd_denominator="4" x100="0" lpdel="0" lspd="0.1" pdel="0" hold="0.015" syncmode="0" rel="0.16"/>
+            <elcut latt="0" dec="0.5" lamt="0" lspd_numerator="4" att="0" sustain="0.5" amt="0" userwavefile="" ctlenvamt="0" lshp="0" lspd_denominator="4" x100="0" lpdel="0" lspd="0.1" pdel="0" hold="0.5" syncmode="0" rel="0.1"/>
+            <elres latt="0" dec="0.5" lamt="0" lspd_numerator="4" att="0" sustain="0.5" amt="0" userwavefile="" ctlenvamt="0" lshp="0" lspd_denominator="4" x100="0" lpdel="0" lspd="0.1" pdel="0" hold="0.5" syncmode="0" rel="0.1"/>
+          </eldata>
+          <chordcreator chord="0" chordrange="1" chord-enabled="0"/>
+          <arpeggiator arp="0" arptime_numerator="4" arptime_denominator="4" arprange="1" arpmode="0" arptime="100" arpdir="0" arpgate="100" syncmode="0" arp-enabled="0"/>
+          <midiport outputchannel="1" outputcontroller="0" basevelocity="127" outputprogram="1" fixedinputvelocity="-1" fixedoutputvelocity="-1" fixedoutputnote="-1" inputchannel="0" inputcontroller="0" readable="0" writable="0"/>
+          <fxchain enabled="0" numofeffects="0"/>
+        </instrumenttrack>
+        <pattern len="192" muted="0" name="Expiration pneumatique" steps="16" pos="0" type="1">
+          <note len="192" key="52" vol="96" pos="16" pan="8"/>
+        </pattern>
+      </track>
+    </trackcontainer>
+    <fxmixer maximized="0" height="332" visible="1" minimized="0" x="1" y="463" width="700">
+      <fxchannel muted="0" num="0" name="MASTER_TIR" volume="0.82" soloed="0"><fxchain enabled="0" numofeffects="0"/></fxchannel>
+      <fxchannel muted="0" num="1" name="CLAQUEMENT" volume="0.82" soloed="0"><fxchain enabled="0" numofeffects="0"/><send amount="1" channel="0"/></fxchannel>
+      <fxchannel muted="0" num="2" name="PRESSION" volume="0.9" soloed="0"><fxchain enabled="0" numofeffects="0"/><send amount="1" channel="0"/></fxchannel>
+      <fxchannel muted="0" num="3" name="SOUFFLE" volume="0.66" soloed="0"><fxchain enabled="0" numofeffects="0"/><send amount="1" channel="0"/></fxchannel>
+    </fxmixer>
+    <ControllerRackView maximized="0" height="300" visible="0" minimized="0" x="880" y="310" width="400"/>
+    <pianoroll maximized="0" height="480" visible="0" minimized="0" x="1" y="120" width="640"/>
+    <automationeditor maximized="0" height="400" visible="0" minimized="0" x="516" y="228" width="640"/>
+    <projectnotes maximized="0" height="400" visible="0" minimized="0" x="700" y="10" width="640"><![CDATA[
+      <html><body><h2>Tir du bazooka mécanique</h2><p>Trois couches éditables : claquement du verrou, décharge grave de pression et souffle arrière pneumatique. Ce projet ne contient volontairement aucun son d'impact ni d'explosion.</p></body></html>
+    ]]></projectnotes>
+    <timeline lp1pos="192" lpstate="0" lp0pos="0"/>
+    <controllers/>
+  </song>
+</lmms-project>

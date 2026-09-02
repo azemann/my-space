@@ -1,0 +1,87 @@
+{
+  "schema": "serre-mecanique.character-animation-catalog.v2",
+  "character": "player-mechanic",
+  "grid_contract": "character-animation-grid-4x4.json",
+  "timing_manifest": "character-animation-timing.json",
+  "shared": {
+    "frames": 16,
+    "frame_size": [64, 64],
+    "pivot": [32, 60],
+    "maximum_character_height": 56,
+    "direction": "right",
+    "weapon_layer": "separate",
+    "filter": "nearest",
+    "phase_model": "normalized_0_to_1",
+    "nominal_time_unit": "milliseconds"
+  },
+  "animations": {
+    "idle": {
+      "status": "integrated",
+      "runtime_asset": "res://assets/characters/player/animations/idle.png",
+      "playback": "loop",
+      "target_fps": 8,
+      "criteria": [
+        "both feet remain planted on the same baseline",
+        "subtle breathing cycle returns seamlessly to frame 0",
+        "one natural blink without changing identity",
+        "secondary motion limited to hair, scarf and shoulders"
+      ]
+    },
+    "walk": {
+      "status": "integrated",
+      "runtime_asset": "res://assets/characters/player/animations/walk.png",
+      "playback": "loop",
+      "target_fps": 12,
+      "criteria": [
+        "two complete steps per loop",
+        "contact, down, passing and up phases for each leg",
+        "opposite arm and leg swing",
+        "grounded foot never slides during its support phase"
+      ]
+    },
+    "jump": {
+      "status": "integrated",
+      "runtime_asset": "res://assets/characters/player/animations/jump.png",
+      "playback": "state_driven",
+      "target_fps": 12,
+      "ranges": {
+        "anticipation": [0, 2],
+        "takeoff": [3, 5],
+        "rise": [6, 8],
+        "apex": [9, 10],
+        "fall": [11, 13],
+        "landing": [14, 15]
+      },
+      "criteria": [
+        "clear compression before takeoff",
+        "extended silhouette during ascent",
+        "readable apex and faster falling posture",
+        "landing absorbs impact without changing collision"
+      ]
+    },
+    "climb": {
+      "status": "integrated_with_pose_cleanup_pending",
+      "runtime_asset": "res://assets/characters/player/animations/climb.png",
+      "playback": "loop",
+      "target_fps": 10,
+      "criteria": [
+        "front or slight three-quarter-front view",
+        "alternating hand and foot contacts",
+        "body center remains on the ladder axis",
+        "cycle loops without a vertical teleport"
+      ]
+    },
+    "grapple": {
+      "status": "integrated",
+      "runtime_asset": "res://assets/characters/player/animations/grapple.png",
+      "playback": "state_driven",
+      "target_fps": 12,
+      "criteria": [
+        "body reacts to a traction point above the character",
+        "legs trail with momentum and then recover",
+        "free hand and torso communicate rope tension",
+        "no rope and no weapon are drawn into the body sheet"
+      ]
+    }
+  }
+}

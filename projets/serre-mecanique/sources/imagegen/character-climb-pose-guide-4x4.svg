@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#ff00ff"/>
+  <g stroke="#5a005a" stroke-width="2" opacity="0.65">
+    <path d="M256 0V1024M512 0V1024M768 0V1024M0 256H1024M0 512H1024M0 768H1024"/>
+  </g>
+  <defs>
+    <!-- Image-left hand high, image-right knee high. -->
+    <g id="left-grip" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="128" cy="64" r="25" stroke="#ffffff" stroke-width="10"/>
+      <path d="M128 92L128 164" stroke="#ffffff" stroke-width="14"/>
+      <path d="M116 104L86 76L76 38" stroke="#ff5a36" stroke-width="14"/>
+      <circle cx="74" cy="30" r="10" fill="#ff5a36" stroke="none"/>
+      <path d="M140 104L166 128L178 151" stroke="#28d7ff" stroke-width="14"/>
+      <circle cx="181" cy="157" r="10" fill="#28d7ff" stroke="none"/>
+      <path d="M118 164L105 207L103 232" stroke="#ff5a36" stroke-width="16"/>
+      <path d="M138 164L166 184L180 163" stroke="#28d7ff" stroke-width="16"/>
+      <circle cx="103" cy="235" r="9" fill="#ff5a36" stroke="none"/>
+      <circle cx="183" cy="159" r="9" fill="#28d7ff" stroke="none"/>
+    </g>
+    <!-- Centered transfer: both hands high, legs passing. -->
+    <g id="transfer-up" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="128" cy="67" r="25" stroke="#ffffff" stroke-width="10"/>
+      <path d="M128 95L128 166" stroke="#ffffff" stroke-width="14"/>
+      <path d="M116 106L91 78L87 50" stroke="#ff5a36" stroke-width="14"/>
+      <path d="M140 106L165 78L169 50" stroke="#28d7ff" stroke-width="14"/>
+      <circle cx="86" cy="43" r="10" fill="#ff5a36" stroke="none"/>
+      <circle cx="170" cy="43" r="10" fill="#28d7ff" stroke="none"/>
+      <path d="M118 166L112 202L105 229" stroke="#ff5a36" stroke-width="16"/>
+      <path d="M138 166L144 202L151 229" stroke="#28d7ff" stroke-width="16"/>
+      <circle cx="103" cy="234" r="9" fill="#ff5a36" stroke="none"/>
+      <circle cx="153" cy="234" r="9" fill="#28d7ff" stroke="none"/>
+    </g>
+    <!-- Image-right hand high, image-left knee high: unmistakable opposite. -->
+    <g id="right-grip" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="128" cy="64" r="25" stroke="#ffffff" stroke-width="10"/>
+      <path d="M128 92L128 164" stroke="#ffffff" stroke-width="14"/>
+      <path d="M140 104L170 76L180 38" stroke="#28d7ff" stroke-width="14"/>
+      <circle cx="182" cy="30" r="10" fill="#28d7ff" stroke="none"/>
+      <path d="M116 104L90 128L78 151" stroke="#ff5a36" stroke-width="14"/>
+      <circle cx="75" cy="157" r="10" fill="#ff5a36" stroke="none"/>
+      <path d="M138 164L151 207L153 232" stroke="#28d7ff" stroke-width="16"/>
+      <path d="M118 164L90 184L76 163" stroke="#ff5a36" stroke-width="16"/>
+      <circle cx="153" cy="235" r="9" fill="#28d7ff" stroke="none"/>
+      <circle cx="73" cy="159" r="9" fill="#ff5a36" stroke="none"/>
+    </g>
+    <!-- Lower transfer between opposing grips. -->
+    <g id="transfer-low" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="128" cy="72" r="25" stroke="#ffffff" stroke-width="10"/>
+      <path d="M128 100L128 172" stroke="#ffffff" stroke-width="14"/>
+      <path d="M116 111L92 103L78 81" stroke="#ff5a36" stroke-width="14"/>
+      <path d="M140 111L164 103L178 81" stroke="#28d7ff" stroke-width="14"/>
+      <circle cx="74" cy="74" r="10" fill="#ff5a36" stroke="none"/>
+      <circle cx="182" cy="74" r="10" fill="#28d7ff" stroke="none"/>
+      <path d="M118 172L100 198L94 226" stroke="#ff5a36" stroke-width="16"/>
+      <path d="M138 172L156 198L162 226" stroke="#28d7ff" stroke-width="16"/>
+      <circle cx="92" cy="232" r="9" fill="#ff5a36" stroke="none"/>
+      <circle cx="164" cy="232" r="9" fill="#28d7ff" stroke="none"/>
+    </g>
+  </defs>
+  <g>
+    <use href="#left-grip" x="0" y="0"/><use href="#left-grip" x="256" y="-4"/><use href="#left-grip" x="512" y="-8"/><use href="#left-grip" x="768" y="-4"/>
+    <use href="#transfer-up" x="0" y="256"/><use href="#transfer-up" x="256" y="248"/><use href="#transfer-low" x="512" y="250"/><use href="#transfer-low" x="768" y="256"/>
+    <use href="#right-grip" x="0" y="512"/><use href="#right-grip" x="256" y="508"/><use href="#right-grip" x="512" y="504"/><use href="#right-grip" x="768" y="508"/>
+    <use href="#transfer-up" x="0" y="768"/><use href="#transfer-up" x="256" y="760"/><use href="#transfer-low" x="512" y="762"/><use href="#transfer-low" x="768" y="768"/>
+  </g>
+</svg>

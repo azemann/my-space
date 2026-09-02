@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="InteractionConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://game/serre/config/interaction_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+kind = "collectible"
+value = 1

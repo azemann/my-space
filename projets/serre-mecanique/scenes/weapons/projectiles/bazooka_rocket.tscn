@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://game/serre/weapons/bazooka_rocket.gd" id="1_rocket"]
+[ext_resource type="Texture2D" path="res://assets/weapons/bazooka/rocket.png" id="2_texture"]
+[ext_resource type="PackedScene" path="res://scenes/effects/bazooka_explosion.tscn" id="3_explosion"]
+
+[node name="BazookaRocket" type="Node2D"]
+z_index = 70
+editor_description = "Projectile balistique du bazooka. Réglez ici Speed pour la vitesse initiale, Gravity pour la courbure, Maximum Lifetime pour l'explosion automatique et Collision Mask pour les obstacles reconnus."
+script = ExtResource("1_rocket")
+explosion_scene = ExtResource("3_explosion")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+editor_description = "Visuel de la roquette uniquement. Sa taille n'altère pas la détection d'impact, qui utilise le déplacement réel entre deux frames physiques."
+texture_filter = 1
+texture = ExtResource("2_texture")
+
+[node name="FlightAudio" type="AudioStreamPlayer2D" parent="."]
+editor_description = "Emplacement réservé au futur son continu de vol de la roquette."
+bus = &"Weapons"
+autoplay = true
+max_distance = 1000.0

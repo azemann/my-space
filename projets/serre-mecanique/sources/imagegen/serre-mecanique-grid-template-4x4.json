@@ -1,0 +1,212 @@
+{
+  "schema": "serre-mecanique.imagegen-grid.v1",
+  "canvas": [
+    1536,
+    1024
+  ],
+  "grid": [
+    4,
+    4
+  ],
+  "cell": [
+    384,
+    256
+  ],
+  "line_width": 6,
+  "background": "#10191a",
+  "grid_color": "#d19a4a",
+  "cells": [
+    {
+      "id": "A1",
+      "index": 0,
+      "row": 0,
+      "column": 0,
+      "crop_box": [
+        6,
+        6,
+        378,
+        250
+      ]
+    },
+    {
+      "id": "A2",
+      "index": 1,
+      "row": 0,
+      "column": 1,
+      "crop_box": [
+        390,
+        6,
+        762,
+        250
+      ]
+    },
+    {
+      "id": "A3",
+      "index": 2,
+      "row": 0,
+      "column": 2,
+      "crop_box": [
+        774,
+        6,
+        1146,
+        250
+      ]
+    },
+    {
+      "id": "A4",
+      "index": 3,
+      "row": 0,
+      "column": 3,
+      "crop_box": [
+        1158,
+        6,
+        1530,
+        250
+      ]
+    },
+    {
+      "id": "B1",
+      "index": 4,
+      "row": 1,
+      "column": 0,
+      "crop_box": [
+        6,
+        262,
+        378,
+        506
+      ]
+    },
+    {
+      "id": "B2",
+      "index": 5,
+      "row": 1,
+      "column": 1,
+      "crop_box": [
+        390,
+        262,
+        762,
+        506
+      ]
+    },
+    {
+      "id": "B3",
+      "index": 6,
+      "row": 1,
+      "column": 2,
+      "crop_box": [
+        774,
+        262,
+        1146,
+        506
+      ]
+    },
+    {
+      "id": "B4",
+      "index": 7,
+      "row": 1,
+      "column": 3,
+      "crop_box": [
+        1158,
+        262,
+        1530,
+        506
+      ]
+    },
+    {
+      "id": "C1",
+      "index": 8,
+      "row": 2,
+      "column": 0,
+      "crop_box": [
+        6,
+        518,
+        378,
+        762
+      ]
+    },
+    {
+      "id": "C2",
+      "index": 9,
+      "row": 2,
+      "column": 1,
+      "crop_box": [
+        390,
+        518,
+        762,
+        762
+      ]
+    },
+    {
+      "id": "C3",
+      "index": 10,
+      "row": 2,
+      "column": 2,
+      "crop_box": [
+        774,
+        518,
+        1146,
+        762
+      ]
+    },
+    {
+      "id": "C4",
+      "index": 11,
+      "row": 2,
+      "column": 3,
+      "crop_box": [
+        1158,
+        518,
+        1530,
+        762
+      ]
+    },
+    {
+      "id": "D1",
+      "index": 12,
+      "row": 3,
+      "column": 0,
+      "crop_box": [
+        6,
+        774,
+        378,
+        1018
+      ]
+    },
+    {
+      "id": "D2",
+      "index": 13,
+      "row": 3,
+      "column": 1,
+      "crop_box": [
+        390,
+        774,
+        762,
+        1018
+      ]
+    },
+    {
+      "id": "D3",
+      "index": 14,
+      "row": 3,
+      "column": 2,
+      "crop_box": [
+        774,
+        774,
+        1146,
+        1018
+      ]
+    },
+    {
+      "id": "D4",
+      "index": 15,
+      "row": 3,
+      "column": 3,
+      "crop_box": [
+        1158,
+        774,
+        1530,
+        1018
+      ]
+    }
+  ]
+}

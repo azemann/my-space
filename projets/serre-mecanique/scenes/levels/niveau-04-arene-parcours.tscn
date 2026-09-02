@@ -1,0 +1,834 @@
+[gd_scene format=4]
+
+[ext_resource type="Script" path="res://addons/my_space_core/levels/level_native.gd" id="1_n57sr"]
+[ext_resource type="Resource" path="res://resources/levels/niveau-04-arene-parcours-data.tres" id="2_i4k4v"]
+[ext_resource type="TileSet" path="res://resources/tilesets/niveau-04-arene-parcours.tres" id="3_r0obj"]
+[ext_resource type="PhysicsMaterial" path="res://resources/physics/ground-material.tres" id="4_87ayg"]
+[ext_resource type="PackedScene" path="res://scenes/objects/movement/climbable_area.tscn" id="5_7l03l"]
+[ext_resource type="Script" path="res://game/serre/gameplay/ladder_area.gd" id="6_woghx"]
+[ext_resource type="PackedScene" path="res://scenes/objects/movement/bounce_pad.tscn" id="7_btuhr"]
+[ext_resource type="Script" path="res://game/serre/gameplay/gameplay_area.gd" id="8_imrwt"]
+[ext_resource type="Resource" path="res://resources/interactions/bounce-default.tres" id="9_psed6"]
+[ext_resource type="PackedScene" path="res://scenes/objects/zones/gameplay_zone.tscn" id="10_cn81v"]
+[ext_resource type="PackedScene" path="res://scenes/objects/hazards/hazard_area.tscn" id="11_cale5"]
+[ext_resource type="Resource" path="res://resources/interactions/hazard-default.tres" id="12_p26g5"]
+[ext_resource type="PackedScene" path="res://scenes/objects/interactions/switch_area.tscn" id="13_8ypfv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gtck"]
+size = Vector2(288, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yrmld"]
+size = Vector2(320, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yeiwr"]
+size = Vector2(288, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6pj3"]
+size = Vector2(192, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg4j7"]
+size = Vector2(192, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6d01"]
+size = Vector2(192, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37ylk"]
+size = Vector2(224, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rlhjj"]
+size = Vector2(192, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mectr"]
+size = Vector2(192, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bd7k4"]
+size = Vector2(192, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dpadr"]
+size = Vector2(224, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5gda"]
+size = Vector2(192, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o47xv"]
+size = Vector2(192, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aysdd"]
+size = Vector2(192, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dan72"]
+size = Vector2(192, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyarj"]
+size = Vector2(192, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qof41"]
+size = Vector2(256, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khlfb"]
+size = Vector2(16, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30eyy"]
+size = Vector2(16, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pd6du"]
+size = Vector2(16, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7vat"]
+size = Vector2(16, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ld5g"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fg6xg"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d15pm"]
+size = Vector2(352, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_polcq"]
+size = Vector2(352, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84asb"]
+size = Vector2(128, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4saj"]
+size = Vector2(1600, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yjg7y"]
+size = Vector2(192, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7ohs"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcy0i"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbcmx"]
+size = Vector2(1600, 768)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vimrp"]
+size = Vector2(960, 544)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3l7wc"]
+size = Vector2(1600, 768)
+
+[node name="Niveau04AreneParcours" type="Node2D" unique_id=825441035]
+script = ExtResource("1_n57sr")
+definition = ExtResource("2_i4k4v")
+metadata/level_id = "serre-04-arena"
+metadata/level_name = "L'arène des semences"
+metadata/level_mode = "arena"
+metadata/max_players = 4
+metadata/music = "serre_arena"
+metadata/pixel_perfect = true
+metadata/template_version = 1
+
+[node name="CalquesTuiles" type="Node2D" parent="." unique_id=1048752005]
+
+[node name="01—ArrièrePlanLointain" type="TileMapLayer" parent="CalquesTuiles" unique_id=2002915753]
+modulate = Color(1, 1, 1, 0.4)
+z_index = -30
+tile_map_data = PackedByteArray("AAABAAQAAAABAAEAAAAEAAQAAAAAAAEAAAAHAAQAAAADAAEAAAAKAAQAAAACAAEAAAANAAQAAAABAAEAAAAQAAQAAAAAAAEAAAATAAQAAAADAAEAAAAWAAQAAAACAAEAAAAZAAQAAAABAAEAAAAcAAQAAAAAAAEAAAAfAAQAAAADAAEAAAAiAAQAAAACAAEAAAAlAAQAAAABAAEAAAAoAAQAAAAAAAEAAAArAAQAAAADAAEAAAAuAAQAAAACAAEAAAA=")
+tile_set = ExtResource("3_r0obj")
+metadata/source_tiled_layer = "01 — Arrière-plan lointain"
+metadata/parallax = Vector2(0.35, 0.45)
+metadata/z_index = -30
+metadata/locked_after_blockout = false
+
+[node name="02—ArrièrePlanProche" type="TileMapLayer" parent="CalquesTuiles" unique_id=374400003]
+modulate = Color(1, 1, 1, 0.62)
+z_index = -20
+tile_map_data = PackedByteArray("AAAAAAIAAAACAAIAAAAKAAIAAAACAAIAAAAUAAIAAAACAAIAAAAdAAIAAAABAAIAAAAnAAIAAAABAAIAAAAxAAIAAAABAAIAAAAAAAMAAAADAAIAAAAKAAMAAAADAAIAAAAUAAMAAAADAAIAAAAdAAMAAAACAAIAAAAnAAMAAAACAAIAAAAxAAMAAAACAAIAAAAAAAQAAAAEAAIAAAAKAAQAAAAEAAIAAAAUAAQAAAAEAAIAAAAdAAQAAAADAAIAAAAnAAQAAAADAAIAAAAxAAQAAAADAAIAAAAAAAUAAAAAAAIAAAAKAAUAAAAAAAIAAAAUAAUAAAAAAAIAAAAdAAUAAAAEAAIAAAAnAAUAAAAEAAIAAAAxAAUAAAAEAAIAAAAAAAYAAAABAAIAAAAKAAYAAAABAAIAAAAUAAYAAAABAAIAAAAdAAYAAAAAAAIAAAAnAAYAAAAAAAIAAAAxAAYAAAAAAAIAAAAAAAcAAAACAAIAAAAKAAcAAAACAAIAAAAUAAcAAAACAAIAAAAdAAcAAAABAAIAAAAnAAcAAAABAAIAAAAxAAcAAAABAAIAAAAAAAgAAAADAAIAAAAKAAgAAAADAAIAAAAUAAgAAAADAAIAAAAdAAgAAAACAAIAAAAnAAgAAAACAAIAAAAxAAgAAAACAAIAAAAAAAkAAAAEAAIAAAAKAAkAAAAEAAIAAAAUAAkAAAAEAAIAAAAdAAkAAAADAAIAAAAnAAkAAAADAAIAAAAxAAkAAAADAAIAAAAAAAoAAAAAAAIAAAAKAAoAAAAAAAIAAAAUAAoAAAAAAAIAAAAdAAoAAAAEAAIAAAAnAAoAAAAEAAIAAAAxAAoAAAAEAAIAAAAAAAsAAAABAAIAAAAKAAsAAAABAAIAAAAUAAsAAAABAAIAAAAdAAsAAAAAAAIAAAAnAAsAAAAAAAIAAAAxAAsAAAAAAAIAAAAAAAwAAAACAAIAAAAKAAwAAAACAAIAAAAUAAwAAAACAAIAAAAdAAwAAAABAAIAAAAnAAwAAAABAAIAAAAxAAwAAAABAAIAAAAAAA0AAAADAAIAAAAKAA0AAAADAAIAAAAUAA0AAAADAAIAAAAdAA0AAAACAAIAAAAnAA0AAAACAAIAAAAxAA0AAAACAAIAAAAAAA4AAAAEAAIAAAAKAA4AAAAEAAIAAAAUAA4AAAAEAAIAAAAdAA4AAAADAAIAAAAnAA4AAAADAAIAAAAxAA4AAAADAAIAAAAAAA8AAAAAAAIAAAAKAA8AAAAAAAIAAAAUAA8AAAAAAAIAAAAdAA8AAAAEAAIAAAAnAA8AAAAEAAIAAAAxAA8AAAAEAAIAAAAAABAAAAABAAIAAAAKABAAAAABAAIAAAAUABAAAAABAAIAAAAdABAAAAAAAAIAAAAnABAAAAAAAAIAAAAxABAAAAAAAAIAAAAAABEAAAACAAIAAAAKABEAAAACAAIAAAAUABEAAAACAAIAAAAdABEAAAABAAIAAAAnABEAAAABAAIAAAAxABEAAAABAAIAAAAAABIAAAADAAIAAAAKABIAAAADAAIAAAAUABIAAAADAAIAAAAdABIAAAACAAIAAAAnABIAAAACAAIAAAAxABIAAAACAAIAAAAAABMAAAAEAAIAAAAKABMAAAAEAAIAAAAUABMAAAAEAAIAAAAdABMAAAADAAIAAAAnABMAAAADAAIAAAAxABMAAAADAAIAAAAAABQAAAAAAAIAAAAKABQAAAAAAAIAAAAUABQAAAAAAAIAAAAdABQAAAAEAAIAAAAnABQAAAAEAAIAAAAxABQAAAAEAAIAAAA=")
+tile_set = ExtResource("3_r0obj")
+metadata/source_tiled_layer = "02 — Arrière-plan proche"
+metadata/parallax = Vector2(0.7, 0.8)
+metadata/z_index = -20
+metadata/locked_after_blockout = false
+
+[node name="03—Structures" type="TileMapLayer" parent="CalquesTuiles" unique_id=946877705]
+modulate = Color(1, 1, 1, 0.78)
+z_index = -10
+tile_map_data = PackedByteArray("AAAEAAIAAAAOAAEAAAAFAAIAAAANAAIAAAAGAAIAAAAOAAEAAAAHAAIAAAAOAAEAAAAIAAIAAAAOAAEAAAAJAAIAAAAOAAEAAAAKAAIAAAANAAIAAAALAAIAAAAOAAEAAAAMAAIAAAAOAAEAAAANAAIAAAAOAAEAAAAOAAIAAAAOAAEAAAAPAAIAAAANAAIAAAAQAAIAAAAOAAEAAAARAAIAAAAOAAEAAAASAAIAAAAOAAEAAAATAAIAAAAOAAEAAAAUAAIAAAANAAIAAAAVAAIAAAAOAAEAAAAWAAIAAAAOAAEAAAAXAAIAAAAOAAEAAAAYAAIAAAAOAAEAAAAZAAIAAAANAAIAAAAaAAIAAAAOAAEAAAAbAAIAAAAOAAEAAAAcAAIAAAAOAAEAAAAdAAIAAAAOAAEAAAAeAAIAAAANAAIAAAAfAAIAAAAOAAEAAAAgAAIAAAAOAAEAAAAhAAIAAAAOAAEAAAAiAAIAAAAOAAEAAAAjAAIAAAANAAIAAAAkAAIAAAAOAAEAAAAlAAIAAAAOAAEAAAAmAAIAAAAOAAEAAAAnAAIAAAAOAAEAAAAoAAIAAAANAAIAAAApAAIAAAAOAAEAAAAqAAIAAAAOAAEAAAArAAIAAAAOAAEAAAAsAAIAAAAOAAEAAAAtAAIAAAANAAIAAAA=")
+tile_set = ExtResource("3_r0obj")
+metadata/source_tiled_layer = "03 — Structures"
+metadata/parallax = Vector2(0.9, 0.94)
+metadata/z_index = -10
+metadata/locked_after_blockout = false
+
+[node name="04—Terrain" type="TileMapLayer" parent="CalquesTuiles" unique_id=294417806]
+tile_map_data = PackedByteArray("AAAAABQAAAABAAAAAAABABQAAAAAAAAAAAACABQAAAAAAAAAAAADABQAAAABAAAAAAAEABQAAAAAAAAAAAAFABQAAAAAAAAAAAAGABQAAAABAAAAAAAHABQAAAAAAAAAAAAIABQAAAAAAAAAAAAUABQAAAAAAAAAAAAVABQAAAABAAAAAAAWABQAAAAAAAAAAAAXABQAAAAAAAAAAAAYABQAAAABAAAAAAAZABQAAAAAAAAAAAAaABQAAAAAAAAAAAAbABQAAAABAAAAAAAcABQAAAAAAAAAAAAdABQAAAAAAAAAAAApABQAAAAAAAAAAAAqABQAAAABAAAAAAArABQAAAAAAAAAAAAsABQAAAAAAAAAAAAtABQAAAABAAAAAAAuABQAAAAAAAAAAAAvABQAAAAAAAAAAAAwABQAAAABAAAAAAAxABQAAAAAAAAAAAAAABUAAAAEAAAAAAABABUAAAADAAAAAAACABUAAAAEAAAAAAADABUAAAADAAAAAAAEABUAAAAEAAAAAAAFABUAAAADAAAAAAAGABUAAAAEAAAAAAAHABUAAAADAAAAAAAIABUAAAAEAAAAAAAUABUAAAAEAAAAAAAVABUAAAADAAAAAAAWABUAAAAEAAAAAAAXABUAAAADAAAAAAAYABUAAAAEAAAAAAAZABUAAAADAAAAAAAaABUAAAAEAAAAAAAbABUAAAADAAAAAAAcABUAAAAEAAAAAAAdABUAAAADAAAAAAApABUAAAADAAAAAAAqABUAAAAEAAAAAAArABUAAAADAAAAAAAsABUAAAAEAAAAAAAtABUAAAADAAAAAAAuABUAAAAEAAAAAAAvABUAAAADAAAAAAAwABUAAAAEAAAAAAAxABUAAAADAAAAAAAAABYAAAAEAAAAAAABABYAAAADAAAAAAACABYAAAAEAAAAAAADABYAAAADAAAAAAAEABYAAAAEAAAAAAAFABYAAAADAAAAAAAGABYAAAAEAAAAAAAHABYAAAADAAAAAAAIABYAAAAEAAAAAAAUABYAAAAEAAAAAAAVABYAAAADAAAAAAAWABYAAAAEAAAAAAAXABYAAAADAAAAAAAYABYAAAAEAAAAAAAZABYAAAADAAAAAAAaABYAAAAEAAAAAAAbABYAAAADAAAAAAAcABYAAAAEAAAAAAAdABYAAAADAAAAAAApABYAAAADAAAAAAAqABYAAAAEAAAAAAArABYAAAADAAAAAAAsABYAAAAEAAAAAAAtABYAAAADAAAAAAAuABYAAAAEAAAAAAAvABYAAAADAAAAAAAwABYAAAAEAAAAAAAxABYAAAADAAAAAAAAABcAAAAEAAAAAAABABcAAAADAAAAAAACABcAAAAEAAAAAAADABcAAAADAAAAAAAEABcAAAAEAAAAAAAFABcAAAADAAAAAAAGABcAAAAEAAAAAAAHABcAAAADAAAAAAAIABcAAAAEAAAAAAAUABcAAAAEAAAAAAAVABcAAAADAAAAAAAWABcAAAAEAAAAAAAXABcAAAADAAAAAAAYABcAAAAEAAAAAAAZABcAAAADAAAAAAAaABcAAAAEAAAAAAAbABcAAAADAAAAAAAcABcAAAAEAAAAAAAdABcAAAADAAAAAAApABcAAAADAAAAAAAqABcAAAAEAAAAAAArABcAAAADAAAAAAAsABcAAAAEAAAAAAAtABcAAAADAAAAAAAuABcAAAAEAAAAAAAvABcAAAADAAAAAAAwABcAAAAEAAAAAAAxABcAAAADAAAAAAA=")
+tile_set = ExtResource("3_r0obj")
+metadata/source_tiled_layer = "04 — Terrain"
+metadata/parallax = Vector2(1, 1)
+metadata/z_index = 0
+metadata/locked_after_blockout = false
+
+[node name="05—Plateformes" type="TileMapLayer" parent="CalquesTuiles" unique_id=947845773]
+z_index = 5
+tile_map_data = PackedByteArray("AAAWAAgAAAAIAAIAAAAXAAgAAAAJAAIAAAAYAAgAAAAJAAIAAAAZAAgAAAAJAAIAAAAaAAgAAAAJAAIAAAAbAAgAAAAKAAIAAAATAAoAAAAIAAIAAAAUAAoAAAAJAAIAAAAVAAoAAAAJAAIAAAAWAAoAAAAJAAIAAAAXAAoAAAAJAAIAAAAYAAoAAAAKAAIAAAAZAAoAAAAIAAIAAAAaAAoAAAAJAAIAAAAbAAoAAAAJAAIAAAAcAAoAAAAJAAIAAAAdAAoAAAAJAAIAAAAeAAoAAAAKAAIAAAAPAAwAAAAIAAIAAAAQAAwAAAAJAAIAAAARAAwAAAAJAAIAAAASAAwAAAAJAAIAAAATAAwAAAAJAAIAAAAUAAwAAAAJAAIAAAAVAAwAAAAKAAIAAAAcAAwAAAAIAAIAAAAdAAwAAAAJAAIAAAAeAAwAAAAJAAIAAAAfAAwAAAAJAAIAAAAgAAwAAAAJAAIAAAAhAAwAAAAJAAIAAAAiAAwAAAAKAAIAAAALAA4AAAAIAAIAAAAMAA4AAAAJAAIAAAANAA4AAAAJAAIAAAAOAA4AAAAJAAIAAAAPAA4AAAAJAAIAAAAQAA4AAAAKAAIAAAAhAA4AAAAIAAIAAAAiAA4AAAAJAAIAAAAjAA4AAAAJAAIAAAAkAA4AAAAJAAIAAAAlAA4AAAAJAAIAAAAmAA4AAAAKAAIAAAAVAA8AAAAIAAIAAAAWAA8AAAAJAAIAAAAXAA8AAAAJAAIAAAAYAA8AAAAJAAIAAAAZAA8AAAAJAAIAAAAaAA8AAAAJAAIAAAAbAA8AAAAJAAIAAAAcAA8AAAAKAAIAAAAHABAAAAAIAAIAAAAIABAAAAAJAAIAAAAJABAAAAAJAAIAAAAKABAAAAAJAAIAAAALABAAAAAJAAIAAAAMABAAAAAKAAIAAAAlABAAAAAIAAIAAAAmABAAAAAJAAIAAAAnABAAAAAJAAIAAAAoABAAAAAJAAIAAAApABAAAAAJAAIAAAAqABAAAAAKAAIAAAACABIAAAAIAAIAAAADABIAAAAJAAIAAAAEABIAAAAJAAIAAAAFABIAAAAJAAIAAAAGABIAAAAJAAIAAAAHABIAAAAKAAIAAAARABIAAAAIAAIAAAASABIAAAAJAAIAAAATABIAAAAJAAIAAAAUABIAAAAJAAIAAAAVABIAAAAJAAIAAAAWABIAAAAKAAIAAAAbABIAAAAIAAIAAAAcABIAAAAJAAIAAAAdABIAAAAJAAIAAAAeABIAAAAJAAIAAAAfABIAAAAJAAIAAAAgABIAAAAKAAIAAAAqABIAAAAIAAIAAAArABIAAAAJAAIAAAAsABIAAAAJAAIAAAAtABIAAAAJAAIAAAAuABIAAAAJAAIAAAAvABIAAAAKAAIAAAA=")
+tile_set = ExtResource("3_r0obj")
+metadata/source_tiled_layer = "05 — Plateformes"
+metadata/parallax = Vector2(1, 1)
+metadata/z_index = 5
+metadata/locked_after_blockout = false
+
+[node name="06—GameplayVisible" type="TileMapLayer" parent="CalquesTuiles" unique_id=567674525]
+z_index = 10
+tile_map_data = PackedByteArray("AAAXAAgAAAAGAAIAAAAaAAgAAAAHAAIAAAATAAkAAAAFAAQAAAAXAAkAAAAGAAIAAAAaAAkAAAAHAAIAAAAeAAkAAAAFAAQAAAAXAAoAAAAGAAIAAAAaAAoAAAAHAAIAAAAXAAsAAAAGAAIAAAAaAAsAAAAHAAIAAAAXAAwAAAAGAAIAAAAaAAwAAAAHAAIAAAAOAA0AAAAEAAQAAAAXAA0AAAAGAAIAAAAaAA0AAAAHAAIAAAAjAA0AAAAEAAQAAAALAA4AAAAFAAIAAAAVAA4AAAAGAAQAAAAXAA4AAAAGAAIAAAAaAA4AAAAHAAIAAAAcAA4AAAAIAAQAAAAmAA4AAAAFAAIAAAALAA8AAAAFAAIAAAAmAA8AAAAFAAIAAAAEABEAAAAAAAQAAAAGABEAAAABAAQAAAArABEAAAABAAQAAAAtABEAAAAAAAQAAAASABMAAAAPAAQAAAAXABMAAAAJAAMAAAAYABMAAAAKAAMAAAAZABMAAAAJAAMAAAAaABMAAAAKAAMAAAAfABMAAAAPAAQAAAAJABYAAAAKAAEAAAAKABYAAAAKAAEAAAALABYAAAAKAAEAAAAMABYAAAAKAAEAAAANABYAAAAKAAEAAAAOABYAAAAKAAEAAAAPABYAAAAKAAEAAAAQABYAAAAKAAEAAAARABYAAAAKAAEAAAASABYAAAAKAAEAAAATABYAAAAKAAEAAAAeABYAAAAKAAEAAAAfABYAAAAKAAEAAAAgABYAAAAKAAEAAAAhABYAAAAKAAEAAAAiABYAAAAKAAEAAAAjABYAAAAKAAEAAAAkABYAAAAKAAEAAAAlABYAAAAKAAEAAAAmABYAAAAKAAEAAAAnABYAAAAKAAEAAAAoABYAAAAKAAEAAAA=")
+tile_set = ExtResource("3_r0obj")
+metadata/source_tiled_layer = "06 — Gameplay visible"
+metadata/parallax = Vector2(1, 1)
+metadata/z_index = 10
+metadata/locked_after_blockout = false
+
+[node name="07—Décoration" type="TileMapLayer" parent="CalquesTuiles" unique_id=85682870]
+z_index = 20
+tile_map_data = PackedByteArray("AAAZAAMAAAAIAAMAAAAQAAUAAAAFAAMAAAAhAAUAAAAFAAMAAAADAAYAAAAAAAMAAAAuAAYAAAAAAAMAAAAWAAcAAAAJAAQAAAAZAAcAAAAKAAQAAAAbAAcAAAALAAQAAAAIAAgAAAABAAMAAAApAAgAAAABAAMAAAAQAAsAAAAGAAMAAAAhAAsAAAAGAAMAAAAIAA8AAAAEAAMAAAApAA8AAAAEAAMAAAADABMAAAACAAMAAAAuABMAAAACAAMAAAA=")
+tile_set = ExtResource("3_r0obj")
+metadata/source_tiled_layer = "07 — Décoration"
+metadata/parallax = Vector2(1, 1)
+metadata/z_index = 20
+metadata/locked_after_blockout = false
+
+[node name="08—PremierPlan" type="TileMapLayer" parent="CalquesTuiles" unique_id=1576990027]
+modulate = Color(1, 1, 1, 0.9)
+z_index = 30
+tile_map_data = PackedByteArray("AAABAAQAAAANAAQAAAAMAAQAAAAOAAQAAAAlAAQAAAAOAAQAAAAwAAQAAAANAAQAAAA=")
+tile_set = ExtResource("3_r0obj")
+metadata/source_tiled_layer = "08 — Premier plan"
+metadata/parallax = Vector2(1.08, 1.04)
+metadata/z_index = 30
+metadata/locked_after_blockout = false
+
+[node name="CalquesObjets" type="Node2D" parent="." unique_id=1197614776]
+
+[node name="10—Collisions" type="Node2D" parent="CalquesObjets" unique_id=383209146]
+metadata/source_tiled_layer = "10 — Collisions"
+metadata/color = "#ff5c5c"
+metadata/godot_role = "collision"
+metadata/z_index = 0
+
+[node name="BaseOuest" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=1030861263]
+position = Vector2(0, 640)
+physics_material_override = ExtResource("4_87ayg")
+metadata/tiled_id = 1
+metadata/tiled_type = "solid"
+metadata/tiled_shape = "rectangle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/BaseOuest" unique_id=172153525]
+position = Vector2(144, 64)
+shape = SubResource("RectangleShape2D_4gtck")
+one_way_collision_margin = 3.0
+
+[node name="IleCentrale" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=1458720146]
+position = Vector2(640, 640)
+physics_material_override = ExtResource("4_87ayg")
+metadata/tiled_id = 2
+metadata/tiled_type = "solid"
+metadata/tiled_shape = "rectangle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/IleCentrale" unique_id=2123812061]
+position = Vector2(160, 64)
+shape = SubResource("RectangleShape2D_yrmld")
+one_way_collision_margin = 3.0
+
+[node name="BaseEst" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=803394846]
+position = Vector2(1312, 640)
+physics_material_override = ExtResource("4_87ayg")
+metadata/tiled_id = 3
+metadata/tiled_type = "solid"
+metadata/tiled_shape = "rectangle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/BaseEst" unique_id=2015672870]
+position = Vector2(144, 64)
+shape = SubResource("RectangleShape2D_yeiwr")
+one_way_collision_margin = 3.0
+
+[node name="Plateforme01" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=251355309]
+position = Vector2(64, 592)
+physics_material_override = ExtResource("4_87ayg")
+metadata/tiled_id = 10
+metadata/tiled_type = "one_way"
+metadata/tiled_shape = "rectangle"
+metadata/one_way_margin = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/Plateforme01" unique_id=1583232232]
+position = Vector2(96, 4)
+shape = SubResource("RectangleShape2D_v6pj3")
+one_way_collision = true
+one_way_collision_margin = 3.0
+
+[node name="Plateforme02" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=432236322]
+position = Vector2(224, 528)
+physics_material_override = ExtResource("4_87ayg")
+metadata/tiled_id = 11
+metadata/tiled_type = "one_way"
+metadata/tiled_shape = "rectangle"
+metadata/one_way_margin = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/Plateforme02" unique_id=1471987817]
+position = Vector2(96, 4)
+shape = SubResource("RectangleShape2D_bg4j7")
+one_way_collision = true
+one_way_collision_margin = 3.0
+
+[node name="Plateforme03" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=1214937994]
+position = Vector2(352, 464)
+physics_material_override = ExtResource("4_87ayg")
+metadata/tiled_id = 12
+metadata/tiled_type = "one_way"
+metadata/tiled_shape = "rectangle"
+metadata/one_way_margin = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/Plateforme03" unique_id=900299206]
+position = Vector2(96, 4)
+shape = SubResource("RectangleShape2D_h6d01")
+one_way_collision = true
+one_way_collision_margin = 3.0
+
+[node name="Plateforme04" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=1476103537]
+position = Vector2(480, 400)
+physics_material_override = ExtResource("4_87ayg")
+metadata/tiled_id = 13
+metadata/tiled_type = "one_way"
+metadata/tiled_shape = "rectangle"
+metadata/one_way_margin = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/Plateforme04" unique_id=1445750213]
+position = Vector2(112, 4)
+shape = SubResource("RectangleShape2D_37ylk")
+one_way_collision = true
+one_way_collision_margin = 3.0
+
+[node name="Plateforme05" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=129983717]
+position = Vector2(608, 336)
+physics_material_override = ExtResource("4_87ayg")
+metadata/tiled_id = 14
+metadata/tiled_type = "one_way"
+metadata/tiled_shape = "rectangle"
+metadata/one_way_margin = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/Plateforme05" unique_id=536233150]
+position = Vector2(96, 4)
+shape = SubResource("RectangleShape2D_rlhjj")
+one_way_collision = true
+one_way_collision_margin = 3.0
+
+[node name="Plateforme06" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=1410843457]
+position = Vector2(704, 272)
+physics_material_override = ExtResource("4_87ayg")
+metadata/tiled_id = 15
+metadata/tiled_type = "one_way"
+metadata/tiled_shape = "rectangle"
+metadata/one_way_margin = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/Plateforme06" unique_id=1611053439]
+position = Vector2(96, 4)
+shape = SubResource("RectangleShape2D_mectr")
+one_way_collision = true
+one_way_collision_margin = 3.0
+
+[node name="Plateforme07" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=1019032144]
+position = Vector2(800, 336)
+physics_material_override = ExtResource("4_87ayg")
+metadata/tiled_id = 16
+metadata/tiled_type = "one_way"
+metadata/tiled_shape = "rectangle"
+metadata/one_way_margin = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/Plateforme07" unique_id=1963885436]
+position = Vector2(96, 4)
+shape = SubResource("RectangleShape2D_bd7k4")
+one_way_collision = true
+one_way_collision_margin = 3.0
+
+[node name="Plateforme08" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=1061396341]
+position = Vector2(896, 400)
+physics_material_override = ExtResource("4_87ayg")
+metadata/tiled_id = 17
+metadata/tiled_type = "one_way"
+metadata/tiled_shape = "rectangle"
+metadata/one_way_margin = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/Plateforme08" unique_id=1909262880]
+position = Vector2(112, 4)
+shape = SubResource("RectangleShape2D_dpadr")
+one_way_collision = true
+one_way_collision_margin = 3.0
+
+[node name="Plateforme09" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=538399901]
+position = Vector2(1056, 464)
+physics_material_override = ExtResource("4_87ayg")
+metadata/tiled_id = 18
+metadata/tiled_type = "one_way"
+metadata/tiled_shape = "rectangle"
+metadata/one_way_margin = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/Plateforme09" unique_id=949394692]
+position = Vector2(96, 4)
+shape = SubResource("RectangleShape2D_q5gda")
+one_way_collision = true
+one_way_collision_margin = 3.0
+
+[node name="Plateforme10" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=1907553909]
+position = Vector2(1184, 528)
+physics_material_override = ExtResource("4_87ayg")
+metadata/tiled_id = 19
+metadata/tiled_type = "one_way"
+metadata/tiled_shape = "rectangle"
+metadata/one_way_margin = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/Plateforme10" unique_id=1162633711]
+position = Vector2(96, 4)
+shape = SubResource("RectangleShape2D_o47xv")
+one_way_collision = true
+one_way_collision_margin = 3.0
+
+[node name="Plateforme11" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=867786093]
+position = Vector2(1344, 592)
+physics_material_override = ExtResource("4_87ayg")
+metadata/tiled_id = 20
+metadata/tiled_type = "one_way"
+metadata/tiled_shape = "rectangle"
+metadata/one_way_margin = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/Plateforme11" unique_id=1627432272]
+position = Vector2(96, 4)
+shape = SubResource("RectangleShape2D_aysdd")
+one_way_collision = true
+one_way_collision_margin = 3.0
+
+[node name="Plateforme12" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=727102316]
+position = Vector2(544, 592)
+physics_material_override = ExtResource("4_87ayg")
+metadata/tiled_id = 21
+metadata/tiled_type = "one_way"
+metadata/tiled_shape = "rectangle"
+metadata/one_way_margin = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/Plateforme12" unique_id=65382499]
+position = Vector2(96, 4)
+shape = SubResource("RectangleShape2D_dan72")
+one_way_collision = true
+one_way_collision_margin = 3.0
+
+[node name="Plateforme13" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=905088723]
+position = Vector2(864, 592)
+physics_material_override = ExtResource("4_87ayg")
+metadata/tiled_id = 22
+metadata/tiled_type = "one_way"
+metadata/tiled_shape = "rectangle"
+metadata/one_way_margin = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/Plateforme13" unique_id=758077582]
+position = Vector2(96, 4)
+shape = SubResource("RectangleShape2D_dyarj")
+one_way_collision = true
+one_way_collision_margin = 3.0
+
+[node name="Plateforme14" type="StaticBody2D" parent="CalquesObjets/10—Collisions" unique_id=873047874]
+position = Vector2(672, 496)
+physics_material_override = ExtResource("4_87ayg")
+metadata/tiled_id = 23
+metadata/tiled_type = "one_way"
+metadata/tiled_shape = "rectangle"
+metadata/one_way_margin = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/10—Collisions/Plateforme14" unique_id=871964259]
+position = Vector2(128, 4)
+shape = SubResource("RectangleShape2D_qof41")
+one_way_collision = true
+one_way_collision_margin = 3.0
+
+[node name="11—Mouvements" type="Node2D" parent="CalquesObjets" unique_id=2020895340]
+metadata/source_tiled_layer = "11 — Mouvements"
+metadata/color = "#5ce1ff"
+metadata/godot_role = "gameplay"
+metadata/z_index = 0
+
+[node name="EchelleOuest" type="Area2D" parent="CalquesObjets/11—Mouvements" unique_id=1103332262 instance=ExtResource("5_7l03l")]
+position = Vector2(360, 448)
+collision_layer = 4
+script = ExtResource("6_woghx")
+metadata/object_family = "movement"
+metadata/tiled_id = 40
+metadata/tiled_type = "climbable"
+metadata/tiled_shape = "rectangle"
+metadata/kind = "climbable"
+metadata/object_scene = "res://scenes/objects/movement/climbable_area.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/11—Mouvements/EchelleOuest" unique_id=1778243548]
+position = Vector2(8, 16)
+shape = SubResource("RectangleShape2D_khlfb")
+
+[node name="EchelleEst" type="Area2D" parent="CalquesObjets/11—Mouvements" unique_id=76457134 instance=ExtResource("5_7l03l")]
+position = Vector2(1224, 448)
+collision_layer = 4
+script = ExtResource("6_woghx")
+metadata/object_family = "movement"
+metadata/tiled_id = 41
+metadata/tiled_type = "climbable"
+metadata/tiled_shape = "rectangle"
+metadata/kind = "climbable"
+metadata/object_scene = "res://scenes/objects/movement/climbable_area.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/11—Mouvements/EchelleEst" unique_id=1602309122]
+position = Vector2(8, 16)
+shape = SubResource("RectangleShape2D_30eyy")
+
+[node name="CordeCentrale" type="Area2D" parent="CalquesObjets/11—Mouvements" unique_id=566906746 instance=ExtResource("5_7l03l")]
+position = Vector2(744, 256)
+collision_layer = 4
+script = ExtResource("6_woghx")
+metadata/object_family = "movement"
+metadata/tiled_id = 42
+metadata/tiled_type = "climbable"
+metadata/tiled_shape = "rectangle"
+metadata/kind = "climbable"
+metadata/object_scene = "res://scenes/objects/movement/climbable_area.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/11—Mouvements/CordeCentrale" unique_id=154628223]
+position = Vector2(8, 96)
+shape = SubResource("RectangleShape2D_pd6du")
+
+[node name="ChaineCentrale" type="Area2D" parent="CalquesObjets/11—Mouvements" unique_id=614446799 instance=ExtResource("5_7l03l")]
+position = Vector2(840, 256)
+collision_layer = 4
+script = ExtResource("6_woghx")
+metadata/object_family = "movement"
+metadata/tiled_id = 43
+metadata/tiled_type = "climbable"
+metadata/tiled_shape = "rectangle"
+metadata/kind = "climbable"
+metadata/object_scene = "res://scenes/objects/movement/climbable_area.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/11—Mouvements/ChaineCentrale" unique_id=1479209873]
+position = Vector2(8, 96)
+shape = SubResource("RectangleShape2D_h7vat")
+
+[node name="PropulseurOuest" type="Area2D" parent="CalquesObjets/11—Mouvements" unique_id=311798546 instance=ExtResource("7_btuhr")]
+position = Vector2(576, 608)
+collision_layer = 4
+script = ExtResource("8_imrwt")
+config = ExtResource("9_psed6")
+metadata/object_family = "movement"
+metadata/tiled_id = 44
+metadata/tiled_type = "bounce"
+metadata/tiled_shape = "rectangle"
+metadata/impulse_y = -650.0
+metadata/kind = "bounce"
+metadata/object_scene = "res://scenes/objects/movement/bounce_pad.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/11—Mouvements/PropulseurOuest" unique_id=386494426]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_1ld5g")
+
+[node name="PropulseurEst" type="Area2D" parent="CalquesObjets/11—Mouvements" unique_id=791660794 instance=ExtResource("7_btuhr")]
+position = Vector2(992, 608)
+collision_layer = 4
+script = ExtResource("8_imrwt")
+config = ExtResource("9_psed6")
+metadata/object_family = "movement"
+metadata/tiled_id = 45
+metadata/tiled_type = "bounce"
+metadata/tiled_shape = "rectangle"
+metadata/impulse_y = -650.0
+metadata/kind = "bounce"
+metadata/object_scene = "res://scenes/objects/movement/bounce_pad.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/11—Mouvements/PropulseurEst" unique_id=1293311177]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_fg6xg")
+
+[node name="12—Dangers" type="Node2D" parent="CalquesObjets" unique_id=899998172]
+metadata/source_tiled_layer = "12 — Dangers"
+metadata/color = "#ff8a5c"
+metadata/godot_role = "gameplay"
+metadata/z_index = 0
+
+[node name="FosseOuest" type="Area2D" parent="CalquesObjets/12—Dangers" unique_id=652664865 instance=ExtResource("10_cn81v")]
+position = Vector2(288, 672)
+collision_layer = 4
+script = ExtResource("8_imrwt")
+metadata/object_family = "zone"
+metadata/tiled_id = 50
+metadata/tiled_type = "death_zone"
+metadata/tiled_shape = "rectangle"
+metadata/respawn = true
+metadata/kind = "death_zone"
+metadata/object_scene = "res://scenes/objects/zones/gameplay_zone.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/12—Dangers/FosseOuest" unique_id=895513537]
+position = Vector2(176, 48)
+shape = SubResource("RectangleShape2D_d15pm")
+
+[node name="FosseEst" type="Area2D" parent="CalquesObjets/12—Dangers" unique_id=804807398 instance=ExtResource("10_cn81v")]
+position = Vector2(960, 672)
+collision_layer = 4
+script = ExtResource("8_imrwt")
+metadata/object_family = "zone"
+metadata/tiled_id = 51
+metadata/tiled_type = "death_zone"
+metadata/tiled_shape = "rectangle"
+metadata/respawn = true
+metadata/kind = "death_zone"
+metadata/object_scene = "res://scenes/objects/zones/gameplay_zone.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/12—Dangers/FosseEst" unique_id=725236996]
+position = Vector2(176, 48)
+shape = SubResource("RectangleShape2D_polcq")
+
+[node name="PicsCentraux" type="Area2D" parent="CalquesObjets/12—Dangers" unique_id=443477333 instance=ExtResource("11_cale5")]
+position = Vector2(736, 618)
+collision_layer = 2
+script = ExtResource("8_imrwt")
+config = ExtResource("12_p26g5")
+metadata/object_family = "hazard"
+metadata/tiled_id = 52
+metadata/tiled_type = "hazard"
+metadata/tiled_shape = "rectangle"
+metadata/damage = 1
+metadata/respawn = true
+metadata/kind = "hazard"
+metadata/object_scene = "res://scenes/objects/hazards/hazard_area.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/12—Dangers/PicsCentraux" unique_id=873199213]
+position = Vector2(64, 11)
+shape = SubResource("RectangleShape2D_84asb")
+
+[node name="ZoneMort" type="Area2D" parent="CalquesObjets/12—Dangers" unique_id=1528892164 instance=ExtResource("10_cn81v")]
+position = Vector2(0, 768)
+collision_layer = 4
+script = ExtResource("8_imrwt")
+metadata/object_family = "zone"
+metadata/tiled_id = 53
+metadata/tiled_type = "death_zone"
+metadata/tiled_shape = "rectangle"
+metadata/respawn = true
+metadata/kind = "death_zone"
+metadata/object_scene = "res://scenes/objects/zones/gameplay_zone.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/12—Dangers/ZoneMort" unique_id=1678445791]
+position = Vector2(800, 32)
+shape = SubResource("RectangleShape2D_k4saj")
+
+[node name="13—Entités" type="Node2D" parent="CalquesObjets" unique_id=1423810728]
+metadata/source_tiled_layer = "13 — Entités"
+metadata/color = "#65d6a6"
+metadata/godot_role = "gameplay"
+metadata/z_index = 0
+
+[node name="PlayerSpawn" type="Marker2D" parent="CalquesObjets/13—Entités" unique_id=34553008]
+position = Vector2(96, 640)
+metadata/tiled_id = 60
+metadata/tiled_type = "player_spawn"
+metadata/tiled_shape = "point"
+metadata/facing = "right"
+metadata/player_slot = 1
+metadata/kind = "player_spawn"
+
+[node name="ApparitionJoueur2" type="Marker2D" parent="CalquesObjets/13—Entités" unique_id=86336070]
+position = Vector2(1504, 640)
+metadata/tiled_id = 61
+metadata/tiled_type = "marker"
+metadata/tiled_shape = "point"
+metadata/tag = "arena_player_spawn"
+metadata/player_slot = 2
+metadata/facing = "left"
+metadata/kind = "marker"
+
+[node name="ApparitionJoueur3" type="Marker2D" parent="CalquesObjets/13—Entités" unique_id=2086537305]
+position = Vector2(512, 384)
+metadata/tiled_id = 62
+metadata/tiled_type = "marker"
+metadata/tiled_shape = "point"
+metadata/tag = "arena_player_spawn"
+metadata/player_slot = 3
+metadata/facing = "right"
+metadata/kind = "marker"
+
+[node name="ApparitionJoueur4" type="Marker2D" parent="CalquesObjets/13—Entités" unique_id=1610300183]
+position = Vector2(1088, 384)
+metadata/tiled_id = 63
+metadata/tiled_type = "marker"
+metadata/tiled_shape = "point"
+metadata/tag = "arena_player_spawn"
+metadata/player_slot = 4
+metadata/facing = "left"
+metadata/kind = "marker"
+
+[node name="Arme01" type="Marker2D" parent="CalquesObjets/13—Entités" unique_id=1875117957]
+position = Vector2(304, 512)
+metadata/tiled_id = 70
+metadata/tiled_type = "marker"
+metadata/tiled_shape = "point"
+metadata/tag = "weapon_spawn"
+metadata/kind = "marker"
+
+[node name="Arme02" type="Marker2D" parent="CalquesObjets/13—Entités" unique_id=1456865651]
+position = Vector2(624, 320)
+metadata/tiled_id = 71
+metadata/tiled_type = "marker"
+metadata/tiled_shape = "point"
+metadata/tag = "weapon_spawn"
+metadata/kind = "marker"
+
+[node name="Arme03" type="Marker2D" parent="CalquesObjets/13—Entités" unique_id=2054271445]
+position = Vector2(816, 256)
+metadata/tiled_id = 72
+metadata/tiled_type = "marker"
+metadata/tiled_shape = "point"
+metadata/tag = "weapon_spawn"
+metadata/kind = "marker"
+
+[node name="Arme04" type="Marker2D" parent="CalquesObjets/13—Entités" unique_id=746765006]
+position = Vector2(976, 320)
+metadata/tiled_id = 73
+metadata/tiled_type = "marker"
+metadata/tiled_shape = "point"
+metadata/tag = "weapon_spawn"
+metadata/kind = "marker"
+
+[node name="Arme05" type="Marker2D" parent="CalquesObjets/13—Entités" unique_id=888638279]
+position = Vector2(1296, 512)
+metadata/tiled_id = 74
+metadata/tiled_type = "marker"
+metadata/tiled_shape = "point"
+metadata/tag = "weapon_spawn"
+metadata/kind = "marker"
+
+[node name="14—Interactions" type="Node2D" parent="CalquesObjets" unique_id=344125942]
+metadata/source_tiled_layer = "14 — Interactions"
+metadata/color = "#c58cff"
+metadata/godot_role = "gameplay"
+metadata/z_index = 0
+
+[node name="ObjectifCouronne" type="Area2D" parent="CalquesObjets/14—Interactions" unique_id=1823096929 instance=ExtResource("10_cn81v")]
+position = Vector2(704, 192)
+collision_layer = 4
+script = ExtResource("8_imrwt")
+metadata/object_family = "zone"
+metadata/tiled_id = 80
+metadata/tiled_type = "trigger"
+metadata/tiled_shape = "rectangle"
+metadata/event = "arena_crown_entered"
+metadata/kind = "trigger"
+metadata/object_scene = "res://scenes/objects/zones/gameplay_zone.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/14—Interactions/ObjectifCouronne" unique_id=472607328]
+position = Vector2(96, 32)
+shape = SubResource("RectangleShape2D_yjg7y")
+
+[node name="CaisseOuest" type="Area2D" parent="CalquesObjets/14—Interactions" unique_id=1477557694 instance=ExtResource("13_8ypfv")]
+position = Vector2(128, 544)
+collision_layer = 4
+script = ExtResource("8_imrwt")
+metadata/object_family = "interaction"
+metadata/tiled_id = 81
+metadata/tiled_type = "interactable"
+metadata/tiled_shape = "rectangle"
+metadata/action = "open_weapon_crate"
+metadata/kind = "interactable"
+metadata/object_scene = "res://scenes/objects/interactions/switch_area.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/14—Interactions/CaisseOuest" unique_id=1709667801]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_n7ohs")
+
+[node name="CaisseEst" type="Area2D" parent="CalquesObjets/14—Interactions" unique_id=2033637800 instance=ExtResource("13_8ypfv")]
+position = Vector2(1440, 544)
+collision_layer = 4
+script = ExtResource("8_imrwt")
+metadata/object_family = "interaction"
+metadata/tiled_id = 82
+metadata/tiled_type = "interactable"
+metadata/tiled_shape = "rectangle"
+metadata/action = "open_weapon_crate"
+metadata/kind = "interactable"
+metadata/object_scene = "res://scenes/objects/interactions/switch_area.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/14—Interactions/CaisseEst" unique_id=1441700874]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_tcy0i")
+
+[node name="15—Caméra" type="Node2D" parent="CalquesObjets" unique_id=549071393]
+visible = false
+metadata/source_tiled_layer = "15 — Caméra"
+metadata/color = "#ffd65c"
+metadata/godot_role = "camera"
+metadata/z_index = 0
+
+[node name="LimitesCamera" type="Area2D" parent="CalquesObjets/15—Caméra" unique_id=1038282663]
+collision_layer = 4
+monitoring = false
+monitorable = false
+metadata/tiled_id = 90
+metadata/tiled_type = "camera_bounds"
+metadata/tiled_shape = "rectangle"
+metadata/kind = "camera_bounds"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/15—Caméra/LimitesCamera" unique_id=1785671403]
+position = Vector2(800, 384)
+shape = SubResource("RectangleShape2D_qbcmx")
+
+[node name="FocusArene" type="Area2D" parent="CalquesObjets/15—Caméra" unique_id=225393146]
+position = Vector2(320, 128)
+collision_layer = 4
+monitoring = false
+monitorable = false
+metadata/tiled_id = 91
+metadata/tiled_type = "camera_focus"
+metadata/tiled_shape = "rectangle"
+metadata/priority = 1
+metadata/zoom = 0.85
+metadata/kind = "camera_focus"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/15—Caméra/FocusArene" unique_id=124211665]
+position = Vector2(480, 272)
+shape = SubResource("RectangleShape2D_vimrp")
+
+[node name="16—Audio" type="Node2D" parent="CalquesObjets" unique_id=892917251]
+visible = false
+metadata/source_tiled_layer = "16 — Audio"
+metadata/color = "#5cc8ff"
+metadata/godot_role = "audio"
+metadata/z_index = 0
+
+[node name="AmbianceArene" type="Area2D" parent="CalquesObjets/16—Audio" unique_id=364669477]
+collision_layer = 4
+monitoring = false
+monitorable = false
+metadata/tiled_id = 100
+metadata/tiled_type = "audio_zone"
+metadata/tiled_shape = "rectangle"
+metadata/snapshot = "arena_industrial"
+metadata/fade_time = 0.8
+metadata/kind = "audio_zone"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CalquesObjets/16—Audio/AmbianceArene" unique_id=1407639875]
+position = Vector2(800, 384)
+shape = SubResource("RectangleShape2D_3l7wc")
+
+[node name="17—RepèresEtChemins" type="Node2D" parent="CalquesObjets" unique_id=695195540]
+visible = false
+metadata/source_tiled_layer = "17 — Repères et chemins"
+metadata/color = "#ffffff"
+metadata/godot_role = "object"
+metadata/z_index = 0
+
+[node name="CentreArene" type="Marker2D" parent="CalquesObjets/17—RepèresEtChemins" unique_id=1567872584]
+position = Vector2(800, 224)
+metadata/tiled_id = 110
+metadata/tiled_type = "marker"
+metadata/tiled_shape = "point"
+metadata/tag = "arena_center"
+metadata/kind = "marker"
+
+[node name="CameraDepart" type="Marker2D" parent="CalquesObjets/17—RepèresEtChemins" unique_id=1713014873]
+position = Vector2(800, 384)
+metadata/tiled_id = 111
+metadata/tiled_type = "marker"
+metadata/tiled_shape = "point"
+metadata/tag = "arena_camera_start"
+metadata/kind = "marker"

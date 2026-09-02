@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://vawdhllksl87"]
+
+[ext_resource type="Script" uid="uid://d1huoo8bvfek8" path="res://game/serre/actors/player.gd" id="1_player"]
+[ext_resource type="Script" uid="uid://wbrikygkyfda" path="res://addons/my_space_core/equipment/weapon_controller.gd" id="4_weapon_controller"]
+[ext_resource type="Resource" uid="uid://b8ii1ko6qsp6n" path="res://resources/weapons/grappling-pistol.tres" id="5_grappling_pistol"]
+[ext_resource type="SpriteFrames" uid="uid://7sy6fuuiudll" path="res://resources/characters/player-mechanic-animations.tres" id="6_player_animations"]
+[ext_resource type="Resource" path="res://resources/weapons/bazooka.tres" id="7_bazooka"]
+[ext_resource type="Script" path="res://addons/my_space_core/combat/health_component.gd" id="8_health"]
+
+[sub_resource type="CapsuleShape2D" id="Capsule_player"]
+radius = 20.0
+height = 88.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1884541760]
+z_index = 50
+script = ExtResource("1_player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1344955377]
+shape = SubResource("Capsule_player")
+
+[node name="BodySprite" type="AnimatedSprite2D" parent="." unique_id=486615421]
+texture_filter = 1
+position = Vector2(-3.5, 1.5625)
+scale = Vector2(1.515625, 1.5156249)
+sprite_frames = ExtResource("6_player_animations")
+animation = &"walk"
+autoplay = "idle"
+frame = 14
+frame_progress = 0.4880273
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=582907287]
+position = Vector2(0, -80)
+limit_left = 0
+limit_top = 0
+limit_right = 1600
+limit_bottom = 768
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+
+[node name="Equipment" type="Node2D" parent="." unique_id=1707574103]
+z_index = 1
+position = Vector2(5, -2)
+editor_description = "Inventaire et arme actuellement équipée. L'ordre des ressources Inventory correspond aux secteurs de la roue : grappin en secteur 1, bazooka en secteur 2."
+script = ExtResource("4_weapon_controller")
+inventory = Array[Resource]([ExtResource("5_grappling_pistol"), ExtResource("7_bazooka")])
+
+[node name="Health" type="Node" parent="."]
+editor_description = "Vie du personnage. Maximum Health règle les points de vie au départ et après réapparition. Les explosions peuvent blesser leur propre tireur."
+script = ExtResource("8_health")

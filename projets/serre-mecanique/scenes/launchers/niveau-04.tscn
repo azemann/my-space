@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://q1fj6w4gh5g7"]
+
+[ext_resource type="Script" uid="uid://cg1e1e46lanfw" path="res://game/serre/gameplay/main.gd" id="1_main"]
+[ext_resource type="PackedScene" path="res://scenes/levels/niveau-04-arene-parcours.tscn" id="2_level"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/weapon_selection_panel.tscn" id="4_selector"]
+
+[node name="MainNiveau04" type="Node2D" unique_id=2069474832]
+script = ExtResource("1_main")
+
+[node name="Level" parent="." unique_id=1129794504 instance=ExtResource("2_level")]
+
+[node name="Player" parent="." unique_id=1314473804 instance=ExtResource("3_player")]
+position = Vector2(96, 625)
+
+[node name="Interface" type="CanvasLayer" parent="." unique_id=2020321883]
+
+[node name="WeaponSelection" parent="Interface" instance=ExtResource("4_selector")]
+
+[node name="Titre" type="Label" parent="Interface" unique_id=1083495752]
+offset_left = 20.0
+offset_top = 18.0
+offset_right = 620.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.83, 0.69, 0.38, 1)
+theme_override_colors/font_shadow_color = Color(0.02, 0.04, 0.04, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 20
+text = "Niveau 4 — L'arène des semences · test solo"
+
+[node name="Instructions" type="Label" parent="Interface" unique_id=96157200]
+offset_left = 20.0
+offset_top = 48.0
+offset_right = 1220.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.73, 0.91, 0.82, 1)
+theme_override_colors/font_shadow_color = Color(0.02, 0.04, 0.04, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 16
+text = "Q/D : marcher    Espace : sauter    TAB : arsenal    C : ranger    Z/S : corde    Souris + clic gauche : utiliser    R : recommencer"

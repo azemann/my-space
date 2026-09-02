@@ -1,0 +1,114 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://game/serre/ui/weapon_selection_panel.gd" id="1_selector"]
+[ext_resource type="Script" path="res://game/serre/ui/weapon_wheel.gd" id="2_wheel"]
+
+[node name="WeaponSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+z_index = 100
+script = ExtResource("1_selector")
+
+[node name="FondAssombri" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.01, 0.025, 0.026, 0.76)
+
+[node name="Titre" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 30.0
+offset_bottom = 68.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.89, 0.725, 0.4, 1)
+theme_override_font_sizes/font_size = 27
+text = "ROUE DES ARMES"
+horizontal_alignment = 1
+
+[node name="Categorie" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 68.0
+offset_bottom = 92.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.514, 0.725, 0.667, 1)
+theme_override_font_sizes/font_size = 13
+text = "OUTILS · MOBILITÉ · ARMES"
+horizontal_alignment = 1
+
+[node name="WeaponWheel" type="Control" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("2_wheel")
+
+[node name="Centre" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -42.0
+offset_right = 118.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="LibelleCentre" type="Label" parent="Centre"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.506, 0.573, 0.553, 1)
+theme_override_font_sizes/font_size = 11
+text = "SÉLECTION"
+horizontal_alignment = 1
+
+[node name="SelectedWeapon" type="Label" parent="Centre"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.94, 0.9, 1)
+theme_override_font_sizes/font_size = 16
+text = "Aucun équipement"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Aide" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -54.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.506, 0.573, 0.553, 1)
+theme_override_font_sizes/font_size = 12
+text = "SOURIS ou ← → : parcourir    CLIC / ENTRÉE / 1–9 : équiper    TAB / ÉCHAP : fermer"
+horizontal_alignment = 1

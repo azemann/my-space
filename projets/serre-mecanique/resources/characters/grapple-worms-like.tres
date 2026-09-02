@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GrappleConfig" format=3 uid="uid://cru6jr6hgbopb"]
+
+[ext_resource type="Script" uid="uid://dt6kdcd0vaqqt" path="res://game/serre/config/grapple_config.gd" id="1_grapple"]
+
+[resource]
+script = ExtResource("1_grapple")
+rope_color = Color(0.784, 0.592, 0.282, 1)
